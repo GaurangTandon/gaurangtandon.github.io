@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+.container-fluid {
+    width: 100%;
+    height: 100%;
+}
+
+.container-fluid,
+.row,
+.col {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#landing {
+    background-image: url(../imgs/bg1.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+}
+
+#landing .row,
+.container-fluid .row .col {
+    height: 100%;
+}
+
+.pic {
+    background-image: url(../imgs/pic.jpg);
+    background-size: cover;
+    float: left;
+    height: 100px;
+    width: 100px;
+}
+
+.infobox {
+    position: relative;
+    top: 60%;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 10px;
+    min-width: 400px;
+    max-width: 500px;
+    margin-left: 10%;
+    height: 120px;
+}
+
+.infobox .content {
+    display: block;
+    float: right;
+    width: calc(100% - 100px - 20px);
+}
+
+.down-arrow {
+    display: block;
+    position: relative;
+    top: -6%;
+    left: 50%;
+    z-index: 5;
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#skills {
+    background-color: rgba(200, 200, 200, 0.1);
+    background-attachment: fixed;
+}
+
+.row {
+    width: 100%;
+    text-align: center;
+    color: black;
+    padding: 10px;
+}
+
+.tile {
+    height: 20%;
+    width: 60%;
+    margin: auto;
+    transition: 0.5s ease;
+}
+
+.header h3 {
+    margin: 20px auto 0 auto;
+    display: block;
+    width: 100%;
+    height: 0;
+    font-size: 30px;
+}
+
+.header p {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.tile-logo {
+    float: left;
+    width: 17%;
+}
+
+.tile-info {
+    display: block;
+    width: 70%;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.tile:hover {
+    background-color: rgba(230, 230, 230, 0.5);
+}
+
+#contact .row {
+    width: 100%;
+    color: black;
+    padding: 10px;
+}
+
+#contact .contact-form {
+    min-height: 50%;
+}
+
+#contact .row.header {
+    height: 25%;
+    margin: auto;
+    text-align: center;
+}
+
+#contact .social-icons {
+    height: 25%;
+    width: 50%;
+    margin: auto;
+    padding-top: 40px;
+}
+
+#contact form {
+    min-height: 320px;
+    width: 50%;
+    margin: auto;
+}
+
+i.fa-arrow-up {
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: rgba(200, 200, 200, 0.5);
+    z-index: 10;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+@media (max-width: 1000px) {
+    .tile {
+        width: 100%;
+    }
+
+    .tile-logo {
+        width: 15%;
+    }
+
+    .tile-info {
+        width: 80%;
+    }
+
+    #contact form {
+        width: 75%;
+    }
+}
+
+@media (max-width: 500px) {
+    .infobox {
+        height: initial;
+        top: 25%;
+    }
+
+    .infobox .pic {
+        float: initial;
+        margin-left: 23%;
+        margin-bottom: 20px;
+    }
+
+    .infobox .content {
+        float: initial;
+    }
+
+    .tile {
+        width: 100%;
+    }
+
+    .tile-logo {
+        width: 10%;
+        height: inherit;
+    }
+
+    .tile-info {
+        width: 80%;
+    }
+
+    #contact form {
+        width: 75%;
+    }
+}
