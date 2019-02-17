@@ -17,14 +17,16 @@ body
     overflow-y: hidden;
 }
 
+.container-fluid {
+    background-color: rgba(200, 200, 200, 0.1);
+    background-attachment: fixed;
+    padding-top: 50px;
+}
+
 .navbar {
     position: absolute;
     width: 100%;
     z-index: 100;
-}
-
-.card-layout-container {
-    padding-top: 50px;
 }
 
 #landing {
@@ -74,11 +76,6 @@ body
     color: rgba(0, 0, 0, 0.75);
     font-size: 25px;
     cursor: pointer;
-}
-
-.card-layout-container {
-    background-color: rgba(200, 200, 200, 0.1);
-    background-attachment: fixed;
 }
 
 .row {
