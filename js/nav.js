@@ -15,17 +15,20 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.html">Home</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="skills.html">Skills</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="ontheinternet.html">On the Internet</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="about.html">About me</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="jscomp.html">JS Component</a>
             </li>
         </ul>
     </div>`;
@@ -37,11 +40,12 @@
 		navbar.innerHTML = navInnerHTML;
 		document.body.insertBefore(navbar, document.body.firstChild);
 
-		var allLinks = document.querySelectorAll("nav-item");
+		var allLinks = document.querySelectorAll(".nav-item");
 		for (let i = 0, link; i < allLinks.length; i++) {
 			link = allLinks[i];
-			if (new RegExp(link.href).test(window.location.href)) {
+			if (new RegExp(link.firstElementChild.href).test(window.location.href)) {
 				link.innerHTML += screenReaderText;
+				link.classList.add("active");
 				break;
 			}
 		}

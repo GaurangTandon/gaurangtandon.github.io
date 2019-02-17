@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>About | Gaurang's portfolio</title>
+        <script src="../js/preloader.js"></script>
+        <script src="../js/jscomp.js"></script>
+    </head>
+
+    <body>
+        <div class="container-fluid" id="js-components">
+            <div class="row header">
+                <h2>JavaScript component</h2>
+                <p>Required for ITSS assignment</p>
+            </div>
+            <hr />
+            <div class="row">
+                <h4>Skill form</h4>
+                <form class="form-inline skill-form">
+                    <label class="sr-only" for="name">Your name</label>
+                    <input class="form-control" type="text" name="name" id="name" placeholder="Your name" required />
+                    <label class="sr-only" for="skill">Which skill?</label>
+                    <input type="text" class="form-control" name="skill" id="skill" placeholder="Skill name" required />
+                    <label for="prof" class="sr-only">Select proficiency</label>
+                    <select name="prof" id="prof" class="custom-select" required>
+                        <option value="" selected>Please select proficiency</option>
+                        <option value="proficient">Proficient</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="beginner">Beginner</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="row skill-table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Skill</th>
+                            <th>Proficiency</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <hr />
+            <div class="row slideshow">
+                <h4>Slideshow</h4>
+                <div class="img-container">
+                    <img src="" alt="cats!" class="img-fluid" />
+                </div>
+            </div>
+            <hr />
+            <div class="row likeform">
+                <h4>Do you...?</h4>
+                <div class="row">
+                    <span class="emoji emoji1 hidden"></span>
+                    <span class="emoji emoji2 hidden"></span>
+                    <div class="btn-group likebuttons" role="group">
+                        <button class="btn btn-danger" value="hate">Hate me?</button>
+                        <button class="btn btn-primary" value="like">Like me?</button>
+                        <button class="btn btn-success" value="love">Love me?</button>
+                    </div>
+                </div>
+                <h4 class="likecounter">
+                    Like counter:
+                    <span class="count"></span>
+                </h4>
+            </div>
+        </div>
+    </body>
+</html>

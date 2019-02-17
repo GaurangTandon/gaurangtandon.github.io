@@ -92,16 +92,42 @@ body .container-fluid {
 }
 
 .header h2 {
-    margin: 20px auto 0 auto;
+    margin-top: 20px !important;
+}
+
+.row h2,
+.row h4 {
+    margin: 0 auto;
     display: block;
     width: 100%;
-    height: 0;
+    margin-bottom: 10px;
+}
+
+.row h2 {
     font-size: 35px;
+}
+.row > h4 {
+    font-size: 28px;
+}
+
+.likecounter {
+    font-size: 22px !important;
+}
+
+.img-container {
+    width: 400px;
+    height: 300px;
+    margin: auto;
+    display: flex;
+}
+
+.img-container img {
+    object-fit: contain;
 }
 
 .header p {
+    display: block;
     width: 100%;
-    margin-top: 50px;
 }
 
 .tile-logo {
@@ -143,15 +169,14 @@ body .container-fluid {
     padding-top: 40px;
 }
 
-#contact form {
-    min-height: 320px;
-    width: 50%;
+#js-components form {
     margin: auto;
+    margin-top: 10px;
 }
 
-.skills-deck {
-    width: 80%;
-    margin: 0 auto;
+#js-components form input,
+#js-components form select {
+    margin-right: 10px;
 }
 
 .card-img-top {
@@ -159,6 +184,61 @@ body .container-fluid {
     /* max-height: 300px;
     min-height: 150px; */
     object-fit: contain;
+}
+
+table {
+    margin: auto;
+}
+
+table td,
+table th {
+    min-width: 100px;
+}
+
+table td,
+table th {
+    border-style: solid;
+    border-width: 1px;
+}
+
+.likeform .row div {
+    margin: auto;
+    width: fit-content;
+}
+
+.likeform .likebuttons button {
+    margin-right: 10px;
+    border-radius: 5% !important;
+}
+
+.likecounter {
+    width: 100%;
+}
+
+.likeform .row {
+    position: relative;
+}
+
+.likeform span.emoji {
+    transition: 0.5s ease;
+    position: absolute;
+    top: 25%;
+    opacity: 1;
+    font-size: 25px;
+}
+
+.likeform span.emoji1 {
+    left: 25%;
+}
+
+.likeform span.emoji2 {
+    left: 75%;
+}
+
+.likeform span.emoji.hidden {
+    height: 0;
+    width: 0;
+    opacity: 0;
 }
 
 @media (max-width: 1000px) {

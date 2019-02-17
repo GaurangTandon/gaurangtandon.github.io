@@ -1,4 +1,6 @@
 SigmaG logo favicon
 add parallax in home page?
 hover effect on navbar
-fix broken rrssb buttons
+see responsiveness on mobile
+Elements (fields) on navigation bar must change colour on hovering
+add some css transitions?
