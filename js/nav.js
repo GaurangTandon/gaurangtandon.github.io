@@ -30,7 +30,7 @@
         </ul>
     </div>`;
 
-	window.onload = function() {
+	function onload() {
 		var navbar = document.createElement("div"),
 			screenReaderText = " <span class=\"sr-only\">(current)</span>";
 		navbar.className = "navbar navbar-expand-lg navbar-dark bg-dark";
@@ -45,5 +45,10 @@
 				break;
 			}
 		}
-	};
+	}
+	(function documentReadyCheck() {
+		if (document.readyState == "complete") {
+			onload();
+		} else setTimeout(documentReadyCheck, 50);
+	})();
 })();
