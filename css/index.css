@@ -16,18 +16,14 @@ body .container-fluid {
     padding-top: 50px;
 }
 
-.navbar {
-    position: absolute;
-    width: 100%;
-    z-index: 100;
-}
-
 #landing {
     background-image: url(../imgs/bg1.jpg);
     background-size: cover;
     width: 100%;
     height: 100%;
     background-attachment: fixed;
+    padding: 0;
+    margin: 0;
 }
 
 #landing .row,
@@ -248,20 +244,6 @@ table th {
     opacity: 0;
 }
 
-@media (max-width: 1000px) {
-    .tile {
-        width: 100%;
-    }
-
-    .tile-logo {
-        width: 15%;
-    }
-
-    .tile-info {
-        width: 80%;
-    }
-}
-
 @media (max-width: 500px) {
     .infobox {
         height: initial;
@@ -276,18 +258,5 @@ table th {
 
     .infobox .content {
         float: initial;
-    }
-
-    .tile {
-        width: 100%;
-    }
-
-    .tile-logo {
-        width: 10%;
-        height: inherit;
-    }
-
-    .tile-info {
-        width: 80%;
     }
 }

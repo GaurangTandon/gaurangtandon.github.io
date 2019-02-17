@@ -36,7 +36,7 @@
 	function onload() {
 		var navbar = document.createElement("div"),
 			screenReaderText = " <span class=\"sr-only\">(current)</span>";
-		navbar.className = "navbar navbar-expand-lg navbar-dark bg-dark";
+		navbar.className = "navbar navbar-expand-lg fixed-top navbar-dark bg-dark";
 		navbar.innerHTML = navInnerHTML;
 		document.body.insertBefore(navbar, document.body.firstChild);
 

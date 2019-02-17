@@ -1,5 +1,5 @@
 var cssPath = "../css/",
-	cssResources = ["bootstrap.min.css", "fa-solid.css", "fontawesome.css", "rrssb.css", "index.css"],
+	cssResources = ["bootstrap.min.css", "rrssb.css", "index.css"],
 	jsPath = "../js/",
 	jsResources = {
 		preload: ["jqslim.min.js"],
