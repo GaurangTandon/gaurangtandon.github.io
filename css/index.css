@@ -153,19 +153,9 @@ body
     margin: auto;
 }
 
-i.fa-arrow-up {
-    position: fixed;
-    bottom: 2%;
-    right: 2%;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    border-radius: 50%;
-    background-color: rgba(200, 200, 200, 0.5);
-    z-index: 10;
-    cursor: pointer;
-    transition: 0.5s ease;
+.card {
+    width: 23%;
+    display: inline-block;
 }
 
 @media (max-width: 1000px) {
