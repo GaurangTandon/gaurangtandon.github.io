@@ -23,7 +23,7 @@ body
     z-index: 100;
 }
 
-#skills {
+.card-layout-container {
     padding-top: 50px;
 }
 
@@ -76,7 +76,7 @@ body
     cursor: pointer;
 }
 
-#skills {
+.card-layout-container {
     background-color: rgba(200, 200, 200, 0.1);
     background-attachment: fixed;
 }
@@ -153,9 +153,16 @@ body
     margin: auto;
 }
 
-.card {
-    width: 23%;
-    display: inline-block;
+.skills-deck {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.card-img-top {
+    height: 220px;
+    /* max-height: 300px;
+    min-height: 150px; */
+    object-fit: contain;
 }
 
 @media (max-width: 1000px) {

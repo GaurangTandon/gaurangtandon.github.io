@@ -22,7 +22,7 @@
                 <a class="nav-link" href="skills.html">Skills</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="projects.html">Projects</a>
+                <a class="nav-link" href="ontheinternet.html">On the Internet</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="about.html">About me</a>
