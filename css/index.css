@@ -56,6 +56,10 @@ body .container-fluid {
     width: calc(100% - 100px - 20px);
 }
 
+.infobox .content h3 {
+    font-family: "Lato", sans-serif;
+}
+
 .down-arrow {
     display: block;
     position: relative;
@@ -91,6 +95,7 @@ body .container-fluid {
     display: block;
     width: 100%;
     margin-bottom: 15px;
+    font-family: "Lato", sans-serif;
 }
 
 .row h2 {

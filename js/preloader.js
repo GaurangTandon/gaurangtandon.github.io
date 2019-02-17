@@ -6,12 +6,18 @@ var cssPath = "../css/",
 		mainload: ["bootstrap.min.js", "rrssb.min.js", "nav.js"]
 	};
 
-cssResources.forEach(function(cssResource) {
+function appendLink(URL){
 	var link = document.createElement("link");
 	link.rel = "stylesheet";
-	link.href = cssPath + cssResource;
+	link.href = URL;
 	document.head.appendChild(link);
+}
+
+appendLink("https://fonts.googleapis.com/css?family=Lato:700");
+cssResources.forEach(function(cssResource) {
+	appendLink(cssPath + cssResource);
 });
+
 
 function loadJSResources(resources) {
 	resources.forEach(function(jsResource) {
