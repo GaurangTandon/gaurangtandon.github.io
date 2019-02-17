@@ -1,6 +1,6 @@
 (function() {
 	var navInnerHTML = `
-    <a class="navbar-brand" href="#">Gaurang</a>
+    <a class="navbar-brand" href="index.html">Gaurang</a>
     <button
         class="navbar-toggler"
         type="button"

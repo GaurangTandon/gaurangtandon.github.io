@@ -55,6 +55,7 @@
 		document.querySelector(".likecounter .count").innerHTML = +localStorage.getItem(LIKE_LS_KEY);
 	}
 
+	var emojiTimeout;
 	function updateEmoji(change) {
 		var map = {
 				"-1": "1f622",
@@ -65,10 +66,13 @@
 			hiddenClass = "hidden",
 			delay = 1000;
 		var emojiElms = document.querySelectorAll(".emoji");
+		if (emojiTimeout) clearTimeout(emojiTimeout);
+		emojiTimeout = setTimeout(() => {
+			emojiElms.forEach(elm => elm.classList.add(hiddenClass));
+		}, delay);
 		emojiElms.forEach(function(elm) {
 			elm.innerHTML = `&#x${emoji};`;
 			elm.classList.remove(hiddenClass);
-			setTimeout(() => elm.classList.add(hiddenClass), delay);
 		});
 	}
 
