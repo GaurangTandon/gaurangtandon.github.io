@@ -28,15 +28,17 @@
                 <a class="nav-link" href="about.html">About me</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="jscomp.html">JS Component</a>
+                <a class="nav-link" href="assignment.html">Assignment</a>
             </li>
         </ul>
     </div>`;
 
+	var navbar;
+
 	function onload() {
-		var navbar = document.createElement("div"),
-			screenReaderText = " <span class=\"sr-only\">(current)</span>";
-		navbar.className = "navbar navbar-expand-lg fixed-top navbar-dark bg-dark";
+		var screenReaderText = " <span class=\"sr-only\">(current)</span>";
+		navbar = document.createElement("div");
+		navbar.className = "navbar navbar-expand-lg navbar-dark bg-dark";
 		navbar.innerHTML = navInnerHTML;
 		document.body.insertBefore(navbar, document.body.firstChild);
 
@@ -49,7 +51,18 @@
 				break;
 			}
 		}
+		navbar.style.position = "absolute";
+		navbar.style.width = "100%";
+		navbar.style.zIndex = "1";
+
+		function fixnavvtotop() {
+			navbar.style.top = window.scrollY;
+		}
+		window.addEventListener("scroll", fixnavvtotop);
+		window.addEventListener("resize", fixnavvtotop);
+		fixnavvtotop();
 	}
+
 	(function documentReadyCheck() {
 		if (document.readyState == "complete") {
 			onload();
