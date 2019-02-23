@@ -14,6 +14,8 @@ body .container-fluid {
     background-color: rgba(200, 200, 200, 0.1);
     background-attachment: fixed;
     padding-top: 50px;
+    overflow-x: hidden; /* remove horizontal scrollbar */
+    position: relative;
 }
 
 #landing {
@@ -32,17 +34,6 @@ body .container-fluid {
     z-index: 1;
     position: absolute;
 }
-
-.caretSpan {
-    display: inline-block;
-    height: 100%;
-    width: 3px;
-}
-
-.caretSpan.caretShown {
-    background-color: black;
-}
-
 #landing .row,
 .container-fluid .row .col {
     height: 100%;
@@ -77,15 +68,84 @@ body .container-fluid {
     font-family: "Lato", sans-serif;
 }
 
-.down-arrow {
-    display: block;
+.split-person {
     position: relative;
-    top: -6%;
-    left: 50%;
-    z-index: 5;
-    color: rgba(0, 0, 0, 0.75);
-    font-size: 25px;
-    cursor: pointer;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.split-person .img {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    z-index: -1;
+}
+
+.split-person .img img {
+    height: 100%;
+}
+
+.split-person h1 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+
+    position: absolute;
+    top: 10%;
+    font-size: 30px;
+    font-family: "Lato", sans-serif;
+}
+
+.split-person .part {
+    width: 50%;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0;
+    border: none;
+    float: left;
+    transition: 1s ease;
+}
+
+.split-person .part .card {
+    height: 50%;
+    margin: 0;
+}
+
+.split-person .fader {
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    transition: 0.5s ease;
+    box-shadow: none;
+}
+
+.fadeleft {
+    left: 0;
+}
+
+.faderight {
+    right: 0;
+}
+
+.split-person:hover .fader {
+    box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 100px 1000px inset;
+}
+
+.split-person:hover .part.left:hover + .fadeleft {
+    box-shadow: none;
+}
+
+.split-person:hover .part.right:hover + .faderight {
+    box-shadow: none;
 }
 
 .row {
