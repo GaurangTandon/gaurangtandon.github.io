@@ -26,6 +26,23 @@ body .container-fluid {
     margin: 0;
 }
 
+#landing .fadeBg {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+}
+
+.caretSpan {
+    display: inline-block;
+    height: 100%;
+    width: 3px;
+}
+
+.caretSpan.caretShown {
+    background-color: black;
+}
+
 #landing .row,
 .container-fluid .row .col {
     height: 100%;
