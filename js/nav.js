@@ -55,6 +55,17 @@
 		navbar.style.width = "100%";
 		navbar.style.zIndex = "1";
 
+		var navlinks = document.querySelectorAll(".nav-item");
+
+		Array.prototype.forEach.call(navlinks, elm => {
+			elm.addEventListener("mouseenter", () => {
+				elm.children[0].style.color = "rgba(255,255,255,.75)";
+			});
+			elm.addEventListener("mouseleave", () => {
+				elm.children[0].style.color = "rgba(255,255,255,.5)";
+			});
+		});
+
 		function fixnavtotop() {
 			navbar.style.top = window.scrollY + "px";
 		}
