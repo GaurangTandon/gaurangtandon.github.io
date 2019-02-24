@@ -59,10 +59,10 @@
 
 		Array.prototype.forEach.call(navlinks, elm => {
 			elm.addEventListener("mouseenter", () => {
-				elm.children[0].style.color = "rgba(255,255,255,.75)";
+				elm.children[0].classList.add("onhover");
 			});
 			elm.addEventListener("mouseleave", () => {
-				elm.children[0].style.color = "rgba(255,255,255,.5)";
+				elm.children[0].classList.remove("onhover");
 			});
 		});
 
