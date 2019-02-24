@@ -55,12 +55,12 @@
 		navbar.style.width = "100%";
 		navbar.style.zIndex = "1";
 
-		function fixnavvtotop() {
-			navbar.style.top = window.scrollY;
+		function fixnavtotop() {
+			navbar.style.top = window.scrollY + "px";
 		}
-		window.addEventListener("scroll", fixnavvtotop);
-		window.addEventListener("resize", fixnavvtotop);
-		fixnavvtotop();
+		window.addEventListener("scroll", fixnavtotop);
+		window.addEventListener("resize", fixnavtotop);
+		fixnavtotop();
 	}
 
 	(function documentReadyCheck() {

@@ -32,7 +32,7 @@ body .container-fluid {
 #landing .fadeBg {
     height: 100%;
     width: 100%;
-    z-index: 1;
+    z-index: 0;
     position: absolute;
 }
 #landing .row,
@@ -137,6 +137,11 @@ body .container-fluid {
     right: 0;
 }
 
+.skills-deck {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
 .split-person:hover .fader {
     box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 100px 1000px inset;
 }
@@ -239,6 +244,12 @@ body .container-fluid {
     text-align: center;
 }
 
+@media (min-height: 850px) {
+    #contact .row.header {
+        height: 15%;
+    }
+}
+
 #contact .social-icons {
     height: 25%;
     width: 50%;
@@ -257,7 +268,6 @@ body .container-fluid {
 
 #js-components form {
     margin: auto;
-    margin-top: 10px;
 }
 
 #js-components form input,
@@ -327,19 +337,100 @@ table th {
     opacity: 0;
 }
 
+@media (max-width: 1050px) {
+    #contact .row.header {
+        height: 25%;
+    }
+    #contact .row,
+    #contact .social-icons {
+        width: 70%;
+        margin: 0 auto;
+        padding-top: 0;
+    }
+
+    .row.social-icons h4 {
+        height: 35px;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 770px) {
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+        padding-right: 0;
+    }
+    .container-fluid {
+        margin-right: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    #js-components form button {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 570px) {
+    .row {
+        padding-right: 10px;
+    }
+
+    #js-components form input,
+    #js-components form select {
+        margin-right: 0;
+        margin-top: 5px;
+    }
+}
+
 @media (max-width: 500px) {
+    #contact .row h4 {
+        font-size: 1.55rem;
+    }
+
     .infobox {
         height: initial;
         top: 25%;
+        margin-left: 0;
+        margin-right: 0;
+        width: 95%;
+        min-width: 0;
     }
 
     .infobox .pic {
         float: initial;
-        margin-left: 23%;
+        margin: 0 auto;
         margin-bottom: 20px;
     }
 
     .infobox .content {
         float: initial;
+        width: 100%;
+    }
+
+    #contact .row {
+        margin-top: 40px;
+    }
+
+    #contact .rrssb-buttons {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    #contact .row {
+        margin-top: 60px;
+    }
+    .rrssb-buttons {
+        margin-bottom: 110px;
+    }
+}
+
+@media (max-width: 320px) {
+    #contact .row h4 {
+        font-size: 1.3rem;
+    }
+
+    #contact .row {
+        margin-top: 90px;
     }
 }
