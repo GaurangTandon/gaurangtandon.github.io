@@ -1,4 +1,4 @@
-(function() {
+(function () {
 	var navInnerHTML = `
     <a class="navbar-brand" href="index.html">Gaurang</a>
     <button
@@ -26,9 +26,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="about.html">About me</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="assignment.html">Assignment</a>
             </li>
         </ul>
     </div>`;
