@@ -2,7 +2,7 @@
 layout: post
 title:  "Why is it so hard to sum up a million numbers?"
 date:   2022-09-11 12:20:52 +0530
-categories: rust advent-of-code
+categories: powershell mistakes
 ---
 
 Most mistakes we make are due to lack of coffee. Every once in a while, though, we'll discover a novel failure, that will make us jump out of our seat and share it with everyone else. This is one such mistake.
@@ -17,7 +17,7 @@ Either way, I google for alternatives and find the [first StackOverflow answer](
 Get-Content .\A.in | .\A.exe > .\A.out
 ```
 
-What can go wrong here?
+What can go wrong here? The PowerShell gurus probably know the answer, and should jump to the conclusion. But here I have an interesting rabbit hole for the Linux/macOS users like me.
 
 ## What went wrong
 
