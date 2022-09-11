@@ -3,3 +3,8 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+
+# manually set
+*/powershell-redirection/*.txt
+*/powershell-redirection/*.exe
+*/powershell-redirection/*.obj
