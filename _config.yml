@@ -12,6 +12,7 @@ github_username:  gaurangtandon
 theme: minima
 plugins:
   - jekyll-feed
+future: true # https://stackoverflow.com/a/35388975/2181238
 
 # Exclude from processing.
 # The following items will not be processed, by default.

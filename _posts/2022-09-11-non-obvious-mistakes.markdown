@@ -65,3 +65,7 @@ Always double check StackOverflow answers for critical cases. This answer cost m
 ## References
 
 I have attached the sample programs in my [GitHub repository here](https://github.com/gaurangtandon/gaurangtandon.github.io/blob/master/codes/powershell-redirection). Details and instructions to reproduce results are in the README there.
+
+## NB: for Linux/macOS folks
+
+`cat` is unlike its Windows alternative and works incredibly fast. `cat input.txt | python3 summer.py` takes less than half a second to print the sum of a million numbers on my Kali WSL.
