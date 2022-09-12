@@ -36,7 +36,7 @@ What if the issue is some weird MSVC implementation issue? So, I re-wrote the sa
 
 It is clear that Get-Content is taking too long. But how can it be slow? The answer we ~~copied~~ read had over hundred upvotes, was over a decade old, and was viewed at least 70k times. It also had a comment explaining `Get-Content` sends the pipes the lines one by one.
 
-Let's at least check if that is true. A program that reads the first ten lines of the file should output instantly. Here's a sample:
+Let's check if at least that is true. A program that reads only the first ten lines of the file should output instantly. Here's a sample:
 
 ```python
 accumulated_input = ""
@@ -45,15 +45,15 @@ for _ in range(10):
 print(accumulated_input)
 ```
 
-We run this with `Get-Content .\input.txt | python3 .\code.py`. The program instantly prints the first ten lines!
+We run this with `Get-Content .\A.in | python3 .\code.py`. The program instantly prints the first ten lines!
 
 Now we know that the StackOverflow answer is correct. What then is really wrong with `Get-Content`?
 
 ## Notice the slowness
 
-Note that the above program did *not* exit after printing the first ten numbers, which tells us that `Get-Content` was *still* running. In fact, our root issue is that `Get-Content` *itself* is just **incredibly** slow. It is silly and annoying that it is aliased to `cat` in PowerShell, because `cat` on Linux is significantly faster (`cat input.txt | python3 code.py` finishes in half a second).
+Note that the above program did *not* exit after printing the first ten numbers, which tells us that `Get-Content` was *still* running. In fact, our root issue is that `Get-Content` *itself* is just **incredibly** slow.
 
-Searching for "why is powershell get-content so slow" reveals [this blog](https://joelitechlife.ca/2022/06/08/powershell-get-content-slow/) that attempts to demystify the lacklustre speed. `Get-Content` adds a bunch of metadata (called `NoteProperty`) to the data it reads. Because it reads one line at a time, it adds metadata to every line it reads. For a file with a million lines, this metadata addition becomes painfully slow.
+Searching for "why is powershell get-content so slow" reveals [this blog](https://joelitechlife.ca/2022/06/08/powershell-get-content-slow/) that demystifies the snail speed. `Get-Content` adds a bunch of metadata (called `NoteProperty`) to the data it reads. Because it reads one line at a time, it adds metadata to every line it reads. For a file with a million lines, this metadata addition becomes painfully slow.
 
 Luckily, we can force the metadata to be added in batches of lines. For example, let's run the following command that adds the `NoteProperty`s in batches of a thousand lines:
 
@@ -69,17 +69,17 @@ Which means we need to continue digging deeper...
 
 `Get-Content` is a high-level function exposed to us, that is unusable for larger files and has no other high-level alternatives. So, we dive into the .NET internal classes.
 
-There are various `Read` methods in `System.IO.File`, such as: `ReadAllBytes`, `ReadAllLines`, `ReadLines`, however, the method most relevant to us is: [`System.IO.File::ReadAllText`](https://docs.microsoft.com/en-us/dotnet/api/system.io.file.readalltext?view=net-6.0). This method simply "opens a text file, reads all the text in the file into a string, and then closes the file". For extrmeely large files, this may not fit into the memory. However, for only a million numbers, this is good enough. So, we now run:
+There are various `Read` methods in `System.IO.File`, such as: `ReadAllBytes`, `ReadAllLines`, `ReadLines`, however, the method most relevant to us is: [`System.IO.File::ReadAllText`](https://docs.microsoft.com/en-us/dotnet/api/system.io.file.readalltext?view=net-6.0). This method simply "opens a text file, reads all the text in the file into a string, and then closes the file". For extremely large files, this may not fit into the memory. However, for only a million numbers, this is good enough. So, we now run:
 
 ```powershell
-Measure-Command { [System.IO.File]::ReadAllText('A.in') | .\A.exe > A.out }
+Measure-Command { [System.IO.File]::ReadAllText('.\A.in') | .\A.exe > A.out }
 ```
 
 This **completes in 0.3seconds**, just as fast as our Linux counterpart! 🎉
 
 ## Conclusion
 
-Always double check StackOverflow answers for critical cases. This answer cost me one problem out of four in Hacker Cup 2022. To be clear, the answer was not wrong, just my expectations from it were different. Fortunately, I qualified the round either way ^_^
+Always double check StackOverflow answers for critical cases. It cost me one problem out of four in Hacker Cup 2022. To be clear, the answer was not wrong, just my use case for it was different. Fortunately, I qualified the round either way ^_^
 
 <!-- TODO:
 - [ ] fix program filenames
