@@ -1,12 +1,14 @@
 ---
 layout: post
-title:  "Why is it so hard to sum up a million numbers?"
+title:  "Why is it so hard to read a million numbers in PowerShell?"
 subtitle: "Or why you should double-check that StackOverflow answer"
 date:   2022-09-11 12:20:52 +0530
 categories: powershell mistakes
 ---
 
 ## Introduction
+
+This is a short story of how a slow PowerShell command led me to its .NET internals.
 
 I have to run an executable file with dedicated input and output files. For context, this executable is compiled from C++ (can also use Python), and it will read a million numbers from an input file and then output their sum to another file. I prefer to use I/O redirection for this task as its semantically most correct in this context.
 
@@ -24,7 +26,7 @@ Now, pause and think. What can go wrong here? The PowerShell gurus probably know
 
 This command took a **whopping 15 seconds**! Clearly, no modern CPU should take 15 seconds to sum up a million numbers. So how did this happen?
 
-## Hypotheses analysis
+## Hypotheses
 
 Arithmetic is very fast for fast CPUs. So, there **has** to be an issue with the I/O redirection being too slow. To test that, I wrote a different C program that uses `freopen` to redirect the input file to stdin. This program only took 0.36seconds, neat!
 
@@ -47,7 +49,7 @@ We run this with `Get-Content .\input.txt | python3 .\code.py`. The program inst
 
 Now we know that the StackOverflow answer is correct. What then is really wrong with `Get-Content`?
 
-## Final reveal
+## Found the issue!
 
 `Get-Content` itself is just **incredibly** slow. It is silly and annoying that it is aliased to `cat` in PowerShell, because `cat` on Linux is significantly faster (`cat input.txt | python3 code.py` finishes in half a second).
 
@@ -59,10 +61,23 @@ So, let's run the following:
 
 This is faster than our original code, but still takes over **three seconds** to complete. Interestingly, increasing the `ReadCount` slows the program even further.
 
+## Diving into .NET internals
+
+[**What is PowerShell?**](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2) Primarily, it is a scripting language "built on the .NET Common Language Runtime (CLR). All inputs and outputs are .NET objects".
+
+`Get-Content` is a high-level function exposed to us, that is unusable for larger files and has no other high-level alternatives. So, we dive into the .NET internal classes.
+
+There are various `Read` methods in `System.IO.File`, such as: `ReadAllBytes`, `ReadAllLines`, `ReadLines`, however, the method most relevant to us is: [`System.IO.File\]::ReadAllText`](https://docs.microsoft.com/en-us/dotnet/api/system.io.file.readalltext?view=net-6.0). This method simply "opens a text file, reads all the text in the file into a string, and then closes the file". For even larger files, this may not fit into the memory. However, for only a million numbers, this is good enough. So, we now run:
+
+```powershell
+Measure-Command { [System.IO.File]::ReadAllText('A.in') | .\A.exe > A.out }
+```
+
+This **completes in 0.3seconds**, just as fast as our Linux counterpart! 🎉
 
 ## Conclusion
 
-Always double check StackOverflow answers for critical cases. This answer cost me one problem out of four in Hacker Cup 2022. To be clear, the answer was not wrong, just my expectations from it were exaggerated. Fortunately, I qualified the round either way ^_^
+Always double check StackOverflow answers for critical cases. This answer cost me one problem out of four in Hacker Cup 2022. To be clear, the answer was not wrong, just my expectations from it were different. Fortunately, I qualified the round either way ^_^
 
 ## References
 
