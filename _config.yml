@@ -1,7 +1,7 @@
 title: Gaurang Tandon
 email: 1gaurangtandon at gmail
 description: >- # this means to ignore newlines until "baseurl:"
-    Gaurang's descriptions of tech, culture and general
+    I write about tech stuff.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: gaurangtandon.github.io
 source: https://github.com/gaurangtandon/gaurangtandon.github.io

@@ -1,13 +1,13 @@
 ---
 layout: post
 title:  "Why is it so hard to read a million numbers in PowerShell?"
-date:   2022-09-11 12:20:52 +0530
-categories: powershell mistakes
+date:   2022-09-12 12:20:52 +0530
+categories: tech
 ---
 
 ## Introduction
 
-...or why you should double-check that StackOverflow answer you just read.
+...or why you should always double-check that StackOverflow answer you just read.
 
 This is a short story of how a slow PowerShell command led me to its .NET internals.
 
@@ -80,7 +80,7 @@ This **completes in 0.3seconds**, just as fast as our Linux counterpart! 🎉
 
 ## Conclusion
 
-Always double check StackOverflow answers for critical cases. It cost me one problem out of four in Hacker Cup 2022. To be clear, the answer was not wrong, just my use case for it was different. Fortunately, I qualified the round either way ^_^
+Always double check StackOverflow answers for critical cases. It cost me one problem out of four in Hacker Cup 2022. To be clear, the answer was not wrong, just that my use case for it was different. Fortunately, I qualified the round either way ^_^
 
 <!-- TODO:
 - [ ] fix program filenames
