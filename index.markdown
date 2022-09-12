@@ -2,4 +2,4 @@
 layout: home
 ---
 
-My posts go here
+My posts go here.
