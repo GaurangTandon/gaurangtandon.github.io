@@ -1,12 +1,13 @@
 ---
 layout: post
 title:  "Why is it so hard to read a million numbers in PowerShell?"
-subtitle: "Or why you should double-check that StackOverflow answer"
 date:   2022-09-11 12:20:52 +0530
 categories: powershell mistakes
 ---
 
 ## Introduction
+
+...or why you should double-check that StackOverflow answer you just read.
 
 This is a short story of how a slow PowerShell command led me to its .NET internals.
 
@@ -20,7 +21,7 @@ Either way, I search for alternatives and find the [first StackOverflow answer](
 Get-Content .\A.in | .\A.exe > .\A.out
 ```
 
-Now, pause and think. What can go wrong here? The PowerShell gurus probably know the answer, and should jump to the conclusion. But the Linux/macOS users should read on for an interesting investigation.
+Now, pause and think. What can go wrong here? The PowerShell gurus probably know the answer, but the Linux/macOS users are in for an interesting investigation!
 
 ## What went wrong
 
