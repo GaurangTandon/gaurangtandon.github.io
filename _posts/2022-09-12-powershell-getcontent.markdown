@@ -3,6 +3,7 @@ layout: post
 title:  "Why is it so hard to read a million numbers in PowerShell?"
 date:   2022-09-12 12:20:52 +0530
 categories: tech
+permalink: /blog/powershell-get-content
 ---
 
 ## Introduction
