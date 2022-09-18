@@ -2,4 +2,4 @@
 layout: home
 ---
 
-My posts go here.
+I blog interesting stuff, have a look yourself 👇
