@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Rust AoC Day 5 explanation"
+title:  "Draft: Rust AoC Day 5 explanation"
 date:   2021-12-06 12:20:52 +0530
 categories: rust advent-of-code
 ---
