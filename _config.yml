@@ -1,9 +1,8 @@
 title: Gaurang Tandon
-email: 1gaurangtandon at gmail
-description: >- # this means to ignore newlines until "baseurl:"
-    I write about tech stuff.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: gaurangtandon.github.io
+email: gaurangtandonone at gmail
+description: I write about tech stuff.
+baseurl: ""
+url: gaurangtandon.com
 source: https://github.com/gaurangtandon/gaurangtandon.github.io
 twitter_username: alltimecoder
 github_username:  gaurangtandon
@@ -14,22 +13,14 @@ plugins:
   - jekyll-feed
 future: true # https://stackoverflow.com/a/35388975/2181238
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

@@ -20,3 +20,7 @@ These macros load the contents of a file into the codei, but at compile time its
 `nom` is a [Rust crate](https://docs.rs/nom/6.2.1/nom/macro.named.html) for fast parsing of byte data. As we can see in [this commit](https://github.com/timvisee/advent-of-code-2021/commit/ef75c85f2621e570494f69755717ea1db2db0a15), using nom significantly sped up the code. How does it make this difference? 
 
 The original code had three `split_once` calls and several `unwrap` and `parse` calls. Even in `--release` mode, the compiler cannot optimize away the safety checks and the bounds checks in these calls (see godbolt sample here). 
+
+### TODO
+
+So this is that blog I never ended up finishing.
