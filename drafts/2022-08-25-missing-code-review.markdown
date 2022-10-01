@@ -6,21 +6,30 @@ categories: tech
 permalink: /blog/code-review-attention
 ---
 
-Your colleague just sent you a twenty file changeset for review. You are busy ~~watching anime~~ working on your project, so what do you do? Sometimes, you may take shortcuts and then justify them to yourself! "I will review the main idea, the code is hopefully correct", "There are some tests, which could be incomplete but are probably not", "I trust my colleagues to write good code, even if I don't trust myself to do the same", "There was another assigned reviewer, who has already approved this changeset".
+Your colleague just sent you a twenty file changeset for review. You are busy ~~watching anime~~ working on your project, so what do you do? Sometimes, you may take shortcuts and then justify them to yourself! "I will review the main idea, the code is hopefully correct", "There was another assigned reviewer, who has already approved this changeset", or my favorite: "I trust my colleagues to write good code, even if I don't trust myself to do the same".
 
-So you sprinkle a few comments as your "review", and then hit that shiny green "Approve" button! Within minutes, the changeset is merged, and an auto-deploy pipeline kicks in to deploy this code to production.
+So you sprinkle a few comments as your "review", and then hit approve! Within minutes, the changeset is merged, and the latest code is auto-deployed to production.
 
-Think to yourself, would you be able to sleep peacefully at night, if there was a bug in that code? A logic error in an access check? An edge case in the API behavior? Possibly, a wrong database command may now be running on production due to the merge request that _you_ just approved.
+But would you be able to sleep peacefully at night, if there was a bug in that code? A logic error in a critical resource access check? An edge case in the API behavior? Possibly, a wrong database command may now be running on production, due to the merge request that _YOU_ just approved.
 
-However, such incomplete reviews are detrimental to the long term health of the codebase. We should use tools to our advantage, to ensure that reviewers are able to deliver their best.
+Such incomplete reviews are detrimental to the long term health of the codebase. What if there was a way to flag the sleepy reviewers?
+
+## Review audits on StackOverflow
+
+StackOverflow is a community-driven Q&A site. The community reviews the content on the website, such as answers by new users and suggested edits to existing content (here's the [full breakdown](https://stackoverflow.com/help/reviews-intro)). Their content review queue has many amazing, time-tested features, one of which is the [review audit](https://meta.stackexchange.com/questions/157121/what-are-review-tests-audits-and-how-do-they-work).
+
+At any time, a reviewer is given a review audit challenge. These audits are disguised as regular community contributions, and designed to trick a tired reviewer into taking the wrong action. If they do take a wrong action, they see a giant warning:
+
+> **STOP! Look and listen**
+> This was an audit, designed to see if you were paying attention. **You didn't pass.**. There are no major problems with this question. &lt;Here's what you should have done instead&gt;
+> Don't worry, we've already handled this post appropriately - but please take a minute to look over it closely, keeping in mind the guidance above.
+
+Instead if they are paying attention and take the correct action, they are informed of the test, thanked for their time, and then moved on.
 
 ## Tool proposal
 
 TODO: screenshot of github and gitlab ui with my.
 
-## Tool inspiration
-
-TODO: Where is the stackoverflow official documentation on the fake posts they sprinkle in their review queues when you're on a review spree (or to catch a robo-reviewer)?
 
 ## How to make this tool
 
