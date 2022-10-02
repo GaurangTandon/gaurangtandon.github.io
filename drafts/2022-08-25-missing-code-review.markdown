@@ -40,12 +40,14 @@ How does the system generate these fake suggested edits, you ask?
 
 Notice the clear parallel between suggested edits on StackOverflow and changesets on a source repository! Can we apply similar principles to build our ideal code review audit challenge?
 
-## Tool proposal
+## Code review challenge
 
-TODO: screenshot of github and gitlab ui with my.
+I have taken a large MR from the primary gitlab-org repository, and added a wrong code addition to it. Check this page out to see the preview.
 
+<summary>Here's the answer for the impatient</summary>
+<details>Check 123</details>
 
-## How to make this tool
+## How to deploy this challenge
 
 It seems to be impossible to make this tool using both platforms' integrations. They are more focused on running pipelines based on your commits, rather than modifying the UI of their platform (which to be fair, is hard to deliver securely via plugins). Making browser extensions for this is possible, however, not everyone on the team may have them installed.
 
