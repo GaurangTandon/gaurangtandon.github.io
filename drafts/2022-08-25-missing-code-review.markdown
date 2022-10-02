@@ -16,15 +16,29 @@ Such incomplete reviews are detrimental to the long term health of the codebase.
 
 ## Review audits on StackOverflow
 
-StackOverflow is a community-driven Q&A site. The community reviews the content on the website, such as answers by new users and suggested edits to existing content (here's the [full breakdown](https://stackoverflow.com/help/reviews-intro)). Their content review queue has many amazing, time-tested features, one of which is the [review audit](https://meta.stackexchange.com/questions/157121/what-are-review-tests-audits-and-how-do-they-work).
+StackOverflow is a community-driven Q&A site. The community reviews the content on the website, such as edit suggestions to existing content (here's the [full breakdown](https://stackoverflow.com/help/reviews-intro)). Their content review queue has many amazing, time-tested features, one of which is the [review audit](https://meta.stackexchange.com/questions/157121/what-are-review-tests-audits-and-how-do-they-work).
 
-At any time, a reviewer is given a review audit challenge. These audits are disguised as regular community contributions, and designed to trick a tired reviewer into taking the wrong action. If they do take a wrong action, they see a giant warning:
+At any time, a reviewer is given a review audit challenge. These audits are disguised as regular community contributions. Here is one such challenge:
 
-> **STOP! Look and listen**
-> This was an audit, designed to see if you were paying attention. **You didn't pass.**. There are no major problems with this question. &lt;Here's what you should have done instead&gt;
+<img src=../assets/titleedit.jpg height=500 alt='Arbitrary title change'>
+<img src=../assets/codeedit.jpg height=500 alt='Arbitrary code change'>
+
+I rejected this edit and got a success message:
+
+> **Congratulations!**  
+> This was only a test, designed to make sure you were paying attention. **You passed.**
+
+If a tired reviewer takes the wrong action, they are given a warning:
+
+> **STOP! Look and listen**  
+> This was an audit, designed to see if you were paying attention. **You didn't pass.**. There are no major problems with this question. &lt;Here's what you should have done instead&gt;  
 > Don't worry, we've already handled this post appropriately - but please take a minute to look over it closely, keeping in mind the guidance above.
 
-Instead if they are paying attention and take the correct action, they are informed of the test, thanked for their time, and then moved on.
+How does the system generate these fake suggested edits, you ask?
+
+> **Suggested edits:** The test presents a reviewer with a randomly generated edit utilizing the Markov chain algorithm to randomly insert various words that may appear to be useful at first glance but actually make no sense and are meant to vandalize the post.
+
+Notice the clear parallel between suggested edits on StackOverflow and changesets on a source repository! Can we apply similar principles to build our ideal code review audit challenge?
 
 ## Tool proposal
 
