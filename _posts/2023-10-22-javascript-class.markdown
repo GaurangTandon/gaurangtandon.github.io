@@ -8,7 +8,9 @@ permalink: /blog/javascript-class-closure
 
 ## Introduction
 
-The class syntax in JavaScript enables us to write code that 1. is modular, 2. is well-encapsulated, 3. supports static and instance level properties, and 4. is inheritable. I have never needed inheritance, and in this post, I'll show how to achieve the other qualities without using classes.
+As much as I dislike the `class` syntax in JavaScript, it used to be my default choice when I needed an object factory, with support for static and instance level properties.
+
+I recently found a clean way to eliminate the `class` syntax while still maintaining these properties, and in this post, I'll show you how.
 
 ## _Classy_ issues
 
@@ -146,7 +148,7 @@ This code has a mix of static and instance-level methods and properties. Let us 
 
 ## Closures to the rescue!
 
-JavaScript closures are amazing. We can use them to emulate static properties/methods, instance properties/methods, and private properties/methods. Here's the rewritten version of the above class:
+JavaScript closures are amazing. We can use them to emulate static properties, instance properties, private properties, as well as readonly properties. Here's the rewritten version of the above class:
 
 ```js
 const Dog = (function createDogClass() {
@@ -209,7 +211,7 @@ Notice how:
 
 ### Instance-level scope
 
-We replaced the `constructor` with an `init` function that does the same job. Now, to create an instance, we call `Dog.init(...)` (instead of `new Dog(...)`). Note that each invocation of `init` creates a new instance, which also comes up with a separate lexical scope (very handy for us!)
+We replaced the `constructor` with an `init` function that does the same job. Now, to create an instance, we call `Dog.init(...)` (instead of `new Dog(...)`). Note that each invocation of `init` returns a new object instance, which also comes up with a separate lexical scope (very handy for us!)
 
 From inside `init`, we return all publicly exposed properties. In this case, we only expose `printHeight`.  Notice how:
 
@@ -219,4 +221,4 @@ From inside `init`, we return all publicly exposed properties. In this case, we 
 
 ## Conclusion
 
-I hope this post helped you make the jump from JavaScript class syntax to closures. At first, it may be a bit hard to understand how we have handled static scoping and local scoping. I hope re-reading the examples will make it clearer.
+I hope this post motivated you to make the jump from JavaScript `class` syntax to closures.
