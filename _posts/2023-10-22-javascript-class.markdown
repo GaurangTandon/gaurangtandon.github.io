@@ -155,7 +155,7 @@ class Dog {
   }
 
   static getAverageHeight() {
-    console.log(`Average height for dogs is ${Dog.AVERAGE_HEIGHT_FT} kg`);
+    console.log(`Average height for dogs is ${Dog.AVERAGE_HEIGHT_FT} ft`);
   }
 }
 ```
