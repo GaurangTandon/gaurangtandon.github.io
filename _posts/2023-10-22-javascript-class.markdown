@@ -6,6 +6,10 @@ categories: tech
 permalink: /blog/javascript-class-closure
 ---
 
+## Update
+
+I'm very humbled by the insightful discussion on [HackerNews](https://news.ycombinator.com/item?id=37966510). Really, thank you! I have now updated the blog post to address the comments. You can always view the diff [on GitHub](https://github.com/GaurangTandon/gaurangtandon.github.io/commits/master/_posts/2023-10-22-javascript-class.markdown).
+
 ## Introduction
 
 As much as I dislike the `class` syntax in JavaScript, it used to be my default choice when I needed an object factory, with support for static and instance level properties.
@@ -32,19 +36,31 @@ progressBar.addEventListener(handler);
 
 The `this` prefix is mandatory for every instance property, which increases code bloat. When passing methods around, you have to carefully rebind them to the correct object.
 
-### No private properties
+### Regarding private properties
 
-ALL methods and properties on an instance are always accessible from outside the class. This makes it impossible to create _truly_ encapsulated wrappers and expose limited functionality. According to Hyrum's law, eventually downstream code may depend on your private properties as well. We should avoid this as far as possible.
+I initially wrote that classes don't support private properties. That was completely wrong, as [this MDN article mentions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields).
+Using private properties helps better encapsulate internal logic, that we don't want external code to depend on. I'm glad JS classes support that.
 
-### No readonly properties
+### Regarding readonly properties
 
-We cannot have instance properties that are public but readonly. For example, this is valid JavaScript:
+I initially wrote that we cannot have instance properties that are public but readonly. For example, this is valid JavaScript:
 
 ```js
 class MyClass {
   static prop = 123;
 }
 MyClass.prop = 456;
+```
+
+As comments pointed out, you can define a `get`ter instead:
+
+```js
+class MyClass {
+  static get prop() {
+    return 123;
+  }
+}
+MyClass.prop = 456; // doesn't change the value
 ```
 
 ### Poor bundler optimization
@@ -193,7 +209,7 @@ Immediately, we see several advantages:
 1. Unused properties are flagged by eslint ([see example](https://eslint.org/play/#eyJ0ZXh0IjoiY29uc3QgRG9nID0gKCgpID0+IHtcbiAgY29uc3QgQVZFUkFHRV9IRUlHSFRfRlQgPSA0O1xuICBjb25zdCBBVkVSQUdFX1dFSUdIVF9LRyA9IDEwMDtcbiAgY29uc3QgX1BSSVZBVEVfTUFHSUNfSEVJR0hUID0gMy4xNDtcblxuICBmdW5jdGlvbiBpbml0KGhlaWdodElucHV0LCB3ZWlnaHRJbnB1dCkge1xuICAgIGxldCBoZWlnaHQgPSBoZWlnaHRJbnB1dDtcbiAgICBjb25zdCB3ZWlnaHQgPSB3ZWlnaHRJbnB1dDtcbiAgICBpZiAoaGVpZ2h0ID09PSBfUFJJVkFURV9NQUdJQ19IRUlHSFQpIHtcbiAgICAgIF9wcml2YXRlTWFrZVRhbGxlcigpO1xuICAgIH1cblxuICAgIGZ1bmN0aW9uIF9wcml2YXRlTWFrZVRhbGxlcigpIHtcbiAgICAgIGhlaWdodCA9IEFWRVJBR0VfSEVJR0hUX0ZUICsgMTtcbiAgICB9XG5cbiAgICBmdW5jdGlvbiBwcmludEhlaWdodCgpIHtcbiAgICAgIGNvbnN0IHN0YXR1cyA9IGhlaWdodCA+IEFWRVJBR0VfSEVJR0hUX0ZUID8gJ3RhbGxlcicgOiAnbm90IHRhbGxlcic7XG4gICAgICBjb25zb2xlLmxvZyhgWW91ciBkb2cgaXMgJHtoZWlnaHR9IGZ0IHRhbGwuIFRoZSBkb2cgaXMgJHtzdGF0dXN9IHRoYW4gdGhlIGF2ZXJhZ2UgaGVpZ2h0YCk7XG4gICAgfVxuXG4gICAgcmV0dXJuIHtcbiAgICAgIHByaW50SGVpZ2h0LFxuICAgIH07XG4gIH1cblxuICBmdW5jdGlvbiBnZXRBdmVyYWdlSGVpZ2h0KCkge1xuICAgIGNvbnNvbGUubG9nKGBBdmVyYWdlIGhlaWdodCBmb3IgZG9ncyBpcyAke0FWRVJBR0VfSEVJR0hUX0ZUfSBrZ2ApO1xuICB9XG5cbiAgcmV0dXJuIHtcbiAgICBpbml0LFxuICAgIGdldEF2ZXJhZ2VIZWlnaHQsXG4gIH07XG59KSgpOyIsIm9wdGlvbnMiOnsiZW52Ijp7ImVzNiI6dHJ1ZX0sInBhcnNlck9wdGlvbnMiOnsiZWNtYUZlYXR1cmVzIjp7fSwiZWNtYVZlcnNpb24iOiJsYXRlc3QiLCJzb3VyY2VUeXBlIjoic2NyaXB0In0sInJ1bGVzIjp7ImNvbnN0cnVjdG9yLXN1cGVyIjpbImVycm9yIl0sImZvci1kaXJlY3Rpb24iOlsiZXJyb3IiXSwiZ2V0dGVyLXJldHVybiI6WyJlcnJvciJdLCJuby1hc3luYy1wcm9taXNlLWV4ZWN1dG9yIjpbImVycm9yIl0sIm5vLWNhc2UtZGVjbGFyYXRpb25zIjpbImVycm9yIl0sIm5vLWNsYXNzLWFzc2lnbiI6WyJlcnJvciJdLCJuby1jb21wYXJlLW5lZy16ZXJvIjpbImVycm9yIl0sIm5vLWNvbmQtYXNzaWduIjpbImVycm9yIl0sIm5vLWNvbnN0LWFzc2lnbiI6WyJlcnJvciJdLCJuby1jb25zdGFudC1jb25kaXRpb24iOlsiZXJyb3IiXSwibm8tY29udHJvbC1yZWdleCI6WyJlcnJvciJdLCJuby1kZWJ1Z2dlciI6WyJlcnJvciJdLCJuby1kZWxldGUtdmFyIjpbImVycm9yIl0sIm5vLWR1cGUtYXJncyI6WyJlcnJvciJdLCJuby1kdXBlLWNsYXNzLW1lbWJlcnMiOlsiZXJyb3IiXSwibm8tZHVwZS1lbHNlLWlmIjpbImVycm9yIl0sIm5vLWR1cGUta2V5cyI6WyJlcnJvciJdLCJuby1kdXBsaWNhdGUtY2FzZSI6WyJlcnJvciJdLCJuby1lbXB0eSI6WyJlcnJvciJdLCJuby1lbXB0eS1jaGFyYWN0ZXItY2xhc3MiOlsiZXJyb3IiXSwibm8tZW1wdHktcGF0dGVybiI6WyJlcnJvciJdLCJuby1leC1hc3NpZ24iOlsiZXJyb3IiXSwibm8tZXh0cmEtYm9vbGVhbi1jYXN0IjpbImVycm9yIl0sIm5vLWV4dHJhLXNlbWkiOlsiZXJyb3IiXSwibm8tZmFsbHRocm91Z2giOlsiZXJyb3IiXSwibm8tZnVuYy1hc3NpZ24iOlsiZXJyb3IiXSwibm8tZ2xvYmFsLWFzc2lnbiI6WyJlcnJvciJdLCJuby1pbXBvcnQtYXNzaWduIjpbImVycm9yIl0sIm5vLWlubmVyLWRlY2xhcmF0aW9ucyI6WyJlcnJvciJdLCJuby1pbnZhbGlkLXJlZ2V4cCI6WyJlcnJvciJdLCJuby1pcnJlZ3VsYXItd2hpdGVzcGFjZSI6WyJlcnJvciJdLCJuby1sb3NzLW9mLXByZWNpc2lvbiI6WyJlcnJvciJdLCJuby1taXNsZWFkaW5nLWNoYXJhY3Rlci1jbGFzcyI6WyJlcnJvciJdLCJuby1taXhlZC1zcGFjZXMtYW5kLXRhYnMiOlsiZXJyb3IiXSwibm8tbmV3LXN5bWJvbCI6WyJlcnJvciJdLCJuby1ub25vY3RhbC1kZWNpbWFsLWVzY2FwZSI6WyJlcnJvciJdLCJuby1vYmotY2FsbHMiOlsiZXJyb3IiXSwibm8tb2N0YWwiOlsiZXJyb3IiXSwibm8tcHJvdG90eXBlLWJ1aWx0aW5zIjpbImVycm9yIl0sIm5vLXJlZGVjbGFyZSI6WyJlcnJvciJdLCJuby1yZWdleC1zcGFjZXMiOlsiZXJyb3IiXSwibm8tc2VsZi1hc3NpZ24iOlsiZXJyb3IiXSwibm8tc2V0dGVyLXJldHVybiI6WyJlcnJvciJdLCJuby1zaGFkb3ctcmVzdHJpY3RlZC1uYW1lcyI6WyJlcnJvciJdLCJuby1zcGFyc2UtYXJyYXlzIjpbImVycm9yIl0sIm5vLXRoaXMtYmVmb3JlLXN1cGVyIjpbImVycm9yIl0sIm5vLXVuZGVmIjpbImVycm9yIl0sIm5vLXVuZXhwZWN0ZWQtbXVsdGlsaW5lIjpbImVycm9yIl0sIm5vLXVucmVhY2hhYmxlIjpbImVycm9yIl0sIm5vLXVuc2FmZS1maW5hbGx5IjpbImVycm9yIl0sIm5vLXVuc2FmZS1uZWdhdGlvbiI6WyJlcnJvciJdLCJuby11bnNhZmUtb3B0aW9uYWwtY2hhaW5pbmciOlsiZXJyb3IiXSwibm8tdW51c2VkLWxhYmVscyI6WyJlcnJvciJdLCJuby11bnVzZWQtdmFycyI6WyJlcnJvciJdLCJuby11c2VsZXNzLWJhY2tyZWZlcmVuY2UiOlsiZXJyb3IiXSwibm8tdXNlbGVzcy1jYXRjaCI6WyJlcnJvciJdLCJuby11c2VsZXNzLWVzY2FwZSI6WyJlcnJvciJdLCJuby13aXRoIjpbImVycm9yIl0sInJlcXVpcmUteWllbGQiOlsiZXJyb3IiXSwidXNlLWlzbmFuIjpbImVycm9yIl0sInZhbGlkLXR5cGVvZiI6WyJlcnJvciJdLCJuby11bnVzZWQtcHJpdmF0ZS1jbGFzcy1tZW1iZXJzIjpbImVycm9yIl19fX0=))
 2. Webpack optimizes our code with variable renaming and dead code removal.
 3. We have lesser code bloat thanks to removing `this.` and `Dog.` prefixes.
-4. Our private and readonly properties are truly private and readonly now.
+4. <s>Our private and readonly properties are truly private and readonly now.</s> As we discussed earlier, regular classes also support this.
 
 ## How does this work?
 
@@ -221,4 +237,13 @@ From inside `init`, we return all publicly exposed properties. In this case, we 
 
 ## Conclusion
 
-I hope this post motivated you to make the jump from JavaScript `class` syntax to closures.
+I hope this post helped you understand how to rewrite JavaScript `class` syntax into closures.
+
+## Post conclusion
+
+Motivated by the HN comments, here's some additional considerations when using closure syntax to emulate classes:
+
+1. Developer experience takes a hit because now the `instanceof` check no longer works. Further, the syntax `Dog.init` might be strange to use instead of the familiar `new Dog`
+2. Every new object ships with a copy of all the methods, which is bad for memory optimization of the program.
+
+Also, I don't recommend that we start switching all classes to closures straightaway. With this blog post, I want to highlight the difference between the class pattern vs the closure pattern, and how each of them have their differences and advantages. The choice of which one to use is ultimately yours to make.
