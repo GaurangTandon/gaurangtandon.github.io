@@ -6,13 +6,14 @@ categories: tech
 permalink: /blog/code-review-attention
 ---
 
-Your colleague just sent you a twenty file changeset for review. You are busy ~~watching anime~~ working on your project, so what do you do? Sometimes, you may take shortcuts and then justify them to yourself! "I will review the main idea, the code is hopefully correct", "There was another assigned reviewer, who has already approved this changeset", or my favorite: "I trust my colleagues to write good code, even if I don't trust myself to do the same".
+## Introduction and Demo
 
-So you sprinkle a few comments as your "review", and then hit approve! Within minutes, the changeset is merged, and the latest code is auto-deployed to production.
+Would be cool if the popular code review platforms implemented "Review audits" on their system. These could appear in any one file in a very large pull request, to make sure the reviewer is paying attention to all the files in the pull request.
 
-But would you be able to sleep peacefully at night, if there was a bug in that code? A logic error in a critical resource access check? An edge case in the API behavior? Possibly, a wrong database command may now be running on production, due to the merge request that _YOU_ just approved.
+Some examples:
 
-Such incomplete reviews are detrimental to the long term health of the codebase. What if there was a way to flag the sleepy reviewers?
+Put 2-3 example screenshots here of a gitlab diff mock up showing the code review audit idea
+
 
 ## Review audits on StackOverflow
 
