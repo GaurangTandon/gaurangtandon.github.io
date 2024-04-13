@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Email is a great note-taking tool for debugging sessions"
-date:   2023-12-31 00:00:00 +0530
+date:   2024-01-01 10:00:00 +0530
 categories: tech
 permalink: /blog/note-taking-email
 ---
