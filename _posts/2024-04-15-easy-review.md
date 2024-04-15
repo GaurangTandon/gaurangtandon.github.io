@@ -49,13 +49,13 @@ The rule of thumb I follow is: I first write the feature changeset fully. Once i
 
 ## Make the changeset understandable
 
-**tl;dr:** Reviewing understandable changesets avoids needless asynchronous back-and-forth, saves everyone time, and helps build trust with the reviewer.
+**tl;dr:** Reviewing understandable changesets avoids needless asynchronous back-and-forth, and saves everyone time.
 
 ### Explain confusing changes
 
 You should always explain any change that is not immediately obvious. This saves the reviewer time from having to ask you a question, and you from having to respond to it. In asynchronous/remote teams, this saves everyone time.
 
-As a **rule of thumb**, **if I feel any part is confusing, I always explain it**, because the reviewer is likely to find it confusing too.
+As a **rule of thumb**, **if I feel any part is confusing, I always explain it ahead of time**, because the reviewer is likely to find it confusing too.
 
 <!-- ### Add in-code comments for explanations
 
@@ -65,14 +65,14 @@ Generally, try to add explanations to the code itself, or to the commit messages
 
 ### Explain alternative solutions for the same issue
 
-The reviewer is also a subject matter expert just like you. They're likely to think of other solutions to the same issue. If you have also thought about them, you should make that clear in the changeset. Specifically: what solutions did you implement and why did they fall short of the proposed solution?
+The reviewer is also a subject matter expert just like you. They're likely to think of other solutions to the same issue. If you have also thought about them, you should make that clear in the changeset. Specifically: which other solutions did you implement, and why did they fall short of the proposed solution?
 
-Without your explanation, the reviewer will just be confused: _Why didn't we implement solution X which seems much simpler?_.
+Without your explanation, the reviewer will just be confused: _Why didn't we implement solution X which appears much simpler?_
 
 ### Add tests
 
-Tests help the reviewer understand how a given bug manifests in practice. Tests also give the reviewer confidence that your implementation fixes the bug. Finally, tests clarify your thought process, because they describe all the instances that you consider relevant for the changeset. This allows the reviewer to suggest any new instance which should also be tested in this changeset.
+Tests help the reviewer understand how a given bug manifests in practice. Tests also give the reviewer confidence that your implementation does fix that bug. Finally, tests clarify your thought process, because they describe all the instances that you consider relevant to the bug. This allows the reviewer to suggest any new instance which should also be tested in this changeset.
 
 ## Conclusion
 
-I hope you found the blog post useful.
+I hope you found the blog post useful. Feel free to reach out to me to continue the discussion.
