@@ -247,3 +247,41 @@ Motivated by the HN comments, here's some additional considerations when using c
 2. Every new object ships with a copy of all the methods, which is bad for memory optimization of the program.
 
 Also, I don't recommend that we start switching all classes to closures straightaway. With this blog post, I want to highlight the difference between the class pattern vs the closure pattern, and how each of them have their differences and advantages. The choice of which one to use is ultimately yours to make.
+
+## Further discussion
+
+Mika Genic reached out to me via e-mail to provide a clever design that clearly defines a public interface while also avoiding an IIFE. Here's an example:
+
+```js
+function Dog(name) {
+  // define public interface
+  const self = Object.assign(this, {
+    publicFn1,
+  })
+
+  // init private state
+  let created = new Date()
+ 
+  // call constructor
+  constructor()
+
+  return self
+ 
+  // logic
+  function constructor() { console.log(`dog created`) }
+  function publicFn1() { console.log(`${privateFn1()}`) }
+  function privateFn1() { return `${name} ${created}` }
+}
+
+let dog = new Dog(`Billy`)
+dog.publicFn1()
+```
+
+Note that:
+
+1. there is no IIFE, which makes understanding the code far simpler.
+2. the public interface is clearly separated from the rest of the logic
+3. You can use the traditional `new` keyword to construct objects from this class.
+4. You can avoid `this` entirely.
+
+Some readers will notice that this is very similar to the pre-ES6 way of declaring classes. Here's an [example post on StackOverflow](https://stackoverflow.com/a/387733).
