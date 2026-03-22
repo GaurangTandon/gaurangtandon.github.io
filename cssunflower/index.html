@@ -1,0 +1,757 @@
+---
+permalink: /cssunflower
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSSunflower</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      background: #f4f3ee;
+      color: #3a3a4a;
+      font-family: 'DM Mono', 'Fira Mono', monospace;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 14px 20px 12px;
+      border-bottom: 1px solid #e0ddd6;
+      background: #faf9f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .header-row-1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-row-2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: #555560;
+    }
+
+    .tagline a {
+      color: #2a7a5a;
+      text-decoration: none;
+    }
+
+    .tagline a:hover {
+      text-decoration: underline;
+    }
+
+    .header-row-3 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .btn-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tagline + .btn-group::before,
+    .header-row-3 .btn-group + .btn-group::before {
+      content: '·';
+      color: #c8c7c0;
+      font-size: 18px;
+      margin-right: 8px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #2a7a5a;
+    }
+
+    .header-btn {
+      background: transparent;
+      border: 1px solid #c8c7c0;
+      color: #3a3a4a;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+      flex-shrink: 0;
+    }
+
+    .header-btn:hover {
+      background: #3a3a4a;
+      color: #fff;
+      border-color: #3a3a4a;
+    }
+
+    .header-btn:active {
+      transform: scale(0.97);
+    }
+
+    button#share {
+      color: #2a7a5a;
+      border-color: #2a7a5a;
+    }
+
+    button#share:hover {
+      background: #2a7a5a;
+      color: #fff;
+      border-color: #2a7a5a;
+    }
+
+    .diff-btn.diff-active {
+      background: #2a7a5a;
+      color: #fff;
+      border-color: #2a7a5a;
+    }
+
+    .diff-btn.diff-active:hover {
+      background: #1a6a4a;
+      border-color: #1a6a4a;
+    }
+
+    button#gear {
+      font-size: 16px;
+      padding: 6px 10px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+
+    /* Mobile layout */
+    @media (max-width: 640px) {
+      header {
+        padding: 10px 14px;
+        gap: 8px;
+      }
+
+      .tagline {
+        font-size: 10px;
+      }
+
+      .header-row-2,
+      .header-row-3 {
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .tagline + .btn-group::before,
+      .header-row-3 .btn-group + .btn-group::before {
+        display: none;
+      }
+
+      #solution-btn,
+      #share,
+      #about-btn {
+        font-size: 0;
+        padding: 6px 8px;
+        letter-spacing: 0;
+      }
+
+      #solution-btn::before {
+        content: '💡';
+        font-size: 15px;
+      }
+
+      #share::before {
+        content: '⬆';
+        font-size: 15px;
+      }
+
+      #about-btn::before {
+        content: '?';
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      dialog {
+        min-width: unset;
+        width: calc(100vw - 32px);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    /* Dialog */
+    dialog {
+      border: 1px solid #d8d7d0;
+      border-radius: 8px;
+      background: #faf9f4;
+      padding: 28px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      font-family: 'DM Mono', 'Fira Mono', monospace;
+      color: #3a3a4a;
+      width: clamp(320px, 90vw, 520px);
+      max-width: calc(100vw - 32px);
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+    }
+
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    dialog h2 {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #2a7a5a;
+      margin-bottom: 20px;
+      padding-right: 24px;
+    }
+
+    .dialog-close-x {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: transparent;
+      border: none;
+      font-size: 18px;
+      line-height: 1;
+      color: #aaa;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 4px;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .dialog-close-x:hover {
+      color: #3a3a4a;
+      background: #ebe9e2;
+    }
+
+    .dialog-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888890;
+      white-space: nowrap;
+      width: 64px;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      background: #fff;
+      border: 1px solid #d8d7d0;
+      color: #3a3a4a;
+      font-family: inherit;
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="number"] {
+      width: 64px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+    }
+
+    #inp-suns,
+    #inp-plants {
+      width: 160px;
+    }
+
+    input:focus {
+      border-color: #2a7a5a;
+    }
+
+    input.error {
+      border-color: #cc4422;
+    }
+
+    .dialog-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    button#generate {
+      background: #2a7a5a;
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 7px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    button#generate:hover {
+      background: #1a6a4a;
+    }
+
+    button#generate:active {
+      transform: scale(0.97);
+    }
+
+
+    .about-attribution {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #3a3a4a;
+      margin-bottom: 16px;
+    }
+
+    .about-attribution a {
+      color: #2a7a5a;
+      text-decoration: none;
+    }
+
+    .about-attribution a:hover {
+      text-decoration: underline;
+    }
+
+    .about-body details {
+      border: 1px solid #e0ddd6;
+      border-radius: 6px;
+      background: #fff;
+      margin-bottom: 8px;
+      transition: background 0.2s;
+    }
+
+    .about-body details[open] {
+      background: #f5f4ef;
+    }
+
+    .about-body summary {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: #3a3a4a;
+      cursor: pointer;
+      padding: 10px 14px;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.15s;
+    }
+
+    .about-body summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .about-body summary::before {
+      content: '▸';
+      color: #2a7a5a;
+      font-size: 11px;
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+
+    .about-body details[open]>summary::before {
+      transform: rotate(90deg);
+    }
+
+    .about-body summary:hover {
+      color: #2a7a5a;
+    }
+
+    .about-body details> :not(summary) {
+      padding: 0 14px;
+    }
+
+    .about-body details> :is(ol, ul) {
+      padding-left: 50px;
+    }
+
+    .about-body details> :last-child {
+      padding-bottom: 12px;
+    }
+
+    /* Nested details */
+    .about-body details details {
+      margin: 4px 0;
+      border-color: #eae8e2;
+      background: #faf9f4;
+    }
+
+    .about-body details details[open] {
+      background: #f0efea;
+    }
+
+    .about-body p {
+      margin-bottom: 10px;
+      font-size: 12px;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+
+    .about-body li {
+      font-size: 12px;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    #about-dialog {
+      width: clamp(400px, 90vw, 676px);
+    }
+
+    /* Mirror rotation explainer animation */
+    .about-body .mirror-explainer-wrap {
+      padding: 0 !important;
+    }
+
+    .mirror-explainer-wrap {
+      position: relative;
+      margin: 10px 0 6px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid #e0ddd6;
+    }
+
+    .mirror-explainer {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .mirror-explainer th,
+    .mirror-explainer td {
+      padding: 6px 4px;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #3a3a4a;
+      border-bottom: 1px solid #eae8e2;
+      background: #fff;
+    }
+
+    .mirror-explainer tr:last-child th,
+    .mirror-explainer tr:last-child td {
+      border-bottom: none;
+    }
+
+    .mirror-explainer th {
+      width: 64px;
+      background: #f5f4ef;
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888890;
+    }
+
+    .mirror-explainer th:first-child {
+      width: 90px;
+    }
+
+    /* Mirror visual — matches game triangle: clip-path: polygon(0 0, 0% 100%, 100% 100%) */
+    .mirror-explainer .ex-mirror {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: #2a7a5a;
+      clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    }
+
+    /* Radio dot visuals */
+    .mirror-explainer .ex-radios {
+      display: flex;
+      justify-content: center;
+      gap: 3px;
+    }
+
+    .mirror-explainer .ex-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1.5px solid #aaa;
+      background: #fff;
+    }
+
+    .mirror-explainer .ex-dot.checked {
+      background: #2a7a5a;
+      border-color: #2a7a5a;
+    }
+
+    /* Animated highlight column */
+    .mirror-explainer-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 90px;
+      width: calc((100% - 90px) / 4);
+      background: rgba(42, 122, 90, 0.08);
+      border-left: 2px solid rgba(42, 122, 90, 0.35);
+      border-right: 2px solid rgba(42, 122, 90, 0.35);
+      animation: ex-slide 8s steps(1) infinite;
+      pointer-events: none;
+    }
+
+    @keyframes ex-slide {
+      0% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(100%);
+      }
+
+      50% {
+        transform: translateX(200%);
+      }
+
+      75% {
+        transform: translateX(300%);
+      }
+    }
+
+    #error-msg {
+      font-size: 11px;
+      color: #cc4422;
+      letter-spacing: 0.08em;
+      display: none;
+      padding: 0 28px 10px;
+      border-bottom: 1px solid #e0ddd6;
+      background: #faf9f4;
+    }
+
+    #error-msg.visible {
+      display: block;
+    }
+
+    #preview {
+      flex: 1;
+      width: 100%;
+      padding-top: 20px;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-row-1">
+      <h1>CSSunflower</h1>
+    </div>
+    <div class="header-row-2">
+      <span class="tagline">a pure HTML+CSS game by <a href="https://gaurangtandon.com" target="_blank" rel="noopener">Gaurang Tandon</a></span>
+      <div class="btn-group">
+        <button id="about-btn" class="header-btn">About</button>
+        <button id="mute" class="header-btn">♪</button>
+      </div>
+    </div>
+    <div class="header-row-3">
+      <div class="btn-group">
+        <button id="easy-btn" class="header-btn diff-btn diff-active">Easy</button>
+        <button id="hard-btn" class="header-btn diff-btn">Hard</button>
+        <button id="random-btn" class="header-btn diff-btn">Random</button>
+      </div>
+      <div class="btn-group">
+        <button id="solution-btn" class="header-btn">Solution</button>
+      </div>
+      <div class="btn-group">
+        <button id="share" class="header-btn">Share</button>
+        <button id="gear" class="header-btn" aria-label="Settings">⚙</button>
+      </div>
+    </div>
+  </header>
+
+  <dialog id="config-dialog">
+    <button id="dialog-close" class="dialog-close-x" aria-label="Close">✕</button>
+    <h2>Settings</h2>
+    <div class="dialog-fields">
+      <div class="field">
+        <label for="inp-cols">Cols</label>
+        <input id="inp-cols" type="number" min="1" max="1000" value="7">
+      </div>
+      <div class="field">
+        <label for="inp-rows">Rows</label>
+        <input id="inp-rows" type="number" min="1" max="1000" value="7">
+      </div>
+      <div class="field">
+        <label for="inp-suns">Suns</label>
+        <input id="inp-suns" type="text" placeholder="0,0" value="0,0">
+      </div>
+      <div class="field">
+        <label for="inp-plants">Plants</label>
+        <input id="inp-plants" type="text" placeholder="cols−1,rows−1" value="6,6">
+      </div>
+      <div class="field">
+        <label for="inp-tris">Mirrors</label>
+        <input id="inp-tris" type="text" placeholder="1,0 1,1 2,2"
+          value="0,2 4,2 4,0 6,0 6,4 3,4 3,6 1,0 2,0 0,3 1,4 2,5 5,1 0,6">
+      </div>
+    </div>
+    <div class="dialog-actions">
+      <button id="generate">Generate</button>
+    </div>
+  </dialog>
+
+  <dialog id="about-dialog">
+    <button id="about-close" class="dialog-close-x" aria-label="Close">✕</button>
+    <h2>About CSSunflower</h2>
+    <div class="about-body">
+      <p class="about-attribution">A pure HTML+CSS game by <a href="https://gaurangtandon.com" target="_blank" rel="noopener">Gaurang Tandon</a>.</p>
+      <details>
+        <summary>How to play?</summary>
+        <p>Guide sunlight from the sun ☀ to the plant 🌿 by rotating mirrors.</p>
+        <p>Click a mirror to rotate it 90°. Find the arrangement that sends the beam all the way to the plant.</p>
+        <p>Use <strong>Easy</strong>, <strong>Hard</strong>, or <strong>Random</strong> to generate a new puzzle, or
+          configure a custom grid with the ⚙
+          button.</p>
+        <p>Hit <strong>Solution</strong> to reveal the answer if you're stuck.</p>
+      </details>
+      <details>
+        <summary>What's special about this?</summary>
+        <p>The game UI and logic is implemented in HTML+CSS only (no JavaScript).</p>
+        <p><b>Note:</b> The actual game is in an iframe which does not have JavaScript. The root frame uses JavaScript
+          to generate the actual game, add sound effects and other interactive features.</p>
+      </details>
+      <details>
+        <summary>How is the mirror rotation implemented in pure CSS?</summary>
+        <p>
+          The animation below should help explain. The initial state is the first column. There is a radio group of four
+          radio inputs, whose checked state sets the rotation angle of the triangle. At a time, only one label is
+          clickable, which when clicked, moves the state to the next column.
+        </p>
+        <div class="mirror-explainer-wrap">
+          <table class="mirror-explainer">
+            <tr>
+              <th>Checked</th>
+              <td><span class="ex-radios"><span class="ex-dot checked"></span><span class="ex-dot"></span><span
+                    class="ex-dot"></span><span class="ex-dot"></span></span></td>
+              <td><span class="ex-radios"><span class="ex-dot"></span><span class="ex-dot checked"></span><span
+                    class="ex-dot"></span><span class="ex-dot"></span></span></td>
+              <td><span class="ex-radios"><span class="ex-dot"></span><span class="ex-dot"></span><span
+                    class="ex-dot checked"></span><span class="ex-dot"></span></span></td>
+              <td><span class="ex-radios"><span class="ex-dot"></span><span class="ex-dot"></span><span
+                    class="ex-dot"></span><span class="ex-dot checked"></span></span></td>
+            </tr>
+            <tr>
+              <th>Rotation</th>
+              <td>0°</td>
+              <td>90°</td>
+              <td>180°</td>
+              <td>270°</td>
+            </tr>
+            <tr>
+              <th>Mirror</th>
+              <td><span class="ex-mirror" style="transform:rotate(0deg)"></span></td>
+              <td><span class="ex-mirror" style="transform:rotate(90deg)"></span></td>
+              <td><span class="ex-mirror" style="transform:rotate(180deg)"></span></td>
+              <td><span class="ex-mirror" style="transform:rotate(270deg)"></span></td>
+            </tr>
+            <tr>
+              <th>Clickable</th>
+              <td>Label 2</td>
+              <td>Label 3</td>
+              <td>Label 4</td>
+              <td>Label 1</td>
+            </tr>
+          </table>
+        </div>
+      </details>
+      <details>
+        <summary>What is the logic to find valid paths here?</summary>
+        <ol>
+          <li>Build a directed graph where each sun contributes one node, each plant contributes one node, and each
+            mirror contributes four nodes (one for each orientation)</li>
+          <li>Connect node A to node B if light can move from A to B. Note that A cannot be plant and B cannot be a sun.
+          </li>
+          <li>Start a depth-first traversal from the sun and enumerate all possible paths - even visiting previously
+            visited nodes. There are no cycles here.</li>
+          <li>For each path, once it reaches a dead-end, move to the next part below..</li>
+        </ol>
+      </details>
+      <details>
+        <summary>How is the lighting of the path implemented in pure CSS?</summary>
+        <ol>
+          <li>Each node in the graph has a corresponding ID. Sun <code>#sun-x-y</code>. Plant: <code>#plant-x-y</code>.
+            Triangle: <code>#t-x-y-s0</code>, <code>#t-x-y-s1</code>, <code>#t-x-y-s2</code> and <code>#t-x-y-s3</code>
+          </li>
+          <li>Each cell in the grid also has four light beams <code>#l-x-y-0/1/2/3</code> for each of the four
+            directions light can flow in.</li>
+          <li>For example: the path is: Sun(3,5) -> Triangle(3,6,2) -> Triangle()</li>
+          <li><b>Note:</b> The actual output of the selectors can be optimized. That would be a good for a v2.</li>
+        </ol>
+      </details>
+      <details>
+        <summary>Can I make my own puzzles?</summary>
+        <p>Yes! Click the <b>⚙</b> button to get started.</p>
+      </details>
+      <details>
+        <summary>Did you use AI to implement this?</summary>
+        <p>I planned on pen-and-paper how I wanted each part of game to work (sun / plant / mirror / lights and their CSS selectors). I told this to Opus 4.6 on high thinking effort and gave it Playwright access so it can implement on its own. The code is too verbose for my liking, but it works. I still had to manually step in a few times to correct the directions.</p>
+      </details>
+      <details>
+        <summary>I found a bug</summary>
+        This is a proof of concept, so it may have subtle snags. Feel free to flex your finding on a forum or fire me
+        an email for a friendly discussion.
+      </details>
+    </div>
+  </dialog>
+
+  <div id="error-msg"></div>
+  <iframe id="preview" title="Mirror grid preview"></iframe>
+
+  <script src="./cssunflower.js"></script>
+</body>
+
+</html>
