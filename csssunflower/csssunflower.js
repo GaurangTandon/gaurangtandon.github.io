@@ -715,41 +715,41 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
   .light-d, .light-u {
     align-self: stretch;
     justify-self: center;
-    width: calc(4px * var(--s));
-    border-radius: calc(2px * var(--s));
-    box-shadow: 0 0 calc(10px * var(--s)) calc(3px * var(--s)) rgba(255,200,0,0.5), 0 0 calc(3px * var(--s)) calc(1px * var(--s)) rgba(255,240,0,0.8);
+    width: calc(var(--cell) * 4 / ${CELL_SIZE});
+    border-radius: calc(var(--cell) * 2 / ${CELL_SIZE});
+    box-shadow: 0 0 calc(var(--cell) * 10 / ${CELL_SIZE}) calc(var(--cell) * 3 / ${CELL_SIZE}) rgba(255,200,0,0.5), 0 0 calc(var(--cell) * 3 / ${CELL_SIZE}) calc(var(--cell) / ${CELL_SIZE}) rgba(255,240,0,0.8);
     background: repeating-linear-gradient(
       to bottom,
       transparent 0px,
-      rgba(255,210,0,0.15) 6px,
-      rgba(255,230,0,0.95) 11px,
-      rgba(255,210,0,0.15) 16px,
-      transparent 22px
+      rgba(255,210,0,0.15) calc(var(--cell) * 6 / ${CELL_SIZE}),
+      rgba(255,230,0,0.95) calc(var(--cell) * 11 / ${CELL_SIZE}),
+      rgba(255,210,0,0.15) calc(var(--cell) * 16 / ${CELL_SIZE}),
+      transparent calc(var(--cell) * 22 / ${CELL_SIZE})
     );
   }
   .light-r, .light-l {
     align-self: center;
     justify-self: stretch;
-    height: calc(4px * var(--s));
-    border-radius: calc(2px * var(--s));
-    box-shadow: 0 0 calc(10px * var(--s)) calc(3px * var(--s)) rgba(255,200,0,0.5), 0 0 calc(3px * var(--s)) calc(1px * var(--s)) rgba(255,240,0,0.8);
+    height: calc(var(--cell) * 4 / ${CELL_SIZE});
+    border-radius: calc(var(--cell) * 2 / ${CELL_SIZE});
+    box-shadow: 0 0 calc(var(--cell) * 10 / ${CELL_SIZE}) calc(var(--cell) * 3 / ${CELL_SIZE}) rgba(255,200,0,0.5), 0 0 calc(var(--cell) * 3 / ${CELL_SIZE}) calc(var(--cell) / ${CELL_SIZE}) rgba(255,240,0,0.8);
     background: repeating-linear-gradient(
       to right,
       transparent 0px,
-      rgba(255,210,0,0.15) 6px,
-      rgba(255,230,0,0.95) 11px,
-      rgba(255,210,0,0.15) 16px,
-      transparent 22px
+      rgba(255,210,0,0.15) calc(var(--cell) * 6 / ${CELL_SIZE}),
+      rgba(255,230,0,0.95) calc(var(--cell) * 11 / ${CELL_SIZE}),
+      rgba(255,210,0,0.15) calc(var(--cell) * 16 / ${CELL_SIZE}),
+      transparent calc(var(--cell) * 22 / ${CELL_SIZE})
     );
   }
   .light-d { animation: flow-d 0.65s linear infinite; }
   .light-u { animation: flow-u 0.65s linear infinite; }
   .light-r { animation: flow-r 0.65s linear infinite; }
   .light-l { animation: flow-l 0.65s linear infinite; }
-  @keyframes flow-d { from { background-position: 0 0; } to { background-position: 0 22px; } }
-  @keyframes flow-u { from { background-position: 0 0; } to { background-position: 0 -22px; } }
-  @keyframes flow-r { from { background-position: 0 0; } to { background-position: 22px 0; } }
-  @keyframes flow-l { from { background-position: 0 0; } to { background-position: -22px 0; } }
+  @keyframes flow-d { from { background-position: 0 0; } to { background-position: 0 calc(var(--cell) * 22 / ${CELL_SIZE}); } }
+  @keyframes flow-u { from { background-position: 0 0; } to { background-position: 0 calc(var(--cell) * -22 / ${CELL_SIZE}); } }
+  @keyframes flow-r { from { background-position: 0 0; } to { background-position: calc(var(--cell) * 22 / ${CELL_SIZE}) 0; } }
+  @keyframes flow-l { from { background-position: 0 0; } to { background-position: calc(var(--cell) * -22 / ${CELL_SIZE}) 0; } }
 
 ${buildMirrorCSS(mirrors)}
 ${buildLightCSS(mirrors, rows, cols, suns, plants)}
