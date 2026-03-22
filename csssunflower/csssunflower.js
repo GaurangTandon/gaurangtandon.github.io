@@ -61,6 +61,9 @@ function buildMirrorHTML({ x, y, id }) {
             <div class="triangle">
               <div class="shine-beam"></div>
               <div class="shine-edge"></div>
+              <div class="dark-edges"></div>
+              <div class="bevel"></div>
+              <div class="bevel-shadow"></div>
             </div>
             <label for="${id}-s1" class="overlay lnk-0" aria-label="rotate ${id}"></label>
             <label for="${id}-s2" class="overlay lnk-1" aria-label="rotate ${id}"></label>
@@ -437,6 +440,40 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
       rgba(255,255,255,0.6) 0%,
       transparent 40%
     );
+  }
+  /* dark non-reflective edges (left + bottom) */
+  .dark-edges {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to right, rgba(60,60,90,0.5) 0%, rgba(60,60,90,0.15) 6%, transparent 14%),
+      linear-gradient(to top,   rgba(60,60,90,0.5) 0%, rgba(60,60,90,0.15) 6%, transparent 14%);
+    z-index: 2;
+  }
+  /* reflective bevel along hypotenuse */
+  .bevel {
+    position: absolute;
+    top: 0; left: 0;
+    width: 141.4%;
+    height: 8px;
+    background: linear-gradient(180deg,
+      rgba(255,255,255,0.9) 0%,
+      rgba(200,210,240,0.7) 40%,
+      rgba(160,170,210,0.3) 70%,
+      transparent 100%);
+    transform-origin: 0 0;
+    transform: rotate(45deg);
+    z-index: 3;
+  }
+  .bevel-shadow {
+    position: absolute;
+    top: 0; left: 0;
+    width: 141.4%;
+    height: 2px;
+    background: rgba(255,255,255,0.95);
+    transform-origin: 0 0;
+    transform: rotate(45deg);
+    box-shadow: 0 1px 4px rgba(100,110,180,0.4);
+    z-index: 4;
   }
   @keyframes mirror-sweep {
     0%, 25% { transform: translateX(-180%) skewX(-6deg); opacity: 0; }
