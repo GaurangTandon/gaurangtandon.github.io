@@ -326,16 +326,9 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
   :root {
-    --cell: ${CELL_SIZE}px;
-    --tri: ${TRI_SIZE}px;
-    --s: 1;
-  }
-  @media (max-width: ${gridW + 20}px) {
-    :root {
-      --cell: calc((100vw - 22px) / ${cols});
-      --tri: calc((100vw - 22px) / ${cols} * ${TRI_SIZE} / ${CELL_SIZE});
-      --s: tan(atan2(var(--cell), ${CELL_SIZE}px));
-    }
+    --cell: min(${CELL_SIZE}px, (100vw - 22px) / ${cols}, (100vh - 22px) / ${rows});
+    --tri: calc(var(--cell) * ${TRI_SIZE} / ${CELL_SIZE});
+    --s: tan(atan2(var(--cell), ${CELL_SIZE}px));
   }
   html, body {
     min-height: 100%;
@@ -1274,20 +1267,32 @@ function loadMuteFromLocalStorage() {
 
 /** @returns {void} */
 function showSolution() {
-  if (!currentLevel) return;
-  const puzzle = PUZZLES[currentLevel];
-  if (!puzzle.solution) return;
+  let solutionStr;
+  if (currentLevel && PUZZLES[currentLevel]?.solution) {
+    solutionStr = PUZZLES[currentLevel].solution;
+  } else {
+    solutionStr = solvePuzzle();
+  }
+  if (solutionStr == null) return;
+
   const iframe = /** @type {HTMLIFrameElement} */ (document.getElementById('preview'));
   const iframeDoc = iframe.contentDocument;
-  const entries = puzzle.solution.trim().split(/\s+/).map(s => {
-    const [x, y, o] = s.split(',').map(Number);
-    return { x, y, o: o ?? 0 };
-  });
-  const solutionMap = new Map(entries.map(e => [`${e.x},${e.y}`, e.o]));
-  const allMirrors = puzzle.tris.trim().split(/\s+/).map(s => {
+
+  const triRaw = document.getElementById('inp-tris').value.trim();
+  const allMirrors = triRaw.split(/\s+/).map(s => {
     const [x, y] = s.split(',').map(Number);
     return { x, y };
   });
+
+  /** @type {Map<string, number>} */
+  const solutionMap = new Map();
+  if (solutionStr) {
+    for (const s of solutionStr.trim().split(/\s+/)) {
+      const [x, y, o] = s.split(',').map(Number);
+      solutionMap.set(`${x},${y}`, o ?? 0);
+    }
+  }
+
   allMirrors.forEach(({ x, y }, i) => {
     setTimeout(() => {
       const o = solutionMap.get(`${x},${y}`) ?? 0;
@@ -1627,6 +1632,109 @@ function findMinPathLength(n, allMirrors, sun, plant) {
 }
 
 /**
+ * Solve the current puzzle by BFS: find mirror orientations that route light from sun to plant.
+ * @returns {string|null}  solution string "x,y,o x,y,o ..." or null if unsolvable
+ */
+function solvePuzzle() {
+  const cols = parseInt(document.getElementById('inp-cols').value, 10);
+  const rows = parseInt(document.getElementById('inp-rows').value, 10);
+  const sunsRaw = document.getElementById('inp-suns').value.trim();
+  const plantsRaw = document.getElementById('inp-plants').value.trim();
+  const triRaw = document.getElementById('inp-tris').value.trim();
+
+  const suns = sunsRaw ? parsePosInput(sunsRaw) : [{ x: 0, y: 0 }];
+  const plants = plantsRaw ? parsePosInput(plantsRaw) : [{ x: cols - 1, y: rows - 1 }];
+
+  if (!triRaw) return '';
+
+  /** @type {Array<{x:number,y:number}>} */
+  const allMirrors = triRaw.split(/\s+/).map(s => {
+    const parts = s.split(',').map(Number);
+    return { x: parts[0], y: parts[1] };
+  });
+
+  const sun = suns[0];
+  const plant = plants[0];
+
+  /** @type {Map<string, number>} */
+  const mirrorAt = new Map();
+  for (let i = 0; i < allMirrors.length; i++) {
+    mirrorAt.set(`${allMirrors[i].x},${allMirrors[i].y}`, i);
+  }
+
+  /**
+   * @param {number} fromX
+   * @param {number} fromY
+   * @param {number} dirIdx
+   * @returns {{isPlant: boolean, mirrorIdx?: number}|null}
+   */
+  function trace(fromX, fromY, dirIdx) {
+    const [dx, dy] = getDelta(dirIdx);
+    let cx = fromX + dx, cy = fromY + dy;
+    while (cx >= 0 && cx < cols && cy >= 0 && cy < rows) {
+      if (cx === plant.x && cy === plant.y) return { isPlant: true };
+      const key = `${cx},${cy}`;
+      if (mirrorAt.has(key)) return { isPlant: false, mirrorIdx: mirrorAt.get(key) };
+      cx += dx;
+      cy += dy;
+    }
+    return null;
+  }
+
+  /** @type {Map<string, number>} */
+  const dist = new Map();
+  /** @type {Map<string, {parentKey: string|null, mirrorIdx: number, orientation: number}>} */
+  const prev = new Map();
+  /** @type {Array<{mirrorIdx: number, inDir: number, cost: number}>} */
+  const queue = [];
+
+  for (let dir = 0; dir < 4; dir++) {
+    const hit = trace(sun.x, sun.y, dir);
+    if (!hit) continue;
+    if (hit.isPlant) return '';
+    const key = `${hit.mirrorIdx},${dir}`;
+    if (!dist.has(key)) {
+      dist.set(key, 1);
+      prev.set(key, { parentKey: null, mirrorIdx: -1, orientation: -1 });
+      queue.push({ mirrorIdx: hit.mirrorIdx, inDir: dir, cost: 1 });
+    }
+  }
+
+  let head = 0;
+  while (head < queue.length) {
+    const { mirrorIdx, inDir, cost } = queue[head++];
+    const stateKey = `${mirrorIdx},${inDir}`;
+    if (dist.get(stateKey) < cost) continue;
+    const mirror = allMirrors[mirrorIdx];
+
+    for (const { orientation, outDir } of getReflections(inDir)) {
+      const hit = trace(mirror.x, mirror.y, outDir);
+      if (!hit) continue;
+      if (hit.isPlant) {
+        /** @type {Map<number, number>} */
+        const solution = new Map();
+        solution.set(mirrorIdx, orientation);
+        let current = stateKey;
+        while (current !== null && prev.has(current)) {
+          const p = prev.get(current);
+          if (p.mirrorIdx >= 0) solution.set(p.mirrorIdx, p.orientation);
+          current = p.parentKey;
+        }
+        return [...solution].map(([idx, o]) => `${allMirrors[idx].x},${allMirrors[idx].y},${o}`).join(' ');
+      }
+      const nextKey = `${hit.mirrorIdx},${outDir}`;
+      const nextCost = cost + 1;
+      if (!dist.has(nextKey) || dist.get(nextKey) > nextCost) {
+        dist.set(nextKey, nextCost);
+        prev.set(nextKey, { parentKey: stateKey, mirrorIdx, orientation });
+        queue.push({ mirrorIdx: hit.mirrorIdx, inDir: outDir, cost: nextCost });
+      }
+    }
+  }
+  return null;
+}
+
+/**
  * Build the final puzzle object from a valid path + decoys.
  * @param {number} n
  * @param {Array<{x:number,y:number,orientation:number}>} solutionMirrors
@@ -1759,5 +1867,6 @@ loadMuteFromLocalStorage();
 if (!new URLSearchParams(location.search).has('p')) {
   loadDifficulty('easy');
 } else {
+  currentLevel = null;
   generate();
 }
