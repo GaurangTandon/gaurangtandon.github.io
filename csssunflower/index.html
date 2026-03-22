@@ -728,7 +728,7 @@ layout: null
       <p class="about-attribution">A pure HTML+CSS game by <a href="https://gaurangtandon.com" target="_blank" rel="noopener">Gaurang Tandon</a>.</p>
       <details>
         <summary>How to play?</summary>
-        <p>Guide sunlight from the sun ☀ to the plant 🌿 by rotating mirrors.</p>
+        <p>Guide sunlight from the sun ☀️ to the sunflower 🌻 by rotating mirrors.</p>
         <p>Click a mirror to rotate it 90°. Find the arrangement that sends the beam all the way to the plant.</p>
         <p>Use <strong>Easy</strong>, <strong>Hard</strong>, or <strong>Random</strong> to generate a new puzzle, or
           configure a custom grid with the ⚙
@@ -788,25 +788,52 @@ layout: null
       <details>
         <summary>What is the logic to find valid paths here?</summary>
         <ol>
-          <li>Build a directed graph where each sun contributes one node, each plant contributes one node, and each
-            mirror contributes four nodes (one for each orientation)</li>
-          <li>Connect node A to node B if light can move from A to B. Note that A cannot be plant and B cannot be a sun.
-          </li>
-          <li>Start a depth-first traversal from the sun and enumerate all possible paths - even visiting previously
-            visited nodes. There are no cycles here.</li>
-          <li>For each path, once it reaches a dead-end, move to the next part below..</li>
+          <li><strong>Model as a directed graph.</strong> Each sun is one node, each plant is one node, and each mirror
+            contributes four nodes (one per orientation). An edge from A to B exists if light can physically
+            travel from A to B — suns are source-only, plants are sink-only.</li>
+          <li><strong>DFS from each sun.</strong> Starting from every sun, traverse outward in all four directions.
+            When a beam hits a mirror, branch into the possible orientations that reflect from that incoming direction
+            (each mirror orientation produces a different outgoing direction).</li>
+          <li><strong>Emit CSS at each step.</strong> Every cell the beam passes through generates a CSS rule.
+            Empty cells get unconditional rules. Mirror cells add a <code>:checked</code> condition for that mirror's
+            orientation, and all conditions from earlier mirrors in the chain are carried forward. The result is
+            a complete set of rules covering every reachable beam path for every combination of mirror states.</li>
         </ol>
       </details>
       <details>
         <summary>How is the lighting of the path implemented in pure CSS?</summary>
+        <p>Every cell in the grid has four invisible light-beam <code>&lt;div&gt;</code>s (one per direction: down, up, right, left),
+          all set to <code>display: none</code> by default. At puzzle-build time, JavaScript does a depth-first traversal from each sun
+          through every possible mirror configuration and emits CSS rules that selectively show beams.</p>
         <ol>
-          <li>Each node in the graph has a corresponding ID. Sun <code>#sun-x-y</code>. Plant: <code>#plant-x-y</code>.
-            Triangle: <code>#t-x-y-s0</code>, <code>#t-x-y-s1</code>, <code>#t-x-y-s2</code> and <code>#t-x-y-s3</code>
+          <li><strong>IDs:</strong> Sun: <code>#sun-x-y</code>. Plant: <code>#plant-x-y</code>.
+            Mirror radio inputs: <code>#t-x-y-s0</code> through <code>#t-x-y-s3</code>.
+            Light beams: <code>#l-row-col-dir</code> (dir: 0=down, 1=up, 2=right, 3=left).
           </li>
-          <li>Each cell in the grid also has four light beams <code>#l-x-y-0/1/2/3</code> for each of the four
-            directions light can flow in.</li>
-          <li>For example: the path is: Sun(3,5) -> Triangle(3,6,2) -> Triangle()</li>
-          <li><b>Note:</b> The actual output of the selectors can be optimized. That would be a good for a v2.</li>
+          <li><strong>Selector chaining:</strong> Since the radio inputs and the grid are siblings in the DOM,
+            the <code>~</code> combinator lets us write rules like
+            <code>#t-3-6-s0:checked ~ #t-5-6-s2:checked ~ .grid #l-6-5-0 { display: block; }</code>.
+            Each mirror along the path adds another <code>:checked</code> condition — so a beam only appears when
+            <em>every</em> mirror in the chain is correctly oriented.</li>
+          <li><strong>Half-beams at mirrors:</strong> Inside a mirror cell, the incoming and outgoing beams are each
+            clipped to 50% of the cell (e.g. <code>align-self: start; height: 50%</code> for a beam entering from the top).
+            This creates the visual "bounce" at the reflection point without any extra elements.</li>
+        </ol>
+        <h4>Worked example</h4>
+        <p>Path: Sun(3,5) → Triangle(3,6) at orientation 0 → Triangle(5,6) at orientation 2 → Plant(5,7).</p>
+        <ol>
+          <li>The sun emits downward. Light travels through empty cells, each getting a simple rule:
+            <code>.grid #l-5-3-0 { display: block; }</code> (no conditions needed — sun always shines).</li>
+          <li>Light hits mirror <code>t-3-6</code>. Orientation 0 reflects down→right. Two half-beam rules are generated:
+            <br><code>#t-3-6-s0:checked ~ .grid #l-6-3-0 { display: block; align-self: start; height: 50%; }</code> (incoming, top half)
+            <br><code>#t-3-6-s0:checked ~ .grid #l-6-3-2 { display: block; justify-self: end; width: 50%; }</code> (outgoing, right half)</li>
+          <li>Light continues right through empty cells (full-width beams), each conditioned on <code>#t-3-6-s0:checked</code>.</li>
+          <li>Light hits mirror <code>t-5-6</code>. Orientation 2 reflects right→down. Now <em>both</em> mirrors must be checked:
+            <br><code>#t-3-6-s0:checked ~ #t-5-6-s2:checked ~ .grid #l-6-5-2 { display: block; ... }</code>
+            <br><code>#t-3-6-s0:checked ~ #t-5-6-s2:checked ~ .grid #l-6-5-0 { display: block; ... }</code></li>
+          <li>Light reaches Plant(5,7):
+            <br><code>#t-3-6-s0:checked ~ #t-5-6-s2:checked ~ .grid #l-7-5-0 { display: block; opacity: 0; }</code>
+            <br>The beam is invisible, but its <code>display: block</code> triggers win detection.</li>
         </ol>
       </details>
       <details>
@@ -814,13 +841,9 @@ layout: null
         <p>Yes! Click the <b>⚙</b> button to get started.</p>
       </details>
       <details>
-        <summary>Did you use AI to implement this?</summary>
-        <p>I planned on pen-and-paper how I wanted each part of game to work (sun / plant / mirror / lights and their CSS selectors). I told this to Opus 4.6 on high thinking effort and gave it Playwright access so it can implement on its own. The code is too verbose for my liking, but it works. I still had to manually step in a few times to correct the directions.</p>
-      </details>
-      <details>
         <summary>I found a bug</summary>
-        This is a proof of concept, so it may have subtle snags. Feel free to flex your finding on a forum or fire me
-        an email for a friendly discussion.
+        <p>This is a proof of concept, so it may have subtle snags. Feel free to flex your finding on a forum or fire me
+        an email for a friendly discussion.</p>
       </details>
     </div>
   </dialog>
