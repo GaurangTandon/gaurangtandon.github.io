@@ -8,7 +8,7 @@ layout: null
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSSunflower</title>
+  <title>CSSSunflower</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23FFD54F'/%3E%3Cstop offset='100%25' stop-color='%23FFB300'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='12' fill='url(%23g)'/%3E%3Cg fill='%23FFB300'%3E%3Cellipse cx='32' cy='10' rx='5' ry='9' /%3E%3Cellipse cx='32' cy='54' rx='5' ry='9' /%3E%3Cellipse cx='10' cy='32' rx='9' ry='5' /%3E%3Cellipse cx='54' cy='32' rx='9' ry='5' /%3E%3Cellipse cx='16.4' cy='16.4' rx='5' ry='9' transform='rotate(45 16.4 16.4)' /%3E%3Cellipse cx='47.6' cy='47.6' rx='5' ry='9' transform='rotate(45 47.6 47.6)' /%3E%3Cellipse cx='47.6' cy='16.4' rx='5' ry='9' transform='rotate(-45 47.6 16.4)' /%3E%3Cellipse cx='16.4' cy='47.6' rx='5' ry='9' transform='rotate(-45 16.4 47.6)' /%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='8' fill='%238D6E63'/%3E%3C/svg%3E">
   <style>
     *,
@@ -82,6 +82,7 @@ layout: null
     }
 
     .tagline + .btn-group::before,
+    .header-row-2 .btn-group + .btn-group::before,
     .header-row-3 .btn-group + .btn-group::before {
       content: '·';
       color: #c8c7c0;
@@ -99,7 +100,7 @@ layout: null
     .header-btn {
       background: transparent;
       border: 1px solid #c8c7c0;
-      color: #3a3a4a;
+      color: #2a7a5a;
       font-family: inherit;
       font-size: 12px;
       font-weight: 600;
@@ -114,24 +115,13 @@ layout: null
     }
 
     .header-btn:hover {
-      background: #3a3a4a;
+      background: #2a7a5a;
       color: #fff;
-      border-color: #3a3a4a;
+      border-color: #2a7a5a;
     }
 
     .header-btn:active {
       transform: scale(0.97);
-    }
-
-    button#share {
-      color: #2a7a5a;
-      border-color: #2a7a5a;
-    }
-
-    button#share:hover {
-      background: #2a7a5a;
-      color: #fff;
-      border-color: #2a7a5a;
     }
 
     .diff-btn.diff-active {
@@ -145,11 +135,36 @@ layout: null
       border-color: #1a6a4a;
     }
 
-    button#gear {
-      font-size: 16px;
-      padding: 6px 10px;
-      line-height: 1;
+    button#gear,
+    button#mute {
+      font-size: 0;
+      padding: 5px 8px;
       letter-spacing: 0;
+    }
+
+    button#gear::before,
+    button#mute::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: currentColor;
+      vertical-align: middle;
+    }
+
+    button#gear::before {
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z'/%3E%3C/svg%3E") center/contain no-repeat;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+
+    button#mute::before {
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18V5l12-2v13'/%3E%3Ccircle cx='6' cy='18' r='3'/%3E%3Ccircle cx='18' cy='16' r='3'/%3E%3C/svg%3E") center/contain no-repeat;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18V5l12-2v13'/%3E%3Ccircle cx='6' cy='18' r='3'/%3E%3Ccircle cx='18' cy='16' r='3'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+
+    button#mute.muted::before {
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18V5l12-2v13'/%3E%3Ccircle cx='6' cy='18' r='3'/%3E%3Ccircle cx='18' cy='16' r='3'/%3E%3Cline x1='1' y1='1' x2='23' y2='23'/%3E%3C/svg%3E") center/contain no-repeat;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18V5l12-2v13'/%3E%3Ccircle cx='6' cy='18' r='3'/%3E%3Ccircle cx='18' cy='16' r='3'/%3E%3Cline x1='1' y1='1' x2='23' y2='23'/%3E%3C/svg%3E") center/contain no-repeat;
     }
 
 
@@ -170,34 +185,71 @@ layout: null
         gap: 6px;
       }
 
-      .tagline + .btn-group::before,
-      .header-row-3 .btn-group + .btn-group::before {
-        display: none;
+      .tagline + .btn-group::before {
+        display: inline;
       }
 
       #solution-btn,
       #share,
       #about-btn {
         font-size: 0;
-        padding: 6px 8px;
+        padding: 4px 6px;
         letter-spacing: 0;
+      }
+
+      #solution-btn::before,
+      #share::before,
+      #about-btn::before {
+        content: '';
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background: currentColor;
+        vertical-align: middle;
+      }
+
+      button#gear,
+      button#mute {
+        padding: 5px 7px;
+      }
+
+      button#gear::before,
+      button#mute::before {
+        width: 15px;
+        height: 15px;
+      }
+
+      .btn-group::before {
+        margin-right: 0 !important;
+      }
+
+      .diff-btn {
+        font-size: 10px;
+      }
+
+      #about-btn + #mute,
+      #share + #gear {
+        margin-left: 4px;
+      }
+
+      #mute,
+      #gear {
+        position: relative;
       }
 
       #solution-btn::before {
-        content: '💡';
-        font-size: 15px;
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-4 12.7c.5.4.9 1.2 1 2.3h6c.1-1.1.5-1.9 1-2.3A7 7 0 0 0 12 2z'/%3E%3Crect x='9' y='19' width='6' height='1.5' rx='.75'/%3E%3Crect x='10' y='22' width='4' height='1.5' rx='.75'/%3E%3C/svg%3E") center/contain no-repeat;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-4 12.7c.5.4.9 1.2 1 2.3h6c.1-1.1.5-1.9 1-2.3A7 7 0 0 0 12 2z'/%3E%3Crect x='9' y='19' width='6' height='1.5' rx='.75'/%3E%3Crect x='10' y='22' width='4' height='1.5' rx='.75'/%3E%3C/svg%3E") center/contain no-repeat;
       }
 
       #share::before {
-        content: '⬆';
-        font-size: 15px;
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='18' cy='5' r='3'/%3E%3Ccircle cx='6' cy='12' r='3'/%3E%3Ccircle cx='18' cy='19' r='3'/%3E%3Cline x1='8.59' y1='13.51' x2='15.42' y2='17.49'/%3E%3Cline x1='15.41' y1='6.51' x2='8.59' y2='10.49'/%3E%3C/svg%3E") center/contain no-repeat;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='18' cy='5' r='3'/%3E%3Ccircle cx='6' cy='12' r='3'/%3E%3Ccircle cx='18' cy='19' r='3'/%3E%3Cline x1='8.59' y1='13.51' x2='15.42' y2='17.49'/%3E%3Cline x1='15.41' y1='6.51' x2='8.59' y2='10.49'/%3E%3C/svg%3E") center/contain no-repeat;
       }
 
       #about-btn::before {
-        content: '?';
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 0;
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3'/%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'/%3E%3C/svg%3E") center/contain no-repeat;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3'/%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'/%3E%3C/svg%3E") center/contain no-repeat;
       }
 
       dialog {
@@ -345,6 +397,29 @@ layout: null
       transform: scale(0.97);
     }
 
+    button#copy-grid {
+      background: transparent;
+      color: #2a7a5a;
+      border: 1px solid #2a7a5a;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 7px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, transform 0.1s;
+    }
+
+    button#copy-grid:hover {
+      background: #2a7a5a;
+      color: #fff;
+    }
+
+    button#copy-grid:active {
+      transform: scale(0.97);
+    }
 
     .about-attribution {
       font-size: 13px;
@@ -589,13 +664,13 @@ layout: null
 
   <header>
     <div class="header-row-1">
-      <h1>CSSunflower</h1>
+      <h1><span style="color: #d4a017;">CSS</span>Sunflower</h1>
     </div>
     <div class="header-row-2">
       <span class="tagline">a pure HTML+CSS game by <a href="https://gaurangtandon.com" target="_blank" rel="noopener">Gaurang Tandon</a></span>
       <div class="btn-group">
         <button id="about-btn" class="header-btn">About</button>
-        <button id="mute" class="header-btn">♪</button>
+        <button id="mute" class="header-btn" aria-label="Sound"></button>
       </div>
     </div>
     <div class="header-row-3">
@@ -609,7 +684,7 @@ layout: null
       </div>
       <div class="btn-group">
         <button id="share" class="header-btn">Share</button>
-        <button id="gear" class="header-btn" aria-label="Settings">⚙</button>
+        <button id="gear" class="header-btn" aria-label="Settings"></button>
       </div>
     </div>
   </header>
@@ -641,13 +716,14 @@ layout: null
       </div>
     </div>
     <div class="dialog-actions">
+      <button id="copy-grid">Copy Grid Link</button>
       <button id="generate">Generate</button>
     </div>
   </dialog>
 
   <dialog id="about-dialog">
     <button id="about-close" class="dialog-close-x" aria-label="Close">✕</button>
-    <h2>About CSSunflower</h2>
+    <h2>About <span style="color: #d4a017;">CSS</span>Sunflower</h2>
     <div class="about-body">
       <p class="about-attribution">A pure HTML+CSS game by <a href="https://gaurangtandon.com" target="_blank" rel="noopener">Gaurang Tandon</a>.</p>
       <details>
@@ -743,8 +819,8 @@ layout: null
       </details>
       <details>
         <summary>I found a bug</summary>
-        <p>This is a proof of concept, so it may have subtle snags. Feel free to flex your finding on a forum or fire me
-        an email for a friendly discussion :-)</p>
+        This is a proof of concept, so it may have subtle snags. Feel free to flex your finding on a forum or fire me
+        an email for a friendly discussion.
       </details>
     </div>
   </dialog>
@@ -753,7 +829,7 @@ layout: null
   <iframe id="preview" title="Mirror grid preview"></iframe>
 
   <script data-goatcounter="https://gaurang.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-  <script src="/cssunflower/cssunflower.js"></script>
+  <script src="/csssunflower/csssunflower.js"></script>
 </body>
 
 </html>

@@ -104,13 +104,22 @@ function buildSunHTML(x, y) {
  * @returns {string}
  */
 function buildPlantHTML(x, y) {
-  return `      <div class="cell plant-cell" id="plant-${x}-${y}" style="grid-column:${x + 1}; grid-row:${y + 1};" title="🌿 plant">
+  return `      <div class="cell plant-cell" id="plant-${x}-${y}" style="grid-column:${x + 1}; grid-row:${y + 1};" title="🌻 sunflower">
         <div class="plant">
           <div class="plant-top">
-            <div class="leaf leaf-top"></div>
+            <div class="flower-head">
+              <div class="petal p0"></div>
+              <div class="petal p1"></div>
+              <div class="petal p2"></div>
+              <div class="petal p3"></div>
+              <div class="petal p4"></div>
+              <div class="petal p5"></div>
+              <div class="petal p6"></div>
+              <div class="petal p7"></div>
+              <div class="flower-center"></div>
+            </div>
             <div class="leaf leaf-left"></div>
             <div class="leaf leaf-right"></div>
-            <div class="leaf leaf-left2"></div>
             <div class="stem"></div>
           </div>
           <div class="pot-rim"></div>
@@ -308,7 +317,7 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CSSunflower</title>
+<title>CSSSunflower</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -316,11 +325,13 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
   :root {
     --cell: ${CELL_SIZE}px;
     --tri: ${TRI_SIZE}px;
+    --s: 1;
   }
   @media (max-width: ${gridW + 20}px) {
     :root {
       --cell: calc((100vw - 22px) / ${cols});
       --tri: calc((100vw - 22px) / ${cols} * ${TRI_SIZE} / ${CELL_SIZE});
+      --s: tan(atan2(var(--cell), ${CELL_SIZE}px));
     }
   }
   html, body {
@@ -338,6 +349,9 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
     border: 1px solid #c8c4b8;
     border-radius: 10px;
     overflow: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
     box-shadow:
       0 2px 8px rgba(0,0,0,0.06),
       0 8px 40px rgba(0,0,0,0.10),
@@ -445,6 +459,7 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
     position: relative;
     width: 76px; height: 76px;
     display: flex; align-items: center; justify-content: center;
+    scale: var(--s);
   }
   .sun-halo {
     position: absolute;
@@ -524,11 +539,12 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
     display: flex;
     flex-direction: column;
     align-items: center;
+    scale: var(--s);
   }
   .plant-top {
     position: relative;
     width: 56px;
-    height: 56px;
+    height: 64px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -536,12 +552,52 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
     transform-origin: center bottom;
   }
   .stem {
-    width: 3px;
-    height: 32px;
+    width: 4px;
+    height: 36px;
     background: linear-gradient(to top, #587040, #4a9038);
     border-radius: 2px 2px 0 0;
     position: relative;
     z-index: 2;
+  }
+  .flower-head {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+  .petal {
+    position: absolute;
+    width: 9px;
+    height: 12px;
+    background: linear-gradient(to top, #f5b800, #ffe066);
+    border-radius: 50% 50% 20% 20%;
+    left: 50%;
+    top: 50%;
+    transform-origin: center bottom;
+    box-shadow: inset 0 -2px 3px rgba(180,120,0,0.25);
+  }
+  .p0 { transform: translate(-50%, -100%) rotate(0deg); }
+  .p1 { transform: translate(-50%, -100%) rotate(45deg); }
+  .p2 { transform: translate(-50%, -100%) rotate(90deg); }
+  .p3 { transform: translate(-50%, -100%) rotate(135deg); }
+  .p4 { transform: translate(-50%, -100%) rotate(180deg); }
+  .p5 { transform: translate(-50%, -100%) rotate(225deg); }
+  .p6 { transform: translate(-50%, -100%) rotate(270deg); }
+  .p7 { transform: translate(-50%, -100%) rotate(315deg); }
+  .flower-center {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #8d6e63 40%, #5d4037 100%);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
   }
   .leaf {
     position: absolute;
@@ -549,45 +605,23 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
     z-index: 1;
   }
   .leaf-left {
-    width: 22px; height: 13px;
+    width: 18px; height: 11px;
     background: linear-gradient(135deg, #78cc5e, #3e9032);
     right: calc(50%);
-    bottom: 26px;
+    bottom: 18px;
     transform-origin: right bottom;
     animation: leaf-left-sway 4.5s ease-in-out infinite;
     box-shadow: inset -2px -2px 4px rgba(0,0,0,0.15);
   }
-  .leaf-left2 {
-    width: 18px; height: 11px;
-    background: linear-gradient(135deg, #68be50, #347828);
-    right: calc(50%);
-    bottom: 14px;
-    transform-origin: right bottom;
-    animation: leaf-left-sway 4.5s ease-in-out infinite;
-    animation-delay: 0.2s;
-    opacity: 0.85;
-    box-shadow: inset -1px -1px 3px rgba(0,0,0,0.12);
-  }
   .leaf-right {
-    width: 22px; height: 13px;
+    width: 18px; height: 11px;
     background: linear-gradient(225deg, #78cc5e, #3e9032);
     border-radius: 0 50% 0 50%;
     left: calc(50%);
-    bottom: 18px;
+    bottom: 12px;
     transform-origin: left bottom;
     animation: leaf-right-sway 4.5s ease-in-out infinite;
     box-shadow: inset 2px -2px 4px rgba(0,0,0,0.15);
-  }
-  .leaf-top {
-    width: 13px; height: 22px;
-    background: linear-gradient(to top, #3d8c32, #78cc5e);
-    border-radius: 50% 50% 10% 10%;
-    left: 50%;
-    bottom: 30px;
-    transform: translateX(-50%);
-    transform-origin: center bottom;
-    animation: leaf-top-sway 3.8s ease-in-out infinite;
-    box-shadow: inset -1px -2px 3px rgba(0,0,0,0.1);
   }
   .pot-rim {
     width: 40px; height: 7px;
@@ -651,6 +685,17 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
     filter: brightness(1.25) saturate(1.6);
     transition: filter 0.4s;
   }
+  .plant-cell.plant-lit .petal {
+    background: linear-gradient(to top, #ffca28, #fff59d);
+    filter: brightness(1.3) saturate(1.4);
+    box-shadow: 0 0 6px rgba(255,200,0,0.6), inset 0 -2px 3px rgba(180,120,0,0.2);
+    transition: filter 0.4s, box-shadow 0.4s;
+  }
+  .plant-cell.plant-lit .flower-center {
+    background: radial-gradient(circle, #a1887f 30%, #6d4c41 100%);
+    box-shadow: 0 0 8px rgba(255,200,0,0.5), inset 0 1px 2px rgba(0,0,0,0.2);
+    transition: background 0.4s, box-shadow 0.4s;
+  }
   .plant-cell.plant-lit .stem {
     background: linear-gradient(to top, #4a8030, #5cb845);
     box-shadow: 0 0 8px rgba(100,220,50,0.5);
@@ -670,9 +715,9 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
   .light-d, .light-u {
     align-self: stretch;
     justify-self: center;
-    width: 4px;
-    border-radius: 2px;
-    box-shadow: 0 0 10px 3px rgba(255,200,0,0.5), 0 0 3px 1px rgba(255,240,0,0.8);
+    width: calc(4px * var(--s));
+    border-radius: calc(2px * var(--s));
+    box-shadow: 0 0 calc(10px * var(--s)) calc(3px * var(--s)) rgba(255,200,0,0.5), 0 0 calc(3px * var(--s)) calc(1px * var(--s)) rgba(255,240,0,0.8);
     background: repeating-linear-gradient(
       to bottom,
       transparent 0px,
@@ -685,9 +730,9 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
   .light-r, .light-l {
     align-self: center;
     justify-self: stretch;
-    height: 4px;
-    border-radius: 2px;
-    box-shadow: 0 0 10px 3px rgba(255,200,0,0.5), 0 0 3px 1px rgba(255,240,0,0.8);
+    height: calc(4px * var(--s));
+    border-radius: calc(2px * var(--s));
+    box-shadow: 0 0 calc(10px * var(--s)) calc(3px * var(--s)) rgba(255,200,0,0.5), 0 0 calc(3px * var(--s)) calc(1px * var(--s)) rgba(255,240,0,0.8);
     background: repeating-linear-gradient(
       to right,
       transparent 0px,
@@ -1186,7 +1231,7 @@ const LS_MUTE = 'puzzle-muted';
 function loadMuteFromLocalStorage() {
   try {
     isMuted = localStorage.getItem(LS_MUTE) === 'true';
-    document.getElementById('mute').textContent = isMuted ? '♪̶' : '♪';
+    document.getElementById('mute').classList.toggle('muted', isMuted);
   } catch { /* ignore */ }
 }
 
@@ -1227,12 +1272,20 @@ document.getElementById('generate').addEventListener('click', () => {
 });
 
 document.getElementById('share').addEventListener('click', () => {
+  navigator.clipboard.writeText('https://gaurangtandon.com/csssunflower').then(() => {
+    const btn = document.getElementById('share');
+    btn.textContent = 'COPIED!';
+    setTimeout(() => { btn.textContent = 'SHARE'; }, 1800);
+  });
+});
+
+document.getElementById('copy-grid').addEventListener('click', () => {
   try {
     const url = encodeStateToURL();
     navigator.clipboard.writeText(url).then(() => {
-      const btn = document.getElementById('share');
+      const btn = document.getElementById('copy-grid');
       btn.textContent = 'COPIED!';
-      setTimeout(() => { btn.textContent = 'SHARE'; }, 1800);
+      setTimeout(() => { btn.textContent = 'Copy Grid Link'; }, 1800);
     });
   } catch {
     showError('Could not encode puzzle state.');
@@ -1249,7 +1302,7 @@ document.getElementById('dialog-close').addEventListener('click', () => {
 
 document.getElementById('mute').addEventListener('click', () => {
   isMuted = !isMuted;
-  document.getElementById('mute').textContent = isMuted ? '♪̶' : '♪';
+  document.getElementById('mute').classList.toggle('muted', isMuted);
   try { localStorage.setItem(LS_MUTE, String(isMuted)); } catch { /* ignore */ }
   if (isMuted && audioCtx && audioLayers) {
     const rampEnd = audioCtx.currentTime + 0.08;
