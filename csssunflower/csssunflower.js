@@ -933,12 +933,14 @@ function updateSound(iframeDoc) {
   if (reached && !plantReached) {
     plantReached = true;
     playBloom();
+    showWinToast();
     for (const { x, y } of soundPlants) {
       iframeDoc.getElementById(`plant-${x}-${y}`)?.classList.add('plant-lit');
     }
   } else if (!reached && plantReached) {
     plantReached = false;
     playDescend();
+    hideWinToast();
     for (const { x, y } of soundPlants) {
       iframeDoc.getElementById(`plant-${x}-${y}`)?.classList.remove('plant-lit');
     }
@@ -980,6 +982,30 @@ function showError(msg) {
   const el = document.getElementById('error-msg');
   el.textContent = msg;
   el.classList.add('visible');
+}
+
+/** @type {number|null} */
+let winToastTimeout = null;
+
+/** @returns {void} */
+function showWinToast() {
+  const el = document.getElementById('win-toast');
+  if (winToastTimeout) clearTimeout(winToastTimeout);
+  el.classList.add('visible');
+  winToastTimeout = setTimeout(() => {
+    el.classList.remove('visible');
+    winToastTimeout = null;
+  }, 5000);
+}
+
+/** @returns {void} */
+function hideWinToast() {
+  const el = document.getElementById('win-toast');
+  if (winToastTimeout) {
+    clearTimeout(winToastTimeout);
+    winToastTimeout = null;
+  }
+  el.classList.remove('visible');
 }
 
 /** @returns {void} */
@@ -1056,6 +1082,7 @@ function parseMirrorInput(raw, cols, rows, suns, plants) {
 /** @returns {void} */
 function generate() {
   clearError();
+  hideWinToast();
 
   /** @type {number} */
   const cols = parseInt(document.getElementById('inp-cols').value, 10);
