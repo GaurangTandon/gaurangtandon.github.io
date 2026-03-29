@@ -326,9 +326,9 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
   :root {
-    --cell: min(${CELL_SIZE}px, (100vw - 22px) / ${cols}, (100vh - 22px) / ${rows});
+    --cell: min(${CELL_SIZE}px, (100dvw - 22px) / ${cols}, (100dvh - 22px) / ${rows});
     --tri: calc(var(--cell) * ${TRI_SIZE} / ${CELL_SIZE});
-    --s: tan(atan2(var(--cell), ${CELL_SIZE}px));
+    --s: calc(1 * tan(atan2(var(--cell), ${CELL_SIZE}px)));
   }
   html, body {
     min-height: 100%;
@@ -489,7 +489,7 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
     position: relative;
     width: 76px; height: 76px;
     display: flex; align-items: center; justify-content: center;
-    scale: var(--s);
+    transform: scale(var(--s));
   }
   .sun-halo {
     position: absolute;
@@ -569,7 +569,7 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    scale: var(--s);
+    transform: scale(var(--s));
   }
   .plant-top {
     position: relative;
