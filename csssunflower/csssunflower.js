@@ -303,11 +303,6 @@ function buildLightCSS(mirrors, rows, cols, suns, plants) {
  * @returns {string}
  */
 function buildHTML(cols, rows, mirrors, suns, plants) {
-  /** @type {number} */
-  const gridW = cols * CELL_SIZE;
-  /** @type {number} */
-  const gridH = rows * CELL_SIZE;
-
   const mirrorSet = new Set(mirrors.map(m => `${m.x},${m.y}`));
   const sunSet = new Set(suns.map(s => `${s.x},${s.y}`));
 
@@ -328,7 +323,7 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
   :root {
     --cell: min(${CELL_SIZE}px, (100dvw - 22px) / ${cols}, (100dvh - 22px) / ${rows});
     --tri: calc(var(--cell) * ${TRI_SIZE} / ${CELL_SIZE});
-    --s: calc(1 * tan(atan2(var(--cell), ${CELL_SIZE}px)));
+    --u: calc(var(--cell) / ${CELL_SIZE});
   }
   html, body {
     min-height: 100%;
@@ -487,33 +482,32 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
   }
   .sun {
     position: relative;
-    width: 76px; height: 76px;
+    width: calc(76 * var(--u)); height: calc(76 * var(--u));
     display: flex; align-items: center; justify-content: center;
-    transform: scale(var(--s));
   }
   .sun-halo {
     position: absolute;
-    width: 60px; height: 60px;
+    width: calc(60 * var(--u)); height: calc(60 * var(--u));
     border-radius: 50%;
     background: radial-gradient(circle, rgba(255,220,60,0.35) 0%, transparent 70%);
     animation: halo-pulse 2.4s ease-in-out infinite;
   }
   .sun-core {
-    width: 30px; height: 30px;
+    width: calc(30 * var(--u)); height: calc(30 * var(--u));
     border-radius: 50%;
     background: radial-gradient(circle at 32% 28%, #fffce0, #ffd700 45%, #ff9800 100%);
     box-shadow:
-      0 0 0 3px rgba(255,220,60,0.3),
-      0 0 14px 5px rgba(255,200,0,0.5),
-      0 0 30px 10px rgba(255,210,0,0.25);
+      0 0 0 calc(3 * var(--u)) rgba(255,220,60,0.3),
+      0 0 calc(14 * var(--u)) calc(5 * var(--u)) rgba(255,200,0,0.5),
+      0 0 calc(30 * var(--u)) calc(10 * var(--u)) rgba(255,210,0,0.25);
     animation: sun-pulse 2.4s ease-in-out infinite;
     position: relative;
     z-index: 2;
   }
   .sun-glint {
     position: absolute;
-    top: 5px; left: 6px;
-    width: 8px; height: 5px;
+    top: calc(5 * var(--u)); left: calc(6 * var(--u));
+    width: calc(8 * var(--u)); height: calc(5 * var(--u));
     border-radius: 50%;
     background: rgba(255,255,255,0.7);
     transform: rotate(-30deg);
@@ -525,32 +519,32 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
   }
   .sun-ray {
     position: absolute;
-    left: calc(50% - 1.5px);
-    top: 2px;
-    width: 3px;
-    height: 10px;
+    left: calc(50% - 1.5 * var(--u));
+    top: calc(2 * var(--u));
+    width: calc(3 * var(--u));
+    height: calc(10 * var(--u));
     background: linear-gradient(to top, transparent, #ffcc00);
-    border-radius: 2px;
-    transform-origin: 1.5px 36px;
+    border-radius: calc(2 * var(--u));
+    transform-origin: calc(1.5 * var(--u)) calc(36 * var(--u));
   }
   .sun-ray-inner {
     position: absolute;
-    left: calc(50% - 1px);
-    top: 6px;
-    width: 2px;
-    height: 6px;
+    left: calc(50% - var(--u));
+    top: calc(6 * var(--u));
+    width: calc(2 * var(--u));
+    height: calc(6 * var(--u));
     background: linear-gradient(to top, transparent, rgba(255,200,0,0.6));
-    border-radius: 1px;
-    transform-origin: 1px 32px;
+    border-radius: var(--u);
+    transform-origin: var(--u) calc(32 * var(--u));
   }
   @keyframes sun-pulse {
     0%, 100% { transform: scale(1); }
     50% {
       transform: scale(1.15);
       box-shadow:
-        0 0 0 5px rgba(255,220,60,0.35),
-        0 0 22px 9px rgba(255,200,0,0.6),
-        0 0 40px 14px rgba(255,210,0,0.3);
+        0 0 0 calc(5 * var(--u)) rgba(255,220,60,0.35),
+        0 0 calc(22 * var(--u)) calc(9 * var(--u)) rgba(255,200,0,0.6),
+        0 0 calc(40 * var(--u)) calc(14 * var(--u)) rgba(255,210,0,0.3);
     }
   }
   @keyframes halo-pulse {
@@ -569,12 +563,11 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform: scale(var(--s));
   }
   .plant-top {
     position: relative;
-    width: 56px;
-    height: 64px;
+    width: calc(56 * var(--u));
+    height: calc(64 * var(--u));
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -582,32 +575,32 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
     transform-origin: center bottom;
   }
   .stem {
-    width: 4px;
-    height: 36px;
+    width: calc(4 * var(--u));
+    height: calc(36 * var(--u));
     background: linear-gradient(to top, #587040, #4a9038);
-    border-radius: 2px 2px 0 0;
+    border-radius: calc(2 * var(--u)) calc(2 * var(--u)) 0 0;
     position: relative;
     z-index: 2;
   }
   .flower-head {
     position: absolute;
-    width: 28px;
-    height: 28px;
+    width: calc(28 * var(--u));
+    height: calc(28 * var(--u));
     left: 50%;
-    bottom: 30px;
+    bottom: calc(30 * var(--u));
     transform: translateX(-50%);
     z-index: 3;
   }
   .petal {
     position: absolute;
-    width: 9px;
-    height: 12px;
+    width: calc(9 * var(--u));
+    height: calc(12 * var(--u));
     background: linear-gradient(to top, #f5b800, #ffe066);
     border-radius: 50% 50% 20% 20%;
     left: 50%;
     top: 50%;
     transform-origin: center bottom;
-    box-shadow: inset 0 -2px 3px rgba(180,120,0,0.25);
+    box-shadow: inset 0 calc(-2 * var(--u)) calc(3 * var(--u)) rgba(180,120,0,0.25);
   }
   .p0 { transform: translate(-50%, -100%) rotate(0deg); }
   .p1 { transform: translate(-50%, -100%) rotate(45deg); }
@@ -619,15 +612,15 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
   .p7 { transform: translate(-50%, -100%) rotate(315deg); }
   .flower-center {
     position: absolute;
-    width: 12px;
-    height: 12px;
+    width: calc(12 * var(--u));
+    height: calc(12 * var(--u));
     background: radial-gradient(circle, #8d6e63 40%, #5d4037 100%);
     border-radius: 50%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: inset 0 var(--u) calc(2 * var(--u)) rgba(0,0,0,0.3);
   }
   .leaf {
     position: absolute;
@@ -635,54 +628,54 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
     z-index: 1;
   }
   .leaf-left {
-    width: 18px; height: 11px;
+    width: calc(18 * var(--u)); height: calc(11 * var(--u));
     background: linear-gradient(135deg, #78cc5e, #3e9032);
     right: calc(50%);
-    bottom: 18px;
+    bottom: calc(18 * var(--u));
     transform-origin: right bottom;
     animation: leaf-left-sway 4.5s ease-in-out infinite;
-    box-shadow: inset -2px -2px 4px rgba(0,0,0,0.15);
+    box-shadow: inset calc(-2 * var(--u)) calc(-2 * var(--u)) calc(4 * var(--u)) rgba(0,0,0,0.15);
   }
   .leaf-right {
-    width: 18px; height: 11px;
+    width: calc(18 * var(--u)); height: calc(11 * var(--u));
     background: linear-gradient(225deg, #78cc5e, #3e9032);
     border-radius: 0 50% 0 50%;
     left: calc(50%);
-    bottom: 12px;
+    bottom: calc(12 * var(--u));
     transform-origin: left bottom;
     animation: leaf-right-sway 4.5s ease-in-out infinite;
-    box-shadow: inset 2px -2px 4px rgba(0,0,0,0.15);
+    box-shadow: inset calc(2 * var(--u)) calc(-2 * var(--u)) calc(4 * var(--u)) rgba(0,0,0,0.15);
   }
   .pot-rim {
-    width: 40px; height: 7px;
+    width: calc(40 * var(--u)); height: calc(7 * var(--u));
     background: linear-gradient(to bottom, #c86040, #b04838);
-    border-radius: 3px 3px 0 0;
+    border-radius: calc(3 * var(--u)) calc(3 * var(--u)) 0 0;
     position: relative;
     z-index: 3;
   }
   .pot-rim::before {
     content: '';
     position: absolute;
-    top: 1px; left: 3px; right: 3px;
-    height: 2px;
+    top: var(--u); left: calc(3 * var(--u)); right: calc(3 * var(--u));
+    height: calc(2 * var(--u));
     background: rgba(255,255,255,0.2);
-    border-radius: 2px;
+    border-radius: calc(2 * var(--u));
   }
   .pot {
-    width: 34px; height: 18px;
+    width: calc(34 * var(--u)); height: calc(18 * var(--u));
     background: linear-gradient(to bottom right, #c05838, #8c3820);
-    border-radius: 0 0 7px 7px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+    border-radius: 0 0 calc(7 * var(--u)) calc(7 * var(--u));
+    box-shadow: 0 calc(4 * var(--u)) calc(10 * var(--u)) rgba(0,0,0,0.18);
     position: relative;
     overflow: hidden;
   }
   .pot::after {
     content: '';
     position: absolute;
-    left: 5px; top: 2px;
-    width: 5px; height: 70%;
+    left: calc(5 * var(--u)); top: calc(2 * var(--u));
+    width: calc(5 * var(--u)); height: 70%;
     background: rgba(255,255,255,0.18);
-    border-radius: 3px;
+    border-radius: calc(3 * var(--u));
   }
   @keyframes plant-sway {
     0%, 100% { transform: rotate(-4deg); }
@@ -718,17 +711,17 @@ function buildHTML(cols, rows, mirrors, suns, plants) {
   .plant-cell.plant-lit .petal {
     background: linear-gradient(to top, #ffca28, #fff59d);
     filter: brightness(1.3) saturate(1.4);
-    box-shadow: 0 0 6px rgba(255,200,0,0.6), inset 0 -2px 3px rgba(180,120,0,0.2);
+    box-shadow: 0 0 calc(6 * var(--u)) rgba(255,200,0,0.6), inset 0 calc(-2 * var(--u)) calc(3 * var(--u)) rgba(180,120,0,0.2);
     transition: filter 0.4s, box-shadow 0.4s;
   }
   .plant-cell.plant-lit .flower-center {
     background: radial-gradient(circle, #a1887f 30%, #6d4c41 100%);
-    box-shadow: 0 0 8px rgba(255,200,0,0.5), inset 0 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 0 0 calc(8 * var(--u)) rgba(255,200,0,0.5), inset 0 var(--u) calc(2 * var(--u)) rgba(0,0,0,0.2);
     transition: background 0.4s, box-shadow 0.4s;
   }
   .plant-cell.plant-lit .stem {
     background: linear-gradient(to top, #4a8030, #5cb845);
-    box-shadow: 0 0 8px rgba(100,220,50,0.5);
+    box-shadow: 0 0 calc(8 * var(--u)) rgba(100,220,50,0.5);
   }
   @keyframes plant-bloom {
     0%   { transform: scale(1) rotate(-4deg); }
@@ -1838,8 +1831,8 @@ let currentLevel = 'easy';
  */
 function loadDifficulty(level) {
   currentLevel = level;
-  const puzzle = generateRandomPuzzle(level);
-  PUZZLES[level] = puzzle;
+  if (!PUZZLES[level]) PUZZLES[level] = generateRandomPuzzle(level);
+  const puzzle = PUZZLES[level];
   document.getElementById('inp-cols').value = String(puzzle.cols);
   document.getElementById('inp-rows').value = String(puzzle.rows);
   document.getElementById('inp-suns').value = puzzle.suns;
@@ -1865,6 +1858,9 @@ document.getElementById('about-close').addEventListener('click', () =>
 loadStateFromURL();
 loadMuteFromLocalStorage();
 if (!new URLSearchParams(location.search).has('p')) {
+  PUZZLES.easy = generateRandomPuzzle('easy');
+  PUZZLES.hard = generateRandomPuzzle('hard');
+  PUZZLES.random = generateRandomPuzzle('random');
   loadDifficulty('easy');
 } else {
   currentLevel = null;
