@@ -68,6 +68,45 @@ layout: null
       text-decoration: underline;
     }
 
+    .nojs-hint {
+      position: relative;
+      text-decoration: underline dotted;
+      text-underline-offset: 3px;
+      cursor: help;
+    }
+
+    .nojs-tooltip {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 280px;
+      padding: 8px 10px;
+      background: #3a3a4a;
+      color: #f4f3ee;
+      font-size: 12px;
+      line-height: 1.4;
+      border-radius: 6px;
+      text-align: left;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .nojs-tooltip::after {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) rotateZ(0.5turn);
+      border: 5px solid transparent;
+      border-top-color: #3a3a4a;
+    }
+
+    .nojs-hint:hover .nojs-tooltip {
+      display: block;
+    }
+
     .header-row-3 {
       display: flex;
       align-items: center;
@@ -695,7 +734,7 @@ layout: null
       <h1><span style="color: #d4a017;">CSS</span>Sunflower</h1>
     </div>
     <div class="header-row-2">
-      <span class="tagline">CSS-only puzzle game (no JS!)</span>
+      <span class="tagline">CSS-only puzzle game (<span class="nojs-hint">no JS!<span class="nojs-tooltip">The actual puzzle is in an iframe which does not have JavaScript. The root frame uses JavaScript to generate the actual puzzle and put it in the iframe.</span></span>)</span>
       <div class="btn-group">
         <button id="about-btn" class="header-btn">About</button>
         <button id="mute" class="header-btn" aria-label="Sound"></button>
