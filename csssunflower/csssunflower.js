@@ -1858,6 +1858,7 @@ let currentLevel = 'easy';
  */
 function loadDifficulty(level) {
   currentLevel = level;
+  try { localStorage.setItem('difficulty', level); } catch (_) { /* ignore */ }
   if (!PUZZLES[level]) PUZZLES[level] = generateRandomPuzzle(level);
   const puzzle = PUZZLES[level];
   document.getElementById('inp-cols').value = String(puzzle.cols);
@@ -1888,7 +1889,8 @@ if (!new URLSearchParams(location.search).has('p')) {
   PUZZLES.easy = generateRandomPuzzle('easy');
   PUZZLES.hard = generateRandomPuzzle('hard');
   PUZZLES.random = generateRandomPuzzle('random');
-  loadDifficulty('easy');
+  const saved = (() => { try { return localStorage.getItem('difficulty'); } catch (_) { return null; } })();
+  loadDifficulty(saved === 'hard' || saved === 'random' ? saved : 'easy');
 } else {
   currentLevel = null;
   generate();
