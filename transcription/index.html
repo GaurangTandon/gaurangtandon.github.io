@@ -1,0 +1,541 @@
+---
+permalink: /transcription
+layout: null
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voice Transcription Test</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #181b22;
+      --border: #2a2f3a;
+      --text: #e6e8ee;
+      --muted: #9aa3b2;
+      --green: #3fb950;
+      --red: #f85149;
+      --blue: #4493f8;
+      --yellow: #d29922;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+    }
+    .wrap { max-width: 820px; margin: 0 auto; }
+    h1 { font-size: 22px; margin: 0 0 4px; }
+    p.sub { color: var(--muted); margin: 0 0 20px; font-size: 14px; }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    button {
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: var(--blue);
+      color: white;
+    }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    button.stop { background: var(--red); }
+    button.ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 13px;
+      padding: 8px 14px;
+      white-space: nowrap;
+    }
+    button.ghost:hover { border-color: var(--blue); }
+    .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge.ok { background: rgba(63,185,80,0.15); color: var(--green); }
+    .badge.err { background: rgba(248,81,73,0.15); color: var(--red); }
+    .badge.wait { background: rgba(210,153,34,0.15); color: var(--yellow); }
+    .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 8px; }
+    #transcript {
+      min-height: 90px;
+      font-size: 17px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    #transcript .interim { color: var(--muted); }
+    .meter {
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .meter > div {
+      height: 100%;
+      width: 0%;
+      background: var(--green);
+      transition: width 0.08s linear;
+    }
+    #log {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      max-height: 260px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: var(--muted);
+    }
+    #log .e-error { color: var(--red); }
+    #log .e-result { color: var(--green); }
+    #log .e-info { color: var(--blue); }
+    .env { font-size: 12px; color: var(--muted); font-family: ui-monospace, monospace; white-space: pre-wrap; word-break: break-word; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Voice Transcription Test</h1>
+    <p class="sub">Checks whether your browser can transcribe speech with its built-in, on-device speech recognition. Speak into your microphone after pressing Start.</p>
+
+    <div class="panel">
+      <div class="row" style="justify-content: space-between;">
+        <div class="row">
+          <button id="startBtn">Start transcription</button>
+          <span id="status" class="badge wait">Idle</span>
+        </div>
+        <button id="copyBtn" class="ghost">Copy debug info</button>
+      </div>
+      <div class="meter"><div id="micMeter"></div></div>
+    </div>
+
+    <div class="panel">
+      <div class="label">Live transcript</div>
+      <div id="transcript"></div>
+    </div>
+
+    <div class="panel">
+      <div class="label">Environment</div>
+      <div id="env" class="env"></div>
+    </div>
+
+    <div class="panel">
+      <div class="label">Debug log <span style="text-transform:none;letter-spacing:0;color:var(--muted)">(share this if transcription fails)</span></div>
+      <div id="log"></div>
+    </div>
+  </div>
+
+  <script>
+    'use strict';
+
+    const RECOGNITION_LANGUAGE = 'en-US';
+    const DEBUGGING_EVENT_NAMES = ['audiostart', 'soundstart', 'speechstart', 'speechend', 'soundend', 'audioend', 'nomatch'];
+
+    const startBtn = document.getElementById('startBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const statusEl = document.getElementById('status');
+    const transcriptEl = document.getElementById('transcript');
+    const logEl = document.getElementById('log');
+    const envEl = document.getElementById('env');
+    const micMeter = document.getElementById('micMeter');
+
+    let running = false;
+    // True when we fall back to the legacy cloud-based webkitSpeechRecognition API
+    let usingFallback = false;
+    let micStream = null;
+    let rawTranscriber = null;
+    let audioContext = null;
+    let sourceNode = null;
+    let destinationNode = null;
+    let audioTrack = null;
+    let shouldStopTranscriber = false;
+    let analyzer = null;
+    let meterRaf = null;
+    // Collected final transcript text, plus the current interim line
+    const finals = [];
+    let interim = '';
+
+    function log(msg, kind) {
+      const time = new Date().toLocaleTimeString();
+      const div = document.createElement('div');
+      if (kind) div.className = 'e-' + kind;
+      div.textContent = `[${time}] ${msg}`;
+      logEl.appendChild(div);
+      logEl.scrollTop = logEl.scrollHeight;
+      // Also mirror to the browser console for convenience
+      console.log(msg);
+    }
+
+    function setStatus(text, cls) {
+      statusEl.textContent = text;
+      statusEl.className = 'badge ' + cls;
+    }
+
+    function renderTranscript() {
+      transcriptEl.textContent = '';
+      const finalSpan = document.createElement('span');
+      finalSpan.textContent = finals.join(' ');
+      transcriptEl.appendChild(finalSpan);
+      if (interim) {
+        const interimSpan = document.createElement('span');
+        interimSpan.className = 'interim';
+        interimSpan.textContent = (finals.length ? ' ' : '') + interim;
+        transcriptEl.appendChild(interimSpan);
+      }
+    }
+
+    async function showEnvironment() {
+      const ua = navigator.userAgent;
+      const hasSR = typeof window.SpeechRecognition !== 'undefined';
+      const hasWebkit = typeof window.webkitSpeechRecognition !== 'undefined';
+
+      // Brand info from the User-Agent Client Hints API (Chromium browsers)
+      const uaData = navigator.userAgentData;
+      let brandsStr = '(navigator.userAgentData not available)';
+      let platformStr = '(unknown)';
+      let mobileStr = '(unknown)';
+      if (uaData) {
+        const fmt = (list) => (list && list.length)
+          ? list.map(b => `${b.brand} ${b.version}`).join(', ')
+          : '(none)';
+        brandsStr = fmt(uaData.brands);
+        platformStr = uaData.platform || '(unknown)';
+        mobileStr = String(uaData.mobile);
+        // Try to get fuller version + model details if the browser allows it
+        try {
+          const high = await uaData.getHighEntropyValues(['fullVersionList', 'platformVersion', 'model']);
+          if (high.fullVersionList && high.fullVersionList.length) {
+            brandsStr = fmt(high.fullVersionList);
+          }
+          if (high.platformVersion) {
+            platformStr += ' ' + high.platformVersion;
+          }
+          if (high.model) {
+            platformStr += ' / ' + high.model;
+          }
+        } catch (e) { /* high-entropy values may be blocked; keep the basics */ }
+      }
+
+      const lines = [
+        `Brands: ${brandsStr}`,
+        `Platform: ${platformStr}`,
+        `Mobile: ${mobileStr}`,
+        `User agent: ${ua}`,
+        `window.SpeechRecognition: ${hasSR ? 'yes' : 'no'}`,
+        `window.webkitSpeechRecognition: ${hasWebkit ? 'yes' : 'no'}`,
+        `secure context (https/localhost): ${window.isSecureContext ? 'yes' : 'no'}`
+      ];
+      envEl.textContent = lines.join('\n');
+    }
+
+    // Checks for on-device speech recognition support, falling back to the
+    // legacy webkitSpeechRecognition API when on-device recognition is unavailable.
+    async function checkSpeechSupport() {
+      usingFallback = false;
+      const recognizer = window.SpeechRecognition;
+      const recognitionOptions = { langs: [RECOGNITION_LANGUAGE], processLocally: true };
+
+      // The on-device API is present only when SpeechRecognition exposes available()
+      const hasNative = recognizer && ('available' in recognizer);
+      if (hasNative) {
+        try {
+          const state = await recognizer.available(recognitionOptions);
+          log('SpeechRecognition.available() => ' + state, 'info');
+          if (state === 'unavailable') {
+            // Language pack can't be installed on this device — try the fallback
+            log(`On-device ${RECOGNITION_LANGUAGE} pack unavailable; attempting fallback`, 'info');
+            return tryFallback();
+          } else if (state === 'downloadable') {
+            setStatus('Installing language pack…', 'wait');
+            log(`Installing ${RECOGNITION_LANGUAGE} language pack on device…`, 'info');
+            await recognizer.install(recognitionOptions);
+            log('Installation finished', 'info');
+          } else if (state === 'downloading') {
+            return { success: false, error: 'Please wait while the language pack installs, then try again.' };
+          } else {
+            log(`Device already has ${RECOGNITION_LANGUAGE} language pack`, 'info');
+          }
+          log('Using ON-DEVICE SpeechRecognition (processLocally=true)', 'info');
+          return { success: true };
+        } catch (e) {
+          return { success: false, error: 'Error while installing language pack: ' + e.toString() };
+        }
+      }
+
+      // No native on-device API — fall back to webkitSpeechRecognition
+      log('window.SpeechRecognition with available() not found; attempting fallback', 'info');
+      return tryFallback();
+    }
+
+    // Enables the legacy cloud-based webkitSpeechRecognition path if present
+    function tryFallback() {
+      if (typeof window.webkitSpeechRecognition === 'undefined' && typeof window.SpeechRecognition === 'undefined') {
+        return { success: false, error: 'This browser does not support voice transcription. Please try Chrome 139 or newer.' };
+      }
+      usingFallback = true;
+      log('⚠ FALLBACK MODE ACTIVE: using legacy webkitSpeechRecognition (cloud-based, audio is sent to the browser vendor; processLocally and on-device flags are NOT used)', 'error');
+      setStatus('Fallback mode', 'wait');
+      return { success: true };
+    }
+
+    // Builds a recognizer instance. The fallback path omits the flags the
+    // legacy API doesn't support (processLocally, etc.).
+    function createRecognizer() {
+      if (usingFallback) {
+        const Ctor = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const t = new Ctor();
+        t.lang = RECOGNITION_LANGUAGE;
+        t.continuous = true;
+        t.interimResults = false;
+        log('Created FALLBACK recognizer (webkitSpeechRecognition; no processLocally / no audio track)', 'info');
+        return t;
+      }
+      const t = new SpeechRecognition();
+      t.lang = RECOGNITION_LANGUAGE;
+      t.continuous = true;
+      t.interimResults = false;
+      t.processLocally = true;
+      return t;
+    }
+
+    function onResult(event) {
+      const lastResultIndex = event.results.length - 1;
+      const result = event.results[lastResultIndex];
+      const transcriptString = result[0].transcript;
+      const isFinal = result.isFinal;
+      log(`result (isFinal=${isFinal}): "${transcriptString}"`, 'result');
+      if (!transcriptString) return;
+      if (isFinal) {
+        finals.push(transcriptString);
+        interim = '';
+      } else {
+        interim = transcriptString;
+      }
+      renderTranscript();
+    }
+
+    function onStart() {
+      log('Recognition started' + (usingFallback ? ' (FALLBACK)' : ''));
+      setStatus(usingFallback ? 'Listening… (fallback)' : 'Listening…', 'ok');
+    }
+
+    function onError(e) {
+      const error = e.error || 'Unknown error';
+      if (error === 'no-speech') {
+        // Ignore and let the 'end' handler restart recognition
+        log('error: no-speech (will auto-restart)', 'info');
+        return;
+      }
+      shouldStopTranscriber = true;
+      log('error: ' + error, 'error');
+      setStatus('Error: ' + error, 'err');
+      stop();
+    }
+
+    function onEnd() {
+      if (!shouldStopTranscriber) {
+        log('Recognition ended unexpectedly, restarting…');
+        restartTranscriberWithDelay();
+      }
+    }
+
+    const debuggingEventListeners = {};
+
+    function attachListeners() {
+      rawTranscriber.addEventListener('result', onResult);
+      rawTranscriber.addEventListener('start', onStart);
+      rawTranscriber.addEventListener('error', onError);
+      rawTranscriber.addEventListener('end', onEnd);
+      for (const name of DEBUGGING_EVENT_NAMES) {
+        const fn = (e) => log('DEBUG EVENT ' + name);
+        rawTranscriber.addEventListener(name, fn);
+        debuggingEventListeners[name] = fn;
+      }
+    }
+
+    function clearCurrentTranscriber() {
+      if (rawTranscriber) {
+        shouldStopTranscriber = true;
+        rawTranscriber.removeEventListener('result', onResult);
+        rawTranscriber.removeEventListener('start', onStart);
+        rawTranscriber.removeEventListener('error', onError);
+        rawTranscriber.removeEventListener('end', onEnd);
+        for (const name of DEBUGGING_EVENT_NAMES) {
+          rawTranscriber.removeEventListener(name, debuggingEventListeners[name]);
+          delete debuggingEventListeners[name];
+        }
+        try { rawTranscriber.stop(); } catch (e) { /* noop */ }
+        rawTranscriber = null;
+        log('Recognizer instance cleared');
+      }
+    }
+
+    function restartTranscriberWithDelay() {
+      setTimeout(() => {
+        if (!running) {
+          log('Not restarted because transcription was stopped');
+          return;
+        }
+        startTranscriberInstance();
+      }, 10);
+    }
+
+    // Routes the mic through an AudioContext source -> destination and passes
+    // that track to .start() (on-device path).
+    function startTranscriberInstance() {
+      clearCurrentTranscriber();
+      shouldStopTranscriber = false;
+      rawTranscriber = createRecognizer();
+      attachListeners();
+
+      if (usingFallback) {
+        // The legacy API does not accept an audio track; it captures the
+        // default microphone itself once permission is granted.
+        log('Starting FALLBACK recognizer with default mic (no audio track passed)', 'info');
+        return rawTranscriber.start();
+      }
+
+      sourceNode = audioContext.createMediaStreamSource(micStream);
+      destinationNode = audioContext.createMediaStreamDestination();
+      sourceNode.connect(destinationNode);
+      audioTrack = destinationNode.stream.getAudioTracks()[0];
+      log('Transcribing audio track: ' + (audioTrack && audioTrack.label || '(no label)'));
+      // Chrome-specific: start() accepts an audio track
+      return rawTranscriber.start(audioTrack);
+    }
+
+    function setupMeter() {
+      analyzer = audioContext.createAnalyser();
+      analyzer.fftSize = 256;
+      const meterSource = audioContext.createMediaStreamSource(micStream);
+      meterSource.connect(analyzer);
+      const bufferLength = analyzer.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
+      const tick = () => {
+        analyzer.getByteFrequencyData(dataArray);
+        let sum = 0;
+        for (let i = 0; i < bufferLength; i++) {
+          const n = dataArray[i] / 255;
+          sum += n * n;
+        }
+        const rms = Math.sqrt(sum / bufferLength);
+        micMeter.style.width = Math.min(100, rms * 250) + '%';
+        meterRaf = requestAnimationFrame(tick);
+      };
+      tick();
+    }
+
+    async function start() {
+      startBtn.disabled = true;
+      finals.length = 0;
+      interim = '';
+      renderTranscript();
+      logEl.textContent = '';
+      log('Checking transcription support…', 'info');
+
+      const support = await checkSpeechSupport();
+      if (!support.success) {
+        setStatus('Not supported', 'err');
+        log(support.error, 'error');
+        startBtn.disabled = false;
+        return;
+      }
+
+      setStatus('Requesting microphone…', 'wait');
+      try {
+        micStream = await navigator.mediaDevices.getUserMedia({
+          audio: { echoCancellation: true },
+          video: false
+        });
+      } catch (e) {
+        setStatus('Microphone denied', 'err');
+        log('getUserMedia failed: ' + e.toString(), 'error');
+        startBtn.disabled = false;
+        return;
+      }
+      log('Microphone stream acquired', 'info');
+
+      audioContext = new AudioContext();
+      running = true;
+      setupMeter();
+      startTranscriberInstance();
+
+      startBtn.disabled = false;
+      startBtn.textContent = 'Stop transcription';
+      startBtn.classList.add('stop');
+    }
+
+    function stop() {
+      running = false;
+      clearCurrentTranscriber();
+      if (meterRaf) { cancelAnimationFrame(meterRaf); meterRaf = null; }
+      micMeter.style.width = '0%';
+      if (micStream) {
+        micStream.getTracks().forEach(t => t.stop());
+        micStream = null;
+      }
+      if (audioContext) {
+        audioContext.close().catch(() => {});
+        audioContext = null;
+      }
+      startBtn.textContent = 'Start transcription';
+      startBtn.classList.remove('stop');
+      if (statusEl.className.indexOf('err') === -1) {
+        setStatus('Stopped', 'wait');
+      }
+      log('Transcription stopped', 'info');
+    }
+
+    startBtn.addEventListener('click', () => {
+      if (running) {
+        stop();
+      } else {
+        start();
+      }
+    });
+
+    copyBtn.addEventListener('click', async () => {
+      // Each log entry is its own <div>; join them with newlines so the
+      // copied text keeps one entry per line.
+      const logLines = Array.from(logEl.children).map(el => el.textContent).join('\n');
+      const text = [
+        '=== Environment ===',
+        envEl.textContent,
+        '',
+        '=== Debug log ===',
+        logLines || '(no log entries yet)'
+      ].join('\n');
+      try {
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = 'Copied!';
+      } catch (e) {
+        // Clipboard API may be blocked; fall back to a manual selection
+        const range = document.createRange();
+        range.selectNodeContents(envEl);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        copyBtn.textContent = 'Press Ctrl/Cmd+C';
+      }
+      setTimeout(() => { copyBtn.textContent = 'Copy debug info'; }, 2000);
+    });
+
+    showEnvironment();
+  </script>
+</body>
+</html>
