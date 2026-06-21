@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — June 26, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — June 26, 2026</h1>
+    <p class="date">Friday, June 26, 2026</p>
+  </header>
+  <div class="body">
+<p><em>A quieter pass through today's HackerNews: an obituary, some open-source institution-building, and a handful of careful looks at AI claims, old systems, and parsing tricks.</em></p>
+
+<p><strong>Om Malik has died.</strong> The longtime technology writer and founder of GigaOm has died at 60, per <a href="https://om.co/2026/06/24/1966-2026/">a notice on his site</a> and the surrounding <a href="https://news.ycombinator.com/item?id=48678852">(HN discussion)</a>. Readers there recall him as a blunt, human voice covering the dot-com and early web-app eras, from his book Broadbandits through his GigaOm events.</p>
+
+<p><strong>A coalition launches an effort to defend open-source software.</strong> An open letter at <a href="https://akrites.org/letter/">Akrites</a> proposes acting as "maintainer of last resort" for critical packages that have no one looking after them, backed by a roster of large technology and finance firms, as discussed on <a href="https://news.ycombinator.com/item?id=48682737">(HN discussion)</a>. The framing is funding and continuity for under-maintained dependencies.</p>
+<ul>
+<li>Commenters question who actually does and pays for the work, noting the organization reportedly employs no engineers of its own.</li>
+<li>Several point out that Linux distributions already serve as maintainers of last resort through forks, and view some of the corporate signatories skeptically given their own track records with open source.</li>
+</ul>
+
+<p><strong>Framework's 10G Ethernet expansion card highlights the messiness of USB-C.</strong> Jeff Geerling examines a 10-gigabit Ethernet module for Framework laptops and the USB-C plumbing it depends on in <a href="https://www.jeffgeerling.com/blog/2026/framework-10g-ethernet-module-usb-c-complexity/">his write-up</a>, with reactions on <a href="https://news.ycombinator.com/item?id=48681220">(HN discussion)</a>. The piece treats the card as a window into how much complexity the connector hides.</p>
+<ul>
+<li>Several note that 10G NICs typically need heatsinks, so sustained throughput in a thin laptop strains the thermal budget, and port allocation may cap real speeds.</li>
+<li>Others argue most people wanting fast machine-to-machine links are better served connecting Thunderbolt ports directly, and dislike that the module protrudes from the chassis.</li>
+</ul>
+
+<p><strong>An author opened their AI assistant to public jailbreak attempts and reported no successful breaches.</strong> Roughly 2,000 people sent thousands of adversarial prompts to an email-based AI assistant, with the author concluding it held up, as described in <a href="https://www.fernandoi.cl/posts/hackmyclaw/">the post</a> and debated on <a href="https://news.ycombinator.com/item?id=48681687">(HN discussion)</a>. The author says the experiment left them less worried about prompt injection.</p>
+<ul>
+<li>Commenters caution that "zero breaches" is a sample estimate on a nondeterministic model, and a low-probability attack can show zero in a small run yet still bite in production.</li>
+<li>Others note this tests the easy case of single-shot direct injection; multi-turn "frog boiling" attacks aren't exercised when each email is a fresh context.</li>
+</ul>
+
+<p><strong>A new image-generation method uses coupled oscillators rather than standard diffusion.</strong> The "Un-0" approach, introduced on <a href="https://unconv.ai/blog/introducing-un-0-generating-images-with-coupled-oscillators/">unconv.ai</a> and discussed on <a href="https://news.ycombinator.com/item?id=48679007">(HN discussion)</a>, generates images via a coupled-oscillator dynamic and flags energy efficiency as its motivation, with a trade-off of a more complex loss over generated samples.</p>
+<ul>
+<li>Readers ask whether the efficiency advantage is actually demonstrated against the comparators, since the post motivates but doesn't quantify it.</li>
+<li>Some wonder about its expressiveness, including whether it can compose images containing more than one class or subject.</li>
+</ul>
+
+<p><strong>OpenAI is reportedly leaning toward delaying its IPO to next year.</strong> A New York Times report says advisers are pushing Sam Altman to move slowly, citing market conditions and financial pressures, per <a href="https://www.nytimes.com/2026/06/25/technology/openai-ipo-artificial-intelligence.html">the article</a> and <a href="https://news.ycombinator.com/item?id=48678873">(HN discussion)</a>. The reported rationale includes recent volatility in SpaceX's stock.</p>
+<ul>
+<li>Commenters read the delay as a sign the numbers may not currently support the valuation, and tie it to broader skepticism about AI-company economics.</li>
+</ul>
+
+<p><strong>An oral history revisits the bespoke "Bank Python" systems used inside investment banks.</strong> Cal Paterson's 2021 account, resurfaced on <a href="https://calpaterson.com/bank-python.html">his site</a> and discussed on <a href="https://news.ycombinator.com/item?id=48678645">(HN discussion)</a>, describes in-house platforms built around a shared object store where applications write state directly and even the platform's own source lives inside the database.</p>
+<ul>
+<li>Commenters trace the lineage to Goldman's SecDB/Slang, with related descendants like Quartz and Alpha at other banks.</li>
+<li>Several compare the architecture to MUMPS-style systems and contrast it with more strongly-typed infrastructure approaches.</li>
+</ul>
+
+<p><strong>A walkthrough of parallel parentheses matching draws out the underlying algorithmic ideas.</strong> The post on <a href="https://williamdue.github.io/blog/parallel-parentheses-matching">williamdue.github.io</a>, discussed on <a href="https://news.ycombinator.com/item?id=48678623">(HN discussion)</a>, frames matching balanced parentheses as a parallelizable problem and connects it to Dyck languages.</p>
+<ul>
+<li>Commenters point to related prior work, including highly tuned GPU implementations used in rendering and range-minimum-query tree approaches with near-constant query cost.</li>
+<li>One notes the same parallelization trick generalizes, via the CYK algorithm, to any context-free grammar.</li>
+</ul>
+  </div>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-06-26">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+</body>
+</html>

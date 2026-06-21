@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 18, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 18, 2026</h1>
+    <p class="date">Saturday, July 18, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter day across the feed: a mix of low-level graphics hacks, silicon nostalgia, security disclosures, and questions about how much automation belongs in workplaces and certification.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Kaiser advice nurses describe AI monitoring and call-time scoring shaping patient care.&lt;/strong&gt; Seven current and former nurses told CalMatters that spending more than 15 minutes on a call routinely draws management scrutiny, and that software attempts to predict daily productivity while AI rates their empathy and tone (&lt;a href=&quot;https://localnewsmatters.org/2026/07/15/kaiser-nurses-say-ai-workplace-surveillance-are-making-their-jobs-and-patient-care-worse/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48952880&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The report lands as the California Nurses Association opens contract talks with AI as a likely issue.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters flag a semantic gap in Kaiser&amp;#x27;s defense: the company says it does not use &amp;quot;average handle time,&amp;quot; but the nurses&amp;#x27; concern was calls over a fixed threshold, not averages.&lt;/li&gt;
+&lt;li&gt;Several invoke Goodhart&amp;#x27;s law, noting nurses say the AI &amp;quot;did not understand our job and would grade us wrong all the time&amp;quot; once call length became the target.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer abuses JPEG&amp;#x27;s progressive-scan format to embed video inside a single image.&lt;/strong&gt; Because progressive JPEGs are built from multiple &amp;quot;scans&amp;quot; that each declare their own spectral range, concatenating many single-scan frames makes a decoder overwrite the picture repeatedly as it downloads, producing crude animation over a slow connection (&lt;a href=&quot;https://maurycyz.com/projects/bad_jpeg/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48954851&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The author notes there is no way to encode timing, so playback speed depends entirely on network delay.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters suggest a server could approximate timing by sending the &amp;quot;JPEG&amp;quot; in timed chunks, even streaming from a live webcam indefinitely.&lt;/li&gt;
+&lt;li&gt;Others report browser differences, with Safari freezing until the whole file downloads rather than rendering the scans progressively.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A detailed write-up shows a static search tree beating binary search by roughly 40x on throughput.&lt;/strong&gt; Starting from Algorithmica&amp;#x27;s S+ tree work, the author layers SIMD, prefetching, cache-line-sized nodes, and query batching, aiming ultimately at speeding up suffix-array search over genomic data (&lt;a href=&quot;https://curiouscoding.nl/posts/static-search-tree/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48951898&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The gains assume static, sorted data and high query volume rather than one-off lookups.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters caution that the Eytzinger layout the post builds on is actually slower than a plain sorted array at normal data sizes, only paying off at scale.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The Zilog Z80 marks 50 years since its 1976 launch.&lt;/strong&gt; A retrospective traces the chip&amp;#x27;s lineage from the Datapoint 2200 and Intel 8008 through its role in creating a de facto 8-bit standard alongside CP/M and Microsoft BASIC, plus clones like the Game Boy&amp;#x27;s Sharp processor (&lt;a href=&quot;https://goliath32.com/blog/z80.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48951461&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Zilog only discontinued the original part a couple of years ago.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point to the TI-84 graphing calculator, still used by millions of students, as an example of Z80 and eZ80 chips shipping in current products.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;LG monitors were found installing companion software through Windows Update without a prompt.&lt;/strong&gt; Users report the software appearing on Windows 11 machines, with removal only surfaced through the Microsoft Store library rather than a normal uninstaller (&lt;a href=&quot;https://videocardz.com/newz/lg-monitors-silently-install-software-through-windows-update-without-user-consent&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48956688&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note this is not unique to LG; Razer, Logitech, Nvidia and others ship apps via accepted Windows Update driver packages, with no per-device &amp;quot;driver only&amp;quot; option.&lt;/li&gt;
+&lt;li&gt;Several share a workaround via Device Installation Settings (or gpedit) to disable automatic download of manufacturer apps tied to device metadata.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A researcher documents a TP-Link Kasa camera exposing home GPS coordinates over unauthenticated UDP.&lt;/strong&gt; The advisory covers a Kasa Spot EC71 with a fleet-wide RSA key, unsalted MD5 credential storage, and a single UDP packet returning precise location, all patched in firmware 2.4.1 after a six-month disclosure that included a bricked test device (&lt;a href=&quot;https://github.com/BadChemical/IoT-Vulnerability-Research-Public/blob/main/TP-Link_Kasa_EC71/Kasa_EC71.md&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48952565&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The GPS issue class had reportedly been public since 2020.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters argue &amp;quot;leaked home GPS&amp;quot; oversells it, since the UDP protocol is local-network only and a LAN attacker could geolocate by other means anyway.&lt;/li&gt;
+&lt;li&gt;Others raise the broader pattern of cheap devices continuously reporting location over unencrypted protocols, sometimes to third-party cloud IPs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The FAA restored Boeing&amp;#x27;s authority to issue its own airworthiness certificates for the 737 Max and 787.&lt;/strong&gt; The agency said that over eight months of alternating inspections it saw comparable production-quality findings whether Boeing or the FAA signed off, and concluded it could return the responsibility (&lt;a href=&quot;https://www.cnbc.com/2026/07/17/faa-boeing-737-max-787.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48952439&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The authority had been stripped after the two fatal Max crashes.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters walk through the mechanism, reading it as a return to self-certification after inspectors observed apparent process improvements, while others question whether pressure exists because Boeing is a major U.S. exporter.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An open-source, pocketable e-reader called Open Book Touch reached its crowdfunding goal.&lt;/strong&gt; The 4.26-inch front-lit e-paper device runs C++ firmware on an ESP32-class microcontroller rather than Linux, reads EPUB and plain text off microSD, and uses GNU Unifont as a fallback covering roughly 70,000 glyphs for broad language support (&lt;a href=&quot;https://www.crowdsupply.com/oddly-specific-objects/open-book-touch&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48952135&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Hardware and software are both open for modification.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters praise the honest feature-comparison matrix but flag the absence of physical page-turn buttons, saying swipe gestures on e-ink feel awkward.&lt;/li&gt;
+&lt;li&gt;Some note the 220ppi screen is lower resolution than current mainstream readers, a tradeoff for the size and openness.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-18">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

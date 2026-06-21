@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 12, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 12, 2026</h1>
+    <p class="date">Sunday, July 12, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter-than-usual Sunday, with the day&amp;#x27;s threads circling what AI tools actually do with your data, a batch of independent hardware and runtime projects, and a few health studies worth reading with care.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;An analysis says xAI&amp;#x27;s Grok Build CLI uploads entire repositories to xAI.&lt;/strong&gt; A &lt;a href=&quot;https://gist.github.com/cereblab/dc9a40bc26120f4540e4e09b75ffb547&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;published inspection&lt;/a&gt; of the command-line tool reports that it sends every tracked file&amp;#x27;s content plus git history to xAI, regardless of which files the agent is actually asked to read (&lt;a href=&quot;https://news.ycombinator.com/item?id=48877371&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter offers a possible technical rationale: shipping the whole codebase lets the model inspect it during its reasoning without repeated round-trips to the client, though they note the trade-off is hard to justify.&lt;/li&gt;
+&lt;li&gt;Several tie this to broader trust questions and observe the irony that the same people wary of Chinese AI firms copying code rarely raise the same concern here.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer released Ant, a JavaScript runtime built around its own engine.&lt;/strong&gt; The &lt;a href=&quot;https://antjs.org&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Show HN project&lt;/a&gt; bundles a runtime, a package manager, the ants.land registry, a hosting platform, and an Electron-style desktop app builder, aiming to work as one platform while staying compatible with the wider JavaScript ecosystem (&lt;a href=&quot;https://news.ycombinator.com/item?id=48875377&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Interest centers on embedding and small binary size, with one reader surprised at how large V8 and Node bundles have become.&lt;/li&gt;
+&lt;li&gt;The author posted a hotfix after early installers hit a libcares error, and others suggested a public roadmap and more contributors to reduce the bus factor.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Mesh LLM splits large language models across multiple machines over the iroh network layer.&lt;/strong&gt; The &lt;a href=&quot;https://www.iroh.computer/blog/mesh-llm&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project&lt;/a&gt; describes distributing model inference across nodes without custom hardware, and a contributor said the underlying engine handles splitting large models across peers (&lt;a href=&quot;https://news.ycombinator.com/item?id=48876505&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters flag network throughput as the core limitation, noting the models list cites roughly 16 tokens per second for a 235B model across two nodes and questioning interactive usability.&lt;/li&gt;
+&lt;li&gt;One asks whether payloads between nodes are encrypted and whether other users&amp;#x27; requests could be read; another points to cocompute.ai as prior work in the same space.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A 2016 essay describes how physicians tend to choose less aggressive end-of-life care than their patients.&lt;/strong&gt; The &lt;a href=&quot;https://archive.cancerworld.net/featured/how-doctors-die/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt; argues doctors, having seen the limits of intensive intervention, more often opt for peaceful deaths at home (&lt;a href=&quot;https://news.ycombinator.com/item?id=48876741&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An emergency physician reinforces the piece, noting CPR outcomes are usually poor and that even documented advance directives can be overridden by the system.&lt;/li&gt;
+&lt;li&gt;A counterpoint from a reader with two cancers argues that with new treatments arriving frequently, choosing to &amp;quot;fight&amp;quot; is more defensible now than the article&amp;#x27;s framing suggests.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A writer objects to being told to &amp;quot;ask an LLM&amp;quot; when they already have.&lt;/strong&gt; The &lt;a href=&quot;https://blog.yaelwrites.com/stop-telling-me-to-ask-an-llm/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; argues that when a question has already survived hours with a model, the redirect withholds the specific lived experience that decades of work produce and that a search can&amp;#x27;t surface (&lt;a href=&quot;https://news.ycombinator.com/item?id=48876441&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several read it as a communication problem, suggesting that showing your proof-of-work and the options you already tried makes the &amp;quot;ask Claude&amp;quot; reply far less likely.&lt;/li&gt;
+&lt;li&gt;Others frame the redirect as the new &amp;quot;Google it&amp;quot; or a polite way to decline, and one raises the uncomfortable possibility that the model sometimes genuinely answers better than the expert.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;RISCBoy is an open-source handheld games console built from scratch around RISC-V.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/Wren6991/RISCBoy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project&lt;/a&gt; is described by its creator as a Game Boy Advance from a parallel universe where RISC-V existed in 2001 (&lt;a href=&quot;https://news.ycombinator.com/item?id=48876245&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note the author is Luke Wren, an ASIC design engineer at Raspberry Pi who also created PicoDVI, and express surprise that the AHB/APB bus interfaces used are openly available rather than ARM-proprietary.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A study reports resistance exercise controlled blood sugar better than endurance exercise in mice.&lt;/strong&gt; The &lt;a href=&quot;https://news.vt.edu/articles/2025/11/research_fralinbiomed_yanweightlifting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;research writeup&lt;/a&gt; from Virginia Tech attributes the effect to muscle acting as a glucose sink (&lt;a href=&quot;https://news.ycombinator.com/item?id=48876593&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Readers stress the finding is in mice and question the design, noting the resistance group performed a squat-like movement right before eating while the endurance group had optional wheel access, which may confound the comparison.&lt;/li&gt;
+&lt;li&gt;Some point to Dr. Bernstein&amp;#x27;s long-standing argument along the same lines and suggest continuous glucose monitors as a way for individuals to test the effect directly.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A study links Long-COVID to reduced nerve supply in the stomach lining.&lt;/strong&gt; The &lt;a href=&quot;https://www.ijidonline.com/article/S1201-9712(26)00608-9/fulltext&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;paper&lt;/a&gt; reports roughly halved cholinergic innervation of the gastric mucosa in affected patients, supporting the hypothesis that SARS-CoV-2 may cause structural nerve damage (&lt;a href=&quot;https://news.ycombinator.com/item?id=48877192&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters caution that the control group was only eight people and that &amp;quot;may cause&amp;quot; signals how tentative the finding is.&lt;/li&gt;
+&lt;li&gt;One argues the bigger share of Long-COVID burden is central nervous system dysfunction rather than peripheral autonomic damage, and that the term &amp;quot;post-COVID syndrome&amp;quot; would be more accurate.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-12">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

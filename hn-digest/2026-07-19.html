@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 19, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 19, 2026</h1>
+    <p class="date">Sunday, July 19, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter-than-usual day, weighted toward local AI tooling, a fresh wave of large open-weight models, and a few pointed reflections on where the AI build-out actually stands.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A new ggml-based library aims to standardize local speech-to-text.&lt;/strong&gt; &lt;a href=&quot;https://workshop.cjpais.com/projects/transcribe-cpp&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Transcribe.cpp&lt;/a&gt; is a v0.1.0 transcription library from the maintainer of the Handy app, supporting 16 ASR families and 60+ models with Vulkan, Metal, and CUDA acceleration, first-party bindings in four languages, and numerical validation against reference implementations (&lt;a href=&quot;https://news.ycombinator.com/item?id=48963879&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It is presented as a near drop-in replacement for whisper.cpp, extending support to many more models.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters read it mainly as a broader, GPU-accelerated successor to whisper.cpp rather than something wholly new.&lt;/li&gt;&lt;li&gt;One flags a roughly 10x speed gap between the Metal and Vulkan backends and asks what accounts for it.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Alibaba says it will release Qwen 3.8 as an open-weight model.&lt;/strong&gt; The company announced a 2.4-trillion-parameter model, with a Qwen3.8-Max-Preview already available on its paid plans ahead of the open-weight release (&lt;a href=&quot;https://twitter.com/Alibaba_Qwen/status/2078759124914098291&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48966120&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The post positions it as among the most capable models available, &amp;quot;second only to Fable 5.&amp;quot;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several tie the timing to Moonshot AI&amp;#x27;s recently announced 2.8T-parameter Kimi K3, framing this as a competitive response.&lt;/li&gt;&lt;li&gt;Others note a strategic shift from Chinese &amp;quot;value&amp;quot; models toward large, slower, token-hungry ones, and read the &amp;quot;second only to Fable 5&amp;quot; line as an implicit acknowledgment of Anthropic&amp;#x27;s current lead.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A consultant argues corporate AI projects are broadly failing.&lt;/strong&gt; The essay claims the author&amp;#x27;s team has seen a 0% success rate across enterprise AI initiatives over 18 months, attributing much of it to organizations being poor at software projects generally plus the added novelty risk (&lt;a href=&quot;https://ludic.mataroa.blog/blog/ai-mania-is-eviscerating-global-decision-making/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48964185&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It singles out internal and customer-facing chatbots as recurring disappointments.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several push back that a literal &amp;quot;0% success&amp;quot; reading is hyperbole and likely selection bias, since the firm may only attract companies struggling to adopt AI.&lt;/li&gt;&lt;li&gt;Others note the piece never defines an &amp;quot;AI project,&amp;quot; and that their own experience using LLMs for advanced code and SQL contradicts the blanket claim.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A terminal tool casts web video streams directly to smart TVs.&lt;/strong&gt; &lt;a href=&quot;https://github.com/stupside/castor&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Castor&lt;/a&gt; uses headless Chrome with anti-automation scripts to locate and extract a page&amp;#x27;s video stream, transcode it, optionally burn in auto-generated subtitles, and cast it at full quality from the command line (&lt;a href=&quot;https://news.ycombinator.com/item?id=48964015&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The README notes it works on most sites but won&amp;#x27;t defeat sophisticated bot protection.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters characterize it plainly as piracy tooling, with little of the usual plausible deniability given its framing.&lt;/li&gt;&lt;li&gt;Some express surprise that it apparently bypasses Cloudflare Turnstile largely by simulating a checkbox click.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A tracker catalogs OpenAI&amp;#x27;s ad hoc Codex usage-limit resets.&lt;/strong&gt; &lt;a href=&quot;https://codex-resets.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Codex Resets&lt;/a&gt; archives the celebratory tweets in which an OpenAI staffer announces resetting Codex and ChatGPT Work usage limits, noting there is &amp;quot;no schedule, no changelog,&amp;quot; alongside stats like an average interval between resets (&lt;a href=&quot;https://news.ycombinator.com/item?id=48963465&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The feed doubles as a running log of stated user-growth milestones.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters question how long the giveaways can last, reading them as costly mindshare-buying ahead of an IPO, while conceding they have earned developer goodwill.&lt;/li&gt;&lt;li&gt;Others contrast this with Anthropic&amp;#x27;s more predictable Thursday–Friday reset cadence.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A guide revives fully self-owned web publishing on a penny-a-day host.&lt;/strong&gt; &amp;quot;Hardcore IndieWeb&amp;quot; argues that if your content doesn&amp;#x27;t primarily live on your own hard drive, you don&amp;#x27;t really control it, and lays out a 1990s-style workflow of a text editor, an SFTP tool, and a cheap static host (&lt;a href=&quot;https://www.neatnik.net/hardcore-indieweb&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48962758&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The recommended host is billed at roughly $0.01/day, pay-as-you-go.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some suggest going further by serving a static site straight from a home machine via port forwarding, since uptime matters little for a personal site.&lt;/li&gt;&lt;li&gt;Others note the domain registrar remains a real dependency and single point of control that the approach doesn&amp;#x27;t address.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An archive collects thousands of freely distributable Amiga titles.&lt;/strong&gt; The Amiga Freeware Archive catalogs 18,608 downloads spanning games, demos, tools, and music from PD libraries, scene groups, and user groups such as Fred Fish and 17 Bit Software (&lt;a href=&quot;https://amigafreeware.downer.tech/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;archive&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48962838&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It preserves material from the pre-Internet era of the platform.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;An original author of one listed game appears in the thread noting it seems misattributed to a PD library that only distributed, not created, it.&lt;/li&gt;&lt;li&gt;Others reflect on Fred Fish&amp;#x27;s curation as a hard-to-replicate community contribution, and one questions the &amp;quot;32-bit&amp;quot; framing given the Amiga&amp;#x27;s CPU.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Claude Code now ships a Rust port of Bun in production.&lt;/strong&gt; Simon Willison inspected his own install and found evidence—an embedded Bun v1.4.0 and hundreds of .rs source paths—confirming a claim that Claude Code has run the Rust rewrite of Bun since June, with about a 10% faster Linux startup (&lt;a href=&quot;https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48966569&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The rewrite reportedly went out to millions of devices largely unnoticed.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several raise concerns about Bun&amp;#x27;s governance and open-source future now that it is tied to Anthropic and a very large, largely AI-assisted rewrite.&lt;/li&gt;&lt;li&gt;Others are underwhelmed that a full Rust rewrite yielded only about a 10% startup improvement.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-19">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

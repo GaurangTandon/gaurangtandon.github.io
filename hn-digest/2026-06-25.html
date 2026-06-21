@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — June 25, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — June 25, 2026</h1>
+    <p class="date">Thursday, June 25, 2026</p>
+  </header>
+  <div class="body">
+<p><em>A quieter Thursday across the feed: a few infrastructure shifts, some sober talk about valuations and layoffs, and a handful of builders shipping things for their own sake.</em></p>
+
+<p><strong>Half-Life 2 now runs inside a web browser.</strong> A developer has ported the game to run client-side via WebAssembly, playable at <a href="https://hl2.slqnt.dev/">hl2.slqnt.dev</a> (<a href="https://news.ycombinator.com/item?id=48669534">HN discussion</a>). It follows earlier browser ports of older titles and showcases shipping full programs through WASM.</p>
+<ul><li>Several commenters flag that redistributing the game assets this way is likely not legal without permission from the rights holders.</li><li>Others point to prior art — browser builds of Quake 3 and Unreal Tournament, and the noclip.website level explorer — and note this port appears to be missing shaders such as character eyes.</li></ul>
+
+<p><strong>Cloudflare has opened OAuth-based delegated access across its platform.</strong> The company describes letting users grant third-party applications scoped permissions to their Cloudflare accounts, framed as opening up an app ecosystem (<a href="https://blog.cloudflare.com/oauth-for-all/">announcement</a>, <a href="https://news.ycombinator.com/item?id=48668033">HN discussion</a>).</p>
+<ul><li>Some worry about Cloudflare drifting toward a general cloud platform and away from the lightweight, DIY-hosting niche it served well.</li><li>Others raise security caution about delegating infrastructure-level permissions to third parties, noting larger providers have generally avoided this.</li></ul>
+
+<p><strong>Elastic is cutting about 7% of its workforce.</strong> The CEO's note frames the reorganization around AI and automation reshaping how work gets done, while signaling continued growth (<a href="https://www.elastic.co/blog/ceo-ash-kulkarni-announcement-to-elastic-employees">company post</a>, <a href="https://news.ycombinator.com/item?id=48666100">HN discussion</a>).</p>
+<ul><li>Commenters note the announcement spends few words on the cuts and many on future hiring, and that an SEC filing reportedly calls for more headcount in go-to-market roles even as AI is cited for the reductions.</li><li>Some read these AI-attributed layoffs as companies trimming and hoarding cash ahead of an anticipated downturn.</li></ul>
+
+<p><strong>A post argues crates.io should not require GitHub to publish Rust packages.</strong> The author makes the case that no external account-controlling gatekeeper should be a single point of failure for open-source publishing (<a href="https://infosec.exchange/@mttaggart/116806641273303255">post</a>, <a href="https://news.ycombinator.com/item?id=48664733">HN discussion</a>).</p>
+<ul><li>Commenters point out the Rust team already acknowledges this, with a tracking issue and a recently merged RFC, but note progress depends on volunteer time and funding for unglamorous work.</li><li>Some cite PHP's Packagist as a model worth borrowing, since it forces packaging from a source repository.</li></ul>
+
+<p><strong>LuaJIT has proposed a set of syntax extensions for a 3.0 release.</strong> The proposal adds features such as compound assignment and ternary expressions, suggesting renewed development after a long maintenance-only stretch (<a href="https://github.com/LuaJIT/LuaJIT/issues/1475">proposal</a>, <a href="https://news.ycombinator.com/item?id=48667336">HN discussion</a>).</p>
+<ul><li>Several note these changes would break compatibility with Lua 5.1, effectively making it a separate language that arguably deserves a new name.</li><li>Opinion on the ternary operator is mixed, with some welcoming compound assignment but doubting that ternaries improve readability.</li></ul>
+
+<p><strong>A new fund lays out a case for sharply reducing respiratory infections.</strong> The essay argues that colds, flu, and similar illnesses impose a large, under-addressed annual burden and proposes funding work to curb them (<a href="https://blog.interceptfund.com/p/ending-respiratory-infections">essay</a>, <a href="https://news.ycombinator.com/item?id=48667588">HN discussion</a>).</p>
+<ul><li>Some commenters question the claim that healthy people spend roughly 15–25 days a year sick, saying it does not match their experience.</li><li>Others express disappointment that indoor air cleaning saw little lasting uptake after Covid, even setting mortality aside.</li></ul>
+
+<p><strong>The Economist describes a wave of "zombie unicorns" stuck at stale valuations.</strong> The piece covers once-highly-valued startups treading water, unable to justify past marks or exit cleanly (<a href="https://www.economist.com/business/2026/06/21/zombie-unicorns-are-haunting-silicon-valley">article</a>, <a href="https://news.ycombinator.com/item?id=48668020">HN discussion</a>).</p>
+<ul><li>Commenters tie this to the zero-interest-rate era inflating valuations and keeping weak companies alive, citing Cameo and the Vision Fund as examples.</li><li>Several emphasize that profitable companies can run indefinitely; the pain falls mainly on investors expecting returns, not on customers or staff.</li></ul>
+
+<p><strong>A 2024 write-up argues PostgreSQL alone covers most needs.</strong> The gist makes the case for reaching for specialized datastores only after documenting where Postgres falls short (<a href="https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb">gist</a>, <a href="https://news.ycombinator.com/item?id=48666433">HN discussion</a>).</p>
+<ul><li>Some push back on the "exhaust Postgres first" bar, noting that adding a hosted Redis for hot paths can be simpler than materialized views or unlogged tables.</li><li>Others caution that Postgres works well until scale exposes earlier choices around partitioning, HA, and replication, and a few argue SQLite is often enough.</li></ul>
+
+<p><strong>The Dolphin GameCube and Wii emulator shipped another progress release.</strong> The 2606 report details ongoing accuracy and feature improvements to the long-running project (<a href="https://dolphin-emu.org/blog/2026/06/25/dolphin-progress-report-release-2606/">report</a>, <a href="https://news.ycombinator.com/item?id=48671392">HN discussion</a>).</p>
+<ul><li>Commenters note it runs well on the Steam Deck, and clarify that despite past worries about a Nintendo takedown, development has continued.</li></ul>
+  </div>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-06-25">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+</body>
+</html>

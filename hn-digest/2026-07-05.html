@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 5, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 5, 2026</h1>
+    <p class="date">Sunday, July 5, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter Saturday across the feeds, leaning toward tooling, open source, and a couple of science headlines worth reading carefully.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Organic Maps, a privacy-focused offline mapping app, drew a large audience.&lt;/strong&gt; &lt;a href=&quot;https://organicmaps.app/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Organic Maps&lt;/a&gt; is a free, open-source navigation app built on OpenStreetMap data for hiking, cycling and driving, designed to work entirely without a network connection and without ads or tracking; it reports reaching 6M installs in December 2025 (&lt;a href=&quot;https://news.ycombinator.com/item?id=48794446&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to a year-old fork, CoMaps, created over concerns about the project&amp;#x27;s governance.&lt;/li&gt;&lt;li&gt;Several regular users say the search feature remains weak enough that they still fall back to Google Maps, and one notes F-Droid flags non-open-source compiled map data files.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Command &amp;amp; Conquer: Generals Zero Hour now runs natively on Apple Silicon Macs, iPhone and iPad.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/tree/main&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project&lt;/a&gt; compiles the original 2003 engine for ARM64 rather than emulating it, translating DirectX 8 through DXVK, Vulkan and MoltenVK to Metal, and adds touch controls built for real-time strategy; no game assets are bundled (&lt;a href=&quot;https://news.ycombinator.com/item?id=48788283&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;The work builds on a chain of prior community efforts — EA&amp;#x27;s GPL source release, Fighter19&amp;#x27;s Unix port, and GeneralsX&amp;#x27;s macOS/Linux work.&lt;/li&gt;&lt;li&gt;Commenters note the long render pipeline underscores the absence of native Vulkan drivers on Apple&amp;#x27;s mobile hardware.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A GitHub issue links a token pattern in GPT-5.5 Codex to degraded results.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/openai/codex/issues/30364&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;report&lt;/a&gt; finds reasoning-token counts clustering at fixed values (516, 1034, 1552) that correlate with wrong answers on complex tasks, a pattern specific to gpt-5.5 and largely absent in earlier models (&lt;a href=&quot;https://news.ycombinator.com/item?id=48789428&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several suggest the values look like batching reasoning inference in multiples of 512 as a throughput optimization.&lt;/li&gt;&lt;li&gt;Multiple users report intermittent quality drops over recent months, some switching to other models, and frame it as an argument for local models that avoid silent server-side changes.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An engineer reports newer Claude models adding invented fields to tool calls.&lt;/strong&gt; Armin Ronacher &lt;a href=&quot;https://lucumr.pocoo.org/2026/7/4/better-models-worse-tools/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;documents&lt;/a&gt; Opus 4.8 and Sonnet 5 appending made-up keys to an edit tool&amp;#x27;s arguments while the actual edit stays correct, and hypothesizes it stems from post-training on specific coding harnesses (&lt;a href=&quot;https://news.ycombinator.com/item?id=48788599&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Others report models broadly struggle to produce valid diffs, and one notes a model post-trained on one tool&amp;#x27;s patch format bleeds it into unrelated tools.&lt;/li&gt;&lt;li&gt;Commenters raise the worry that unfamiliar tool schemas may be implicitly penalized as harnesses converge on a few dominant formats.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;shadcn/ui now defaults to Base UI instead of Radix.&lt;/strong&gt; The &lt;a href=&quot;https://ui.shadcn.com/docs/changelog&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;changelog&lt;/a&gt; reports that new projects and docs now pick Base UI first, citing its stability and community adoption; Radix is not deprecated and remains one flag away (&lt;a href=&quot;https://news.ycombinator.com/item?id=48791328&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Rather than a codemod, they ship an LLM-driven migration &amp;quot;skill,&amp;quot; which commenters find a notable shift and question against the copy-paste model&amp;#x27;s ongoing upgrade burden.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Researchers report reversing markers of brain aging in mice using a nasal spray.&lt;/strong&gt; A Texas A&amp;amp;M &lt;a href=&quot;https://stories.tamu.edu/news/2026/04/14/scientists-reverse-brain-aging-with-a-nasal-spray/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;study&lt;/a&gt; used extracellular vesicles carrying microRNAs, delivered intranasally, to reduce hippocampal inflammation, recharge neuronal mitochondria, and improve memory in aged mice (&lt;a href=&quot;https://news.ycombinator.com/item?id=48790066&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters stress the work was done in mice, an expected but important limitation.&lt;/li&gt;&lt;li&gt;Several argue that reducing inflammation markers is not the same as &amp;quot;reversing aging,&amp;quot; and that the headline oversells the finding.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Scientists are studying how jellyfish heal wounds within minutes.&lt;/strong&gt; A Marine Biological Laboratory &lt;a href=&quot;https://www.mbl.edu/news/jellyfish-can-heal-wounds-minutes-scientists-want-their-secrets&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;piece&lt;/a&gt; describes efforts to understand the rapid wound-closure mechanism in jellyfish (&lt;a href=&quot;https://news.ycombinator.com/item?id=48789712&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note jellyfish have very simple tissue and no circulatory or nervous system, tempering expectations of direct human relevance.&lt;/li&gt;&lt;li&gt;One frames this as basic marine-biology research interesting in its own right rather than a near-term medical lead.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An essay examines how phones handle rapid taps on a rotate button.&lt;/strong&gt; The &lt;a href=&quot;https://unsung.aresluna.org/if-youre-a-button-you-have-one-job/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; shows that an iPhone buffers queued taps while a Nothing Phone confirms each tap but ignores it mid-animation, arguing interfaces should never force users to wait for an animation to finish (&lt;a href=&quot;https://news.ycombinator.com/item?id=48790689&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters connect the buffering trade-off to the THERAC-25 accidents, where fast experienced input bypassed safety checks.&lt;/li&gt;&lt;li&gt;Others note Google Photos on Pixel rotates instantly with no animation to buffer, and that the article&amp;#x27;s two demos appear to use different tap counts.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-05">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

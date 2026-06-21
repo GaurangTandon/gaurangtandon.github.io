@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 21, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 21, 2026</h1>
+    <p class="date">Tuesday, July 21, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter-than-usual Tuesday, with the day&amp;#x27;s substance clustered around AI&amp;#x27;s growing footprint — in mathematics, in image generation, and in the balance sheets funding it — alongside a few solid pieces of open-source and tooling news.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A mathematician surveys a wave of AI-found counterexamples.&lt;/strong&gt; In a &lt;a href=&quot;https://xenaproject.wordpress.com/2026/07/20/human-mathematicians-are-being-outcounterexampled/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post from the Lean formalization community&lt;/a&gt;, the author walks through recent weeks in which AI systems disproved a longstanding Erdős conjecture in discrete geometry and, separately, autoformalized the proof in Lean — with one model reportedly generating 1.2 million lines of Lean over three weeks. The piece frames large AI-generated developments of mathematics as increasingly inevitable while stressing that such output must be run in a sandbox and independently checked (&lt;a href=&quot;https://news.ycombinator.com/item?id=48983382&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters note that computer-assisted counterexample search predates generative AI by decades, and argue the novelty is mostly more compute and current fashion rather than a categorical leap.&lt;/li&gt;&lt;li&gt;Others point out that humans still frame the problem and craft the prompts, since the raw search space is far too large to brute-force.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Nikkei study estimates $1.65T in off-balance-sheet debt tied to AI buildouts.&lt;/strong&gt; The &lt;a href=&quot;https://asia.nikkei.com/business/technology/five-us-tech-giants-hidden-debts-soar-to-1.65tn-on-opaque-ai-funding&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;report&lt;/a&gt; (&lt;a href=&quot;https://archive.ph/20260720174223/https://asia.nikkei.com/business/technology/five-us-tech-giants-hidden-debts-soar-to-1.65tn-on-opaque-ai-funding&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;archive&lt;/a&gt;) says liabilities from data-center leases and GPU supply contracts at five large U.S. tech firms have grown roughly eightfold in about four years, exceeding their reported debt and complicating risk assessment. Meta&amp;#x27;s off-balance-sheet obligations alone are put at about $420 billion (&lt;a href=&quot;https://news.ycombinator.com/item?id=48987863&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note the debt formally sits in special-purpose vehicles that own the facilities, meaning lenders — and potentially the broader public — bear the risk rather than the tech firms directly.&lt;/li&gt;&lt;li&gt;Others argue sophisticated institutional investors can already see through the arrangement, so the main exposure falls on less-informed retail investors.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Qwen releases Image 3.0, an image-generation model.&lt;/strong&gt; The &lt;a href=&quot;https://qwen.ai/blog?id=qwen-image-3.0&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt; highlights richer content, more authentic detail, and support for complex layouts such as newspapers and storyboards from inputs up to 4.5k tokens (&lt;a href=&quot;https://news.ycombinator.com/item?id=48989701&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out the post says nothing about whether model weights will be released, and read it as closed-weights.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The ACLU documents a pattern of misleading statements by license-plate-reader vendor Flock.&lt;/strong&gt; The &lt;a href=&quot;https://www.aclu.org/news/privacy-technology/tracking-alpr-cameras/flock-safety-credibility-lost-as-it-repeatedly-lies-to-city-councils-police-departments-and-public-across-the-country&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt; details a Wisconsin city council that revoked a Flock contract a day after learning the company had denied its system builds vehicle &amp;quot;heat maps&amp;quot; — which it later acknowledged it does, retaining point-in-time location images for up to a month. The ACLU ties this to earlier episodes involving federal data access and describes a recurring gap between Flock&amp;#x27;s public claims and its operations (&lt;a href=&quot;https://news.ycombinator.com/item?id=48986731&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some commenters are skeptical that mass-surveillance infrastructure will recede regardless of individual contract fights.&lt;/li&gt;&lt;li&gt;One notes a separate, physical complaint that such camera poles are often installed without meeting highway safety standards.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Jellyfin&amp;#x27;s founder and two other leaders step back from the project.&lt;/strong&gt; In a &lt;a href=&quot;https://forum.jellyfin.org/t-project-leadership-changes&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;forum announcement&lt;/a&gt;, the departing project leader cites burnout and describes the handoff as amicable and ongoing, with the remaining team continuing the open-source media server (&lt;a href=&quot;https://news.ycombinator.com/item?id=48986091&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters connect renewed interest in Jellyfin to Plex raising its lifetime pass price and pushing recurring subscriptions.&lt;/li&gt;&lt;li&gt;A few note the server itself is solid but the client experience remains uneven, particularly for HDR-to-SDR tone mapping.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Jane Street publishes Incremental, an OCaml library for self-adjusting computation.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/janestreet/incremental&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;library&lt;/a&gt; builds computation graphs that recompute efficiently when inputs change, aimed at large spreadsheet-style calculations, GUI views, and keeping derived data in sync (&lt;a href=&quot;https://news.ycombinator.com/item?id=48987822&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to substantial prior art, including similar dependency-graph pricing systems built at finance firms decades ago.&lt;/li&gt;&lt;li&gt;Several ask how it materially differs from an observable/reactive pattern, with the batched &amp;quot;stabilize&amp;quot; step cited as the main distinguishing idea.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Show HN presents a Gaussian Splat tour of San Francisco&amp;#x27;s Grace Cathedral.&lt;/strong&gt; The &lt;a href=&quot;https://vincentwoo.com/3d/grace_cathedral/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;interactive model&lt;/a&gt; reconstructs the cathedral&amp;#x27;s interior from photographs, including a cutaway &amp;quot;peek&amp;quot; feature and detailed rendering of stained glass and reflections (&lt;a href=&quot;https://news.ycombinator.com/item?id=48984254&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters connect it to the author&amp;#x27;s earlier drone-photographed Sutro Tower splat and note how well the technique captures glass and reflective surfaces.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer releases a small Bash tool for iterating over files, lines, and ranges.&lt;/strong&gt; The &lt;a href=&quot;https://numerlab.org/2025/07/20/bashumerate-enumerator/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project&lt;/a&gt;, under 150 lines of Bash, offers a consistent {} syntax as an alternative to memorizing find -exec and xargs flags (&lt;a href=&quot;https://news.ycombinator.com/item?id=48984270&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Many commenters argue existing tools already cover this, pointing to xargs -I{}, find -print0, GNU parallel, and native zsh loops.&lt;/li&gt;&lt;li&gt;Some question the practicality of a script dependency that would need to ship alongside any scripts using it.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-21">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 16, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 16, 2026</h1>
+    <p class="date">Thursday, July 16, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter-than-usual Wednesday in tech, with releases and open-source housekeeping outnumbering fireworks.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;xAI open-sources its Grok Build coding agent.&lt;/strong&gt; The company published the Rust source for &lt;a href=&quot;https://github.com/xai-org/grok-build&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;grok&lt;/a&gt;, a terminal-based coding agent that reads a codebase, edits files, runs shell commands, and can operate headlessly or embed in editors via the Agent Client Protocol (&lt;a href=&quot;https://news.ycombinator.com/item?id=48926590&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Prebuilt binaries are offered for macOS, Linux, and Windows, and the tree is synced periodically from an internal monorepo.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters read the release against a recent controversy over the tool&amp;#x27;s broad access to the working directory and its data handling, suggesting the timing was partly reactive.&lt;/li&gt;&lt;li&gt;Others note the source makes it easier to reverse-engineer the agent&amp;#x27;s behavior, and at least one is checking whether a cloud-upload routine is present.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A proposal to give SQLite versioned defaults.&lt;/strong&gt; A developer argues that several SQLite defaults are surprising — foreign keys off by default, and columns that accept the wrong data type via type affinity — and proposes opt-in &amp;quot;editions,&amp;quot; similar to Rust&amp;#x27;s, so newer databases could enable stricter behavior without breaking old ones (&lt;a href=&quot;https://mort.coffee/home/sqlite-editions/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48928135&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Existing fixes like PRAGMA foreign_keys and strict tables already exist but must be enabled manually.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters caution that SQLite files often move between machines and are read by whatever sqlite3 version is on hand, so a per-file edition could break older tools reading newer databases.&lt;/li&gt;&lt;li&gt;Some suggest raising the idea on SQLite&amp;#x27;s forum, where the developers are active and may have already weighed the trade-off.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Firefox compiled to WebAssembly runs inside a browser tab.&lt;/strong&gt; A Show HN demo runs Gecko, the full UI, and the SpiderMonkey engine as WebAssembly, rendering the browser into a &amp;lt;canvas&amp;gt;, with network traffic proxied over WebSockets using the WISP protocol (&lt;a href=&quot;https://developer.puter.com/labs/firefox-wasm/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48926939&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The author describes it as an experiment that also includes a novel WASM-to-JS JIT.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters flag prior art and note SpiderMonkey&amp;#x27;s own wasm32 JIT backend was never finished, so the JIT and interpreter details drew technical interest.&lt;/li&gt;&lt;li&gt;One describes a real use: running it inside the locked-down browser on a Web-based smart TV to load an ad blocker the platform otherwise forbids.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An op-ed calls for public and nonprofit funding of open-source AI.&lt;/strong&gt; An investor argues that governments, companies, and nonprofits should fund free, open-source AI as public infrastructure, framing it as a continuation of earlier open-source fights (&lt;a href=&quot;https://www.siegelendowment.org/wp-content/uploads/2026/07/fortune-david-siegel-open-source-ai.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48927095&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several are skeptical that goodwill and part-time contributions can compete with paid, profit-driven commercial development.&lt;/li&gt;&lt;li&gt;Others float concrete alternatives, such as periodic inducement prizes for open models that clear hard benchmarks under fixed VRAM budgets, and one notes the author had earlier called the data-center buildout premature.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Bluesky acquires the AT Protocol trademark.&lt;/strong&gt; Bluesky says it bought the rights to &amp;quot;AT Protocol,&amp;quot; &amp;quot;atproto,&amp;quot; and variants from a company that had threatened legal action, and will make the mark freely available for good-faith use while reserving licensing for commercial branding (&lt;a href=&quot;https://atproto.com/blog/at-protocol-trademark&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48929351&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It says it intends to transfer ownership to an independent governance organization later.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note the mark, and the protocol, currently sit with a single for-profit entity that also runs the main instance, and ask which party had tried to register it first.&lt;/li&gt;&lt;li&gt;Some contrast this with ActivityPub, expressing wariness about single-vendor-controlled standards.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A survey tracks YC founders who later joined OpenAI or Anthropic.&lt;/strong&gt; An interactive project maps 105 former Y Combinator founders now at the two labs, showing that most hold &amp;quot;Member of Technical Staff&amp;quot; roles regardless of prior seniority, with batches from 2012 and 2020–2024 heavily represented (&lt;a href=&quot;https://joinedanthropic.com&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48931588&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters question what the sample shows without a denominator, noting YC has tens of thousands of founders and that more are probably at Google or Meta.&lt;/li&gt;&lt;li&gt;Some read the flattening of former CEOs and CTOs into one engineer title as a comment on where the money and access now sit.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OnePlus stops new product launches in the US and Europe.&lt;/strong&gt; In a community post, OnePlus said it will conclude new product rollouts in North America and Europe as part of a &amp;quot;global strategy adjustment,&amp;quot; a statement several readers found ambiguously worded (&lt;a href=&quot;https://community.oneplus.com/thread/2170715118587871237&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48932539&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters describe the brand as having been market-irrelevant for a while and note it had already been steering buyers toward sibling brand OPPO.&lt;/li&gt;&lt;li&gt;Several attribute the decline to rising prices and heavier, more bloated software after early value-focused models, some dating the shift to co-founder Carl Pei&amp;#x27;s departure.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An essay revisits the private-tracker era of music piracy.&lt;/strong&gt; A feature built around Nine Inch Nails&amp;#x27; former creative director recounts the rise of Oink&amp;#x27;s Pink Palace and What.CD as meticulously curated private BitTorrent communities, and the sense of discovery lost to streaming (&lt;a href=&quot;https://www.pigeonsandplanes.com/read/music-piracy-what-cd-oink-nine-inch-nails-streaming&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48930454&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out the piece is really about What.CD specifically, with RED cited as its modern successor and Soulseek noted as still active.&lt;/li&gt;&lt;li&gt;Several add that much pirated music now simply lives on YouTube, and recall that Oink&amp;#x27;s operator was cleared in court despite the raid on his home.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An 1800s natural-history library is restored and put online.&lt;/strong&gt; Designer Nicholas Rougeux has digitally restored more than 1,300 color wildlife plates from the 40-plus-volume Victorian series &lt;em&gt;The Naturalist&amp;#x27;s Library&lt;/em&gt;, publishing them as a free website alongside print and poster editions (&lt;a href=&quot;https://www.openculture.com/2026/07/explore-1300-beautiful-wildlife-illustrations-from-the-19th-century.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48929945&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). He describes AI tools helping locate sources and fill visual gaps during the process.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters ask for clarity on exactly how far AI was used in altering or filling the images, which the write-up leaves vague.&lt;/li&gt;&lt;li&gt;Others share direct links to the underlying library to bypass the ad-heavy blog post.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-16">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
