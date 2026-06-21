@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 25, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 25, 2026</h1>
+    <p class="date">Saturday, July 25, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet Saturday&amp;#x27;s worth of technology news: a proposed Android change with outsized downstream effects, two AI leaderboards, a database performance postmortem, a rocket test, and some marine biology.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A proposed Android change could restrict on-device ADB connections.&lt;/strong&gt; A &lt;a href=&quot;https://kitsumed.github.io/blog/posts/android-may-soon-restrict-on-device-adb/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post from the developer of a Shizuku-based call recorder&lt;/a&gt; flags a comment by a Google ADB maintainer on a public IssueTracker thread suggesting that loopback ADB connections — where an Android device runs both the debug daemon and the client — may be restricted to limit abuse by bad actors. The author stresses this is not an official announcement, and notes that the change would affect Shizuku, libadb, and rootless privacy tools that rely on granting elevated permissions without a second machine (&lt;a href=&quot;https://news.ycombinator.com/item?id=49045159&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters argue the recurring pattern is the absence of a configuration switch: they accept the security rationale but want the option to permit loopback ADB on their own hardware.&lt;/li&gt;
+&lt;li&gt;Others push back on the assumption that the device owner is the only person with physical access to an unlocked phone, pointing to border and institutional searches where such an attack could be automated; one view holds that on-device ADB is an architectural hack and the underlying capabilities should be exposed to apps directly instead.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Claude Opus 5 currently sits at the top of the Artificial Analysis Intelligence Index.&lt;/strong&gt; The &lt;a href=&quot;https://artificialanalysis.ai/models&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;leaderboard&lt;/a&gt; lists Opus 5 at its max and xhigh reasoning settings as the highest-scoring entries, ahead of Claude Fable 5 and GPT-5.6 Sol, on a v4.1 index aggregating nine evaluations including Terminal-Bench, GPQA Diamond, Humanity&amp;#x27;s Last Exam, and an anti-hallucination measure (&lt;a href=&quot;https://news.ycombinator.com/item?id=49040741&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters direct attention to the intelligence-versus-cost view of the same data, noting the top model is among the most expensive listed while at least two others land within a couple of percentage points at roughly half the price.&lt;/li&gt;
+&lt;li&gt;Reported hands-on experience is mixed, with some describing worse debugging behaviour and over-building on tasks relative to earlier models, a reminder that a close aggregate ranking may not track individual workflows.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The ARC Prize leaderboards were also circulating.&lt;/strong&gt; The &lt;a href=&quot;https://arcprize.org/leaderboard&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;ARC-AGI leaderboard&lt;/a&gt; spans three benchmark generations, with ARC-AGI-3 shifting from static puzzles to agents adapting on the fly to novel interactive environments, and plots cost-per-task against score; only systems costing under $10,000 per run are shown (&lt;a href=&quot;https://news.ycombinator.com/item?id=49045040&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some commenters raise the possibility that current models have simply absorbed ARC-style puzzles during training, and question why benchmark leaps have not translated into a lasting preference in their day-to-day work.&lt;/li&gt;
+&lt;li&gt;The cost axis draws its own scrutiny, with the highest per-task figures on the board compared unfavourably to what a human engineer would cost.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;DBOS published a breakdown of why Postgres LISTEN/NOTIFY bottlenecks, and how they got past it.&lt;/strong&gt; Their &lt;a href=&quot;https://www.dbos.dev/blog/postgres-listen-notify-scalability&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;engineering post&lt;/a&gt; traces a 2.9K writes/second ceiling — hit without saturating CPU, memory, or IOPS — to the global exclusive lock Postgres takes when committing a NOTIFY, which preserves commit-order delivery but serialises commits and defeats group commit; after optimisation they report 60K stream writes per second on a single server with millisecond latency (&lt;a href=&quot;https://news.ycombinator.com/item?id=49040296&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter notes the widely cited &amp;quot;doesn&amp;#x27;t scale&amp;quot; post the article responds to has carried a correction since May, and suggests the original claims were accurate for their time rather than made in bad faith.&lt;/li&gt;
+&lt;li&gt;A separate limitation raised is the roughly 8KB cap on notification payloads, which is fine when you can pass a row ID but awkward for transient events that never belong in a table; others ask how much of the speedup is available on stock Postgres versus tied to DBOS&amp;#x27;s own stack.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;SpaceX flew Starship Flight 13.&lt;/strong&gt; The &lt;a href=&quot;https://www.spacex.com/launches/starship-flight-13&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;mission page&lt;/a&gt; carried the livestream for the test flight (&lt;a href=&quot;https://news.ycombinator.com/item?id=49042528&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Viewers in the thread report the booster&amp;#x27;s landing burn failed to light all engines and it went into the water, while the ship achieved a Raptor relight on orbit and a splashdown soft enough that it did not break up — with onboard cameras and the Starlink link reportedly still functioning afterwards.&lt;/li&gt;
+&lt;li&gt;Commenters treat the on-orbit relight as the milestone that matters, since it is the prerequisite for a flight that reaches orbit and deploys operational satellites.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Researchers described how sperm whales stay submerged while sleeping upright.&lt;/strong&gt; A study from the University of St Andrews and Université de Neuchâtel, published in the Journal of Experimental Biology, used suction-cup tags recording sound and 3-D movement on whales off Norway to show that resting whales release gas bubbles to offset their natural positive buoyancy from spermaceti oil and expanding lung gas (&lt;a href=&quot;https://news.st-andrews.ac.uk/archive/sperm-whales-blow-bubbles-to-achieve-restful-vertical-sleep/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49042751&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The team also found that resting dives begin with less gas volume than deep foraging dives, and suspect a link to off-gassing of CO2 or N2.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A commenter points out the original paper&amp;#x27;s title is more precise than the press release: this is buoyancy regulation by modulating onboard gas volume, with bubble sounds used as the measurement, alongside modelling of tissue density and drag rather than &amp;quot;blowing bubbles&amp;quot; as a behaviour in itself.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Hannah Fry has won the 2026 Leelavati Prize for mathematics outreach.&lt;/strong&gt; The &lt;a href=&quot;https://www.maths.cam.ac.uk/features/professor-hannah-fry-wins-leelavati-prize&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Cambridge Faculty of Mathematics announcement&lt;/a&gt; notes the award, which recognises public communication of mathematics; Fry holds the Professorship of the Public Understanding of Mathematics there (&lt;a href=&quot;https://news.ycombinator.com/item?id=49043724&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter highlights that Fry was not admitted to Cambridge as an undergraduate mathematician and now holds a professorship at the institution.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-25">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

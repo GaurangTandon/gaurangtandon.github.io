@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 27, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 27, 2026</h1>
+    <p class="date">Monday, July 27, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter-than-usual Saturday list: one legal test of privacy tooling, a very large open model due today, and several careful engineering projects.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;US prosecutors charge an Atlanta man after his GrapheneOS phone wiped itself during an airport search.&lt;/strong&gt; The Department of Justice is using a federal statute against destroying property to prevent its seizure, after a device running the privacy-focused Android variant erased itself when a passcode was entered during secondary screening at Hartsfield-Jackson in January of last year (&lt;a href=&quot;https://www.techspot.com/news/113236-us-prosecutors-charge-atlanta-man-after-grapheneos-phone.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;TechSpot&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49063022&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Security researchers quoted in the piece say they have not seen the law applied to an operating system before; a ruling on the defense&amp;#x27;s motion to suppress is not expected before late October.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point to VeraCrypt&amp;#x27;s hidden-volume design, where a decoy password unlocks a plausible-looking system, as older prior art that may be more defensible than a duress PIN that visibly destroys data.&lt;/li&gt;
+&lt;li&gt;Several note the evidentiary problem: past encrypted-device cases have generally required substantial independent proof that incriminating material existed before an inference from its destruction was allowed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An interactive visual model of the PostgreSQL engine, styled as a city, was published as an early prototype.&lt;/strong&gt; PGSimCity animates how the database&amp;#x27;s internal components interact, and its author labels it explicitly as unreviewed and likely to contain inaccuracies in both the model and explanations (&lt;a href=&quot;https://nikolays.github.io/PGSimCity/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;PGSimCity&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49063754&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Readers broadly liked the format but said the guided tour presents too much at once and covers too much screen; multiple asked for interactive stepping rather than passive auto-advancing.&lt;/li&gt;
+&lt;li&gt;A common wish was to submit a query and follow it end to end, from parsing through execution to output, alongside the background processes that run independently.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Moonshot AI has scheduled the open-weights release of Kimi-K3 for July 27.&lt;/strong&gt; The Hugging Face page describes a 3-trillion-parameter-class model with a new attention architecture, native tool calling and browsing, and a context window aimed at repository-scale code (&lt;a href=&quot;https://huggingface.co/moonshotai/Kimi-K3&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Hugging Face&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49065752&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). At the time of posting the weights were still behind a countdown rather than public.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter estimates roughly 1.5TB of VRAM to host it natively at mxfp4, putting it at the edge of an 8-GPU node and effectively out of reach for local use, with third-party pricing likely to serve as the first real datapoint on what serving a model this size costs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Seasonal forecast models now give roughly a 90% chance of a record-setting El Niño.&lt;/strong&gt; Across 667 ensemble members from 14 models, the July runs put the median peak Niño 3.4 anomaly at about 3.6C, against a prior record of 2.75C in 2015-16, with the middle 80% of members at or above that old record (&lt;a href=&quot;https://www.theclimatebrink.com/p/the-strongest-el-nino-ever&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The Climate Brink&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49060978&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Successive monthly runs since March have each revised warmer, and the author notes model agreement is not the same as skill.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters highlight a point easy to miss in the charts: global temperature lags ENSO by several months, so most of the warming from this event would land in 2027 rather than this year.&lt;/li&gt;
+&lt;li&gt;Several observe that the models kept underestimating observed ocean temperatures, and that regional consequences — rainfall versus heat in a given city — remain hard to read from the index alone.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Vercel Labs released scriptc, a compiler that turns TypeScript into native binaries without embedding a JavaScript engine.&lt;/strong&gt; The project type-checks with the real TypeScript compiler and compiles supported constructs to native code, reporting a per-statement coverage figure and rejecting anything it cannot compile with a specific error code rather than silently miscompiling; an optional mode links in quickjs-ng for dynamic code (&lt;a href=&quot;https://github.com/vercel-labs/scriptc&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;GitHub&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49063175&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters raise the ecosystem problem: most npm packages ship untyped JavaScript with separate declaration files, so real projects would still need the dynamic engine, and greenfield code without dependencies could already use AssemblyScript.&lt;/li&gt;
+&lt;li&gt;Others point to porffor as a longer-running attempt at the same goal that passes roughly 68% of Test262, and express skepticism about how quickly this project claims to have gotten further.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A writeup argues that LLMs make dependently-typed languages practical by automating proof effort.&lt;/strong&gt; The author built a Zstandard decompressor in Lean, citing the seL4 retrospective — about ten times as much time on proofs as on design and implementation, and over twenty times as many lines of proof as C — as the historical barrier, and notes that because only a proof&amp;#x27;s existence matters, generated proofs need not be elegant (&lt;a href=&quot;https://www.imperialviolet.org/2026/07/26/zstd-lean.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;ImperialViolet&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49062291&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters agree cost was the main obstacle but flag a remaining alignment problem: without human review, machine-generated proofs can drift from the intended specification, and contract-style Hoare or separation logic is easier to keep legible.&lt;/li&gt;
+&lt;li&gt;One notes that verified assembly is less speculative than the article&amp;#x27;s closing suggests, pointing to existing Fiat Crypto and CryptOpt work already used for cryptographic routines.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A small project reproduces the sound of specific cassette tapes using ffmpeg filter chains.&lt;/strong&gt; Each profile applies tape hiss, wow and flutter pitch modulation, bandwidth limits and EQ, with presets for stocks including BASF LH Extra C90, Maxell UD C90, two 1978 Sony CHF tapes, a late-era TDK D90, and the Soviet MK-60 (&lt;a href=&quot;https://github.com/AARomanov1985/Audio-Cassette-Simulation&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;GitHub&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49061887&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter objects on technical grounds that wow and flutter come from the transport mechanism of the deck playing the tape, not from the tape stock itself.&lt;/li&gt;
+&lt;li&gt;Others ask how the per-tape parameters were derived — by ear or by measurement against reference recordings — and whether neural amp modeling tools would capture the character better.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A researcher reports that malware-hosting repositories remain easy to find on GitHub via ordinary search.&lt;/strong&gt; The author describes a recurring pattern — README files with an emoji &amp;quot;Download&amp;quot; heading linking to a versioned zip archive on githubusercontent.com — and says that after a previous article led GitHub to delete the 10,000 repositories a script had identified, newly created ones went unblocked for a month (&lt;a href=&quot;https://orchidfiles.com/github-security-team/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Orchid Files&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49061769&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters attribute the pattern to under-resourcing rather than incompetence, noting that security functions are cost centers that tend to get funded only after revenue pressure.&lt;/li&gt;
+&lt;li&gt;Others caution that systematic policing of public repos becomes an arms race with false positives, which is part of why platforms prefer reactive takedowns of specific lists.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-27">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — June 24, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — June 24, 2026</h1>
+    <p class="date">Wednesday, June 24, 2026</p>
+  </header>
+  <div class="body">
+<p><em>A quieter slice of the day: mostly tooling, infrastructure, and research, with the loud political threads set aside.</em></p>
+
+<p><strong>An open-source maintainer argues that security vulnerability reports no longer deserve special handling.</strong> In a <a href="https://words.filippo.io/vuln-reports/">post</a> reflecting on years of leading Go's security team, the author revisits the old rule that vuln reports are an obligation rather than an optional "gift," and concludes the rule has broken down (<a href="https://news.ycombinator.com/item?id=48653216">HN discussion</a>).</p>
+<ul>
+<li>Maintainers on the thread describe being flooded with low-quality submissions, including LLM-generated reports, to the point that several now lean away from coordinated disclosure.</li>
+<li>Others note this predates AI, pointing to years of marginal or non-triggerable ReDoS reports in the npm ecosystem.</li>
+</ul>
+
+<p><strong>Alibaba's Qwen team published a paper on language "world models" for general agents.</strong> Qwen-AgentWorld, described in the comments as a 35B model from the Qwen-3.5 line, is positioned around simulating state transitions for agent workflows (<a href="https://arxiv.org/abs/2606.24597">paper</a>, <a href="https://news.ycombinator.com/item?id=48654351">HN discussion</a>).</p>
+<ul>
+<li>Several readers are skeptical of the benchmarks, citing an apparently mislabeled first figure and claims that read as matching or beating all current frontier models.</li>
+<li>Some see the more compelling use as verification — checking an agent's execution path against constraints — rather than as a training target.</li>
+</ul>
+
+<p><strong>A Stanford HAI study finds AI hiring tools can produce racial bias and systemic rejection.</strong> The writeup describes "algorithmic monocultures," where a shared screening model rejects the same candidates everywhere it is deployed (<a href="https://hai.stanford.edu/news/ai-hiring-tools-can-yield-racial-bias-and-systemic-rejection">article</a>, <a href="https://news.ycombinator.com/item?id=48649673">HN discussion</a>).</p>
+<ul>
+<li>Commenters caution that the study centers on one specific vendor's assessment, which limits how far the findings generalize.</li>
+<li>Others note the EU AI Act already classifies recruitment systems as high-risk, with transparency and human-oversight obligations attached.</li>
+</ul>
+
+<p><strong>Bunny.net is dropping query fees for its DNS service.</strong> The provider says DNS hosting is now free for up to 500 domains per account, with no per-request billing and features like smart records and health monitoring included (<a href="https://bunny.net/blog/were-making-bunny-dns-free/">announcement</a>, <a href="https://news.ycombinator.com/item?id=48657030">HN discussion</a>).</p>
+<ul>
+<li>Readers note the service previously charged for DNS queries, and that the headline is essentially the removal of those fees.</li>
+<li>Users value it as an EU-based alternative to Cloudflare, though one notes its domain import misses many existing records, requiring manual cleanup.</li>
+</ul>
+
+<p><strong>Meta paused an internal employee-tracking program after the program's own data leaked.</strong> Wired reports the tool captured performance data, and the leak exposed screenshots including plaintext private conversations (<a href="https://www.wired.com/story/meta-pauses-employee-tracking-program-following-internal-security-breach/">article</a>, <a href="https://news.ycombinator.com/item?id=48653575">HN discussion</a>).</p>
+<ul>
+<li>Commenters stress that the article quotes Meta saying it will re-enable the program once it is confident in its data controls — a pause, not an end.</li>
+<li>Several highlight the irony of a surveillance system undone by its own data leaking.</li>
+</ul>
+
+<p><strong>A developer reports a product appearing to "verify" email addresses by sending spam to them.</strong> The writeup walks through a suspicious message — a base64 HTML body padded with filler text about magnetic domains — received after signing up (<a href="https://milek7.pl/mailverifyspam/">post</a>, <a href="https://news.ycombinator.com/item?id=48650837">HN discussion</a>).</p>
+<ul>
+<li>Some readers tried to reproduce it on fresh addresses and could not, suggesting the spam may be coincidental rather than caused by the signup.</li>
+<li>A recurring alternative theory is that the address is leaked to a spammer — for instance via a compromised validation library — rather than the company sending spam itself.</li>
+</ul>
+
+<p><strong>Deutsche Bahn halted trains nationwide after a failure in its rail radio system.</strong> An AP report attributes the stoppage to a problem with the GSM-R digital communication network, with trains held at stations while technicians worked on a fix (<a href="https://apnews.com/article/germany-trains-halted-communications-radio-problem-deutsche-bahn-e8fd970b2d889f3ae7ce03322d5c726b">article</a>, <a href="https://news.ycombinator.com/item?id=48651613">HN discussion</a>).</p>
+<ul>
+<li>Several commenters note GSM-R is built with heavy redundancy, and point to a 2022 German rail outage that was attributed to sabotage as a reason for caution about the cause.</li>
+</ul>
+
+<p><strong>A project turns the Raspberry Pi Pico W into a driverless USB Wi-Fi adapter.</strong> The firmware makes the board enumerate as a USB CDC-NCM device, so a host can use the Pico's radio for networking without extra drivers (<a href="https://gitlab.com/baiyibai/pico-usb-wifi">project</a>, <a href="https://news.ycombinator.com/item?id=48654676">HN discussion</a>).</p>
+<ul>
+<li>Commenters point to prior art, citing other open-source projects that already use the Pico as a transparent Ethernet bridge.</li>
+<li>The author notes the firmware was largely built with AI assistance, and others observe that one model had judged the task infeasible.</li>
+</ul>
+
+<p><strong>A workaround for MacBook cursor lag forces a screen recording of a single pixel every ten seconds.</strong> The gist shares a small Swift script that keeps a minimal capture running to keep the cursor responsive (<a href="https://gist.github.com/retroplasma/ec21767d0a8380c7ea9c2fbee1c7d6bf">gist</a>, <a href="https://news.ycombinator.com/item?id=48654465">HN discussion</a>).</p>
+<ul>
+<li>Commenters explain it likely works by forcing the WindowServer to composite the cursor rather than treat it as a hardware overlay, or by preventing a lower-power throttling state.</li>
+<li>Several flag it as a hacky fix that is easy to forget and hard to know when it is no longer needed.</li>
+</ul>
+  </div>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-06-24">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+</body>
+</html>

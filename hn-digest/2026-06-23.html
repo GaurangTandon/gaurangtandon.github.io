@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — June 23, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — June 23, 2026</h1>
+    <p class="date">Tuesday, June 23, 2026</p>
+  </header>
+  <div class="body">
+<p><em>A quieter day across the wire: nuclear ambitions in Canada, a wave of local and specialized AI models, and a run of practical systems and hardware notes worth your attention.</em></p>
+
+<p><strong>Canada outlines a plan to build up to 10 nuclear reactors by 2040.</strong> A new federal nuclear strategy frames reactors as central to roughly doubling the grid and building a low-carbon economy within 25 years, per <a href="https://www.cbc.ca/news/politics/federal-nuclear-strategy-9.7244509">CBC's report</a>. Coverage in the <a href="https://news.ycombinator.com/item?id=48634585">HN discussion</a> notes Canada's existing strengths in the sector.</p>
+<ul>
+<li>Several point out the headline overstates it — the goal is to start building, not to have reactors operational, by 2040, and that nuclear projects have a long record of cost overruns and delays versus cheaper wind and solar.</li>
+<li>Others note Canada's genuine advantages: large uranium reserves, the home-grown CANDU design, refurbishment experience, and an active Darlington construction site.</li>
+</ul>
+
+<p><strong>GLM-5.2 ships with a guide for running it on local hardware.</strong> Unsloth's <a href="https://unsloth.ai/docs/models/glm-5.2">documentation</a> lays out the memory and offloading requirements, with the model positioned near the frontier in quality. The <a href="https://news.ycombinator.com/item?id=48636377">HN discussion</a> centers on whether "local" is actually usable.</p>
+<ul>
+<li>Commenters caution that fitting it in RAM is not the same as running it well: heavy quantization, and prompt-processing speed rather than token generation, make it slow without expensive GPUs — CPU-only runs report around 1 token/second.</li>
+<li>Several see the gap between strong local models and frontier APIs narrowing enough to make some companies nervous.</li>
+</ul>
+
+<p><strong>A 3B-parameter model, VibeThinker, claims strong reasoning results using a new training approach.</strong> The <a href="https://arxiv.org/abs/2606.16140">paper</a> reports a small model trained with an SFT-plus-GRPO method competing with much larger systems on reasoning benchmarks. Testers in the <a href="https://news.ycombinator.com/item?id=48639240">HN discussion</a> add important scope limits.</p>
+<ul>
+<li>Commenters note the headline results are Python-focused and narrow, with weak structured output; one tester found it identified zero bugs on a security benchmark.</li>
+<li>Others frame it as a model trained to reason rather than to know, raising the open question of how much base knowledge a small model still needs to be useful.</li>
+</ul>
+
+<p><strong>OpenAI releases DayBreak, a GPT-5.5 variant aimed at cybersecurity work.</strong> The <a href="https://openai.com/index/daybreak-securing-the-world/">announcement</a> presents a security-focused model with staged availability to vendors. The <a href="https://news.ycombinator.com/item?id=48639063">HN discussion</a> focuses on access and framing.</p>
+<ul>
+<li>Some contrast the straightforward "here's a priced model" approach with rivals' "too dangerous to release" messaging, which they view skeptically.</li>
+<li>A recurring frustration is that paying customers cannot use the strongest security models to audit their own code, while restricted releases go to select vendors first.</li>
+</ul>
+
+<p><strong>Nearly half of LG smart TV apps were found to embed residential proxy SDKs.</strong> A <a href="https://spur.us/blog/smart-tv-apps-residential-proxy-sdks">Spur analysis</a> reports that many TV apps bundle software that can route third-party traffic through the device. The <a href="https://news.ycombinator.com/item?id=48635954">HN discussion</a> sharpens what the finding does and does not say.</p>
+<ul>
+<li>Several clarify the apps in question are third-party, not LG's built-in first-party apps, which the headline can blur.</li>
+<li>Some found the practice more disclosed and consent-based than they expected, while also criticizing the writeup as bloated.</li>
+</ul>
+
+<p><strong>Memory prices are climbing far enough that older RAM is being affected.</strong> The <a href="https://www.theregister.com/personal-tech/2026/06/22/the-memory-crisis-is-getting-so-bad-that-even-retro-ram-prices-are-going-to-the-moon/5259627">Register report</a> describes a supply crunch pushing up prices on aging memory. Readers in the <a href="https://news.ycombinator.com/item?id=48634559">HN discussion</a> add field detail and pushback.</p>
+<ul>
+<li>Some dispute the "retro" framing — DDR3 isn't retro — and suggest the price moves are in memory chips, not the desktop and laptop sticks, with at least one recycler saying DDR3 modules aren't moving at all.</li>
+<li>Others argue prices, while high, remain manageable for a one-time purchase, and worry more about GPU cost and availability.</li>
+</ul>
+
+<p><strong>A blog post argues memcached remains a strong choice for caching.</strong> The <a href="https://jchri.st/blog/in-praise-of-memcached/">piece</a> contends memcached's narrow, cache-only design avoids problems that come from over-relying on Redis. The <a href="https://news.ycombinator.com/item?id=48638886">HN discussion</a> is notably split.</p>
+<ul>
+<li>Several push back on the premise, saying Redis is chosen for speed and simplicity rather than misused, and that the issues described come from misconfiguration, not the tool.</li>
+<li>Practitioners share concrete ways to run Redis safely as a cache — enforce expiries, separate persistence, and set a sensible maxmemory policy.</li>
+</ul>
+
+<p><strong>The new HTTP QUERY method gets a plain-language explainer.</strong> The <a href="https://kreya.app/blog/new-http-query-method-explained/">writeup</a> describes QUERY as a way to send a request body for read operations, addressing the long-standing awkwardness of GET-with-a-body. The <a href="https://news.ycombinator.com/item?id=48640974">HN discussion</a> tempers expectations.</p>
+<ul>
+<li>Commenters point to prior art, noting the method has been discussed repeatedly over several years and long wished for.</li>
+<li>A practical caveat: like GET-with-body, QUERY may be blocked by corporate firewalls and intermediaries for a long time before it's broadly usable.</li>
+</ul>
+  </div>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-06-23">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+</body>
+</html>

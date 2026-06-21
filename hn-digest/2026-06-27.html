@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — June 27, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — June 27, 2026</h1>
+    <p class="date">Saturday, June 27, 2026</p>
+  </header>
+  <div class="body">
+<p><em>A quieter Saturday in tech: a few notable AI shifts, some consumer-rights friction, and a handful of durable engineering and science reads.</em></p>
+
+<p><strong>The U.S. government is allowing Anthropic to release its Mythos model to a limited set of approved domestic organizations.</strong> According to a <a href="https://www.semafor.com/article/06/27/2026/us-releases-powerful-anthropic-model-mythos-to-some-us-companies">Semafor report</a>, access is being granted only to certain "trusted" U.S. companies rather than offered broadly. The framing in the <a href="https://news.ycombinator.com/item?id=48692995">HN discussion</a> centers less on the model itself than on the gatekeeping mechanism.</p>
+<ul><li>Commenters note the release appears to cover only the Mythos 5 variant and not Fable 5, and several find it odd that the more heavily guarded model was the one withheld.</li><li>Several question the precedent of a licensing-style regime governing which domestic organizations may use a model.</li></ul>
+
+<p><strong>DeepSeek published a paper detailing inference optimizations it says speed up generation substantially.</strong> The <a href="https://github.com/deepseek-ai/DeepSpec/blob/main/DSpark_paper.pdf">technical write-up</a> describes a speculative-decoding approach (DSpark) with large per-user generation gains versus its baseline. Discussion is in the <a href="https://news.ycombinator.com/item?id=48696585">HN thread</a>.</p>
+<ul><li>Several commenters suspect the techniques have been in production for a while and help explain DeepSeek's recent price cuts.</li><li>Some read this as part of a pattern of cheap-serving research that contrasts with the capital-intensive, data-center-heavy approach of larger Western labs.</li></ul>
+
+<p><strong>A blog post argues the capability gap between open-weight and closed-source LLMs is narrowing.</strong> The <a href="https://blog.doubleword.ai/frontier-os-llm">piece</a> charts how far open models trail frontier closed ones over time. It drew a focused debate in the <a href="https://news.ycombinator.com/item?id=48692058">HN discussion</a>.</p>
+<ul><li>Commenters flag that the post conflates "open weights" with "open source," which are not the same thing despite the title's wording.</li><li>Several point out that today's leading open-weight models depend on the philanthropy of a few private labs, so the supply could be cut off without community-owned infrastructure.</li></ul>
+
+<p><strong>An IEEE Spectrum article examines how AI is pressing on foundational questions in mathematics.</strong> The <a href="https://spectrum.ieee.org/ai-in-mathematics">piece</a> frames AI as a possible tool, collaborator, or oracle for working mathematicians. The <a href="https://news.ycombinator.com/item?id=48692883">HN discussion</a> adds practitioner caution.</p>
+<ul><li>Several note that an AI cannot itself certify a proof's correctness, and that a single subtle error among hundreds of steps invalidates the result, leaving verification to humans.</li><li>Commenters point to a long prior history of computer-assisted mathematics, such as the four-color theorem and sphere-packing work, and the lingering unease about understanding versus mere verification.</li></ul>
+
+<p><strong>PlayStation is removing 551 purchased movies from customers' accounts.</strong> Per <a href="https://kotaku.com/playstation-store-movies-digital-studio-canal-terminator-2000711013">Kotaku</a>, titles tied to a studio licensing change are being pulled from libraries of people who paid for them. The <a href="https://news.ycombinator.com/item?id=48691346">HN discussion</a> revisits the underlying digital-ownership problem.</p>
+<ul><li>Commenters argue storefronts should not use words like "buy" or "purchase" for what is effectively a revocable license.</li><li>Several note this is not new for Sony, citing earlier removals and a similar Amazon episode that drew legal pushback.</li></ul>
+
+<p><strong>A "Fintech Engineering Handbook" collects hard-won lessons on building financial software.</strong> The <a href="https://w.pitula.me/fintech-engineering-handbook/">handbook</a> covers topics like idempotency keys, ledgers, and money representation. It was well received in the <a href="https://news.ycombinator.com/item?id=48696982">HN discussion</a>.</p>
+<ul><li>Practitioners who have worked in the field vouch for its accuracy and stress learning accounting principles and the ledger more deeply than just debits and credits.</li><li>Commenters caution against using a minor-units integer format as an API interchange type, since differing implied decimal places (e.g. with some stablecoins) can cause painful edge cases.</li></ul>
+
+<p><strong>A long-running physics explainer asks why kinetic energy scales with the square of speed rather than linearly.</strong> The <a href="https://physics.stackexchange.com/questions/535/why-does-kinetic-energy-increase-quadratically-not-linearly-with-speed">Stack Exchange thread</a> (from 2011) works through the intuition behind the v² term. It resurfaced in the <a href="https://news.ycombinator.com/item?id=48692946">HN discussion</a>.</p>
+<ul><li>Commenters add intuitions the question omits, such as power scaling linearly with speed (you have half the time to do the same work at double the speed), which makes the quadratic energy fall out.</li><li>Several offer practical analogies, including why doubling a car's speed quadruples crash energy and why tool mass-versus-speed tradeoffs matter when splitting wood.</li></ul>
+
+<p><strong>OpenTTD released a 16.0 beta.</strong> The transport-simulation game's <a href="https://www.openttd.org/news/2026/06/25/openttd-16-0-beta1">release notes</a> describe the new beta build. Reactions are in the <a href="https://news.ycombinator.com/item?id=48695149">HN thread</a>.</p>
+<ul><li>Commenters single out a reworked train turnaround/reverse behavior as a notable change, and note the project's longstanding appeal as a clean, buildable codebase for testing CI and packaging tools.</li></ul>
+
+<p><strong>A 1996 essay makes the case for WordStar as a writer's word processor.</strong> The <a href="https://www.sfwriter.com/wordstar.htm">essay</a>, by a science-fiction author, praises its focused, distraction-free text mode. It prompted reminiscence in the <a href="https://news.ycombinator.com/item?id=48694853">HN discussion</a>.</p>
+<ul><li>Commenters note the tradeoff: such tools shine for uninterrupted writing but are weak for cross-referencing many files or sharing and exporting work.</li><li>Several recall its DOS-era install pains and its secondary life as a capable programming editor.</li></ul>
+  </div>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-06-27">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+</body>
+</html>

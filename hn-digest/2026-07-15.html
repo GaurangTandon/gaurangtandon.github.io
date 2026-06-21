@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 15, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 15, 2026</h1>
+    <p class="date">Wednesday, July 15, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter-than-usual day whose thread is AI turning up in both the discovery and the exposure of software flaws, alongside some steady systems work and a bit of computing history.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A researcher ran parallel AI agents at open mathematics problems and posted proposed proofs.&lt;/strong&gt; The &lt;a href=&quot;https://www.starfleetmath.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Star Fleet Math&lt;/a&gt; project describes a desktop system that drives up to 20 GPT-5.6 &amp;quot;starship&amp;quot; agents in parallel, each on a dedicated server with large compute bursts, a searchable corpus of Lean 4 lemmas, and a proof-verifier step, and lists 19 proposed solutions to Erdős problems, 13 of them &amp;quot;full.&amp;quot; The author frames every result as a proposed solution open to correction (&lt;a href=&quot;https://news.ycombinator.com/item?id=48914646&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters repeatedly ask who funds the effort, given the very large compute described, and how the search harness and Lean corpus were assembled.&lt;/li&gt;&lt;li&gt;Several note the proofs are machine-checked in Lean but far less human-readable than a hand-written write-up, and that some problems listed as &amp;quot;open&amp;quot; may already carry partial answers online.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A researcher demonstrated how a web-browsing AI assistant could be steered into leaking stored personal data.&lt;/strong&gt; The &lt;a href=&quot;https://www.ayush.digital/blog/the-memory-heist&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;writeup&lt;/a&gt; shows that Claude&amp;#x27;s web_fetch tool will follow links found on a page it already fetched, so an attacker-controlled site can present a per-character link &amp;quot;directory&amp;quot; and coax the assistant into spelling out remembered details, one letter at a time, into logged URLs. The author notes the memory store itself is secure; the risk emerges when memory is combined with autonomous browsing (&lt;a href=&quot;https://news.ycombinator.com/item?id=48916975&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out that no bug bounty was awarded, and question that decision.&lt;/li&gt;&lt;li&gt;One suggested mitigation is to route memory retrieval through a subagent that lacks direct access to the user&amp;#x27;s full history.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Microsoft shipped a record monthly batch of security fixes, which it attributes partly to AI-assisted discovery.&lt;/strong&gt; &lt;a href=&quot;https://krebsonsecurity.com/2026/07/microsoft-patches-a-record-570-security-flaws/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;This month&amp;#x27;s Patch Tuesday&lt;/a&gt; covers at least 570 flaws — nearly triple last month&amp;#x27;s — including three zero-days, two under active exploitation, and a high-severity Copilot remote-code-execution issue. The piece also notes AI is speeding up exploit creation, straining Microsoft&amp;#x27;s human-centered &amp;quot;exploitability index&amp;quot; (&lt;a href=&quot;https://news.ycombinator.com/item?id=48913190&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters observe that Edge alone absorbed hundreds of Chromium CVEs the same month, and question the &amp;quot;move fast&amp;quot; development culture behind such counts.&lt;/li&gt;&lt;li&gt;Views split on whether AI-driven bug-finding is a net good or simply a source of new bugs introduced by the fixes themselves.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Tailscale patched an SSH flaw that could grant root access in violation of its own access rules.&lt;/strong&gt; Per the &lt;a href=&quot;https://tailscale.com/security-bulletins&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;security bulletin&lt;/a&gt; (TS-2026-009), Tailscale SSH passed usernames beginning with a dash to getent as command-line flags, so connecting as -i could dump the passwd file and open an interactive root session; usernames with leading dashes are now rejected in version 1.98.9 (&lt;a href=&quot;https://news.ycombinator.com/item?id=48915004&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note this argument-injection class of bug is decades old, tracing it back to early Unix systems.&lt;/li&gt;&lt;li&gt;Some argue rejecting leading dashes is a partial fix, and that separating arguments with -- would be the more robust approach.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;GitHub&amp;#x27;s Dependabot now waits three days before opening a version-update pull request.&lt;/strong&gt; The &lt;a href=&quot;https://github.blog/changelog/2026-07-14-dependabot-version-updates-introduce-default-package-cooldown/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;changelog&lt;/a&gt; explains this default &amp;quot;cooldown&amp;quot; gives the community time to spot a compromised or broken release before it reaches your dependencies; security updates still open immediately, and the window is configurable or can be disabled (&lt;a href=&quot;https://news.ycombinator.com/item?id=48913050&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters ask whether an attacker could label a malicious release as a &amp;quot;critical&amp;quot; security update to bypass the delay entirely.&lt;/li&gt;&lt;li&gt;Others worry that if everyone adopts cooldowns, fewer early adopters will be exposed to surface a bad release, potentially delaying detection.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A from-scratch JEPA world model learned Super Mario dynamics but could not reliably plan through a level.&lt;/strong&gt; In &lt;a href=&quot;https://www.benjamin-bai.com/projects/lemario&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;this build-and-postmortem&lt;/a&gt;, the author reproduces a Joint-Embedding Predictive Architecture on 737k Mario frames; it predicts short-horizon futures well and beats persistence baselines, yet reward-free planning toward distant goal images fails at the first major obstacle. The conclusion: predicting the game is not the same as knowing how to progress through it (&lt;a href=&quot;https://news.ycombinator.com/item?id=48913763&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that planning directly in latent space is noisy because the latents are trained for semantic content and may not encode where Mario actually is.&lt;/li&gt;&lt;li&gt;Others point out the model has no way to weigh which predictable features matter most, which undermines reaching a hard-to-hit end state.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer walks through using HTMX with Go for server-rendered interactivity.&lt;/strong&gt; The &lt;a href=&quot;https://www.alexedwards.net/blog/how-i-use-htmx-with-go&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; focuses on the Go side — structuring templates into base, page, and partial files, returning partial versus full-page responses, and handling redirects and errors — to add app-like interactions while keeping rendering in Go&amp;#x27;s html/template (&lt;a href=&quot;https://news.ycombinator.com/item?id=48912175&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters pair HTMX with type-safe templating tools like templ for extra safety across components and partials.&lt;/li&gt;&lt;li&gt;One caveat raised: frontier AI models handle mainstream stacks like React better than niche ones like HTMX, owing to training-data presence.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A detailed catalog identifies the real computers that appeared in Jurassic Park.&lt;/strong&gt; The &lt;a href=&quot;https://fabiensanglard.net/jurrasic_park_computers/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt; works through the film frame by frame — an Apple PowerBook 100, SGI Indigo and Crimson workstations, stacks of PLI Mini Arrays — noting the production used roughly the 2026 equivalent of $4M in loaned Apple and SGI hardware, plus a continuity error where the storage arrays rotate between shots (&lt;a href=&quot;https://news.ycombinator.com/item?id=48915709&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter with hardware knowledge corrects a detail, noting Indigo-era SGIs used a proprietary mini-DIN keyboard connector rather than Apple&amp;#x27;s ADB.&lt;/li&gt;&lt;li&gt;Others reflect on how SGI, then far ahead in graphics, was later overtaken by makers of consumer add-on GPUs.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-15">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

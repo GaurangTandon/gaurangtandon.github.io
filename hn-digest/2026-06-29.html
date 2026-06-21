@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — June 29, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — June 29, 2026</h1>
+    <p class="date">Monday, June 29, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter end to June: a few sober looks at where AI is actually delivering and where it isn&amp;#x27;t, plus hardware milestones, memory economics, and a takedown saga.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;An open-sourced resume screener gives the same resume wildly different scores.&lt;/strong&gt; Testing HackerRank&amp;#x27;s open-source hiring agent, a writer found that &lt;a href=&quot;https://danunparsed.com/p/hackerrank-open-source-ats&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;one unchanged resume scored anywhere from 66 to 99 across 100 runs&lt;/a&gt;, enough to fail an 85-point cutoff most of the time. The piece traces this to the LLM being asked to make subjective judgments on projects and experience, which it does inconsistently even at low temperature (&lt;a href=&quot;https://news.ycombinator.com/item?id=48713832&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Someone who has run technical hiring pipelines argues that, cynically, a 35% effortless pass rate is attractive to overwhelmed recruiters even if good candidates are cut.&lt;/li&gt;
+&lt;li&gt;Commenters note the rubric is questionable regardless of variance, capping work experience at 25% while weighting open-source and side projects most heavily.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A new top supercomputer comes from China, built on domestic CPUs.&lt;/strong&gt; The 67th TOP500 list at ISC&amp;#x27;26 is led by the Shenzhen-based LineShine system, a CPU-only machine using Armv9 &amp;quot;LX2&amp;quot; chips that reached &lt;a href=&quot;https://chipsandcheese.com/p/top500-at-isc26-we-have-a-new-number&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;2.198 sustained exaflops and also topped the HPCG benchmark&lt;/a&gt;, China&amp;#x27;s first list submission in nine years (&lt;a href=&quot;https://news.ycombinator.com/item?id=48710775&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters call it a wake-up call precisely because it relies on Chinese chips and interconnects rather than imported hardware.&lt;/li&gt;
+&lt;li&gt;Several caution that TOP500/LINPACK has long been more bragging rights than a measure of practical throughput, which is partly why the largest AI GPU clusters never appear on it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ford rehired veteran engineers after automated quality systems underperformed.&lt;/strong&gt; Executives said the company brought back 350 &amp;quot;gray beard&amp;quot; specialists—some former staff, some from suppliers—after &lt;a href=&quot;https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;leaning on automated quality systems produced disappointing results&lt;/a&gt;. Ford frames this as supplementing rather than abandoning AI, using the veterans to train younger staff and retune the tools, and credits the shift with lower warranty and recall costs (&lt;a href=&quot;https://news.ycombinator.com/item?id=48710749&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Memory has barely gotten cheaper in over a decade.&lt;/strong&gt; A Stanford-hosted dataset charts DRAM, NAND, and HBM prices from 1960 to today, with raw data downloadable and clear caveats that figures are cheapest retail listings, not contract prices (&lt;a href=&quot;https://dam.stanford.edu/memory-prices.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;the dataset&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48710092&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Readers note current DDR5 $/GB sits close to 2010 DDR3 levels—roughly a 16-year regression driven by the recent price spike.&lt;/li&gt;
+&lt;li&gt;Others point out that &amp;quot;per GB&amp;quot; pricing before the 1990s is anachronistic, since no one bought or conceived of memory in gigabyte quantities then.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A blogger&amp;#x27;s article on a collapsed startup was removed from Google search via a fraudulent copyright claim.&lt;/strong&gt; Gergely Orosz reports his 2022 piece on events company Pollen was &lt;a href=&quot;https://blog.pragmaticengineer.com/pollen-tried-to-remove-my-article-about-callum-negus-fancey-and-google-is-assisting-to-it/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;delisted after a bogus DMCA notice&lt;/a&gt; claiming his original work copied a 1998 New York Post article, filed under a fake name purportedly residing on the uninhabited Bouvet Island (&lt;a href=&quot;https://news.ycombinator.com/item?id=48716902&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters describe &amp;quot;reputation management&amp;quot; firms that routinely file frivolous takedowns, and note Google faces no legal penalty for accepting them, so there is little deterrent.&lt;/li&gt;
+&lt;li&gt;Several observe the Streisand effect in action—many say they had never heard of the people involved until the removal attempt surfaced.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A journal quietly retracted two 1940s Max Planck papers, apparently by mistake.&lt;/strong&gt; Two science historians found that Naturwissenschaften had pulled the papers entirely—blank pages and empty PDFs—citing copyright violation, likely from an algorithm flagging old &amp;quot;duplicate&amp;quot; or self-plagiarized publications under modern norms (&lt;a href=&quot;https://arstechnica.com/science/2026/06/why-did-this-journal-retract-two-1940s-papers-by-max-planck/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Ars Technica&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48716634&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The current editor-in-chief told reporters she had not known and called it a mistake to rectify.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A commenter points to the German term &amp;quot;Zensurheberrecht,&amp;quot; capturing how copyright can function as a censorship mechanism.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Kent Beck argues cheap AI code generation does not retire the YAGNI principle.&lt;/strong&gt; Beck contends YAGNI was never about saving typing effort but about two costs of building speculative structure early: foreclosing better options once real requirements arrive, and pulling cost forward while pushing revenue back—&lt;a href=&quot;https://newsletter.kentbeck.com/p/the-cost-yagni-was-never-about&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;neither of which changes when code becomes free to produce&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=48710082&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several counter that AI has also lowered the cost of restructuring and adding tests, which raises the value of building ahead rather than lowering it.&lt;/li&gt;
+&lt;li&gt;Others argue his option analogy only holds if prediction is genuinely hard, and that some domains have unavoidable &amp;quot;table stakes&amp;quot; that must be built upfront.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An open-source project brings Apple-exclusive AirPods features to Linux and Android.&lt;/strong&gt; LibrePods reimplements Apple&amp;#x27;s proprietary protocol to enable things like noise-control switching, ear detection, and accurate battery status on non-Apple platforms (&lt;a href=&quot;https://github.com/librepods-org/librepods&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;the project&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48710232&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some question the motivation, noting AirPods&amp;#x27; main draw is Apple-ecosystem integration rather than audio quality.&lt;/li&gt;
+&lt;li&gt;Others expect Apple to patch these protocol avenues over time, limiting longevity.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-06-29">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

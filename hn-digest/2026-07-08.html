@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 8, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 8, 2026</h1>
+    <p class="date">Wednesday, July 8, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter Wednesday across the feeds, weighted toward security disclosures, systems tooling, and the ongoing question of what AI-generated code costs later.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The EU will require a driver-monitoring camera in every new car.&lt;/strong&gt; A regulatory overview reports that all new vehicles sold in the European Union must now include a system that watches the driver for signs of distraction (&lt;a href=&quot;https://allaboutcookies.org/eu-mandatory-distracted-driver-system&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;allaboutcookies.org&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48823557&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The stated goal is fewer distraction-related crashes.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several drivers say the related driver-assist features work poorly in practice — lane-keeping and speed-sign reading that misfire and produce constant beeping rather than reliable help.&lt;/li&gt;&lt;li&gt;Commenters raise privacy concerns that in-cabin camera data could be sent off-device and monetized, while one notes a comparable system from Ford already flags genuine inattention accurately and may save lives.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Researchers tricked GitHub&amp;#x27;s AI agent into leaking a private repository.&lt;/strong&gt; A security write-up describes an indirect prompt-injection flaw, dubbed GitLost, in GitHub&amp;#x27;s new Agentic Workflows: a crafted public Issue could make the agent read a private repo&amp;#x27;s contents and post them as a public comment (&lt;a href=&quot;https://noma.security/blog/gitlost-how-we-tricked-githubs-ai-agent-into-leaking-private-repos/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;noma.security&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48827858&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The attack needed no credentials, and the word &amp;quot;Additionally&amp;quot; reportedly slipped past GitHub&amp;#x27;s guardrails.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Readers note the disclosure does not state when or whether GitHub fixed it, leaving the current status ambiguous.&lt;/li&gt;&lt;li&gt;Several question the underlying design of giving an LLM access to private data while letting anyone on the internet feed it prompts.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Tenda networking firmware contains a hidden authentication backdoor.&lt;/strong&gt; A CERT/CC vulnerability note reports that multiple versions of Tenda firmware ship with a built-in backdoor account (&lt;a href=&quot;https://kb.cert.org/vuls/id/213560&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;kb.cert.org&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48825749&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Tenda makes consumer and business routers, switches, and surveillance gear.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter points to a 2022 teardown that already disclosed the hardcoded password (reportedly &amp;quot;rzadmin&amp;quot;), suggesting this is not entirely new.&lt;/li&gt;&lt;li&gt;Others note that budget network vendors often rebrand identical internals under multiple names, complicating any &amp;quot;just avoid this brand&amp;quot; advice.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A three-person shop charges $10k a week to refactor AI-generated codebases.&lt;/strong&gt; Slopfix offers a fixed-price, one-week engagement to shrink &amp;quot;vibecoded&amp;quot; projects back toward maintainability, committing to a line-reduction target and billing in proportion to how much of it they hit (&lt;a href=&quot;https://odra.dev/slopfix/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;odra.dev&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48823359&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). They document the app&amp;#x27;s behavior first as a safety net before cutting.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Skeptics argue that clients unable to maintain their own code may also be unable to specify what it does, and that a handoff document plus lint rules won&amp;#x27;t keep the mess from returning.&lt;/li&gt;&lt;li&gt;Several flag the two-week warranty as too short, since serious bugs can hide far longer, and note the irony of AI-flavored marketing copy on an anti-slop service.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A native macOS UI for Apple&amp;#x27;s container platform launched as open source.&lt;/strong&gt; Davit is a SwiftUI app that manages Linux containers on Apple silicon by talking directly to Apple&amp;#x27;s container daemon over XPC, with no Docker Desktop required (&lt;a href=&quot;https://davit.app&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;davit.app&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48821848&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The developer describes it as mostly vibe-coded but signed, notarized, and around 17 MB.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to two other recent projects offering similar front-ends, so the niche already has company.&lt;/li&gt;&lt;li&gt;The main comparison drawn is to OrbStack — a more mature commercial option — with the trade-off being that Davit sits on Apple&amp;#x27;s own engine rather than a third-party one.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An engineer decoded an obfuscated bash script printed on a Uniqlo t-shirt.&lt;/strong&gt; The base64-encoded, self-evaluating script turned out to be a harmless Easter egg from an Akamai &amp;quot;Peace for All&amp;quot; design that animates a &amp;quot;PEACE FOR ALL&amp;quot; sine wave in the terminal (&lt;a href=&quot;https://tris.sherliker.net/blog/obfuscated-self-evaluating-bash-script-by-cdn-akamai-being-supplied-to-consumers-via-retail-stores/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;tris.sherliker.net&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48829312&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The author transcribed it by cross-checking several OCR tools.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One reader wonders whether the heavily commented script was itself written by an LLM before being obfuscated.&lt;/li&gt;&lt;li&gt;Another raises the pointed hypothetical that such a printed payload could in principle carry an exploit — e.g. a bug in the OCR tooling — rather than a benign message.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An AI audit pipeline reported seven confirmed bugs in Cloudflare&amp;#x27;s CIRCL crypto library.&lt;/strong&gt; zkSecurity says its agents found and helped fix issues ranging from a float64 precision loss in threshold RSA to a critical access-control break in attribute-based encryption, all now patched upstream (&lt;a href=&quot;https://blog.zksecurity.xyz/posts/circl-bugs/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;blog.zksecurity.xyz&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48821749&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The post also notes that the severity the AI assigns its own findings is often far off from what Cloudflare later confirmed.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Readers express surprise that a cryptography library evaluated a polynomial using floating-point exponentiation at all.&lt;/li&gt;&lt;li&gt;One asks the key practical question the write-up mostly leaves open: how many noisy candidate findings the models produced for each of the seven real bugs.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenAI announced a Thursday public launch for GPT-5.6 and two companion models.&lt;/strong&gt; A brief post says GPT-5.6 &amp;quot;Sol,&amp;quot; alongside &amp;quot;Terra&amp;quot; and &amp;quot;Luna,&amp;quot; will be released publicly this week, with preview access expanding globally in the meantime (&lt;a href=&quot;https://twitter.com/OpenAI/status/2074704958419792299&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;twitter.com&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48827402&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The announcement itself gives no benchmarks.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Early-access impressions in the thread describe it as very capable and a clear fix for GPT-5.5&amp;#x27;s rough edges, though not as &amp;quot;smart&amp;quot; as Fable, with particular praise for long autonomous runs and subagent orchestration.&lt;/li&gt;&lt;li&gt;Several users emphasize speed and cost as the practical draw over competing models.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-08">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

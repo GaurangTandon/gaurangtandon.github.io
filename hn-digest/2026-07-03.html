@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 3, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 3, 2026</h1>
+    <p class="date">Friday, July 3, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter Friday across the feeds: privacy law, internet infrastructure, some low-level compiler work, and a run of practical AI tooling — here is what actually happened.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Virginia&amp;#x27;s ban on selling geolocation data has taken effect.&lt;/strong&gt; A new state law prohibits the sale of precise location data, as &lt;a href=&quot;https://www.hunton.com/privacy-and-cybersecurity-law-blog/virginia-bans-sale-of-geolocation-data&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;summarized by the Hunton privacy blog&lt;/a&gt; and discussed on &lt;a href=&quot;https://news.ycombinator.com/item?id=48767347&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN&lt;/a&gt;. It places Virginia alongside other states moving to restrict a long-standing data-broker business model.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note Virginia follows Maryland and Oregon, which define &amp;quot;sale&amp;quot; more broadly as exchange for monetary or other valuable consideration, and that several other states have proposed similar bans.&lt;/li&gt;
+&lt;li&gt;Several point out the article is from April and the ban went into effect July 1, and question how easily firms sidestep such rules by selling hardware while giving the data dashboard away &amp;quot;free.&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An essay argues US telecom market structure, not &amp;quot;free markets,&amp;quot; explains why Switzerland has faster home internet.&lt;/strong&gt; The &lt;a href=&quot;https://stefan.schueller.net/posts/the-free-market-lie/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;piece&lt;/a&gt; contrasts Swiss shared-infrastructure fiber with the overbuild in Germany and territorial monopolies in the US, framing broadband as a natural monopoly; see the &lt;a href=&quot;https://news.ycombinator.com/item?id=48770647&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;. Its core claim is that a single neutral network with competing service providers outperforms both deregulated and heavily regulated alternatives.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several point out the article never mentions population density, which is roughly 2.5x higher in Switzerland and materially affects US deployment economics.&lt;/li&gt;
+&lt;li&gt;Commenters offer counterexamples and context, including a US provider offering 50Gbps over a far larger area, and firsthand accounts of extreme permitting and conduit problems laying fiber in Manhattan.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer published the entire Rust compiler translated into 46 million lines of C.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/FractalFir/crustc&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;crustc project&lt;/a&gt; is a functional rustc that builds with GCC and make, demoing a Rust-to-C toolchain aimed at old or obscure hardware without LLVM or GCC-based Rust support (&lt;a href=&quot;https://news.ycombinator.com/item?id=48768464&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It is the author&amp;#x27;s 14th attempt at compiling Rust to C.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters see value for bootstrapping, suggesting it could make a working Rust compiler far easier to reach than the existing OCaml-based route.&lt;/li&gt;
+&lt;li&gt;Others raise using Diverse Double-Compiling with this output to check whether the official Rust compiler contains a backdoor.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A post argues for co-locating durable workflow state in the same Postgres database as application data.&lt;/strong&gt; The &lt;a href=&quot;https://www.dbos.dev/blog/co-locating-workflow-state-with-your-data&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;DBOS write-up&lt;/a&gt; explains how putting the step checkpoint and the database update in one transaction yields exactly-once semantics and simplifies idempotency and the outbox pattern (&lt;a href=&quot;https://news.ycombinator.com/item?id=48765639&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The pitch is that co-location eliminates the partial-failure window.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some deflate the framing, arguing this is closer to a central database with attached services than a true distributed system.&lt;/li&gt;
+&lt;li&gt;Others note the real trade-off: tightly coupling the database to the workflow engine makes it architecturally hard to separate the two later.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Alibaba reportedly plans to restrict Claude Code internally over backdoor concerns.&lt;/strong&gt; A &lt;a href=&quot;https://www.reuters.com/world/china/alibaba-ban-claude-code-workplace-over-alleged-backdoor-risks-source-says-2026-07-03/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Reuters report&lt;/a&gt;, citing a source, says the company will ban the tool in the workplace over alleged data-leak risks; see the &lt;a href=&quot;https://news.ycombinator.com/item?id=48772443&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters connect this to a recently reported Claude Code incident involving undocumented behavior that leaked some data.&lt;/li&gt;
+&lt;li&gt;Several frame it as part of a broader enterprise wariness toward developer tools that can read large portions of proprietary codebases.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A new tool lets any LLM analyze a video by extracting the frames that matter locally.&lt;/strong&gt; &lt;a href=&quot;https://github.com/HUANGCHIHHUNGLeo/claude-real-video&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;claude-real-video&lt;/a&gt; pulls frames at scene changes rather than fixed intervals, deduplicates near-identical shots, transcribes audio with Whisper, and outputs a folder any model can read (&lt;a href=&quot;https://news.ycombinator.com/item?id=48766005&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The author built it because most tools read transcripts or sample at a fixed rate that misses fast cuts.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters correct the &amp;quot;stays on your machine&amp;quot; framing: only extraction is local, since the frames are still uploaded once you hand them to a hosted model like Claude.&lt;/li&gt;
+&lt;li&gt;Others suggest the tool is useful beyond LLMs, and note that for motion design a plain textual description of what happens sometimes works better than frames.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;WebKit released a Safari MCP server for connecting coding agents to a live browser.&lt;/strong&gt; Announced for Safari Technology Preview, the &lt;a href=&quot;https://webkit.org/blog/18136/introducing-the-safari-mcp-server-for-web-developers/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;server&lt;/a&gt; exposes tools for the DOM, network requests, screenshots, console output, and interactions so an agent can debug and check Safari compatibility without window-hopping (&lt;a href=&quot;https://news.ycombinator.com/item?id=48769639&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note Chrome and Firefox already ship official devtools MCP servers, positioning this as Safari catching up rather than breaking new ground.&lt;/li&gt;
+&lt;li&gt;Others question Apple&amp;#x27;s commitment to web developers, given the difficulty of testing Safari without owning Apple hardware.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A parable walks through how a well-funded startup ships a product that half-works.&lt;/strong&gt; The &lt;a href=&quot;https://weli.dev/blog/half-baked-product/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;story&lt;/a&gt; follows an oven company that promises investors the whole market, discovers its algorithm only works if it drops one use case, and can&amp;#x27;t narrow scope without breaking a funding promise (&lt;a href=&quot;https://news.ycombinator.com/item?id=48772388&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It&amp;#x27;s a fictional but pointed look at how VC commitments shape product decisions.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Many readers found it uncomfortably close to real startup experience.&lt;/li&gt;
+&lt;li&gt;One counterpoint argues that with enough capital and vision the &amp;quot;fake it until you make it&amp;quot; path can still succeed, citing Tesla&amp;#x27;s long road on self-driving.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-03">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 7, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 7, 2026</h1>
+    <p class="date">Tuesday, July 7, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter Monday across the feed: offline maps, e-ink experiments, and a recurring argument about what AI inference actually costs.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CoMaps, a community-run fork of Organic Maps, offers offline navigation.&lt;/strong&gt; The &lt;a href=&quot;https://www.comaps.app/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;CoMaps app&lt;/a&gt; provides offline search and routing built on OpenStreetMap data, emphasizing no data collection and efficient battery use, and is distributed through Google Play, the App Store, and F-Droid. It is a fork of Organic Maps (itself descended from Maps.Me) and coordinates development on Codeberg (&lt;a href=&quot;https://news.ycombinator.com/item?id=48808928&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters explain the fork grew out of governance disputes at Organic Maps, including proprietary components and partnerships decided by a small group without broad contributor input.&lt;/li&gt;&lt;li&gt;Several ask about routing speed relative to Organic Maps and note OpenStreetMap lacks real-time traffic and travel-time data.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer turned a reMarkable tablet into a handwriting-based AI diary.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/MaximeRivest/Riddle&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Riddle project&lt;/a&gt; runs on a reMarkable Paper Pro in developer mode: you write on the page in ink, the words fade, and an LLM-generated reply is drawn back in a flowing hand, with no screen UI. The Rust app captures raw pen input and drives the e-ink engine directly for low latency, and it runs as root at the user&amp;#x27;s own risk (&lt;a href=&quot;https://news.ycombinator.com/item?id=48811591&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note the README would benefit from a short demo video or GIF, since the concept is hard to grasp from text alone.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An essay argues open-weight models will compress AI providers&amp;#x27; inference margins.&lt;/strong&gt; The author reports that &lt;a href=&quot;https://martinalderson.com/posts/the-upcoming-ai-margin-collapse-part-1-glm-5-2/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;GLM 5.2 from Z.ai&lt;/a&gt; is, in daily coding use, hard to distinguish from Opus, though it is slower, lacks vision, and has weak web search. Because providers expose OpenAI- and Anthropic-compatible endpoints, switching costs are low, which the author frames as a threat to frontier labs&amp;#x27; high inference margins (&lt;a href=&quot;https://news.ycombinator.com/item?id=48809877&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several push back that GLM 5.2 is not actually on par with Opus and that &amp;quot;open models pressure margins&amp;quot; is already widely understood, not a hidden shift.&lt;/li&gt;&lt;li&gt;Others argue cheap compute historically hasn&amp;#x27;t eroded incumbents&amp;#x27; margins, and that cached input tokens, not output, dominate real agentic-coding cost.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A hobbyist documents sequencing his own genome at home.&lt;/strong&gt; The &lt;a href=&quot;https://bradleywoolf.com/links-1/sequencing-my-own-dna-at-home&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt; details doing full end-to-end DNA sequencing from cheek swabs using an Oxford Nanopore MinION, listing hardware, reagents, and the full protocol, then feeding the resulting variants into tools like VEP, ClinVar, and PharmGKB. The author notes costs remain out of reach for most people but are falling, and stresses the output is not diagnosis-grade (&lt;a href=&quot;https://news.ycombinator.com/item?id=48812156&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters wish the post covered real-world accuracy and results, noting earlier reports on the process were mixed.&lt;/li&gt;&lt;li&gt;Others point to cheaper commercial whole-genome sequencing services as an alternative.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A 7 MB embedding model runs entirely in the browser via WebAssembly.&lt;/strong&gt; &lt;a href=&quot;https://ternlight-demo.vercel.app/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Ternlight&lt;/a&gt; ships as an npm package that embeds text on the CPU in roughly 5 ms with no server call, distilled from MiniLM using ternary quantization-aware training with an inference engine written in Rust and compiled to WASM SIMD. A live demo does semantic search over React&amp;#x27;s documentation locally (&lt;a href=&quot;https://news.ycombinator.com/item?id=48811644&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;The author clarifies it is an embeddings model, not an LLM: text goes in and a 384-dimension vector comes out for similarity comparison.&lt;/li&gt;&lt;li&gt;Some raise the flip side, that pages could silently spin up CPU work on visitors&amp;#x27; machines.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Small on-device AI models are being adopted where networks are unreliable.&lt;/strong&gt; An &lt;a href=&quot;https://spectrum.ieee.org/small-language-models-ai-pharmaceuticals&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;IEEE Spectrum piece&lt;/a&gt; traces how a counterfeit-medication scanner, originally dependent on a distant US data center, was shrunk to run entirely on an Android phone after connectivity failed during a demo. It frames &amp;quot;small AI&amp;quot; as often the only usable option in regions lacking broadband, data centers, or reliable electricity (&lt;a href=&quot;https://news.ycombinator.com/item?id=48812055&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters wonder whether the on-device model catches more or fewer counterfeits than the larger cloud version.&lt;/li&gt;&lt;li&gt;One suggests spreading satellite connectivity could reduce the need for this approach in some places.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux has been booted on the Atari Jaguar&amp;#x27;s Motorola 68000.&lt;/strong&gt; The &lt;a href=&quot;https://cakehonolulu.github.io/linux-for-jaguar/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt; describes using uClinux (MMU-less, flat memory model) on the console&amp;#x27;s 2 MB of RAM, splitting read-only kernel sections into cartridge ROM via execute-in-place, bit-banging a serial console over the DSP&amp;#x27;s pins, and repurposing a hardware timer as the system tick. A compiler quirk emitting unaligned accesses was one of the harder bugs (&lt;a href=&quot;https://news.ycombinator.com/item?id=48808663&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note it reaches a Busybox shell on unmodified hardware but only uses the 68000, ignoring the Jaguar&amp;#x27;s custom GPU and DSP.&lt;/li&gt;&lt;li&gt;Others add historical context that the m68k was among the most widely deployed architectures before ARM, likely why it remains in the kernel tree.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A new project compiles Python 3.14 to native code with no interpreter.&lt;/strong&gt; &lt;a href=&quot;https://github.com/can1357/pon&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;pon&lt;/a&gt; is a Rust-based JIT and ahead-of-time compiler that parses Python with the ruff parser, lowers to a shared IR, and emits machine code through Cranelift, using a garbage collector instead of reference counting and checking output byte-for-byte against CPython 3.14 (&lt;a href=&quot;https://news.ycombinator.com/item?id=48809496&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters are skeptical of the roughly week-old project, citing signs of AI-generated code and doubting near-term CPython test-suite parity.&lt;/li&gt;&lt;li&gt;Several stress it implements a subset with its own runtime and quirks rather than full CPython semantics.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A report claims Microsoft can link a Windows installation to the sites a user visits.&lt;/strong&gt; Per the &lt;a href=&quot;https://www.pcmag.com/news/a-hackers-arrest-reveals-microsoft-can-track-users-via-a-windows-device&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;PCMag story&lt;/a&gt;, a hacker&amp;#x27;s arrest surfaced evidence that Microsoft can correlate a Windows device identifier with a user&amp;#x27;s browsing, though the exact mechanism is not detailed (&lt;a href=&quot;https://news.ycombinator.com/item?id=48815196&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters speculate the link runs through telemetry or Defender&amp;#x27;s cloud protection (formerly branded SpyNet), tying an install ID, current IP, and recently resolved domains together.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-07">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

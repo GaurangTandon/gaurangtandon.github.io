@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — June 28, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — June 28, 2026</h1>
+    <p class="date">Sunday, June 28, 2026</p>
+  </header>
+  <div class="body">
+<p><em>A quieter-than-usual day across the feed, with most of the substance landing in homelab hardware, self-hosting, and questions about where automation and policy actually leave people.</em></p>
+
+<p><strong>A site is cataloguing open webcams found on the public internet.</strong> IP Crawl bills itself as a "living atlas" of internet-connected cameras that are reachable without authentication, indexing devices discovered across the public web (<a href="https://ipcrawl.com/">ipcrawl.com</a>, <a href="https://news.ycombinator.com/item?id=48700834">HN discussion</a>). The project frames this as documentation of what is already exposed rather than a tool to access anything new.</p>
+
+<p><strong>A guide walks through how to choose a public DNS resolver.</strong> The writeup compares providers across privacy, filtering, and protocol-support criteria to help readers pick one (<a href="https://evilbit.de/dns-resolver-guide.html">evilbit.de</a>, <a href="https://news.ycombinator.com/item?id=48702273">HN discussion</a>).</p>
+<ul>
+<li>Several commenters note they simply run their own resolver (e.g. Unbound with DoH) and that most of the guide's filter criteria are things they handle themselves.</li>
+<li>One points out the list omits EDNS Client Subnet support, which providers like Cloudflare decline for privacy but whose absence can break ISP cache and CDN peering, hurting streaming performance.</li>
+</ul>
+
+<p><strong>A setup guide covers building an RDMA cluster from AMD Strix Halo boards.</strong> The document details linking Framework Desktop "AI" mainboards with 128GB of unified memory each over 100G networking to run larger models locally (<a href="https://github.com/kyuz0/amd-strix-halo-vllm-toolboxes/blob/main/rdma_cluster/setup_guide.md">github.com</a>, <a href="https://news.ycombinator.com/item?id=48703258">HN discussion</a>).</p>
+<ul>
+<li>Commenters caution that the Framework board's single PCIe 4.0 x4 slot caps throughput well below 100G, and that the 100G NICs expect x16 slots, requiring risers or adapters.</li>
+<li>Several frame this as bridging the gap between 24GB consumer GPUs and 128GB+ unified-memory boxes, while noting model speeds are only now becoming practical for everyday local use.</li>
+</ul>
+
+<p><strong>A new site teaches decompiling GameCube games into matching C.</strong> Decomp Academy offers structured lessons on producing byte-matching C from compiled game code, built by someone who started with no decomp, C, or assembly experience while working on Star Fox Adventures (<a href="https://decomp-academy.dev">decomp-academy.dev</a>, <a href="https://news.ycombinator.com/item?id=48703412">HN discussion</a>).</p>
+<ul>
+<li>The author notes the backend is closed source and runs on AWS Lambda in Rust, with getting the compiler running there being its own challenge.</li>
+<li>Commenters point to prior work like the Super Mario 64 reverse-engineering effort, and some found early lessons gameable or the explanatory text "LLM-flavoured," while expressing interest in a streamlined way to contribute to real decomp projects.</li>
+</ul>
+
+<p><strong>A tool keeps a lid-closed Mac awake only while AI agents are running.</strong> Adrafinil targets people who prop laptops half-open so closing the lid doesn't kill their background agents, preventing sleep while a job runs and then restoring normal behavior (<a href="https://github.com/kageroumado/adrafinil">github.com</a>, <a href="https://news.ycombinator.com/item?id=48701512">HN discussion</a>).</p>
+<ul>
+<li>Several commenters note existing tools already cover this, including Amphetamine's "quit when an app closes" option, caffeinate, and tmux-based scripts.</li>
+<li>One warns from experience that a laptop cannot cool inside a backpack and will overheat and shut down regardless.</li>
+</ul>
+
+<p><strong>A report describes Ford automating roles and later reversing course.</strong> The article says Ford replaced human workers with AI and that the move did not go as intended (<a href="https://www.the-independent.com/tech/ford-ai-automation-human-workers-b3003787.html">the-independent.com</a>, <a href="https://news.ycombinator.com/item?id=48703968">HN discussion</a>). Specifics beyond the framing aren't available here.</p>
+
+<p><strong>US regulators blocked Polestar imports while allowing Volvo.</strong> The piece argues that a federal decision effectively shut Polestar out of the market while sparing its sibling brand Volvo, raising questions about how such determinations are made (<a href="https://www.thedrive.com/news/feds-killed-polestar-and-spared-volvo-that-should-terrify-you">thedrive.com</a>, <a href="https://news.ycombinator.com/item?id=48703613">HN discussion</a>).</p>
+<ul>
+<li>Commenters speculate on the distinction, citing Polestar's heavier onboard data collection, the EV-versus-ICE split, and the shared Chinese (Geely) ownership of both brands.</li>
+<li>Others note how arbitrary the "made in China" versus "assembled in the USA" tariff line can be when batteries, motors, and bodies are largely Chinese-sourced.</li>
+</ul>
+
+<p><strong>The author of "Careless People" is suing Meta, alleging a year of surveillance to enforce a gag order.</strong> Sarah Wynn-Williams, a former Meta global-policy director, claims the company surveilled her for roughly twelve months to keep her silent (<a href="https://fortune.com/2026/06/26/meta-wynn-williams-surveillance-gag-order-lawsuit-2026/">fortune.com</a>, <a href="https://news.ycombinator.com/item?id=48701822">HN discussion</a>).</p>
+<ul>
+<li>Some commenters are skeptical, noting she signed an NDA, went through arbitration, and was paid out, questioning a suit filed years later.</li>
+<li>Others point readers to the court docket as a primary source and note the article itself omits the specific allegations of "cruel" behavior it references.</li>
+</ul>
+  </div>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-06-28">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+</body>
+</html>

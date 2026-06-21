@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 13, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 13, 2026</h1>
+    <p class="date">Monday, July 13, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A weekend batch heavy on quiet technical detail: a new browser fingerprinting surface hiding in floating-point rounding, fresh numbers on Ireland&amp;#x27;s datacenter power draw, and a run of hands-on projects from custom PCBs to redesigned handwriting.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A Chromium change made Math.tanh results depend on the operating system, creating a fingerprinting signal.&lt;/strong&gt; Since Chrome 148, V8 computes &lt;a href=&quot;https://scrapfly.dev/posts/browser-math-os-fingerprint/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Math.tanh via the host system&amp;#x27;s math library&lt;/a&gt; instead of a bundled routine, and because glibc, Apple&amp;#x27;s libsystem_m, and Windows UCRT round certain inputs differently in the last bit, a single call can reveal which OS a browser actually runs on — contradicting a spoofed User-Agent. The post maps where the leak lives across V8, CSS trig functions, and Web Audio, and why bit-for-bit spoofing is hard, including that macOS ships two disagreeing math libraries (&lt;a href=&quot;https://news.ycombinator.com/item?id=48884853&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that correctly rounded transcendental functions are now essentially a solved research problem, which would close this class of leak at the source.&lt;/li&gt;
+&lt;li&gt;Several point out the practical impact is limited, since most users are already identifiable by IP address plus user agent, and the quirk mainly reveals browser version range rather than anything new about typical users.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Datacenters consumed 23% of Ireland&amp;#x27;s metered electricity in 2025.&lt;/strong&gt; Figures from Ireland&amp;#x27;s Central Statistics Office show &lt;a href=&quot;https://www.theregister.com/on-prem/2026/07/11/irish-datacenters-now-guzzle-23-of-the-countrys-electricity/5270013&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;datacenter electricity use rose 10% last year&lt;/a&gt; to 7,663 GWh — more than all urban households combined — even while an effective moratorium on new Dublin-area grid connections was in place for most of the year. New rules now require operators seeking connections over 10 MW to provide matching generation or battery capacity that can feed power back to the grid (&lt;a href=&quot;https://news.ycombinator.com/item?id=48884322&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters offer per-capita context: Ireland&amp;#x27;s total consumption works out to roughly 690 watts per person versus about 810 for California, so the striking percentage partly reflects a small country hosting outsized infrastructure.&lt;/li&gt;
+&lt;li&gt;Others note Ireland has been a deliberate datacenter hub for decades, with the industry courted as a cornerstone of foreign-investment policy since the 2000s.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Sea-surface temperatures in the Pacific&amp;#x27;s Niño 3.4 region have moved outside the historical observed range.&lt;/strong&gt; A post highlights &lt;a href=&quot;https://www.lyrebirddreaming.com/post/the-graph-that-should-be-front-page-news&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;a chart of equatorial Pacific sea-surface temperatures&lt;/a&gt; in which this year&amp;#x27;s line departs from every year recorded since 1982 — direct satellite, ship, and buoy observations rather than model output. The author&amp;#x27;s argument is that El Niño cycles now oscillate around a substantially warmer ocean baseline, amplifying downstream effects on rainfall, drought, and marine ecosystems (&lt;a href=&quot;https://news.ycombinator.com/item?id=48888331&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several readers found the chart itself hard to interpret, noting the y-axis appears to show multiples of standard deviation rather than degrees and that the coloring and labeling are ambiguous.&lt;/li&gt;
+&lt;li&gt;Commenters also observe that the headline graph sits at the bottom of the article, and some suspect the prose was heavily LLM-assisted.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A case for building web apps in plain JavaScript.&lt;/strong&gt; A widely discussed post argues that &lt;a href=&quot;https://guseyn.com/html/posts/why-vanilla-js.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;frameworks add artificial complexity&lt;/a&gt; and that the browser platform itself is capable enough to serve as the framework for many applications (&lt;a href=&quot;https://news.ycombinator.com/item?id=48885705&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters counter that going vanilla usually means inventing a private framework anyway, and that a shared framework&amp;#x27;s real value is common knowledge that transfers between people and projects.&lt;/li&gt;
+&lt;li&gt;Others compare frameworks like Vue to writing C instead of assembly: you give up direct DOM control for conveniences that matter on large, complex views.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A software developer documents designing and assembling their first custom PCB.&lt;/strong&gt; Starting from an Arduino Nano ESP32 and breadboarded breakout boards, the author &lt;a href=&quot;https://vilkeliskis.com/b/2026/0711.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;walks through recreating a BME280 sensor module in KiCad&lt;/a&gt; — reading datasheets, choosing hand-solderable 0805 surface-mount footprints, and laying out and ordering the board (&lt;a href=&quot;https://news.ycombinator.com/item?id=48885728&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters remark on how cheap prototype-scale PCB fabrication has become, with JLCPCB the common recommendation, though group orders help offset minimums for one-off boards.&lt;/li&gt;
+&lt;li&gt;Others flag the real friction points: shipping time slows iteration, and sourcing individual components without large minimum order quantities remains tedious.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A redesigned cursive script eliminates mid-word pen backtracking.&lt;/strong&gt; Frustrated that English cursive requires returning to dot i&amp;#x27;s and cross t&amp;#x27;s — unlike the Cyrillic script he learned first — the author &lt;a href=&quot;https://mmapped.blog/posts/52-backtrack-free-cursive&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;designed single-stroke letterforms based on SmithHand&lt;/a&gt;. His analysis of Crime and Punishment found 51% of English words need backtracking strokes versus 6.4% in Russian, and the post shows redesigned t, x, i, and j forms that let whole words flow in one stroke (&lt;a href=&quot;https://news.ycombinator.com/item?id=48888518&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point to cursive shorthand systems like Melin as prior art that optimizes writing flow much further.&lt;/li&gt;
+&lt;li&gt;Others note that some of the fixes already exist regionally — French writers form x as two mirrored c&amp;#x27;s, and older Dutch and German handwriting uses a single-stroke t.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A collection of 8-bit computer emulators that run in the browser.&lt;/strong&gt; The &lt;a href=&quot;https://floooh.github.io/tiny8bit-preview/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Tiny Emulators project&lt;/a&gt; offers instant-loading emulations of the Commodore 64, ZX Spectrum, Amstrad CPC, VIC-20, East German KC85 machines, and more, each preloaded with period games and demoscene productions (&lt;a href=&quot;https://news.ycombinator.com/item?id=48884395&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note the project is at least eight years old and that the submitted link is a preview build rather than the official tiny8bit URL.&lt;/li&gt;
+&lt;li&gt;The pin-level chip emulation model draws particular praise as a clean, modular approach to component interoperability.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A chronological survey of cyberpunk comics, manga, and graphic novels.&lt;/strong&gt; The &lt;a href=&quot;https://shellzine.net/cyberpunk-comics/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;list spans from The Long Tomorrow (1975)&lt;/a&gt; — the Moebius short that influenced Blade Runner and Neuromancer — through Akira, Masamune Shirow&amp;#x27;s Dominion, and Shatter, the 1985 title composed entirely on a Macintosh Plus that is considered the first digital comic (&lt;a href=&quot;https://news.ycombinator.com/item?id=48885643&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Readers supplement the list with favorites they consider missing, including Pluto, Patlabor, Hard Boiled, and Eden: It&amp;#x27;s an Endless World.&lt;/li&gt;
+&lt;li&gt;Commenters also mention a new Ghost in the Shell anime premiering on Prime Video, styled closer to the original 1989 manga&amp;#x27;s lighter tone.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-13">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

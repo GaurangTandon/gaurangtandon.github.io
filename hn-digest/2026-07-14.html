@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 14, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 14, 2026</h1>
+    <p class="date">Tuesday, July 14, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter-than-usual Tuesday, weighted toward the practical: battery recycling, git internals, model pricing, and a run of small but thoughtful Show HN projects.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Japanese researchers report recovering up to 90% of lithium from used EV batteries.&lt;/strong&gt; A recycling process described in coverage of NHK reporting swaps recovered lithium hydroxide into the step that turns battery &amp;quot;black mass&amp;quot; into high-purity lithium, and is said to cut recycling-related carbon emissions by roughly 40% (&lt;a href=&quot;https://tech.supercarblondie.com/japan-recovers-up-to-90-of-lithium-from-used-ev-batteries/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48901569&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Collection remains the bottleneck: only about 14% of Japan&amp;#x27;s used lithium-ion batteries currently enter formal recycling.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters argue 90% lithium recovery is already close to industry standard rather than a breakthrough, since lithium is extracted from low-purity sources anyway and batteries are a high-purity feedstock.&lt;/li&gt;
+&lt;li&gt;Others note the article underplays that nickel, cobalt, copper and graphite are the more valuable materials to recover, and that firms like Redwood Materials already claim 95%+ recovery across those.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An analysis argues token prices are not comparable across AI vendors because tokenizers differ.&lt;/strong&gt; The piece measures the same files under each vendor&amp;#x27;s tokenizer and finds Anthropic&amp;#x27;s newest tokenizer produces roughly 30% more tokens than its previous one at unchanged list prices, and 1.36–1.73x GPT&amp;#x27;s count on identical files, worst on TypeScript (&lt;a href=&quot;https://playcode.io/blog/real-price-of-frontier-models&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48896800&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The author frames this as &amp;quot;effective&amp;quot; prices well above the rate card.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point out OpenAI publicly documents its tokenizer and made it more efficient in its last update, unlike Anthropic&amp;#x27;s recent change.&lt;/li&gt;
+&lt;li&gt;Others caution that tokenization is only one input, and that how much context a model loads, how long it thinks, and output verbosity move real agentic bills more than the tokenizer alone.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Git&amp;#x27;s experimental &amp;quot;history&amp;quot; command gets a closer look.&lt;/strong&gt; Arriving across releases 2.54 and 2.55, git history adds &lt;em&gt;fixup&lt;/em&gt;, &lt;em&gt;reword&lt;/em&gt;, and &lt;em&gt;split&lt;/em&gt; subcommands that edit older commits and automatically rebase every descended local branch, and it does so atomically by refusing any operation that would produce a conflict (&lt;a href=&quot;https://lalitm.com/post/git-history/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48901010&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The author pitches it as delivering several benefits people credit to the alternative tool jj without leaving git, while noting it is strictly less powerful and does not handle merge commits.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Samsung Health reportedly warns users that opting out of AI training may delete their data.&lt;/strong&gt; The report describes categories including sleep, medications, medical records, and cycle tracking (&lt;a href=&quot;https://neow.in/cWsyMTV3&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48897991&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some commenters question whether the &amp;quot;deletion&amp;quot; warning is actually the separate consent-to-process-health-data toggle being misread, since no one on the thread could confirm on a device.&lt;/li&gt;
+&lt;li&gt;Several expect this framing would run into serious problems under EU data-protection rules.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Telegram&amp;#x27;s t.me domain was reported suspended.&lt;/strong&gt; WHOIS records for the domain, registered via GoDaddy, show a recent update and the shortlink is the subject of the thread (&lt;a href=&quot;https://www.whois.com/whois/t.me&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48897878&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiple commenters say the domain still appears to resolve and question what &amp;quot;suspended&amp;quot; means here, with some reporting broken t.me image links and switching to telegram.me.&lt;/li&gt;
+&lt;li&gt;One points to the registry&amp;#x27;s RDAP record as the authoritative way to check for a &amp;quot;server hold&amp;quot; status.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer rewrote the 1991 Linux 0.11 kernel in idiomatic Rust, and it boots on emulated i386 in QEMU.&lt;/strong&gt; The project keeps the original semantics — processes, demand paging, copy-on-write fork, the Minix v1 filesystem, TTY and signals — while adding a Rust user-space &amp;quot;std&amp;quot; and an 80+ command userland with a POSIX-subset shell (&lt;a href=&quot;https://github.com/Poseidon-fan/linux-0.11-rs&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48898134&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter measured the Rust version at roughly 50k lines versus 8–12k for the original C and asked why it is so much larger; several read the emoji-heavy README as a sign of heavy AI generation.&lt;/li&gt;
+&lt;li&gt;Others point to the separate uutils effort to rewrite GNU coreutils in Rust, now shipping by default in a recent Ubuntu release.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Show HN: a neural network implemented in SQL.&lt;/strong&gt; The author maps a small MNIST network onto relational operations, training it through a database engine rather than a tensor library (&lt;a href=&quot;https://github.com/xqlsystems/xarray-sql/blob/claude/xarray-sql-mnist-demo/benchmarks/nn.py&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48897975&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters describe the real idea as using relational algebra as an intermediate representation so the database optimizer can reason about tensor programs, noting einsum and joins are the same operation over different semirings.&lt;/li&gt;
+&lt;li&gt;Others point to prior art such as MADlib and older in-database ML in SQL Server that integrated neural networks years ago.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Show HN: a CLI that turns YouTube guitar-lesson videos into tab PDFs.&lt;/strong&gt; Rather than transcribing audio, it samples video frames, uses Claude vision to locate the on-screen tab region, crops and de-duplicates the lines by their printed bar numbers, and stitches the distinct lines into a PDF (&lt;a href=&quot;https://github.com/marcelpanse/youtube-guitar-tab-parser&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48898154&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some commenters raise an ethical objection, arguing the tabs are the paid work of musicians and extracting them amounts to taking that work for free.&lt;/li&gt;
+&lt;li&gt;Others ask why a vision model is used instead of cheaper classical computer vision, and note videos with a fixed playhead and scrolling tab would likely break the frame-crop approach.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-14">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — June 30, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — June 30, 2026</h1>
+    <p class="date">Tuesday, June 30, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter-than-usual Tuesday, with most of the substance sitting in infrastructure, chips, and the plumbing that makes AI run.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A foundation is campaigning for a &amp;quot;.self&amp;quot; top-level domain aimed at self-hosting.&lt;/strong&gt; The Human-Centered Computing Foundation says it has been approved as a participant in ICANN&amp;#x27;s Applicant Support Program and is now seeking a TLD dedicated to &amp;quot;ethical, human-centered&amp;quot; technology and individual self-hosting (&lt;a href=&quot;https://hccf.onmy.cloud/2026/06/21/reclaiming-our-digital-selves-hccfs-vision-for-a-human-centered-top-level-domain/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48724230&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The overview is distributed as a downloadable PDF rather than a web page.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters question what the TLD would actually add over existing free domains, .me, or services like DuckDNS, and how &amp;quot;one person per domain&amp;quot; could be verified.&lt;/li&gt;&lt;li&gt;Several raise practical hurdles such as whether mail from a brand-new TLD would be accepted by Gmail and Outlook, and noted the site itself was erroring out under load.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An advocacy group argues Europe&amp;#x27;s digital ID wallets entrench Google and Apple.&lt;/strong&gt; Waag writes that several EU wallet implementations (citing the Netherlands and Italy) rely on Google&amp;#x27;s Play Integrity API and Apple&amp;#x27;s attestation, which treat de-Googled systems like GrapheneOS and e/OS as untrusted and can lock those users out (&lt;a href=&quot;https://waag.org/en/article/european-digital-id-wallets-are-gift-google-and-apple/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48730729&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It notes an open hardware-attestation alternative exists and that some states, like Switzerland, use it instead.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out there is no viable third mobile platform, so secure systems being built now largely have to sit on the existing duopoly.&lt;/li&gt;&lt;li&gt;Others argue compliance-heavy regulation can itself entrench incumbents who can afford to implement it.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;South Korea announced roughly $1 trillion in spending on memory fabs, AI data centers, and humanoid robots.&lt;/strong&gt; Samsung and SK Hynix would commit $585 billion to new fabs with a goal of doubling DRAM output within five years, while Hyundai&amp;#x27;s Boston Dynamics aims to produce 30,000 Atlas robots a year by 2028 (&lt;a href=&quot;https://arstechnica.com/ai/2026/06/south-korea-to-spend-1t-on-more-memory-chip-production-and-humanoid-robots/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48726102&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The plan also requires securing gigawatts of additional power and large water supplies.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several treat memory chips as a safe commodity bet but the humanoid robot piece as far more speculative, and question why the human form factor specifically is the target of so much investment.&lt;/li&gt;&lt;li&gt;Commenters note the timeline may be optimistic, citing one chairman&amp;#x27;s remark that an earlier fab cluster took nine years to build.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A privacy group says a US Supreme Court ruling undermines the legal basis for EU-US data transfers.&lt;/strong&gt; noyb argues that the Trump v. Slaughter decision, which holds the FTC need no longer be independent, removes the &amp;quot;independent oversight&amp;quot; the EU-US Data Privacy Framework relied on (cited 259 times), and is calling on the European Commission to withdraw the adequacy decision (&lt;a href=&quot;https://noyb.eu/en/us-supreme-court-just-blew-eu-us-data-transfers&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48728740&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The piece itself notes the framework remains formally in force until repealed or annulled.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters stress this is an advocacy organization&amp;#x27;s own analysis and call to action, not a position from the European Commission.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;LongCat-2.0, a 1.6T-parameter mixture-of-experts model with 48B active, was released.&lt;/strong&gt; The model comes from Meituan, a Chinese food-delivery company, and its blog notes training and deployment on large clusters of AI ASIC &amp;quot;superpods&amp;quot; rather than the more mature Nvidia ecosystem (&lt;a href=&quot;https://longcat.chat/blog/longcat-2.0/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48727116&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some readers note the architecture appears closely related to DeepSeek&amp;#x27;s design choices.&lt;/li&gt;&lt;li&gt;Commenters flag the custom-silicon angle (with speculation it uses Huawei Ascend chips) as the more notable detail, and wish releases included hardware requirements and tokens-per-second figures.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Moondream described a technique for cutting GPU idle time during model inference.&lt;/strong&gt; Its Photon engine uses &amp;quot;pipelined decoding&amp;quot; to overlap CPU bookkeeping with GPU work, launching the next forward pass before the current token has finished being committed, for up to 35% higher decode throughput and ~33ms VLM inference on a B200 (&lt;a href=&quot;https://moondream.ai/blog/popping-the-gpu-bubble&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48728729&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several object that &amp;quot;GPU bubble&amp;quot; is an unfamiliar and confusing name likely to be read as a financial-market reference rather than a pipeline stall.&lt;/li&gt;&lt;li&gt;A practitioner notes the gains are tied to the small model size here, and that CUDA-stream optimizations are often not the real bottleneck for larger models.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Fil-C added memory-safe support for setjmp/longjmp and the ucontext APIs.&lt;/strong&gt; The project explains how it implements these context-switching primitives, used for exception handling and coroutines, so that misuse cannot corrupt or run on a dangling stack and instead reliably panics (&lt;a href=&quot;https://fil-c.org/context_switches&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48727177&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters caution that code relying on these APIs often carries risks well beyond memory safety alone.&lt;/li&gt;&lt;li&gt;One notes ucontext is heavy compared with Boost&amp;#x27;s ABI-level fiber switching, which approaches the cost of a virtual call.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Researchers report molecular-level evidence for two distinct structures in liquid water.&lt;/strong&gt; The work, published in Nature Physics, supports a long-debated picture of deeply supercooled water containing two local arrangements whose boundary may terminate at a &amp;quot;second critical point,&amp;quot; a region hard to study because water crystallizes so quickly (&lt;a href=&quot;https://phys.org/news/2026-06-scientists-molecular-evidence-liquid.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=48726073&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter questions the choice of the TIP4P water model over alternatives reported to be more accurate, and points to earlier experimental work that appears not to be cited.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-06-30">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
