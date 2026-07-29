@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — October 5, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — October 5, 2026</h1>
+    <p class="date">Monday, October 5, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today covers a large Danish registry breach, a Nobel Prize for optogenetics, and several practical lessons about systems software and AI tooling.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Unauthorized access exposed Denmark&amp;#x27;s national population register data for about 8.8 million people.&lt;/strong&gt; The &lt;a href=&quot;https://www.cpr.dk/cpr-nyt/nyhedsarkiv/2026/okt/omfattende-uautoriseret-adgang-til-borgeres-cpr-oplysninger&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;CPR administration reports&lt;/a&gt; that outsiders misused a Danish company&amp;#x27;s legitimate search access to obtain names, addresses, CPR numbers and other details, though people registered with name and address protection were not affected. The company&amp;#x27;s access has been cut off, the incident has been reported to the Danish Data Protection Agency, and police are investigating (&lt;a href=&quot;https://news.ycombinator.com/item?id=49962012&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters explain that the CPR is the central register of everyone resident in Denmark, and that the ministry&amp;#x27;s press release carries more detail than the register&amp;#x27;s own notice.&lt;/li&gt;&lt;li&gt;Several were surprised that one company&amp;#x27;s access appears to have had no limits on which fields, or how many records, it could pull.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The 2026 Nobel Prize in Physiology or Medicine goes to Karl Deisseroth, Peter Hegemann and Georg Nagel for optogenetics.&lt;/strong&gt; According to the &lt;a href=&quot;https://www.nobelprize.org/prizes/medicine/2026/press-release/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;press release&lt;/a&gt;, Hegemann and Nagel discovered channelrhodopsin, a light-gated ion channel in the alga &lt;em&gt;Chlamydomonas&lt;/em&gt;. Deisseroth used it to trigger nerve signals with blue light, first in rat neurons in 2005 and then in living mice two years later. The method is now widely used to map neural circuits and is being tested in efforts to restore sight (&lt;a href=&quot;https://news.ycombinator.com/item?id=49963094&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Swap turned a Go garbage collector pause from microseconds into 40 milliseconds.&lt;/strong&gt; In a &lt;a href=&quot;https://frn.sh/go-gc/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;detailed write-up&lt;/a&gt;, an engineer found that the Go runtime&amp;#x27;s GC metadata could be paged out to swap and then read back during a stop-the-world pause. A BPF trace attributed 39 ms of the worst pause to 228 page faults, compared with a median pause of about 51 µs, and the author found that Go 1.26&amp;#x27;s Green Tea collector made a negligible difference (&lt;a href=&quot;https://news.ycombinator.com/item?id=49959654&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters suggest disabling swap, system-wide or for the specific cgroup, for latency-sensitive services.&lt;/li&gt;&lt;li&gt;Others note that GC latency targets should account for OS memory pressure, so that a paging problem is not misdiagnosed as a collector problem.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Cloudflare launched a Web Search API in beta for AI agents.&lt;/strong&gt; The &lt;a href=&quot;https://developers.cloudflare.com/changelog/post/2026-10-02-introducing-web-search-api/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;changelog&lt;/a&gt; says the API runs through AI Gateway and offers three providers: Ceramic.ai, Exa and Linkup. All three support zero data retention and are billed at each provider&amp;#x27;s list price with no markup, or users can bring their own provider key (&lt;a href=&quot;https://news.ycombinator.com/item?id=49963171&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that Brave&amp;#x27;s and Perplexity&amp;#x27;s search APIs are not among the providers.&lt;/li&gt;&lt;li&gt;Some questioned the value of routing through Cloudflare rather than calling providers directly, noting that services like OpenRouter already offer web search.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ben Thompson describes an AI agent detecting a compromise of his Mac, and weighs Apple&amp;#x27;s plans to tighten Full Disk Access.&lt;/strong&gt; In &lt;a href=&quot;https://stratechery.com/2026/apple-and-a-hackers-future/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;his essay&lt;/a&gt;, Thompson says his always-on Mac Mini running Claude and Codex was compromised through a now-patched macOS screen-sharing vulnerability (CVE-2026-65400). Claude flagged the intrusion, he used it to trace the malware, and then he wiped the machine. He also expresses concern about Apple&amp;#x27;s announced extra controls on Full Disk Access, which Apple justifies partly by the risks of increasingly autonomous AI agents (&lt;a href=&quot;https://news.ycombinator.com/item?id=49962857&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters consider Apple&amp;#x27;s change reasonable, pointing to a report that Meta&amp;#x27;s Muse agent referenced a user&amp;#x27;s Messages thread without being granted that access.&lt;/li&gt;&lt;li&gt;Others note that the exploit required screen-sharing port 5900 to be reachable from the internet, which is an unusual exposure.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A power-unit software bug delayed the start of an F1 race by 50 minutes.&lt;/strong&gt; &lt;a href=&quot;https://www.motorsport.com/f1/news/horrible-totally-unacceptable-powerless-f1-drivers-frustrated-by-bahrain-f1-software-glitch/10861968/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Motorsport.com reports&lt;/a&gt; that at the wet Bahrain Grand Prix, held at Malaysia&amp;#x27;s Sepang circuit, the controller&amp;#x27;s wet-weather mode left many cars stuck in idle at low speed during the formation laps. The FIA wrote a patch and delivered it to all 11 teams during the red-flag stoppage, and several drivers criticized the reliance on electronics (&lt;a href=&quot;https://news.ycombinator.com/item?id=49959869&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters were struck that a fix to a critical controller was written and deployed in the field without the lab QA usual for industrial or consumer controllers.&lt;/li&gt;&lt;li&gt;One automotive software engineer argued that motorsport software is often built with lighter engineering processes than road-car software.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ArtCraft released early builds of seven open-source creative apps written in Rust.&lt;/strong&gt; The &lt;a href=&quot;https://getartcraft.com/apps&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project page&lt;/a&gt; lists tools for image editing, vector illustration, video, raw photo development, PDFs, motion graphics and page layout. The apps are native rather than Electron-based, most also compile to WebAssembly, and they can be driven by a CLI, a JSON channel or an MCP server. All are marked early alpha or in development (&lt;a href=&quot;https://news.ycombinator.com/item?id=49958850&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;The creator says the post went up before the project was ready, that the apps are far from feature parity, and that they are MIT/Apache licensed with no telemetry.&lt;/li&gt;&lt;li&gt;Commenters asked why the desktop app requires signing in and what the paid subscription covers.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Huawei and Qualcomm signed a multi-year cross-licensing deal.&lt;/strong&gt; The &lt;a href=&quot;https://www.huawei.com/en/news/2026/10/qualcomm-broad-patent-agreement&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt; covers patent portfolios across 5G, compute, AI and networking. Qualcomm will also buy certain Huawei U.S. patents. The deal is framed around FRAND licensing principles and will close after regulatory approvals (&lt;a href=&quot;https://news.ycombinator.com/item?id=49961861&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters asked how the deal fits with Huawei&amp;#x27;s place on the U.S. Entity List, and others pointed to the release&amp;#x27;s statement that it still needs regulatory approval.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Anthropic reported a Claude user&amp;#x27;s written threat to police, and the user now faces a felony charge.&lt;/strong&gt; &lt;a href=&quot;https://www.techspot.com/news/114091-florida-woman-used-claude-diary-anthropic-reported-shoot.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;TechSpot reports&lt;/a&gt; that a Florida woman who used Claude as a diary wrote that she planned to attack a sheriff&amp;#x27;s office. Safety systems flagged the entry, and a human reviewer judged it credible and reported it. She is charged under a Florida statute covering written threats made in a way another person may view (&lt;a href=&quot;https://news.ycombinator.com/item?id=49961057&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters quoted the statute&amp;#x27;s wording, &amp;quot;in any manner in which it may be viewed by another person,&amp;quot; and noted that it appears to cover messages sent to a chatbot.&lt;/li&gt;&lt;li&gt;Some pointed out that AI providers face pressure in both directions, given recent criticism and lawsuits against OpenAI for not reporting a user&amp;#x27;s conversations before a shooting.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-10-05">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

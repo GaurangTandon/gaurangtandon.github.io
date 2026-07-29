@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — October 4, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — October 4, 2026</h1>
+    <p class="date">Sunday, October 4, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers cost controls for usage-billed services, a large language model running on gaming hardware, a privacy study of connected cars, and a few notes from web development, energy, and games.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Simon Willison argues pay-per-use services should ship with hard budget caps on by default.&lt;/strong&gt; In &lt;a href=&quot;https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;a blog post&lt;/a&gt;, he says coding and personal agents make it easier to deploy code that runs up charges, and that a cap which cuts off service and returns errors is safer than a warning email. He notes that AWS announced monthly project spend limits on 16 September, still rolling out to a limited set of customers, and that Google Cloud launched a &amp;quot;Spend Caps&amp;quot; feature in July (&lt;a href=&quot;https://news.ycombinator.com/item?id=49949235&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter who checked Google Cloud&amp;#x27;s Spend Caps reports that it supports only four services and only monthly periods, which makes it unusable for many projects.&lt;/li&gt;
+&lt;li&gt;Others suggest that vendors have little incentive to stop accidental overspending, and that some customers already work around the problem with spending-limited virtual cards.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An open-source tool runs the 125B-parameter Qwen3.8-Flash-Next model on consumer GPUs.&lt;/strong&gt; &lt;a href=&quot;https://github.com/Niko1221/Strata&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Strata&lt;/a&gt; targets NVIDIA and AMD cards with 12 GB of VRAM or more, plus at least 32 GB of system RAM, using heavily quantized model variants. Its README reports 53–94 tokens per second for text generation on an RTX 5070, and estimates 100–140 tokens per second on a 24 GB RTX 3090 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49953495&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters say generation speed is the easier part of offloading a mixture-of-experts model, and ask how prompt processing holds up at long contexts and how much quality the quantization costs.&lt;/li&gt;
+&lt;li&gt;Some point to earlier inference engines that ran the same model, and others question the project&amp;#x27;s install method, which asks users to have an AI coding assistant follow setup instructions from the repository.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A study finds most tested connected cars and many of their companion apps send data to third parties.&lt;/strong&gt; Northeastern University researchers, working with Consumer Reports, &lt;a href=&quot;https://automatictransmission.khoury.northeastern.edu/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;tested 21 recent vehicles and 30 companion apps&lt;/a&gt;. 19 of the 21 vehicles contacted at least one third-party domain over Wi-Fi, and 7 of the 30 apps sent sensitive identifiers to third-party trackers. The peer-reviewed paper will appear at IMC &amp;#x27;26 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49954882&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that cars often lack granular opt-outs, so declining data sharing can disable features such as navigation.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Nolan Lawson examines why web developers often skip built-in browser features in favor of libraries.&lt;/strong&gt; In &lt;a href=&quot;https://nolanlawson.com/2026/10/03/why-dont-more-developers-use-the-platform/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;his essay&lt;/a&gt;, he points to the history of browsers lagging behind libraries, habits formed in the npm and React ecosystems, and better documentation for many libraries than for platform APIs. He also notes that building components yourself can be enjoyable and educational, and that this is how many standards advocates first learned the platform (&lt;a href=&quot;https://news.ycombinator.com/item?id=49950554&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some commenters say custom dialog components are chosen because they can offer better focus management, mobile and screen-reader support, and flexibility than the native &amp;lt;dialog&amp;gt; element.&lt;/li&gt;
+&lt;li&gt;Others say AI coding tools will produce lightweight, native-first pages, but only when explicitly asked.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Tech writer Bob Cringely has reportedly died.&lt;/strong&gt; A &lt;a href=&quot;https://news.ycombinator.com/item?id=49949438&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post on Hacker News&lt;/a&gt; relays word from a friend of the family that Cringely, whose real name was Mark Stevens, died in his sleep early Saturday. He was an early Apple employee and was best known for PBS documentaries, especially &amp;quot;Triumph of the Nerds&amp;quot; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49949438&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters also remember his book &amp;quot;Accidental Empires&amp;quot; and his long-running column, which some say was a key industry source for readers far from Silicon Valley before the internet.&lt;/li&gt;
+&lt;li&gt;Some note that the report came secondhand, and point to a 2020 post in which he addressed an earlier false report of his death.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An article says distributed renewable generation is helping Ukraine&amp;#x27;s grid withstand Russian attacks.&lt;/strong&gt; The &lt;a href=&quot;https://energytransition.org/2026/09/in-ukraine-distributed-renewables-foil-russias-assaults/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;piece&lt;/a&gt; argues that decentralized power production is harder to disable than centralized infrastructure (&lt;a href=&quot;https://news.ycombinator.com/item?id=49951881&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters agree that decentralization removes single points of failure, since attackers would have to target many sites instead of one substation.&lt;/li&gt;
+&lt;li&gt;Some point out that the article does not compare renewables with decentralized fossil-fuel generation, which would offer similar resilience.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Jagex announced an early-stage new RuneScape MMORPG built in Unreal Engine.&lt;/strong&gt; The &lt;a href=&quot;https://play.runescape.com/4&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt; describes a project with the working title RS4, set in Gielinor and starting in the Ashenfall region. Jagex says it will run alongside Old School RuneScape, RuneScape, and Dragonwilds rather than replace them, and that release is still a few years away (&lt;a href=&quot;https://news.ycombinator.com/item?id=49949588&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters question whether better graphics are what players want, noting that Old School RuneScape has a much larger player base than RuneScape 3.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-10-04">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

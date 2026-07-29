@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 25, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 25, 2026</h1>
+    <p class="date">Friday, September 25, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers portable SIMD in Go, a Dutch government workplace stack built on NixOS, bug tracking stored inside Git, retro PC emulation on new Apple hardware, and a lease dispute over power at an Oracle data centre.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Go 1.27 adds an experimental, portable SIMD package.&lt;/strong&gt; The Go team &lt;a href=&quot;https://go.dev/blog/simd-experiment&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;describes a new size-agnostic simd interface&lt;/a&gt;, loosely based on Google&amp;#x27;s Highway library for C++. It aims for &amp;quot;write-once&amp;quot; vector code that runs close to assembly speed on AVX, AVX2, AVX-512, arm64 NEON and wasm, and falls back to emulation on platforms without SIMD support. It sits alongside the architecture-specific archsimd APIs introduced in Go 1.26 and 1.27; before those, Go assembly was the only way to use SIMD (&lt;a href=&quot;https://news.ycombinator.com/item?id=49843269&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters note that the package does not address cases where compiler autovectorisation would be &amp;quot;good enough,&amp;quot; so hand-written vector code is still needed to get the speedup.&lt;/li&gt;
+&lt;li&gt;One early user reports roughly a 30% speedup in an image-cutout algorithm, and others ask how the compiler removes the apparent cost of the API&amp;#x27;s interface conversions and type switches.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Dutch government-backed community is building an open, NixOS-based workplace stack.&lt;/strong&gt; The &lt;a href=&quot;https://www.dawo.community/en/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;DAWO project&lt;/a&gt; is an open collaboration between government, industry and the public to build a &amp;quot;digitally autonomous&amp;quot; workplace for Dutch public servants. It uses replaceable building blocks for AI, cloud, collaboration tools and an operating system layer called DAWO-NixOS, chosen for reproducibility, with code published on Codeberg and code.overheid.nl (&lt;a href=&quot;https://news.ycombinator.com/item?id=49841563&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point to similar government efforts: Germany&amp;#x27;s openDesk, and France&amp;#x27;s La Suite, which the German government has reportedly worked on as well.&lt;/li&gt;
+&lt;li&gt;One commenter raises a practical concern that security patches can take days to merge into nixpkgs, and another says some project repositories may conflict with Codeberg&amp;#x27;s new policy against AI-generated code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;git-bug stores a project&amp;#x27;s issue tracker inside the Git repository itself.&lt;/strong&gt; &lt;a href=&quot;https://github.com/git-bug/git-bug&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;git-bug&lt;/a&gt; keeps issues as Git objects without adding files to the working tree. Issues sync through normal Git remotes with git bug push and pull, and the tool works offline. It offers a CLI, a terminal UI, a local web UI and a GraphQL API, plus bridges that import from and export to other trackers; the public-facing web portal is still a work in progress (&lt;a href=&quot;https://news.ycombinator.com/item?id=49843174&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A commenter notes that git-bug support was demonstrated this week in b4 and in kernel.org&amp;#x27;s cgit fork at the Kernel Recipes conference.&lt;/li&gt;
+&lt;li&gt;Others cite prior art, including Fossil&amp;#x27;s built-in tracker and an earlier wave of Git-embedded trackers that ran into usability problems rooted in their design rather than their implementation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Mac Mini M6 emulates a 600 MHz Pentium II with a Voodoo 3 at full speed in 86Box.&lt;/strong&gt; A &lt;a href=&quot;https://nyaa.sh/reviews/mac-mini-m6-emulation&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;review&lt;/a&gt; used a lightly modified 86Box 6.0 build with extended clock tables. It ran Cinebench 2000 and 3DMark 2000 SE with Winamp playing in the background, and a run counted as a pass only if emulation held 100% speed with no audio dropouts. The M6 passed at 600 MHz against 500 MHz for a base M4; the author credits Apple&amp;#x27;s single-thread performance and 86Box 6.0&amp;#x27;s new ARM64 recompiler for Voodoo graphics (&lt;a href=&quot;https://news.ycombinator.com/item?id=49841285&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A developer writing a hobby OS for the Pentium II says 86Box behaves very faithfully compared with their real Pentium II and Voodoo 3 hardware.&lt;/li&gt;
+&lt;li&gt;Others would like a comparison against QEMU paired with the SoftGPU driver package.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Oracle may owe data centre investors even though the site has no power.&lt;/strong&gt; The &lt;a href=&quot;https://www.ft.com/content/a96bf05a-a299-4d6a-a753-b298dd0f4016&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Financial Times reports&lt;/a&gt; that Oracle remains obligated to pay investors in a data centre project that lacks electricity. According to excerpts quoted in the thread, Oracle has sent a force majeure notice to the developer, a unit of Blue Owl Capital, after local opposition delayed permits (&lt;a href=&quot;https://news.ycombinator.com/item?id=49842483&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters question whether permitting delays can count as force majeure, and one notes that such leases usually exclude permitting because securing permits is the tenant&amp;#x27;s responsibility.&lt;/li&gt;
+&lt;li&gt;Others ask what will happen to the large fuel-cell capacity Oracle agreed to buy from Bloom Energy, reported elsewhere as 1.8 GW and later expanded to 2.8 GW.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Wube releases free 3D-printable Factorio models.&lt;/strong&gt; In &lt;a href=&quot;https://factorio.com/blog/post/fff-447&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Friday Facts #447&lt;/a&gt;, the developers released 15 sets of early-game models: 65 models in 247 STL files, including belts, inserters, a player character and enemies. The pieces fit a grid that mirrors the in-game layout. Each comes in a precise push-fit version and a looser version for gluing or for less accurate printers, and the project grew out of a 2024 playtest event with Prusa Research (&lt;a href=&quot;https://news.ycombinator.com/item?id=49845133&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that the game&amp;#x27;s graphics are 2D renders of 3D models that have never been released, so these printable designs are a separate piece of work.&lt;/li&gt;
+&lt;li&gt;One points out that a Factorio tile represents one metre, which gives the physical models a natural real-world scale.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ink &amp;amp; Switch marks ten years with an interactive homepage.&lt;/strong&gt; The independent research lab &lt;a href=&quot;https://www.inkandswitch.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;replaced its homepage with &amp;quot;Tenfold&amp;quot;&lt;/a&gt;, a click-and-drag art piece built with the lab&amp;#x27;s own research technology. The site also summarises the lab&amp;#x27;s four research themes: local-first software, malleable software, programmable ink and universal version control. Projects such as Automerge and Allume (formerly Muse) have grown into production tools (&lt;a href=&quot;https://news.ycombinator.com/item?id=49842270&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some commenters found the interactions inconsistent and the experience limited on mobile, and one asks why Allume, a local-first app, is sold as a subscription.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An essay argues the FAA should allow soft baby carriers during takeoff and landing.&lt;/strong&gt; Jeff Kaufman &lt;a href=&quot;https://www.jefftk.com/p/allow-carriers-on-planes&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;argues&lt;/a&gt; that the rule requiring lap infants to be taken out of babywearing carriers, in place since the mid-1990s, rests on a 1994 study that never tested the most common alternative: holding the baby in your arms. He contrasts it with the FAA&amp;#x27;s decision not to require separate seats for infants, which considered that higher costs would push families to drive, and notes that a 2024 House bill on the issue died in subcommittee (&lt;a href=&quot;https://news.ycombinator.com/item?id=49844786&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters raise a safety concern: if an adult is thrown forward with a child strapped facing inward on their chest, the child&amp;#x27;s spine could be bent backwards or crushed. Flight attendants have reportedly given this as the reason for the rule.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-25">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 4, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 4, 2026</h1>
+    <p class="date">Tuesday, August 4, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet day of releases, retrospectives and reality checks — most of the substance sits in the caveats rather than the headlines.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;An engineer argues that domain expertise, not prompting technique, is what separates good LLM results from mediocre ones.&lt;/strong&gt; Sean Goedecke&amp;#x27;s &lt;a href=&quot;https://www.seangoedecke.com/llms-reward-expertise/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;essay&lt;/a&gt; uses Terence Tao&amp;#x27;s published ChatGPT conversation about a counterexample to the Jacobian Conjecture as its example: short, blunt messages, self-directed leaps, and pushback phrased as &amp;quot;this looks more complex than I was hoping for&amp;quot; rather than direct contradiction. The claim is that the human becomes the bottleneck — the information is already in the model, and knowing the codebase or the field is what lets you pull it out (&lt;a href=&quot;https://news.ycombinator.com/item?id=49161518&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters push back with a counterexample: a mathematician at Anthropic reportedly got results from short, unstructured encouragement-style prompts, suggesting elaborate expert steering is not always the differentiator.&lt;/li&gt;
+&lt;li&gt;Others frame the skill as knowing how to structure and scope the work rather than phrasing prompts well, comparing it to leading a junior developer, and note the same pattern in image generation where a lack of photography or art background shows in the output.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;FFmpeg 9.0 &amp;quot;Lei&amp;quot; is out, roughly four months after 8.1.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/FFmpeg/FFmpeg/blob/n9.0/RELEASE_NOTES&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;release notes&lt;/a&gt; are brief and point to the full changelog in the repository rather than summarizing changes (&lt;a href=&quot;https://news.ycombinator.com/item?id=49166202&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A commenter posted changelog highlights the notes omit, including animated WebP decoding and demuxing, LCEVC track muxing in MP4, a v360 Vulkan filter, ProRes RAW VideoToolbox hardware acceleration, HE-AAC 960 decoding for DAB+, and removal of standalone CELT decoding.&lt;/li&gt;
+&lt;li&gt;One reader assumed this ended a multi-year hiatus; the release notes themselves place it about four months after the previous version.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Lilian Weng published a long survey of &amp;quot;harness engineering&amp;quot; — the software layer wrapped around a model.&lt;/strong&gt; The &lt;a href=&quot;https://lilianweng.github.io/posts/2026-07-04-harness/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; catalogs recurring patterns: goal-oriented plan/execute/observe/improve loops, using the file system as durable memory instead of holding logs in context, and spawning subagents with explicit, inspectable state so work survives interruptions. It frames the harness as closer to operating-system design than prompt templating, and ties it to arguments about recursive self-improvement (&lt;a href=&quot;https://news.ycombinator.com/item?id=49164896&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One practitioner describes a failure mode where an incomplete check suite reports full success — worse than a weak evaluator, because the result looks correct and decisive — and reports that failing closed on missing coverage helped.&lt;/li&gt;
+&lt;li&gt;Another notes agents already self-improve in a mundane way by installing or building tools they then use, changing the environment rather than themselves, and questions where the line between agent and environment should be drawn.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A QEMU fork now emulates the Itanium well enough to boot Windows XP and Server 2003.&lt;/strong&gt; The &lt;a href=&quot;https://virtuallyfun.com/2026/08/03/windows-xp-2002-for-the-itanium-unbridled-rage/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt; documents building an ia64 cross-toolchain on an Apple silicon Mac — binutils 2.46 configured cleanly, GCC 15.3 needed a workaround for a zlib macro colliding with the macOS &lt;em&gt;fdopen&lt;/em&gt; declaration, and libgcc.a had to be copied manually — before building the firmware and the emulator itself (&lt;a href=&quot;https://news.ycombinator.com/item?id=49162086&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters add a lineage correction: Windows XP 64-bit Edition was Itanium-specific and built on the XP kernel, while XP x64 Edition for AMD64 was based on the Server 2003 kernel and behaved noticeably differently.&lt;/li&gt;
+&lt;li&gt;Others point to Windows Server 2008 R2 as the last Windows release supporting Itanium, with updates continuing into 2020, and ask whether it runs under this fork yet.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A 2020 McGill piece revisits statistical arguments that the Dunning-Kruger effect is largely a measurement artefact.&lt;/strong&gt; The &lt;a href=&quot;https://www.mcgill.ca/oss/article/critical-thinking/dunning-kruger-effect-probably-not-real&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt; describes work published in &lt;em&gt;Numeracy&lt;/em&gt; by Ed Nuhfer and colleagues reproducing the classic pattern from random data, and finding that experts and novices misjudge themselves at similar rates, with experts doing so over a narrower range. It also relays Dunning&amp;#x27;s own framing that the effect concerns everyone in their weak areas rather than &amp;quot;dumb people&amp;quot; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49160437&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Skeptics of the debunking note the simulation code isn&amp;#x27;t available and that the simulated and original charts look much the same, so the disagreement is hard to evaluate from the article alone.&lt;/li&gt;
+&lt;li&gt;Several raise the bounded-scale point independently — almost nobody rates themselves at the very top or bottom percentile, so the edges of any self-assessment curve are biased by construction.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Analysts are flagging the scale of borrowing behind AI infrastructure, including obligations that sit off the balance sheet.&lt;/strong&gt; Per &lt;a href=&quot;https://fortune.com/2026/07/31/ai-debt-hypescalers-capex-capital-spending-hidden-borrowing-bond-issuance/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Fortune&lt;/a&gt;, S&amp;amp;P Global counts $225bn in bonds from hyperscalers and related issuers so far in 2026, on pace for roughly $400bn; a Nikkei study puts &amp;quot;hidden&amp;quot; liabilities such as long-term GPU purchase commitments and data-center leases at $1.65tn, while Moody&amp;#x27;s puts comparable off-balance-sheet deals at $1.2tn and still calls the ratings sound (&lt;a href=&quot;https://news.ycombinator.com/item?id=49160699&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note the headline overstates the body: the article&amp;#x27;s actual finding is that investors are absorbing the issuance today, with analysts warning that may not hold indefinitely.&lt;/li&gt;
+&lt;li&gt;Others ask whether anyone has shown rigorously that these commitments are destabilizing rather than ordinary disclosed obligations, given how much of the coverage repeats the same figures.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;NHS England has corrected a data protection document that wrongly stated only NHS staff could see identifiable patient data.&lt;/strong&gt; Its &lt;a href=&quot;https://www.publictechnology.net/2026/08/03/health-and-social-care/nhs-apologises-and-admits-palantir-engineers-have-access-to-identifiable-patient-data/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;response&lt;/a&gt; to the National Data Guardian confirms three Palantir engineers hold administrative-level access to the Federated Data Platform&amp;#x27;s National Data Integration Tenant, with 33 more from various suppliers holding project-specific access; the NHS says access is operational, time-limited and not routinely used to read patient records. A parliamentary committee has separately recommended exercising a break clause in March 2027 and building an in-house or UK alternative (&lt;a href=&quot;https://news.ycombinator.com/item?id=49165775&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters are unconvinced by the assurance that suppliers lack permission to use the data for their own purposes, treating permission as a weaker control than technical restriction.&lt;/li&gt;
+&lt;li&gt;Several ask what actually follows from the admission, expecting a correction and an inquiry rather than any change to the arrangement.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenAI published a public rebuttal to Apple&amp;#x27;s trade-secrets lawsuit, along with excerpts of the disputed messages.&lt;/strong&gt; The &lt;a href=&quot;https://openai.com/index/apple-is-getting-this-wrong/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; disputes Apple&amp;#x27;s account of pre-suit contact, says Apple&amp;#x27;s outside counsel emailed the wrong person, and argues that former employee Chang Liu&amp;#x27;s continued access to Apple files came from Apple employees asking him for help locating them plus unrevoked &amp;quot;residual access.&amp;quot; The published iMessages show a departing employee coordinating file transfers with a colleague on his last days (&lt;a href=&quot;https://news.ycombinator.com/item?id=49164649&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters read the post as one-sided, noting it leaves much of Apple&amp;#x27;s complaint unaddressed, and question the choice to argue an active case on a corporate blog rather than in filings.&lt;/li&gt;
+&lt;li&gt;Others focus on what the messages incidentally reveal about offboarding hygiene at both companies — a personal iCloud account apparently used for work and still connected after departure, and access that outlived the employment.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-04">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

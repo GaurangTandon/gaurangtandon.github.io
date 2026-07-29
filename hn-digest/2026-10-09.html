@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — October 9, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — October 9, 2026</h1>
+    <p class="date">Friday, October 9, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers an infrastructure consolidation in the JavaScript world, a large hardware funding round, two separate questions about OpenAI&amp;#x27;s research practices, and several releases and tools for developers.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Deno team is joining Cloudflare, and Deno&amp;#x27;s runtime and hosting service will be wound down.&lt;/strong&gt; In a &lt;a href=&quot;https://deno.com/blog/cloudflare&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post by Ryan Dahl&lt;/a&gt;, Deno says the runtime will get monthly bug-fix and security releases for one more year, after which the team will stop developing it. The runtime will stay open source for others to continue. Deno Deploy will shut down after six months, with migration support to Cloudflare Workers for paying customers, and JSR will keep running on Cloudflare infrastructure. The team will focus on celld, a Durable Objects-based programming model that it says it wants to run on Cloudflare or on users&amp;#x27; own infrastructure (&lt;a href=&quot;https://news.ycombinator.com/item?id=50019911&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that unless an outside group takes over development, Deno will in practice lose support after the one-year window. Some were surprised the runtime itself is being dropped, since they saw it as Deno&amp;#x27;s main differentiator.&lt;/li&gt;&lt;li&gt;One commenter points out that the work appears aimed at making workerd an open-source, self-hostable runtime, and others link to Cloudflare&amp;#x27;s companion announcement.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Oxide Computer raised a $445M Series D to fund its hardware order backlog.&lt;/strong&gt; The company &lt;a href=&quot;https://oxide.computer/blog/our-445m-series-d&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;writes&lt;/a&gt; that it paid income tax this spring from ordinary operations. It says the new capital is needed because demand exceeds supply and components must be bought well before systems ship. Eclipse led the round, existing investors added to their stakes, and Atreides Management and AMD joined as new investors, with AMD as a strategic investor (&lt;a href=&quot;https://news.ycombinator.com/item?id=50020014&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter lists the recent rounds: a $100M Series B in July 2025, a $200M Series C in February 2026, and now this one. Another asks how much ownership the founding team retains after successive raises.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A set theorist says OpenAI&amp;#x27;s claimed result on the Partition Principle is too poorly written to evaluate.&lt;/strong&gt; Asaf Karagila, who works on the Axiom of Choice, &lt;a href=&quot;https://karagila.org/2026/openai-pp/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;reviewed the preprint&lt;/a&gt; in which OpenAI claims the Partition Principle does not imply the Axiom of Choice, a question over a century old. He describes the paper as muddled, oddly structured and unusually referenced, and he did not assess the accompanying Lean code. He argues that releasing hundreds of hard-to-read &amp;quot;solutions&amp;quot; works like a denial of service on experts&amp;#x27; limited time, while the public sees the claims as settled results (&lt;a href=&quot;https://news.ycombinator.com/item?id=50013902&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some commenters counter that OpenAI never asked every mathematician to read the output, and that younger researchers may be willing to work through and explain the result.&lt;/li&gt;&lt;li&gt;Others agree that readability is a real gap and suggest it is a workflow problem OpenAI could address by spending more effort on exposition.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Three OpenAI safety researchers who were fired have published a letter disputing the company&amp;#x27;s misconduct claims.&lt;/strong&gt; According to &lt;a href=&quot;https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;TechCrunch&lt;/a&gt;, Jasmine Wang, Tomek Korbak and Mikita Balesni deny mishandling sensitive information and deny involvement in a recent press leak. They say working with outside safety evaluators was a normal part of their jobs, and they warn of a chilling effect on staff. OpenAI says an investigation found a &amp;quot;pattern of misconduct&amp;quot; beyond sharing information with an outside evaluation group, and an internal memo denies that the firings were retaliation for raising safety concerns (&lt;a href=&quot;https://news.ycombinator.com/item?id=50018350&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters question how calls for open dialogue with the outside safety community fit with a business that depends on keeping model details from competitors.&lt;/li&gt;&lt;li&gt;Several say they found Wang&amp;#x27;s account of having delegated access to an executive&amp;#x27;s email for recruiting hard to follow.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Python 3.15.0 has been released.&lt;/strong&gt; The &lt;a href=&quot;https://www.python.org/downloads/release/python-3150/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;release page&lt;/a&gt; did not load in readable form for this briefing. Release notes quoted in the discussion say the experimental JIT compiler is now about 7–8% faster than the standard interpreter on x86-64 Linux and 11–12% faster than the tail-calling interpreter on AArch64 macOS (&lt;a href=&quot;https://news.ycombinator.com/item?id=50021127&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A library maintainer notes that the release marks the end of support for Python 3.10, so projects that support all current versions can start using 3.11 features.&lt;/li&gt;&lt;li&gt;One commenter traced most of the larger source tarball to two animated GIFs, over 10MB in total, added to the documentation for the new sampling profiler.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Microsoft released MXC, a cross-platform sandbox for running untrusted code such as model output and plugins.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/microsoft/mxc&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;MIT-licensed project&lt;/a&gt; puts a single policy model for filesystem, network and UI access in front of several isolation backends. These include Bubblewrap and LXC on Linux, Seatbelt on macOS, and process containers, Windows Sandbox and micro-VMs on Windows. It ships SDKs for Rust, .NET and Node (&lt;a href=&quot;https://news.ycombinator.com/item?id=50016489&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters with sandboxing experience say configuring these OS mechanisms consistently is hard to do by hand. They highlight a &amp;quot;learning&amp;quot; mode that helps work out which permissions a workload needs.&lt;/li&gt;&lt;li&gt;Others note the codebase is around 350,000 lines, mostly Rust, and argue the field needs a common sandbox policy standard more than another runtime.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;LWN reports on a talk about reducing undefined behavior in C.&lt;/strong&gt; At Kernel Recipes, Martin Uecker explained how C&amp;#x27;s abstract-machine model and its &amp;quot;no requirements&amp;quot; rule for undefined behavior allow surprising compiler optimizations, as &lt;a href=&quot;https://lwn.net/Articles/1095811/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;covered by LWN&lt;/a&gt;. Examples include removing a conditional before a division by zero. He also described C23&amp;#x27;s new &amp;quot;no time travel&amp;quot; rule against such reordering and discussed whether C could eventually become memory-safe (&lt;a href=&quot;https://news.ycombinator.com/item?id=50015074&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that proving a program free of undefined behavior statically needs whole-program analysis. That is costly at compile time and still produces many false positives.&lt;/li&gt;&lt;li&gt;One points out that unusual architectures are not only history: the 36-bit-word OS 2200 platform is still supported.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Quake has been ported to safe Rust and runs in the browser.&lt;/strong&gt; The &lt;a href=&quot;https://quake-srp.pages.dev/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Show HN project&lt;/a&gt; ports id Software&amp;#x27;s GPL-licensed 1996 engine to Rust. It renders in software through the browser with no GPU, and it includes the shareware episode. Users can load their own game files to play the full game and mission packs (&lt;a href=&quot;https://news.ycombinator.com/item?id=50016312&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that &amp;quot;SRP&amp;quot; stands for &amp;quot;slop Rust port&amp;quot;, meaning the port was largely written with an LLM. The repository includes a visual-diff harness meant to show pixel-for-pixel parity with the original.&lt;/li&gt;&lt;li&gt;One commenter frames the project as resting on decades of browser, WebAssembly and Rust work, with the LLM contributing the final step.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-10-09">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — October 10, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — October 10, 2026</h1>
+    <p class="date">Saturday, October 10, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers a desktop messaging vulnerability, a national registry breach, licensing and certification changes, new developer tooling, and an early-stage medical trial.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A Telegram Desktop bug let a single clicked link read local files.&lt;/strong&gt; A &lt;a href=&quot;https://beaksec.github.io/posts/telegram-desktop-one-click-account-takeover/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;security write-up&lt;/a&gt; describes how Telegram Desktop passes clicked links to its already-running instance over a local socket using semicolon-separated commands, without escaping semicolons inside the link, so a crafted link can inject extra commands. Chained with an internal interpret: scheme that reads a file and sends it to a chat without confirmation, this allowed arbitrary file reads, including session files that enable account takeover. It is tracked as CVE-2026-107181, affects versions through 7.2.8, and is fixed in 7.2.9 (&lt;a href=&quot;https://news.ycombinator.com/item?id=50029123&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that being able to steal any file the user can access is arguably more significant than the account takeover the write-up focuses on.&lt;/li&gt;&lt;li&gt;Some argue the underlying problem is that desktop operating systems let any user process read any user file, and describe sandboxing apps so they only see specific folders.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Danish CPR data breach involved the password &amp;quot;123456&amp;quot;.&lt;/strong&gt; The Copenhagen Post &lt;a href=&quot;https://cphpost.dk/2026-10-10/news/round-up/123456-password-used-in-massive-danish-cpr-data-breach/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;reports&lt;/a&gt; that a breach involving Denmark&amp;#x27;s CPR data was linked to the password &amp;quot;123456&amp;quot; (&lt;a href=&quot;https://news.ycombinator.com/item?id=50031269&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The briefing&amp;#x27;s source material does not include further details on scope or the parties involved.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters explain that the CPR number is Denmark&amp;#x27;s unique 10-digit personal identifier for every resident, roughly comparable to a US Social Security number.&lt;/li&gt;&lt;li&gt;Several call for a published root-cause analysis, noting that similar incidents, such as a recent ransomware attack on a Swedish municipality, still lack public post-mortems.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Bitwarden is moving to a dual license model.&lt;/strong&gt; A &lt;a href=&quot;https://community.bitwarden.com/t/published-version-update-in-app-stores/102750&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post on Bitwarden&amp;#x27;s community forum&lt;/a&gt; concerns a licensing change for the password manager (&lt;a href=&quot;https://news.ycombinator.com/item?id=50033407&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The source material does not describe the specific terms.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters compare the move to earlier license shifts at Elasticsearch, Terraform, and Redis, which were made partly in response to large cloud providers offering the software as a service.&lt;/li&gt;&lt;li&gt;A commenter who ran the self-hosted Vaultwarden server for a team says the key question is whether the client apps, especially mobile ones, remain buildable from source, since that is what self-hosting depends on.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;REA gives coding agents tools to reverse engineer software.&lt;/strong&gt; &lt;a href=&quot;https://rea.tools/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;REA&lt;/a&gt; connects to a coding agent and gives it disassembly, decompilation, and runtime inspection, so users can ask in plain English how a program works. Its examples include explaining why Windows Calculator returns 220 for &amp;quot;200 + 10%&amp;quot; and extracting the speed rule from Chrome&amp;#x27;s dinosaur game to rebuild it with adjustable speed (&lt;a href=&quot;https://news.ycombinator.com/item?id=50028275&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters ask what REA adds over simply giving an agent existing tools like Ghidra or radare2.&lt;/li&gt;&lt;li&gt;Some note that asking an agent to run an npx installer resembles the familiar risks of piping curl into a shell.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Talorys is an open-source personal AI assistant that runs on Cloudflare&amp;#x27;s free tier.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/rociiu/talorys&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;MIT-licensed project&lt;/a&gt; deploys into a user&amp;#x27;s own Cloudflare account with one command and provides chat, memory, tasks, notes, and scheduled reminders. It uses Pages, a private Worker, Durable Objects with SQLite, and Workers AI, and its non-AI features keep working if the AI quota runs out (&lt;a href=&quot;https://news.ycombinator.com/item?id=50031614&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters question the &amp;quot;self-hosted&amp;quot; label, since everything runs on Cloudflare&amp;#x27;s infrastructure.&lt;/li&gt;&lt;li&gt;One commenter reports being billed for Workers AI &amp;quot;neuron&amp;quot; usage they expected to fall within free limits on a paid Workers plan, and says support did not resolve it.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;macOS&amp;#x27;s place on The Open Group&amp;#x27;s UNIX certification register is in question.&lt;/strong&gt; A submission claimed Apple had been removed from the &lt;a href=&quot;https://www.opengroup.org//openbrand/register/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;official register of UNIX-certified products&lt;/a&gt;, whose main listing shows systems from IBM, HPE, and SCO (&lt;a href=&quot;https://news.ycombinator.com/item?id=50031653&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). What exactly changed is not clear from the register page alone.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters report that macOS 26 still appears under the UNIX 03 standard, so the headline&amp;#x27;s claim of removal may be overstated.&lt;/li&gt;&lt;li&gt;Citing an archived snapshot from October 7, one commenter suggests macOS 27 may simply never have been certified, rather than being removed.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A clinical trial of a prion disease drug candidate has begun enrolling participants.&lt;/strong&gt; The Broad Institute &lt;a href=&quot;https://www.broadinstitute.org/news/clinical-trial-prion-disease-drug-candidate-begins-enrolling-participants&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announced&lt;/a&gt; that the trial is now enrolling (&lt;a href=&quot;https://news.ycombinator.com/item?id=50028027&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Prion diseases, which include Creutzfeldt-Jakob disease in humans, currently have no cure.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters say the drug was developed by Anastasia Khvorova&amp;#x27;s lab at UMass Chan Medical School with researchers Sonia Vallabh and Eric Minikel, who have shared the development process openly, including their IND filing.&lt;/li&gt;&lt;li&gt;One commenter notes the drug appears to work by reducing production of prion protein rather than clearing existing misfolded protein, and that mouse studies suggest possible side effects.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Eurydice compiles Rust into structure-preserving C.&lt;/strong&gt; An &lt;a href=&quot;https://lwn.net/Articles/1055211/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;LWN article&lt;/a&gt; covers Eurydice, part of the Aeneas formal-verification project maintained by people at Inria and Microsoft. It translates Rust to C while keeping the original code&amp;#x27;s structure and evaluation order, which matters for high-assurance projects whose verification tools expect C, and it has been used for post-quantum cryptography routines. Trade-offs include monomorphized generics and a recommendation to compile its output with -fno-strict-aliasing (&lt;a href=&quot;https://news.ycombinator.com/item?id=50027853&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to related Aeneas tools, including Scylla, Charon, and Aeneas itself, and to the author&amp;#x27;s note that Eurydice-generated code is being integrated into Microsoft&amp;#x27;s and Google&amp;#x27;s cryptography libraries.&lt;/li&gt;&lt;li&gt;Some suggest readable C output could help with bootstrapping the Rust compiler entirely from source.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-10-10">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
