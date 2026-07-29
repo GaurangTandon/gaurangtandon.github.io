@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 11, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 11, 2026</h1>
+    <p class="date">Tuesday, August 11, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter-than-usual day: a few pieces of state-level internet regulation, some solid open-source releases, and a couple of well-made toys.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;An essay argues the web&amp;#x27;s archival layer is degrading as AI intermediates search.&lt;/strong&gt; The Walrus piece points to link rot, the deletion of most of FiveThirtyEight&amp;#x27;s archive after Disney wound the site down, falling Wikipedia traffic as AI systems ingest its content directly, and strain on the Internet Archive, alongside a 404 Media report that companies plant content on Reddit to shape AI-generated answers (&lt;a href=&quot;https://thewalrus.ca/google-search-is-dying/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49250836&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Its opening example is Google&amp;#x27;s AI summaries returning wrong sunset times.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters push back on that opening anecdote, saying the sunset query still returns a direct non-AI answer for them, which undercuts the framing.&lt;/li&gt;&lt;li&gt;Others report the opposite trend in daily use — that aggregating several documentation sources into one answer is faster than the old search-and-read loop — while noting Google&amp;#x27;s search revenue is still growing.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Anthropic published documentation on how Claude marks AI-generated content.&lt;/strong&gt; The support page describes an imperceptible watermark woven into generated text at the model level, which travels with copy-paste and may survive some editing, plus digitally signed provenance metadata on generated files where supported (&lt;a href=&quot;https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49250109&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters read the page as describing an EU rollout rather than a US one, and expect the watermark to be strippable by anyone who bothers to run text through a sanitizer.&lt;/li&gt;&lt;li&gt;A recurring practical worry is precision work: if you ask for a specific refactor across several files, any watermarking that alters exact output would be unacceptable, and false-positive detection is raised as a separate concern.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;antirez released h3.c, a C implementation of MiniMax-H3 inference for Apple Silicon.&lt;/strong&gt; The repository implements the pipeline natively with Metal shaders, covering prompt-to-video/audio, first- and last-frame conditioning, and ordered Ref2VA image/video/audio references, with an interactive session that keeps prompt conditioning and the decoder in memory across seeds (&lt;a href=&quot;https://github.com/antirez/h3.c&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;repo&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49252179&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Current work is described as H3-specific Metal performance and memory optimization on M3 Max and M5 Max.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter running the same model through ComfyUI with a Q5_K_M GGUF quant on a 64GB M5 Pro reports it works well but slowly — roughly an hour for a nine-second 480x864 clip at 20 steps — with memory headroom the main constraint.&lt;/li&gt;&lt;li&gt;Others note MiniMax has said H3 could support sparse attention, which would be a significant speedup, and at least one person is already testing an optional sparse-attention mode.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A new Illinois law creates age-signal obligations for operating system providers, with no open-source exemption.&lt;/strong&gt; HB5511, now Public Act 104-0664, is publicly framed around social media defaults for minors, but a separate section requires operating system providers to add an age-declaration step at setup and expose an age bracket — under 13, 13–15, 16–17, or 18 and up — to apps through an encrypted API by January 1, 2028 (&lt;a href=&quot;https://linuxstans.com/illinois-hb5511-operating-system-age-verification/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49249150&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The write-up notes the declaration is self-reported rather than a document or face scan, that Colorado&amp;#x27;s equivalent bill was amended to exempt open-source software while Illinois&amp;#x27;s was not, and that the bill text&amp;#x27;s $7,500-per-child cap does not match the $50,000 figure in the governor&amp;#x27;s press release.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters question who would actually be liable for a self-installed Linux system with no corporate owner, and whether the OS-level framing makes this a userland problem rather than a kernel one.&lt;/li&gt;&lt;li&gt;Several point out the same definitions would appear to cover Android and iOS, and that a state-by-state patchwork of incompatible rules is the underlying problem.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;France&amp;#x27;s ban on unsolicited telemarketing calls takes effect.&lt;/strong&gt; Le Monde reports the ban starts August 11, replacing the previous regime built around the Bloctel opt-out registry (&lt;a href=&quot;https://www.lemonde.fr/en/france/article/2026/08/06/france-to-ban-unsolicited-telemarketing-calls-from-august-11_6756208_7.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49254880&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters expect little change in actual call volume, since the calls that annoy people most come from scammers who never consulted the opt-out list in the first place; the rule binds properly registered businesses.&lt;/li&gt;&lt;li&gt;There is unresolved ambiguity in the thread about whether B2B calls are covered, and a note that Bloctel itself was recently reported breached.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Chicken Scheme 6.0 is out, with UTF-8 strings and R7RS-small in the core.&lt;/strong&gt; The release notes list a switch of the internal string representation to UTF-8 for full Unicode support, all R7RS small modules in the core system, replacement of the blob module with R7RS-compatible bytevectors, process objects instead of raw PIDs, flock-based file locking, and FFI support for passing C structs, unions, and complex numbers directly (&lt;a href=&quot;https://code.call-cc.org/releases/6.0.0/NEWS&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;release notes&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49251702&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The feathers debugger moves out of core into an egg.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;For context, commenters explain that Chicken compiles Scheme to C for standalone binaries and ships an interpreter for scripting and testing, which is the main draw for people choosing it over other Lisps.&lt;/li&gt;&lt;li&gt;The 6.0 line also supports Crunch, a compiler for a statically typed subset of R7RS Scheme, though Crunch itself is not yet at 1.0.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;World Train Map plots 1,249 notable passenger rail routes on one interactive map.&lt;/strong&gt; Each route carries distance, fastest journey time, top speed, operator, rolling stock and opening year, with slices for night trains, high-altitude lines, cross-border services and train-versus-plane comparisons, and the underlying data published as CSV, JSON and GeoJSON under CC BY 4.0 (&lt;a href=&quot;https://worldtrainmap.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;site&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49250894&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The site recently redrew about 1,100 lines from OpenStreetMap route relations rather than inferring paths from nearby track.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters flag coverage gaps, including familiar European services and at least one iconic long-distance route, so the atlas is best read as a curated selection rather than a complete network map.&lt;/li&gt;&lt;li&gt;Others point to OpenRailwayMap as the more comprehensive option for infrastructure-level detail, since it renders filtered OpenStreetMap railway data directly.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Show HN lets you scroll through all 43,252,003,274,489,856,000 Rubik&amp;#x27;s Cube states.&lt;/strong&gt; Each permutation has an index and a shareable URL, with 2D and 3D rendering and jump targets for named positions such as the superflip and checkerboard patterns (&lt;a href=&quot;https://everycube.alen.is/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;site&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49251179&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter reports that editing the position in the URL hash does not re-render the page, so exploring a specific index currently requires a reload or a new tab.&lt;/li&gt;&lt;li&gt;Another worked out the scale from the scroll rate: at roughly a dozen states per inch of wheel travel, moving the wheel surface at light speed would still take about 9.5 years to cover them all.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Amazon is backing a large Texas gas plant permitted to emit far more CO2 than any current single US source.&lt;/strong&gt; Ars Technica reports the GW Ranch project received a Texas permit allowing up to 33 million tons of carbon dioxide annually, which at full use would make it the largest single source of climate pollution in the country, in tension with Amazon&amp;#x27;s climate commitments (&lt;a href=&quot;https://arstechnica.com/tech-policy/2026/08/amazon-funds-biggest-gas-power-plant-in-us-despite-climate-pledge/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49249971&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters stress that the 33-million-ton figure is a permit ceiling rather than a forecast — a point the article itself concedes — so the &amp;quot;top source&amp;quot; framing is conditional on the plant running near its allowance.&lt;/li&gt;&lt;li&gt;Others place the addition in ERCOT context, noting gas is already the dominant thermal source there and that solar and storage buildout in the same grid is proceeding quickly; the story also circulated on HN earlier.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-11">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

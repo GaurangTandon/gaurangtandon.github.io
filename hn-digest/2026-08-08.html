@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 8, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 8, 2026</h1>
+    <p class="date">Saturday, August 8, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter Friday roundup: long-lived spacecraft engineering, open-model policy, infrastructure security, and a few platform and governance stories worth reading slowly.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NASA extended Voyager 2&amp;#x27;s science operations by about a year through power management changes.&lt;/strong&gt; The 48-year-old probe was on track to shut down one of its few remaining working instruments later this year, but engineers found power savings that avoid the shutoff, according to &lt;a href=&quot;https://www.space.com/space-exploration/voyager/nasa-figured-out-how-to-keep-its-48-year-old-voyager-2-probe-running-for-yet-another-year&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Space.com&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49218179&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The change buys time rather than solving the underlying decline in available power.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters point out the headline obscures the actual news, which is in the subtitle: an instrument reprieve achieved through power changes, not a general life extension.&lt;/li&gt;
+&lt;li&gt;Others add context on how thin the expertise base has become, including an account of a JPL engineer who was among the last people able to encode command sequences for the spacecraft, alongside pointers to earlier recoveries such as the 2023 memory corruption fix and an antenna pointing error.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The US Department of Energy launched the Genesis Open Models Initiative.&lt;/strong&gt; The program is presented on a site hosted at &lt;a href=&quot;https://genesisopenmodels.anl.gov/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Argonne National Laboratory&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49216946&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;), covering a set of open models and a process for selecting participants. Published specifics on the models themselves are limited so far.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note the announcement does not disclose model sizes or training data sources, and question what selected participants actually receive, since no funding appears to be offered.&lt;/li&gt;
+&lt;li&gt;Some frame the effort against a thin field of US-origin open-weight models, arguing a long-lived, openly developed option matters for university researchers choosing what to build on.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A retired NSA director said water utility programmable logic controllers should not be internet-connected, following intrusions at water systems in at least 12 states.&lt;/strong&gt; Speaking at DEF CON, Paul Nakasone called for higher standards and pointed to the roughly 50,000 US water municipalities as an unusually large and underfunded attack surface, per &lt;a href=&quot;https://www.theregister.com/security/2026/08/07/water-system-controllers-dont-belong-on-the-internet-says-ex-nsa-chief-after-suspected-iran-attacks/5285070&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The Register&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49216362&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Private researchers quoted in the piece suspect Iran, though neither the FBI nor the administration has made an official attribution.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Practitioners with PLC backgrounds argue the blanket framing is too coarse: remote access behind a competently configured firewall and VPN is normal and saves site visits, and the real problem is exposing controllers directly.&lt;/li&gt;
+&lt;li&gt;Others note that disconnecting from the internet does not close the gap, since many pump and reservoir installations rely on insecure local RF links.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Research documenting a hardware backdoor in some x86 processors resurfaced.&lt;/strong&gt; The rosenbridge project describes a non-x86 core embedded alongside the main core that, once activated, executes commands bypassing memory protections and privilege checks, letting userland code read and write kernel data; the repository includes tools to detect and disable it (&lt;a href=&quot;https://github.com/xoreaxeaxeax/rosenbridge&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project page&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49219508&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The affected parts are believed to be limited to VIA C3 CPUs, with later generations unaffected.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters emphasize the work is years old and narrow in scope, while arguing its relevance is growing as poorly documented accelerators and coprocessors proliferate.&lt;/li&gt;
+&lt;li&gt;Some raise the open question of intent — whether this was a deliberate backdoor or a debug or test facility left enabled — which the research itself does not settle.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The Nixpkgs core team announced it has disbanded.&lt;/strong&gt; The team posted its decision on the &lt;a href=&quot;https://discourse.nixos.org/t/the-nixpkgs-core-team-has-disbanded/79413&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;NixOS Discourse&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49217993&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;), citing its experience that the project&amp;#x27;s Steering Committee neither delegated as the constitution envisioned nor engaged closely enough to make those decisions itself. The post concerns project governance rather than the package set&amp;#x27;s technical direction.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The most common practical question in the thread is what happens to day-to-day Nixpkgs maintenance and updates, which the announcement does not resolve for readers unfamiliar with the project&amp;#x27;s structure.&lt;/li&gt;
+&lt;li&gt;Longtime contributors describe steady attrition over roughly the past two years and disagree on whether the problems are systemic or recent, with some arguing the governance model is fixable rather than fundamentally broken.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An astronomy app was rejected from the App Store on the grounds that it is astrology.&lt;/strong&gt; John Gruber writes up developer Terry Godier&amp;#x27;s account of Dark Hours, an astronomy app that was rejected, escalated to the App Review Board, and upheld — with the board stating the app includes a live tarot reading feature, which it does not (&lt;a href=&quot;https://daringfireball.net/2026/08/app_store_rejection_of_the_week_dark_hours&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Daring Fireball&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49214863&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The piece&amp;#x27;s argument is less about the initial error than about a review process that did not correct it.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters question the premise that astrology is banned at all, noting that a well-known astrology app has previously been featured as an Editor&amp;#x27;s Choice.&lt;/li&gt;
+&lt;li&gt;Several observe that public attention has become the de facto escalation path, and worry about comparable rejections faced by developers without an audience.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A free reader for the Greek and Latin classics offers per-word parsing across 1,060 works.&lt;/strong&gt; Ancient Library covers 293 Latin and 767 Greek works from 140 authors, and clicking any word returns its lemma, morphology, and dictionary entry — Lewis &amp;amp; Short for Latin, Liddell-Scott-Jones for Greek (&lt;a href=&quot;https://ancientlibrary.net/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;site&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49214770&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Texts are organized by language and genre, from epic and oratory to science and medicine.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point to substantial prior art in this space, including the Perseus Digital Library, Diogenes with the TLG corpus, and earlier parsing readers, and ask what this adds beyond them.&lt;/li&gt;
+&lt;li&gt;Practical gaps surfaced in testing: at least one lookup returned only a cross-reference to another lemma rather than a definition, and readers requested better typography, Greek font options, and sorting by date.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-08">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

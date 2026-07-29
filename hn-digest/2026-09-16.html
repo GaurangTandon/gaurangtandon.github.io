@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 16, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 16, 2026</h1>
+    <p class="date">Wednesday, September 16, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A day heavy on security and provenance: Apple proposes a hardware-rooted photo verification scheme, a Flock camera&amp;#x27;s contents are laid bare, and two long-running console projects reach very different endpoints.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Apple introduces an opt-in camera mode that cryptographically verifies photos on iPhone 18 Pro.&lt;/strong&gt; &lt;a href=&quot;https://security.apple.com/blog/apple-reference-image/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Apple Reference Image&lt;/a&gt; has the sensor boot into a special capture mode that signs pixel data immediately after capture, then develops that &amp;quot;digital negative&amp;quot; inside Private Cloud Compute so the transformation from raw pixels to a viewable image is verifiable. Apple positions it against C2PA-style approaches, arguing those are vulnerable anywhere in the editing chain and can tie images to a device or person, and says fraudulent reference images can be revoked without exposing the photographer (&lt;a href=&quot;https://news.ycombinator.com/item?id=49721322&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters point out the post does not address the replay problem: photographing an already-edited image displayed on a high-resolution screen would yield a validly signed reference image.&lt;/li&gt;&lt;li&gt;Others argue more broadly that a photograph on its own should never be treated as proof of an event, regardless of signing.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Hackers removed a Flock license-plate camera and extracted most of its stored data.&lt;/strong&gt; A collective calling itself stegan0gram pulled the camera down, copied its storage, and found an encryption key on an unencrypted partition that unlocked videos and stills, which they shared with &lt;a href=&quot;https://www.wired.com/story/hackers-flock-camera-data-shows-how-system-works/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;WIRED and 404 Media&lt;/a&gt;. Recovered logs show the device generated 1.6 million images of roughly 50,000 vehicles in 21 days, and its software explicitly detects people and bicycles as well as plates, contradicting Flock&amp;#x27;s 2025 statement that physical access would not yield footage (&lt;a href=&quot;https://news.ycombinator.com/item?id=49726586&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that Distributed Denial of Secrets has published the partition images themselves, alongside a parallel thread on the 404 Media version of the story.&lt;/li&gt;&lt;li&gt;One person argues the scrutiny should extend to competitor Axon, which runs similar surveillance systems but draws far less reporting.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Mistral now powers Mozilla&amp;#x27;s Firefox Smart Window assistant.&lt;/strong&gt; The &lt;a href=&quot;https://mistral.ai/news/mistral-x-mozilla/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;partnership&lt;/a&gt; puts Mistral models behind the beta AI browsing feature for users in France and North America, with the UK and Germany expected later this year, and Mistral says it is fine-tuning on regional languages and dialects. Conversations are not saved on Mozilla&amp;#x27;s servers by default and Mistral has agreed to zero data retention (&lt;a href=&quot;https://news.ycombinator.com/item?id=49723408&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters object that neither company&amp;#x27;s page clearly explains this is cloud inference rather than local, which they consider the natural fit for a small-model browser assistant.&lt;/li&gt;&lt;li&gt;Others compare it to Chrome&amp;#x27;s built-in Gemini Nano and note Firefox has announced similar features and partnerships several times this year.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;DeepSeek V4.1 Flash gained code execution on all 11 vulnerable targets in Enclave&amp;#x27;s hacking benchmark.&lt;/strong&gt; The model compromised isolated copies of Grafana, Jenkins, and Nextcloud while leaving four patched controls untouched, with the accepted runs costing $4.65 thanks to heavy input caching, according to &lt;a href=&quot;https://enclave.ai/blog/deepseek-v41-flash-is-now-our-best-hacking-model&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Enclave&amp;#x27;s writeup&lt;/a&gt;. A path-level audit found six runs followed the intended exploit and five used alternate routes that existed only in the benchmark&amp;#x27;s test environment, prompting stricter checks (&lt;a href=&quot;https://news.ycombinator.com/item?id=49725800&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters note the &amp;quot;best hacking model&amp;quot; claim comes without any comparison to other models in the post.&lt;/li&gt;&lt;li&gt;One person reports the opposite result on their own annotated 3DS kernel decompilation, where GLM 5.3 found nearly all vulnerabilities and DeepSeek found one, and suggests DeepSeek may do best where low-hanging fruit exists.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The PlayStation 2&amp;#x27;s Mechacon security chip has been fully extracted after four years of work.&lt;/strong&gt; Reverse engineer DiscoStarslayer chemically decapped the CXP102064 chip and optically dumped its die under microscopes, and a collaborator then found an exploit in those dumps that allows the data to be extracted through software, &lt;a href=&quot;https://www.tomshardware.com/video-games/playstation/26-year-old-sony-ps2-security-chip-broken-wide-open-after-four-years-of-effort-reverse-engineering-enthusiast-successfully-unlocks-cxp102064-mechacon-chip&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Tom&amp;#x27;s Hardware reports&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49725356&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters frame this primarily as a preservation win and contrast it with newer consoles, where day-one patches and server dependence make faithful long-term playback unlikely.&lt;/li&gt;&lt;li&gt;A public dumps repository was linked in the thread, and the article appears to be sourced entirely from the researcher&amp;#x27;s social media post.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The lead developer of PS5 Linux is stepping away from the project.&lt;/strong&gt; Andy &amp;quot;TheFlow0&amp;quot; Nguyen cited an influx of contributors using LLMs to write exploits they do not understand, but also said others found the last remaining hypervisor bug and reported it to Sony after agreeing to wait, which undermines Linux support on newer firmware, per &lt;a href=&quot;https://frvr.com/blog/news/ps5-linux-lead-quits-as-open-source-projects-have-become-a-bunch-of-noobs-using-llms-that-they-dont-even-understand/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;FRVR&lt;/a&gt;. The current version 2.5 remains the last one under Nguyen&amp;#x27;s leadership and supports PS5 Phat and Slim on firmwares 3.00 through 7.61 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49727627&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters call the headline misleading, saying the disclosure of the final hypervisor bug is the decisive reason for leaving rather than the LLM complaint alone.&lt;/li&gt;&lt;li&gt;Others observe that if one group found the bug with AI assistance, others likely would have too, and note maintainers across open source are reporting similar fatigue from low-quality submissions.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An open-source toolchain for wind-aware flight path optimization.&lt;/strong&gt; Mark Litwintschik &lt;a href=&quot;https://tech.marksblogg.com/scikit-decide-openap-optimal-flight-planning.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;walks through&lt;/a&gt; combining Airbus&amp;#x27;s scikit-decide planning framework, the OpenAP aircraft performance model from TU Delft&amp;#x27;s Junzi Sun, and NOAA wind data to compare A320 flight paths, noting a long-haul 787 flight can burn around $68K of fuel and route adjustments could save a few thousand dollars (&lt;a href=&quot;https://news.ycombinator.com/item?id=49720164&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters with aviation context note real flights are constrained by air traffic control, IFR waypoints, and other aircraft, so pilot-discretion routing rarely applies.&lt;/li&gt;&lt;li&gt;Others ask for results over a year of actual flights rather than a single example, and point to contrails.org for related routing work aimed at reducing contrail warming.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Mark Seemann answers a reader who built a large system with LLMs and now cannot maintain it.&lt;/strong&gt; The reader, with no CS background, assembled a TypeScript and PostgreSQL system with AI assistance and found the gap in their understanding only when things broke, as described on &lt;a href=&quot;https://blog.ploeh.dk/2026/09/16/on-learning-programming-in-an-age-of-llms/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;ploeh blog&lt;/a&gt;. Seemann says he is glad he learned fundamentals first, is currently studying data structures in a university programme out of curiosity, and notes developers have always worked atop abstractions they did not fully understand (&lt;a href=&quot;https://news.ycombinator.com/item?id=49723873&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;The author of Python Crash Course says they received the same letter this week and agrees AI lets people build faster than they can understand.&lt;/li&gt;&lt;li&gt;Others suggest the question is better answered by people learning with LLMs now, and one engineer warns that leaning on a cloud model as an oracle erodes the skills needed when fast, offline fixes are required.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenAI expands ChatGPT advertising with &amp;quot;Sponsored Agents.&amp;quot;&lt;/strong&gt; The company &lt;a href=&quot;https://openai.com/index/reimagining-advertising-with-ai/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announced&lt;/a&gt; a new ad format in which advertisers offer their own conversational agents within ChatGPT results (&lt;a href=&quot;https://news.ycombinator.com/item?id=49727041&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters ask who is liable for misleading claims made by a sponsored agent, the advertiser or OpenAI, and worry users will mistake a &amp;quot;chat with us&amp;quot; prompt for a continuation of their own conversation.&lt;/li&gt;&lt;li&gt;Some see genuine utility in asking an agent to pull pricing and product details from an advertiser&amp;#x27;s site, while others note the tension with OpenAI&amp;#x27;s earlier statement that ads do not influence answers.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-16">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

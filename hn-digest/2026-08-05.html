@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 5, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 5, 2026</h1>
+    <p class="date">Wednesday, August 5, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet Wednesday whose common thread is infrastructure: who funds it, who benchmarks it, and what happens when it silently fails.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Oxide Computer filed an SEC Form D for a $445M raise.&lt;/strong&gt; The filing itself is the only source here — no blog post accompanied it — and it follows a run of rounds the company has announced over the past few years (&lt;a href=&quot;https://www.sec.gov/Archives/edgar/data/1795071/000179507126000002/xslFormDX01/primary_doc.xml&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;SEC filing&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49174407&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters traced the sequence — a $44M Series A in 2023, $100M in 2025, and $200M earlier in 2026 — noting how compressed the cadence has become.&lt;/li&gt;
+&lt;li&gt;Several raised go-to-market questions rather than technical ones, including one person who said a sales inquiry from a company spending roughly $900k/year on AWS went unanswered, and others who said they rarely see Oxide racks discussed by customers.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Databricks benchmark found that the agent harness, not just the model, drives coding-agent cost.&lt;/strong&gt; Writing up the results, the makers of the Pi coding harness highlight Databricks&amp;#x27; finding that running the same model at the same thinking effort through different harnesses changed cost per task by more than 2x while quality stayed flat, with Pi sending roughly 3x less context per turn (&lt;a href=&quot;https://earendil.com/posts/pi-autoresearch-and-databricks/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;the post&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49176038&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The post is a vendor&amp;#x27;s account of a third-party study, and also covers Shopify building an &amp;quot;autoresearch&amp;quot; optimization loop as a Pi extension.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Users report that harness behavior is highly situational — one described needing to substantially rework a config that worked well on a side project before it was useful at work, and suggested general-purpose tools may pay a peak-usefulness penalty.&lt;/li&gt;
+&lt;li&gt;Others temper the polish: one likened Pi to Emacs, extensible and satisfying but with buggy community code, overlapping UI elements and periodic crashes, and another expects commercial pressure on the project over time.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An ACM Queue piece argues eight common assumptions about GenAI and software engineering don&amp;#x27;t hold up.&lt;/strong&gt; Its first target is the belief that developers spend most of their time writing code, citing studies putting the figure closer to 14 percent, with the rest going to design, meetings, and reading (&lt;a href=&quot;https://queue.acm.org/detail.cfm?id=3807963&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49176830&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The most substantive pushback: if code becomes cheap to produce, some of the work that precedes writing it disappears too, so the 14 percent figure doesn&amp;#x27;t cap the achievable speedup the way the framing implies.&lt;/li&gt;
+&lt;li&gt;Practitioners report the split has shifted for them personally, with more time now spent directing agents, though one cautions that faster shipping on some days doesn&amp;#x27;t make AI an automatic productivity win.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A ternary-weight 20B mixture-of-experts model runs at 120 tokens/sec on an iPhone.&lt;/strong&gt; Deepgrove&amp;#x27;s Maple-Preview is a Show HN with an online chat demo that includes search tooling (&lt;a href=&quot;https://deepgrove.ai/maple-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project page&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49173984&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Testers found it hallucinates confidently on factual questions — one etymology prompt produced a fluent but wrong answer that a larger open model handled correctly — with the demo&amp;#x27;s search tool partly masking the gap.&lt;/li&gt;
+&lt;li&gt;Readers flagged that the comparison table uses Qwen 3.5 35B-A3B when a newer and reportedly stronger 3.6 release exists, and several suggested the realistic use case is fast local tool-calling and routing rather than recall.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Three WebKit features bypass browser-level proxy settings on iOS and macOS.&lt;/strong&gt; Researchers at Mysk found that DNS prefetching, WebAuthn Related Origin Requests, and WebTransport send traffic directly from the device rather than through a configured proxy, exposing real DNS servers or IP addresses; the same leaks affect iCloud Private Relay, while system-level VPNs are unaffected (&lt;a href=&quot;https://mysk.blog/2026/08/04/webkit-proxy-icloud-private-relay-ip-leak/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;writeup&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49176697&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The authors, who make the Psylo browser, say they have notified the Tor Project and Onion Browser developers and shipped mitigations.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A reader running the proof-of-concept page reported seeing their real IP surface via WebAuthn and an incorrect one via WebTransport, while ordinary HTTPS traffic still went through the relay.&lt;/li&gt;
+&lt;li&gt;Commenters noted the structural constraint: App Store rules require iOS browsers to use WebKit, so third-party privacy browsers inherit these engine behaviors rather than being able to fix them independently.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A military GPS jamming exercise has been linked to a fatal civilian plane crash in New Mexico.&lt;/strong&gt; Wired reports that a medevac King Air flying from Roswell to Ruidoso on the night of May 13 lost usable GPS navigation during the 746th Test Squadron&amp;#x27;s NAVFEST exercise at White Sands, and the crew — flying on a nearly moonless night over dark terrain — became disoriented and struck a mountain, killing all four aboard (&lt;a href=&quot;https://www.wired.com/story/a-civilian-plane-crashed-in-new-mexico-was-the-militarys-tech-to-blame/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49181099&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pilots in the thread pushed back on the causal framing, pointing to the NTSB preliminary report and arguing that GPS-interference NOTAMs have been routine for two decades and that redundancy and instrument proficiency exist precisely for this failure mode.&lt;/li&gt;
+&lt;li&gt;Others noted the NTSB data puts the impact roughly 200–250 feet below the summit, which shapes how much a working GPS would have changed the outcome.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Interpol reports that 55% of recorded cybercrime cases across Africa involved AI.&lt;/strong&gt; The African Cyberthreat Assessment Report 2026, based on data from 36 countries, puts reported losses at $484M in 2025 against $192M in 2024, with 72% of surveyed countries identifying scam centres within their borders and growing use of synthetic identities built from real data plus fabricated details (&lt;a href=&quot;https://www.africanews.com/2026/08/04/ai-fuels-more-than-half-of-cybercrime-in-africa-as-digital-scams-surge-interpol/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;coverage&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49175826&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters located the underlying Interpol PDF and pointed to the section where the AI findings are described in detail, rather than relying on the summary.&lt;/li&gt;
+&lt;li&gt;Several argued the causal framing is loose — the internet, mobile phones, and mobile money remain the primary enablers, with AI mainly raising the believability of scams that already worked.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The City of Munich is paying libexpat&amp;#x27;s maintainer to work on it full-time for up to six months.&lt;/strong&gt; Sebastian Pipping writes that the project&amp;#x27;s &amp;quot;security vacation&amp;quot; ended on 1 August under Munich&amp;#x27;s Open Source Sabbatical programme, with priorities being five known unfixed vulnerabilities, XML 1.0r5 support, and general robustness (&lt;a href=&quot;https://blog.hartwork.org/posts/libexpat-city-of-munich-open-source-sabbatical/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49176606&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). He asks for real vulnerability reports during this window and notes that unvalidated AI-generated submissions remain unwelcome.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Readers highlighted that the sabbatical programme is open to external developers, not only city employees, and connected it to Munich&amp;#x27;s earlier LiMux public-sector Linux migration.&lt;/li&gt;
+&lt;li&gt;Others framed it against the libxml2 maintainer stepping down last year as a rare case of a widely-depended-on C parser getting funded rather than abandoned.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A 2024 post on why legitimate delivery notifications are indistinguishable from phishing resurfaced.&lt;/strong&gt; Troy Hunt walks through a genuine FedEx duty-and-taxes SMS that hit seven classic phishing signals, and shows that the linked bank-operated payment page let him rewrite the tracking number, customer name, and amount purely through URL parameters (&lt;a href=&quot;https://www.troyhunt.com/thanks-fedex-this-is-why-we-keep-getting-phished/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49175192&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters offered parallel cases, including a legitimate Google storage warning whose links used an unfamiliar short domain that ordinary users had no way to verify, and IRS phone menus using the same commercial text-to-speech voice as scam call centres.&lt;/li&gt;
+&lt;li&gt;Some noted the same story ran in 2024, and that the proliferation of new gTLDs makes domain-based judgement calls harder for non-technical users.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-05">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
