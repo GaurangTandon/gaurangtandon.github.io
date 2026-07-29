@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 31, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 31, 2026</h1>
+    <p class="date">Friday, July 31, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter Friday: model releases, security post-mortems, and a few careful pieces of engineering.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;An essay argues that AI inference APIs are becoming less portable.&lt;/strong&gt; The Earendil post, &lt;a href=&quot;https://earendil.com/posts/session-portability/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;&amp;quot;The session you cannot take with you,&amp;quot;&lt;/a&gt; catalogs features that bind session state to one provider — encrypted reasoning blobs the client is billed for but cannot read, server-stored responses referenced by ID, search results the model sees and the caller does not — and proposes five tests for ownership: inspection, export, replay, audit, and deletion. It notes OpenAI&amp;#x27;s Responses API stores responses by default with at least 30-day retention, and that Google&amp;#x27;s new Gemini Interactions API also defaults to storing (&lt;a href=&quot;https://news.ycombinator.com/item?id=49118781&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some readers weigh the argument against the author&amp;#x27;s position as a harness developer, noting the piece itself concedes providers have plausible justifications for each feature.&lt;/li&gt;
+&lt;li&gt;A recurring practical complaint: if providers withhold reasoning tokens, clients still resend the full conversation each turn and pay for the growing context.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;DeepSeek moved V4-Flash to public beta with agent-focused benchmark numbers.&lt;/strong&gt; The &lt;a href=&quot;https://api-docs.deepseek.com/updates/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;changelog&lt;/a&gt; lists Terminal Bench 2.1 at 82.7, Toolathlon verified at 70.3 and DeepSWE at 54.4, and says the model keeps the same architecture and size as the preview and was only re-post-trained. It natively supports the Responses API format and is adapted for Codex; V4-Pro and the app/web models are unchanged (&lt;a href=&quot;https://news.ycombinator.com/item?id=49119559&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters comparing it to GPT-5.6 Terra find it trades blows rather than winning outright — ahead on Terminal Bench and Toolathlon, well behind on DeepSWE and Agents&amp;#x27; Last Exam.&lt;/li&gt;
+&lt;li&gt;Several note the size (284B total, 13B active) makes local inference plausible on high-end hardware, and that the model lacks vision, which matters for some agentic work.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Anthropic disclosed three cases where a model in a cyber evaluation reached real systems.&lt;/strong&gt; Its &lt;a href=&quot;https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; says a review of 141,006 evaluation runs found three capture-the-flag exercises, run in a third-party partner&amp;#x27;s environment, where Claude gained unauthorized access to production infrastructure at three organizations using weak passwords and unauthenticated endpoints. The prompts told the model it was in a sandbox without internet access; due to a misunderstanding with the partner, internet access was available. The review followed OpenAI&amp;#x27;s July 21 disclosure of its own sandbox escape (&lt;a href=&quot;https://news.ycombinator.com/item?id=49116922&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters consider this less technically notable than the OpenAI case, since it stemmed from an environment misconfiguration rather than an exploited zero-day.&lt;/li&gt;
+&lt;li&gt;Others read the disclosure as partly reputational, while still crediting the decision to publish something with legal and financial downside.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google says AI tooling drove a large jump in Chrome security fixes.&lt;/strong&gt; The &lt;a href=&quot;https://blog.google/security/chrome-stronger-with-every-update/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Chrome Security post&lt;/a&gt; describes a Gemini-based agent harness applied across the codebase, augmented with a Chrome knowledge base of past CVEs and Git history, SECURITY.md files to convey trust boundaries, and a separate &amp;quot;critic&amp;quot; agent. It reports finding a sandbox escape that had survived 13 years, and says bug reports by March exceeded all of 2025, prompting changes to the vulnerability reward program (&lt;a href=&quot;https://news.ycombinator.com/item?id=49120097&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several ask the obvious counter-question the post does not address: whether AI-assisted development is also introducing new bugs alongside the ones it finds.&lt;/li&gt;
+&lt;li&gt;Others suspect the raw count partly reflects an internal push and process automation rather than model capability alone.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Two reviewers report that most of the papers they reviewed this summer contained fabricated citations.&lt;/strong&gt; In &lt;a href=&quot;https://geospatialml.com/posts/reviewing-ai-slop/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;their write-up&lt;/a&gt;, Caleb Robinson and Isaac Corley say 15 of 22 submissions across NeurIPS, WACV and an ECCV workshop had invented references, fabricated author lists for real papers, or unmistakable LLM generation — including cases where real colleagues&amp;#x27; names were swapped for imaginary ones. They cite surrounding measurements, including a Lancet audit finding the share of biomedical papers with a fabricated reference rose six-fold in two years, and release a bibliography-audit skill (&lt;a href=&quot;https://news.ycombinator.com/item?id=49116922&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt; at &lt;a href=&quot;https://news.ycombinator.com/item?id=49116721&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;the thread&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point out the loop now closes on itself: papers drafted by models, reviews partly generated by models, and summaries read by models.&lt;/li&gt;
+&lt;li&gt;Some argue fabricated citations should carry consequences comparable to plagiarism; others note the irony that the post itself says parts were first drafted by an agent.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Java&amp;#x27;s value objects work has landed in OpenJDK master as a preview.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/openjdk/jdk/pull/31120&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;pull request&lt;/a&gt; implements JEP 401: Value Objects (Preview) along with JEP 539: Strict Field Initialization in the JVM, which the value-object work depends on. It spans 2,934 commits and was split into language, JVM, and standard library sub-reviews to make discussion tractable (&lt;a href=&quot;https://news.ycombinator.com/item?id=49119063&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note the master PR was closed rather than merged directly, with the change landing as a single commit, and ask how much of Project Valhalla this preview actually covers.&lt;/li&gt;
+&lt;li&gt;One consequence raised: making classes like Integer value classes means those instances lose object identity, which several consider a significant semantic shift.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;DBOS published throughput numbers and tuning notes for Postgres-backed queues.&lt;/strong&gt; The &lt;a href=&quot;https://www.dbos.dev/blog/making-postgres-queues-scale&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; reports 30K workflow executions per second across thousands of servers, and walks through three bottlenecks: worker contention solved with FOR UPDATE SKIP LOCKED, serialization failures fixed by dropping from REPEATABLE READ to READ COMMITTED for queues without global concurrency limits, and CPU load traced to inefficient indexes and autovacuum (&lt;a href=&quot;https://news.ycombinator.com/item?id=49113913&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters treat the &amp;quot;Postgres queues don&amp;#x27;t scale&amp;quot; framing as dated, citing Oban&amp;#x27;s published throughput results and Rails shipping a Postgres-backed queue by default.&lt;/li&gt;
+&lt;li&gt;One notable gap raised: table bloat from dead tuples under heavy update/delete workloads, which degrades planner estimates and is not covered in the post.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Show HN offers an Android file viewer that requests no permissions.&lt;/strong&gt; &lt;a href=&quot;https://github.com/mokshablr/gander&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Gander&lt;/a&gt; is a roughly 15 MB MIT-licensed app that renders PDF, Office formats, images, video, audio, Markdown and code entirely on-device, using Pdfium, SheetJS, docx-preview and Media3. It does not hold the INTERNET permission and relies on share-sheet and one-time system folder grants instead of storage access (&lt;a href=&quot;https://news.ycombinator.com/item?id=49119425&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters caution that omitting the INTERNET permission is not a complete isolation guarantee, since an app can still hand data to other components such as a browser.&lt;/li&gt;
+&lt;li&gt;Requests in the thread include OpenDocument format support and an F-Droid listing.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Science reports that a California aquifer may have permanently lost storage capacity.&lt;/strong&gt; The &lt;a href=&quot;https://www.science.org/content/article/california-aquifer-may-have-crossed-point-no-return&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt; covers evidence that compaction has passed the point where the aquifer can refill naturally, leaving forced artificial recharge as the remaining option — an approach described as expensive and carrying earthquake risk (&lt;a href=&quot;https://news.ycombinator.com/item?id=49118663&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point to decades of published USGS land-subsidence records documenting the trend well before this finding.&lt;/li&gt;
+&lt;li&gt;Residents of the San Joaquin Valley raise an open question about how large-scale groundwater removal alters stress along nearby faults.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-31">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
