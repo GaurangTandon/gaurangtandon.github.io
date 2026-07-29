@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 13, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 13, 2026</h1>
+    <p class="date">Thursday, August 13, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet day of releases and retrospectives: a desktop coding agent, a Flutter reorganization, a decade-old database race condition, and a 45-year-old keyboard.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenAI&amp;#x27;s Codex is now offered as a desktop app, with a Linux build the focus of discussion.&lt;/strong&gt; The &lt;a href=&quot;https://openai.com/codex/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Codex product page&lt;/a&gt; describes the same agent across ChatGPT, an IDE extension and the CLI, with built-in worktrees and cloud environments for parallel agents, a &amp;quot;Skills&amp;quot; mechanism for encoding team conventions, and scheduled background work such as issue triage and CI/CD. The page is marketing copy rather than release notes, and it renders differently depending on the visitor&amp;#x27;s platform (&lt;a href=&quot;https://news.ycombinator.com/item?id=49281916&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters ask what a desktop wrapper actually adds over the CLI with MCP servers and per-project context files, or over the browser if the app is Electron-based.&lt;/li&gt;&lt;li&gt;One recurring concern is isolation: an easy-to-install desktop agent encourages running it directly in a primary user account rather than sandboxed, which some see as a growing default in agent tooling.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Flutter 3.47 splits Material and Cupertino out of the core SDK as opt-in packages.&lt;/strong&gt; &lt;a href=&quot;https://flutter.dev/blog/whats-new-in-flutter-3-47&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The release&lt;/a&gt; ships material_ui and cupertino_ui at 1.0 on pub.dev, with a dart fix migration command and a compatibility bridge for dependencies still importing the SDK versions; the in-SDK libraries are slated for formal deprecation in the November stable release. It also enables Impeller on desktop by default, graduates Widget Previews to stable, and unbundles flutter_localizations into the new packages (&lt;a href=&quot;https://news.ycombinator.com/item?id=49280061&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters broadly agree the decoupling makes sense, since design libraries can now ship fixes weekly instead of on the quarterly SDK cadence.&lt;/li&gt;&lt;li&gt;Others note remaining gaps in practice: web output is still considered weak outside of WebAssembly, and multi-window support is called out as a long-awaited addition for desktop side projects.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A testing vendor reproduced SQLite&amp;#x27;s recently fixed WAL-Reset bug in 15 minutes using a generic workload.&lt;/strong&gt; &lt;a href=&quot;https://antithesis.com/blog/2026/wal-reset-bug/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Antithesis describes&lt;/a&gt; instrumenting SQLite 3.51.2 with assertions, running concurrent writes and checkpoints, and hitting failures such as lost committed writes and integrity-check violations; the same setup came back clean on 3.51.3. The bug dated to 2010, and SQLite&amp;#x27;s own developers said they could never reproduce it organically and had to add deliberate triggering logic to verify the fix (&lt;a href=&quot;https://news.ycombinator.com/item?id=49277799&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to prior art on the same bug, including Tailscale&amp;#x27;s own root-cause writeup and an earlier effort that found it via TLA+ modelling.&lt;/li&gt;&lt;li&gt;Some are skeptical of the demonstration, noting the prompt used isn&amp;#x27;t published, so it&amp;#x27;s unclear how much the agent was steered toward the known bug; others say the post reads more like an advertisement than the site&amp;#x27;s usual technical writing.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The IBM 5150 Personal Computer and its Model F keyboard turned 45.&lt;/strong&gt; A &lt;a href=&quot;https://sharktastica.co.uk/articles/pc-fxt-45&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;long history of the machine&amp;#x27;s keyboard&lt;/a&gt; traces the Model F back to the System/23 Datamaster, which shipped a month earlier and was the first confirmed Model F implementation to reach market, using capacitive buckling-spring switches. It also covers IBM&amp;#x27;s earlier attempts at a personal machine, including the SCAMP prototype, the 5100, and abandoned concepts such as &amp;quot;Aquarius&amp;quot; and a plan to build the PC on Atari&amp;#x27;s 8-bit hardware (&lt;a href=&quot;https://news.ycombinator.com/item?id=49280103&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters temper the &amp;quot;changed everything&amp;quot; framing by noting the Apple II and TRS-80 were already three years old by then.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An essay argues Principia Mathematica reads like a modern programming-languages text.&lt;/strong&gt; Oleg Kiselyov&amp;#x27;s &lt;a href=&quot;https://okmij.org/ftp/Computation/Impressions/PrincipiaMathematica.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;notes on Chapter 1&lt;/a&gt; identify what may be the first mathematical statement of referential transparency, an early use of &amp;quot;type&amp;quot; in the modern sense, and &amp;quot;propositional functions&amp;quot; that introduce free and bound variables, substitution and alpha-equivalence. He also reads the book&amp;#x27;s insistence on separate notation for &amp;quot;any&amp;quot; versus &amp;quot;all&amp;quot; as an anticipation of intuitionism (&lt;a href=&quot;https://news.ycombinator.com/item?id=49279928&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters suggest gentler entry points, including Russell&amp;#x27;s own &lt;em&gt;Introduction to Mathematical Philosophy&lt;/em&gt;, and point to Frege&amp;#x27;s Begriffsschrift as the more inventive notation that history largely discarded.&lt;/li&gt;&lt;li&gt;Others argue the time is better spent on Homotopy Type Theory, and at least one notes the essay covers only the opening pages of a very long work.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A viral diet trend and falling catches are being blamed for canned sardine shortages.&lt;/strong&gt; &lt;a href=&quot;https://corneroffifth.studio/why-cant-you-find-canned-sardines-right-now/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The report&lt;/a&gt; attributes a demand spike to short-duration sardine-only diets promoted on TikTok and YouTube, colliding with supply problems: warming waters disrupting the plankton sardines feed on, sharply reduced hauls in Morocco, and tighter regulatory catch limits. It suggests shelves may stay thin while stocks rebuild (&lt;a href=&quot;https://news.ycombinator.com/item?id=49279013&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters dispute the premise geographically, saying US, Greek and Portuguese shops still stock many brands and that the visible change is price rather than availability.&lt;/li&gt;&lt;li&gt;Others place it in a wider fisheries-management context, contrasting sardines&amp;#x27; relative sustainability with quota decisions made against scientific advice elsewhere.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-13">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 5, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 5, 2026</h1>
+    <p class="date">Saturday, September 5, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter Friday: two pieces on what AI delegation does to engineers and token bills, a benchmark revision, a new European Git host, and a UN climate report that changes the framing of the 1.5-degree goal.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;An SRE argues that AI incident responders erode engineers&amp;#x27; feel for their own systems.&lt;/strong&gt; Sylvain Kalache, a former LinkedIn SRE now at Rootly, &lt;a href=&quot;https://www.sylvainkalache.com/blog/ai-handles-incidents-engineers-lose-touch-with-their-systems&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;writes&lt;/a&gt; that tools which resolve routine incidents remove the low-stakes practice engineers need for the rare, ambiguous outages automation cannot handle. He draws on Lisanne Bainbridge&amp;#x27;s 1983 paper &amp;quot;The Ironies of Automation&amp;quot; and on airline recurrent training, and proposes regular incident simulations as part of on-call readiness (&lt;a href=&quot;https://news.ycombinator.com/item?id=49574167&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters push back that if model capability keeps improving, an incident an AI cannot solve will likely stump an unpracticed human too, and responders will simply use the AI to triage anyway.&lt;/li&gt;&lt;li&gt;Others extend the point to code: the more code is written autonomously, the less intuition owners have about it, which they see as a growing form of technical debt unless guardrails encode that intuition for agents.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Spotify engineer routes file reading and boilerplate away from Claude Code to a cheaper model.&lt;/strong&gt; The &lt;a href=&quot;https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; describes two declarative &amp;quot;modes&amp;quot; on Spotify&amp;#x27;s internal Portal platform, backed by Gemini 2.5 Flash, plus a Claude Code plugin that uses PreToolUse hooks to block reads of large files and redirect them to a bulk-reader summarizer. Measured on a Java monorepo, the author reports roughly 90% savings on bulk-read scenarios (&lt;a href=&quot;https://news.ycombinator.com/item?id=49571465&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note the savings largely come from moving the work to a different service with its own token budget, and that Claude Code subagents can already do similar delegation.&lt;/li&gt;&lt;li&gt;Several describe this as a standard plan-with-frontier-model, implement-with-smaller-model setup, and question using Gemini 2.5 Flash for code generation rather than just as a &amp;quot;smart grep.&amp;quot;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Artificial Analysis revises its Intelligence Index to v4.2 with new agentic and long-document tests.&lt;/strong&gt; The &lt;a href=&quot;https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-2&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;update&lt;/a&gt; adds AA-Briefcase, a private-test-set evaluation of multi-week knowledge-work projects, and Surge&amp;#x27;s GDP.pdf, which requires reasoning across 4,592 PDF pages, while dropping the saturated GPQA Diamond. Private held-out sets now make up 40% of the weighting, and the announcement reports Anthropic&amp;#x27;s Claude Fable 5.1 leading overall, followed by OpenAI&amp;#x27;s GPT-6 Astra (&lt;a href=&quot;https://news.ycombinator.com/item?id=49571632&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some commenters see the timing as adjusting the index to match expectations after GPT-6 Astra scored level with its predecessor on the old version, and call that unscientific even if the old index was flawed.&lt;/li&gt;&lt;li&gt;Others ask why ARC-AGI-3 is not included, and note the cost-versus-intelligence chart is unclear about which index version it uses since not all models were rerun on v4.2.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An invite-only Git host promises EU-only storage and no model training on your code.&lt;/strong&gt; &lt;a href=&quot;https://pushin.eu&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Pushin.eu&lt;/a&gt;, built by a solo developer in the Netherlands, runs on bare-metal servers in Scaleway&amp;#x27;s Paris datacenters, offers a GitHub-compatible REST API and a CLI that imports repositories with issues and pull requests, and plans a vouching system to filter low-effort contributions. General availability is planned for early 2027 with paid subscriptions priced comparably to GitHub and GitLab (&lt;a href=&quot;https://news.ycombinator.com/item?id=49573680&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters flag the absence of trust signals such as company details and legal pages, and say they want concrete pricing and storage limits before moving anything.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The UN says warming will pass 1.5 degrees and shifts to an &amp;quot;overshoot&amp;quot; strategy.&lt;/strong&gt; A first-of-its-kind UN Environment Programme &lt;a href=&quot;https://www.pbs.org/newshour/science/global-warming-will-exceed-1-5-degree-limit-un-says-in-report-that-maps-path-back-below-danger-zone&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;report&lt;/a&gt; states the world will cross the Paris threshold &amp;quot;in the next few years&amp;quot; and now asks policymakers to limit the peak and then bring temperatures back below 1.5C, ideally by century&amp;#x27;s end, through ending fossil fuel use and removing carbon from the air. The most optimistic scenario peaks near 1.8C mid-century, while current policies point to about 2.6C by 2100 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49576124&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ProPublica traces how 3M kept early evidence of PFAS contamination quiet.&lt;/strong&gt; The &lt;a href=&quot;https://www.propublica.org/podcast/forever-chemicals-pfas-pfos-3m-secret-kris-hansen&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;podcast episode&lt;/a&gt; follows reporter Sharon Lerner&amp;#x27;s decade of coverage and a former 3M environmental-lab scientist who, after a 27-year career, came forward about handling sensitive data in the 1990s. The reporting holds that 3M knew the chemicals were toxic and present in the public&amp;#x27;s blood decades before disclosure and continued production (&lt;a href=&quot;https://news.ycombinator.com/item?id=49576986&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A wiki now lists more working Nitter instances than existed before the takedowns.&lt;/strong&gt; A Codeberg &lt;a href=&quot;https://codeberg.org/mv12star/shitter/wiki/Instances&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;wiki page&lt;/a&gt; tracks live instances of the account-free front-end for X/Twitter, and the submission title claims the count has surpassed pre-takedown levels (&lt;a href=&quot;https://news.ycombinator.com/item?id=49571634&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters who have relied on instances before expect most to disappear over time and warn that linking to them produces broken links later.&lt;/li&gt;&lt;li&gt;Several say the appeal is as much the cleaner interface as the lack of an account requirement.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A cut-down PS5 APU sold for mining resurfaces as a cheap gaming board.&lt;/strong&gt; The &lt;a href=&quot;https://devquasar.com/hardware/the-60-gaming-pc-amd-bc-250/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt; covers the AMD BC-250, a board originally sold for cryptocurrency mining, and the setup steps to run it as a desktop; the page was unreachable under HN traffic, with an archived copy and a GitHub how-to circulating instead (&lt;a href=&quot;https://news.ycombinator.com/item?id=49576386&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note the $60 price in the title is outdated, with boards now selling for a few hundred dollars due to demand.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-05">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

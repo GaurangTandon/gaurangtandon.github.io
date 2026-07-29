@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 11, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 11, 2026</h1>
+    <p class="date">Friday, September 11, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s slate is mostly about the unglamorous economics of AI — power contracts, token bills, and code quality — with a few reminders that prior art and basic physics still apply.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Google committed €13bn to Finnish AI infrastructure and contracted for up to half of a nuclear plant&amp;#x27;s output.&lt;/strong&gt; The package funds three new data centres in Kajaani, Muhos and Vaala, expands the existing Hamina site, and includes a 22-year agreement with utility Fortum to buy up to 50% of the Loviisa plant&amp;#x27;s electricity, per &lt;a href=&quot;https://www.bbc.com/news/articles/c8r6y4me2g6o&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;the BBC&amp;#x27;s report&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49652105&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Loviisa currently supplies about 10% of Finland&amp;#x27;s electricity; construction is planned for 2027 and 2028.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some commenters question whether dedicating a plant&amp;#x27;s output to one buyer simply pushes other consumers toward dirtier generation.&lt;/li&gt;
+&lt;li&gt;Others counter that the plant faced decommissioning without investment and that Finland&amp;#x27;s grid is already among the lowest-carbon in Europe, alongside France, Sweden and Norway.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Armin Ronacher published a critical account of using GPT-6 Astra for software engineering.&lt;/strong&gt; He ran an unsupervised &amp;quot;software factory&amp;quot; for about 35 hours and roughly 4 billion tokens and reports it produced nothing of value, and documents the model resorting to ad-hoc Python string manipulation to edit C source instead of using the patch tool (&lt;a href=&quot;https://lucumr.pocoo.org/2026/9/7/astra-why/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49654229&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). His hypothesis is that training rewards long-horizon task completion without penalising poor code.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters report the same pattern — dense, flag-heavy bash and Python one-liners that are effectively unreviewable.&lt;/li&gt;
+&lt;li&gt;Others describe the model as capable but erratic, producing unformatted output in areas like GPU shaders, and say they find it less rigorous than the previous model at default settings.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A benchmark of the RTK terminal-output compressor found its advertised token savings do not translate into lower bills.&lt;/strong&gt; Quesma spent over $1,500 across 1,740 attempts on Terminal-Bench 2.1, and found total cost fell about 5% with one model pairing and rose about 5% with another, with per-task costs up 17% for the DeepSeek setup (&lt;a href=&quot;https://quesma.com/blog/does-rtk-make-ai-coding-cheaper/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;writeup&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49656471&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Nearly all savings in the cheaper configuration came from a single task, and the tool&amp;#x27;s own `gain` counter measures removed output bytes rather than billed tokens.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note the article buries its own headline number and summarise it as roughly a 5% swing in either direction depending on the model.&lt;/li&gt;
+&lt;li&gt;One suggests the underlying problem is handing agents output formats they were never trained on; others report better results from indexing codebases or using language-specific tooling instead.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An engineer proposed quantitative metrics for &amp;quot;sloppy&amp;quot; generated code.&lt;/strong&gt; Drawing on SlopCodeBench, the post uses a verbosity measure (duplicated and redundant lines over total LOC) and an erosion measure (share of code mass in high-complexity functions), reporting agent output averaging 0.33 verbosity and 0.68 erosion against 0.15 and 0.31 for established repositories (&lt;a href=&quot;https://earendil.com/posts/measuring-code-sloppiness/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49658311&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It also argues LLM-as-judge scoring is unreliable, since preferences shift when solutions are simply renamed.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters expect that any robust quality benchmark would be rapidly optimised against, treating current slop as a gap in reward functions rather than a permanent limitation.&lt;/li&gt;
+&lt;li&gt;Others push back on the framing, arguing that writing code is how engineers build a mental model of the problem, so velocity and understanding are different goals.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;YuE2, an open music generation model, combines symbolic score planning with audio synthesis.&lt;/strong&gt; The roughly 3.59B-parameter model writes an editable score first and then renders vocals and accompaniment, and its authors report a best-of-8 score of 6.9632 on WildSongBench&amp;#x27;s seven-dimension average against 6.9377 for the strongest proprietary system evaluated (&lt;a href=&quot;https://map-yue2.github.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project page&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49652028&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Models, the benchmark and transcription and representation components are released on Hugging Face.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Listeners in the thread consistently describe the vocals as recognisably synthetic and say they find a competing commercial system more convincing across genres.&lt;/li&gt;
+&lt;li&gt;A ComfyUI integration has already appeared, and some see the practical draw as local cover versions and lyric edits rather than original composition.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;System76 listed a GPU-focused Linux workstation configurable to 192 GB of GPU memory.&lt;/strong&gt; The Thelio Mira AI starts at $3,299 and scales up to a 16-core Ryzen 9000 CPU, 192 GB of DDR5, and dual NVIDIA RTX Pro 6000 Blackwell cards, shipping with Pop!_OS or Ubuntu (&lt;a href=&quot;https://system76.com/workstations/thelio-mira-ai&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;product page&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49651372&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The company positions it as an alternative to recurring cloud GPU costs.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point out the top configuration reaches roughly $42,000, and several argue high-memory Macs offer more memory per dollar for inference.&lt;/li&gt;
+&lt;li&gt;One raises a thermal concern about stacking two workstation-style cards in the case, noting cooling details are not specified in the listing.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A study in Cell Reports Medicine links exercise intensity to cardiometabolic health markers.&lt;/strong&gt; The paper is paywalled in the submitted form, but the comparison it draws is between sustained moderate-intensity cycling and very short bouts of all-out sprint intervals (&lt;a href=&quot;https://www.cell.com/cell-reports-medicine/fulltext/S2666-3791(26)00405-2&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;paper&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49653328&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters summarising the protocol describe 90 minutes of continuous cycling near the first lactate threshold versus six 30-second maximal efforts with four-minute rests, with some biomarkers responding comparably.&lt;/li&gt;
+&lt;li&gt;They also flag a small sample size and a short study period, and note that mixing intensities is already standard advice in training practice.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An IAEA explainer on Cherenkov radiation circulated under a headline about travelling faster than light.&lt;/strong&gt; The piece covers the blue glow produced when charged particles move through a medium faster than light does in that same medium (&lt;a href=&quot;http://www.iaea.org/newscenter/news/what-is-cherenkov-radiation&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;explainer&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49655286&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters correct the framing directly: nothing exceeds the speed of light in vacuum, and the qualifier &amp;quot;in a medium&amp;quot; is doing all the work.&lt;/li&gt;
+&lt;li&gt;Several found the explainer&amp;#x27;s mechanism unsatisfying, and point to Imaging Atmospheric Cherenkov Telescopes, which detect gamma rays indirectly via Cherenkov flashes from particle cascades in the atmosphere, as a concrete application.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A 16-year-old student in Tamaulipas built an acoustic fire extinguisher for a science fair project.&lt;/strong&gt; The device pairs a 12-volt battery, a frequency generator and a speaker emitting 30 pulses per second, and is reported to extinguish small fires in five to eight seconds across more than 100 tests on wood, flammable liquids, grease and electronics (&lt;a href=&quot;https://www.upsocl.com/en/16-year-old-mexican-student-creates-an-acoustic-fire-extinguisher-that-uses-sound-waves-to-put-out-fires-in-seconds/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49652237&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The project, named Vortex Tech, will represent Mexico at an international fair.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters correct the article&amp;#x27;s claim of novelty, citing a 2015 George Mason University project with a patent application, a 2012 DARPA demonstration, and earlier acoustics research.&lt;/li&gt;
+&lt;li&gt;One explains why the idea keeps resurfacing: sound disrupts the flame&amp;#x27;s boundary layer but removes little heat, so fuel above its ignition temperature tends to relight once the speaker stops, which makes scaling beyond lab-scale fires difficult.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Anthropic published a support page stating that Claude is available only to users aged 18 and over.&lt;/strong&gt; The page describes age assurance on the consumer product (&lt;a href=&quot;https://support.claude.com/en/articles/15171100-age-assurance-on-claude&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;support article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49656225&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note the verification vendor appears to have changed, with no explanation given in the article itself.&lt;/li&gt;
+&lt;li&gt;Some speculate the driver is contractual — minors generally cannot enter binding agreements — while others report accounts in Germany already being locked after a user mentioned being under 18.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-11">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

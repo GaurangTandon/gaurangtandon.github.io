@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 10, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 10, 2026</h1>
+    <p class="date">Thursday, September 10, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet but consequential day: a new open-weights model from DeepSeek, two large engineering organizations reconsidering their language and platform choices, and several careful pieces of independent work on physics, training, and pricing.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DeepSeek releases V4.1-Flash, a 552B-parameter mixture-of-experts model with native visual understanding.&lt;/strong&gt; The company describes a new causal encoder-decoder design that activates 8B parameters per token during input processing and 16B during output, and says the KV cache needs a quarter of the HBM and an eighth of the SSD storage of the previous generation. The model is live on DeepSeek&amp;#x27;s API under the name deepseek-flash with reduced prices, and the &lt;a href=&quot;https://twitter.com/deepseek_ai/status/2097930608790167907&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt; points to weights on Hugging Face (&lt;a href=&quot;https://news.ycombinator.com/item?id=49639090&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that the previous V4 Flash was 284B parameters, so this release is nearly twice the size and harder to justify as a &amp;quot;flash&amp;quot; model for local use, even if the benchmark gains follow from that.&lt;/li&gt;
+&lt;li&gt;Several are cautious about benchmark scores versus real-world performance, while others report strong early impressions and see the price cut as making it a practical fallback model.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Shopify is moving its mobile apps from React Native back to native Swift and Kotlin.&lt;/strong&gt; The company adopted React Native in 2020 to avoid building features twice and says that bet paid off, but it now argues that coding agents have lowered the cost of maintaining two native codebases enough to change the calculus. In prototypes, agents could port a feature from one platform to the other and help developers work outside their primary stack, according to the &lt;a href=&quot;https://shopify.engineering/back-to-native&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;engineering post&lt;/a&gt;, which also commits to sponsoring React Native Skia through the end of 2026 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49643982&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some commenters expect this to become an industry-wide trend away from cross-platform frameworks, noting that React Native projects often end up dropping into native code for anything performance-sensitive anyway.&lt;/li&gt;
+&lt;li&gt;Others see a real loss for the React Native ecosystem, since widely used libraries such as Skia and FlashList depended on Shopify&amp;#x27;s investment.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Microsoft says Rust is now a Tier-1 language for internal development, alongside C++, C#, and TypeScript.&lt;/strong&gt; The designation means a supported path from local development to production, including toolchain builds, tooling, and compliance with the company&amp;#x27;s security development requirements. The &lt;a href=&quot;https://rustfoundation.org/media/guest-post-rust-is-tier-1-language-at-microsoft/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;guest post on the Rust Foundation blog&lt;/a&gt; also introduces rustc_codegen_utc, an alternative rustc backend that targets the MSVC code generator to give Rust and C++ a shared compilation platform on Windows, described as production-ready since early 2026 and self-hosting since Rust 1.90 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49643546&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The main open question from commenters is whether the MSVC backend will be made available outside Microsoft, along with when first-class Rust debugging will arrive in Visual Studio.&lt;/li&gt;
+&lt;li&gt;Several point out that every major operating system vendor now has a memory-safe systems language on offer for new development.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A browser simulation lets you walk around a park where the speed of light is 5 km/h.&lt;/strong&gt; Dmitry Brant&amp;#x27;s &lt;a href=&quot;https://rivendell.dmitrybrant.com/relativity/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Relativity Park&lt;/a&gt; renders length contraction, time dilation, Terrell rotation, Doppler color shifts, and relativistic beaming as you accelerate, with individual effects that can be toggled on and off. The page includes a Ferris wheel and shuttle moving at three quarters of light speed and is candid about what is not physically accurate, such as the color mapping at extreme shifts (&lt;a href=&quot;https://news.ycombinator.com/item?id=49637385&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point to prior art in the MIT Game Lab&amp;#x27;s 2012 game &amp;quot;A Slower Speed of Light,&amp;quot; which explored the same idea.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An independent developer trained a 3.8B-parameter language model to a CORE score of 0.384 for $998.&lt;/strong&gt; Hugo Vergnes describes a config-driven training framework inspired by Karpathy&amp;#x27;s nanochat, with the final run using 65B tokens over 43 hours on eight rented B200s. The &lt;a href=&quot;https://hugovergnes.github.io/little-lm-3-8b/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt; walks through an earlier failed run and the changes that fixed it, including a trapezoidal learning-rate schedule, the Muon optimizer for matrix parameters, a different dataset, and FP8 training (&lt;a href=&quot;https://news.ycombinator.com/item?id=49637435&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters suggest follow-ups such as distilling from a larger open model or targeting around 1B parameters with the current set of small-model architectural tricks.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Raymond Chen explains how Windows XP picked a new user&amp;#x27;s default account picture.&lt;/strong&gt; The picture was chosen at random from a default directory using a one-pass selection algorithm, a special case of reservoir sampling, seeded from the system tick count. The &lt;a href=&quot;https://devblogs.microsoft.com/oldnewthing/20260909-00/?p=112683&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; notes this avoided a second pass over the file system and added a cap of 100 files to guard against pathological directories (&lt;a href=&quot;https://news.ycombinator.com/item?id=49640646&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some commenters think the 100-file cap was unnecessarily low even for the era, and others reflect that this kind of attention to file-system cost is rarer in day-to-day work now.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A consumer-rights wiki is cataloging Sony&amp;#x27;s own references to &amp;quot;owning&amp;quot; digital games as a lawsuit proceeds.&lt;/strong&gt; Four California PlayStation buyers sued Sony Interactive Entertainment in June, alleging the storefront&amp;#x27;s &amp;quot;Buy Now&amp;quot; language is misleading when the transaction is a revocable license. Sony has moved to compel arbitration and argued reasonable consumers would not believe they own digital games, with a hearing set for October 1, per the &lt;a href=&quot;https://consumerrights.wiki/w/Sony_PlayStation_digital_game_ownership_lawsuit&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;wiki page&lt;/a&gt;, which also notes Sony&amp;#x27;s plan to end disc production for new games in 2028 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49642531&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters push back on one of Sony&amp;#x27;s arguments, that two people buying the same game disproves ownership, by comparing it to two people each owning a copy of a book.&lt;/li&gt;
+&lt;li&gt;Several suggest that even if Sony wins, the position it has taken in court could undercut its own marketing.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Nine major streaming subscriptions cost 61% more than in March 2021, according to a price-tracking site.&lt;/strong&gt; Comparing flagship ad-free tiers in the US, the combined monthly cost rose from $95.91 to $154.41, or $702 more per year, with Apple TV+ and Disney+ showing the largest percentage increases. The &lt;a href=&quot;https://honestlyranked.com/guides/streaming-price-increases/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;analysis&lt;/a&gt; links each price change to a dated source and excludes bundles such as YouTube TV and Prime Video as not comparable (&lt;a href=&quot;https://news.ycombinator.com/item?id=49641215&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note the headline dollar figure is less informative than the percentage increase, and ask what durable alternatives exist given that purchased digital movies also carry no guarantee of future access.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-10">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
