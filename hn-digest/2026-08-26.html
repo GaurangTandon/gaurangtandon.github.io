@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 26, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 26, 2026</h1>
+    <p class="date">Wednesday, August 26, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s stories range from an experiment in merging programs with their own databases to fresh questions about how AI models and everyday statistics get measured and understood.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A proof-of-concept turns an executable into a writable SQLite database.&lt;/strong&gt; Following up on an earlier post about executables stored as SQLite databases, Farid Zakaria has built &lt;a href=&quot;https://fzakaria.com/2026/08/24/actually-queryable-executables&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;self-httpd&lt;/a&gt;, a web server whose program, website content, routes, and visitor logs all live in a single SQLite file that the running process reads and writes transactionally. The format, called SELF, uses Linux&amp;#x27;s binfmt_misc to invoke a custom interpreter, and the author positions it as a simpler cousin of Justine Tunney&amp;#x27;s redbean, with SQL replacing ZIP archives and Lua hooks (&lt;a href=&quot;https://news.ycombinator.com/item?id=49442589&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point to prior art in IBM&amp;#x27;s OS/400, where libraries behave like database tables that are first-class OS objects queryable with SQL.&lt;/li&gt;
+&lt;li&gt;Several are wary of storing writable runtime state inside the binary itself, preferring read-only executables, and note that upgrades get awkward since deploying a new binary means copying old data into it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Z.ai says the stealth &amp;quot;Ox Alpha&amp;quot; model is a new GLM-series model and will get open weights.&lt;/strong&gt; According to a &lt;a href=&quot;https://www.bloomberg.com/news/articles/2026-08-26/china-s-z-ai-made-ox-alpha-stealth-model-that-rivals-deepseek&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Bloomberg report&lt;/a&gt;, the Chinese lab Z.ai confirmed it is behind Ox Alpha, a model that had been circulating anonymously during a public test, and plans to release its weights. Independent detail on the model&amp;#x27;s capabilities remains thin so far (&lt;a href=&quot;https://news.ycombinator.com/item?id=49446422&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note conflicting benchmark signals, with the model scoring below small competitors on one independent leaderboard while the company&amp;#x27;s own page shows it outperforming frontier models.&lt;/li&gt;
+&lt;li&gt;One theory offered is that it may be a small model that reaches strong outcomes by iterating — making mistakes and fixing them across more tokens and tool calls rather than getting things right in one pass.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An argument for starting RAG systems with plain full-text search.&lt;/strong&gt; A &lt;a href=&quot;https://www.lighthousenewsletter.com/p/rag-is-simpler-than-you-think&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post from Lighthouse AI&lt;/a&gt; argues that most retrieval-augmented generation stacks are over-engineered, and lays out a progression of approaches from BM25 keyword search through LLM-based query rewriting to hybrid search with reranking. The author contends that simple full-text search handles many real use cases, sidesteps chunking and evaluation complexity, and beats general-purpose embeddings on proprietary terminology (&lt;a href=&quot;https://news.ycombinator.com/item?id=49445727&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters push back that embeddings are computationally heavy but not complicated, and that semantic search should still be the primary method for most document-based RAG projects.&lt;/li&gt;
+&lt;li&gt;Others question the framing more broadly, asking how RAG meaningfully differs from the search systems built before LLMs and whether every LLM task needs its own search engine.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A survey finds most U.S. adults say they lack basic statistical knowledge.&lt;/strong&gt; A &lt;a href=&quot;https://www.psu.edu/news/research/story/more-half-adults-us-say-they-lack-basic-statistical-understanding&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Penn State–led study&lt;/a&gt; published in PLOS One analyzed a nationally representative survey of 1,000 people and found that 62% reported no or limited statistical knowledge, while only 11% regularly use statistics in daily life. Nine out of ten respondents said they would rely on statistics more in decision-making if they understood the topic better (&lt;a href=&quot;https://news.ycombinator.com/item?id=49444514&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters question the survey design, noting that asking specifically about &amp;quot;p-values&amp;quot; injects jargon that likely skews self-reports, and that even working scientists commonly misunderstand p-values.&lt;/li&gt;
+&lt;li&gt;Several suspect the results overstate literacy, arguing the 38% who claimed some understanding would struggle with basic questions about means, medians, or confidence intervals.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-26">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — October 1, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — October 1, 2026</h1>
+    <p class="date">Thursday, October 1, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers agent tooling, compiler and database engineering, undocumented radio hardware, privacy research on connected cars and phones, and archival history work done with AI.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Earendil releases version 1.0 of its Pi agent harness.&lt;/strong&gt; &lt;a href=&quot;https://earendil.com/posts/pi-1-0/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Pi 1.0&lt;/a&gt; is an MIT-licensed, minimal, extensible harness for AI agents. Earendil says hundreds of thousands of people use it every week, mostly as a coding agent. New in this release are Codemode with native MCP support, virtual models through extensions, deferred tool loading, cache warming for Anthropic models, and mid-conversation system messages. The team says it adopts features only after they have proven themselves elsewhere (&lt;a href=&quot;https://news.ycombinator.com/item?id=49926069&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter questioned how the team decides something is proven, since MCP had been growing for nearly two years before getting support, while newer approaches were adopted within weeks.&lt;/li&gt;&lt;li&gt;A daily user said the built-in MCP support let them drop a separate MCP extension and simplify their setup.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Earendil introduces Pi Durable, an experimental framework for long-running agents.&lt;/strong&gt; &lt;a href=&quot;https://earendil.com/posts/pi-durable/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Pi Durable&lt;/a&gt; is meant for agents that survive crashes, run anywhere there is a JavaScript runtime, and can be steered by several people. It stores state in memory, SQLite, or JSONL backends and keeps only the working set in memory. The source is about 15,000 lines without tests, which the team says is small enough for an agent to read (&lt;a href=&quot;https://news.ycombinator.com/item?id=49925969&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter who works in this area noted that many major players are building similar durable harnesses, including LangChain, Vercel, OpenAI, and Anthropic, mainly because unattended long runs and recovery are easier to implement this way.&lt;/li&gt;&lt;li&gt;Others noted that sandboxing is left to the user, and one asked for a built-in way, such as an outbox pattern, to keep external data stores in sync with conversation state.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Several projects find an undocumented raw-sample capture mode in ESP32 chips.&lt;/strong&gt; According to &lt;a href=&quot;https://www.rtl-sdr.com/various-projects-independently-find-hidden-sdr-capabilities-in-esp32-microcontrollers/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;RTL-SDR.com&lt;/a&gt;, the ESPARGOS team and at least two other projects independently found a way to bypass the chips&amp;#x27; fixed WiFi and Bluetooth functions and capture raw IQ samples. This turns several ESP32 models into receive-capable software-defined radios covering roughly 2.2–2.7 GHz, plus 4.8–6.0 GHz on the C5. Most chips can only export snapshots of samples, but the ESP32-S31 can stream continuously over Gigabit Ethernet, and an FPGA-based setup already streams full bandwidth to a PC (&lt;a href=&quot;https://news.ycombinator.com/item?id=49922674&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters noted that many inexpensive wireless chips likely have similar capabilities that stay undocumented for certification and export-control reasons, and that the manufacturer might restrict the feature if arbitrary transmission becomes possible.&lt;/li&gt;&lt;li&gt;Others pointed out that signal quality (phase noise, images, DC offset) has not yet been characterized, though one linked a recent commit that appears to address the FPGA clocking problem.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Rust compiler build times fell 4.57% on average over two months.&lt;/strong&gt; In his &lt;a href=&quot;https://nnethercote.github.io/2026/09/30/how-to-speed-up-the-rust-compiler-in-september-2026.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;regular update&lt;/a&gt;, Nicholas Nethercote reports that 555 of 629 benchmark measurements improved between late July and late September. Contributors included an LLVM 23 upgrade, profile-guided optimization for Clippy, and tuning of the new borrow checker and trait solver. One change to the traversal order used in dataflow analysis cut about 30% from check-build time for a crate containing a single function with more than 18,000 basic blocks (&lt;a href=&quot;https://news.ycombinator.com/item?id=49920896&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;turbopuffer is redesigning its storage so vector search is no longer the primary index.&lt;/strong&gt; The company&amp;#x27;s &lt;a href=&quot;https://turbopuffer.com/blog/rip-vector-database&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; explains that every other index in versions 1 and 2 pointed at locations in the vector (ANN) index. This made features like GROUP BY difficult and caused heavy write amplification when vectors moved during rebalancing. In version 3, the vector index becomes a secondary index alongside the others, with the goal of speeding up text, regex, and SQL-style queries (&lt;a href=&quot;https://news.ycombinator.com/item?id=49923466&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters compared the change to the old Postgres-versus-MySQL/InnoDB design trade-off: pointing secondary indexes at a primary key avoids rewrites but adds a lookup, which on object storage could mean an extra S3 request.&lt;/li&gt;&lt;li&gt;One commenter said they built enterprise retrieval on a SQL database with native vector support and see little reason to use a pure vector database.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A historian used AI agents to find a previously unnoticed 1615 record of dodos.&lt;/strong&gt; Benjamin Breen &lt;a href=&quot;https://resobscura.substack.com/p/using-opus-55-to-discover-a-new-eyewitness&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;describes&lt;/a&gt; running embedding search over the GLOBALISE archive of Dutch East India Company records, then having Opus 5.5 rank candidate passages for him to review. The search surfaced a ship&amp;#x27;s log describing crew catching dodos on Mauritius in April 1615, which falls in a known gap in the dodo timeline. It also corrected an 1890 mistranslation in which &amp;quot;field-hens,&amp;quot; a term associated with the extinct red rail, had been rendered as partridges. Breen notes that the models were weak at judging how significant their findings were (&lt;a href=&quot;https://news.ycombinator.com/item?id=49926917&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter who uses language models for 3D design said their errors are so unlike human errors that they are hard to anticipate, which matches the author&amp;#x27;s point about the models&amp;#x27; unusual reasoning.&lt;/li&gt;&lt;li&gt;Another reported using a similar approach on archive images to break previously unsolved WWII-era cipher messages: the model found no new cryptographic weakness but made it practical to process material at scale in languages the commenter does not read.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Northeastern University study measures data sharing by connected cars and their apps.&lt;/strong&gt; Working with Consumer Reports, the &lt;a href=&quot;https://automatictransmission.khoury.northeastern.edu/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;researchers&lt;/a&gt; tested 21 recent vehicles and 30 companion iOS apps. They found that 19 of the 21 vehicles contacted at least one third-party domain over Wi-Fi, and 7 of the 30 apps sent personally identifying information to trackers. The peer-reviewed paper will appear at IMC &amp;#x27;26 and includes the manufacturers&amp;#x27; responses to the findings (&lt;a href=&quot;https://news.ycombinator.com/item?id=49926628&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters highlighted the paper&amp;#x27;s note that Honda changed its practices to stop sending precise location to a tracking-related third party, and said other manufacturers&amp;#x27; responses largely placed responsibility on consumers.&lt;/li&gt;&lt;li&gt;Some described disabling telematics by pulling the data communication module fuse. One said that in small segments like minivans, every current model sends telemetry and opting out is difficult.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A forensics vendor says it can work around the iPhone&amp;#x27;s automatic inactivity reboot.&lt;/strong&gt; 404 Media &lt;a href=&quot;https://www.404media.co/cops-can-bypass-iphone-automatic-inactivity-reboot-graykey/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;reports&lt;/a&gt; on a leaked promotional video from Magnet Forensics, maker of GrayKey. The video describes a new device and a mode that keep seized iPhones in a state that is easier to extract data from. Apple added the reboot feature in 2024 to restart phones that have not been unlocked for 72 hours (&lt;a href=&quot;https://news.ycombinator.com/item?id=49922278&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters noted that the video does not say which iOS versions or models are affected, so the technique may already be patched or could be patched soon.&lt;/li&gt;&lt;li&gt;Others pointed out that GrapheneOS introduced the feature first and lets users set the timer anywhere from 10 minutes to 72 hours, while iOS and stock Pixels use a fixed 72 hours.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;StreetComplete, the OpenStreetMap editing app, is in public beta on iOS.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/streetcomplete/StreetComplete/issues/5421&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project&amp;#x27;s tracking issue&lt;/a&gt; describes the port, which reuses the app&amp;#x27;s Kotlin codebase through Kotlin Multiplatform and Compose Multiplatform rather than rewriting it. The maintainers had estimated the port at roughly one person-year of work and relied heavily on community contributions (&lt;a href=&quot;https://news.ycombinator.com/item?id=49920160&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Longtime Android users described the app as an easy way into OpenStreetMap: it asks simple, illustrated questions about nearby places, and creating an account is the main hurdle.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-10-01">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

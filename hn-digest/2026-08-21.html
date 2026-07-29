@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 21, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 21, 2026</h1>
+    <p class="date">Friday, August 21, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter-than-usual day: two model releases, a costly caching bug, and a run of stories about what happens to physical books when they become training data.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DeepSeek added image input to a new experimental Flash model.&lt;/strong&gt; The &lt;a href=&quot;https://api-docs.deepseek.com/guides/vision/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;vision guide for deepseek-v4-flash-vision-exp&lt;/a&gt; documents JPEG/PNG/GIF/WebP input via base64, external URL, or the Files API, with detail levels and a cap of roughly 384 tokens per image. Images below about 384×384 are upscaled and larger ones are downscaled to roughly an 800×800 pixel budget before inference (&lt;a href=&quot;https://news.ycombinator.com/item?id=49386163&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters working with screenshots and documents say the ~0.64-megapixel effective resolution is too low for OCR on a full A4 or Letter page, and would want closer to 1080p.&lt;/li&gt;&lt;li&gt;Others note that earlier text-only DeepSeek releases would assume they could see images and improvise workarounds, and recall the company previously signalling it was not prioritising multimodality.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An anonymous &amp;quot;stealth&amp;quot; reasoning model appeared on OpenRouter.&lt;/strong&gt; &lt;a href=&quot;https://openrouter.ai/stealth/ox-alpha&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Ox Alpha&lt;/a&gt; is listed as free, with a roughly 1M-token context window, 131k max output, text/image/video input, and tool calling; OpenRouter says it routes to a third-party provider that has chosen to stay anonymous during the preview, and that prompts and completions are retained by that provider but not used for training (&lt;a href=&quot;https://news.ycombinator.com/item?id=49381896&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters question what retained prompts are for if not training, and caution against sending proprietary or personal data to a provider that will not identify itself.&lt;/li&gt;&lt;li&gt;Some object to stealth launches on principle, arguing a model card and stated safety considerations should come first; others suggest guardrail behaviour is a decent fingerprint for guessing which lab is behind it.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Codex issue reports large cache-write spend when running on AWS Bedrock.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/openai/codex/issues/37674&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;GitHub issue&lt;/a&gt; says native Bedrock requests cannot opt into explicit prompt caching, and includes usage-derived estimates of about 172M cache-write tokens over four days, with cache writes making up roughly 85% of estimated model spend. The filer asks for serialisable cache options, a typed cache breakpoint, and per-turn cache read/write telemetry (&lt;a href=&quot;https://news.ycombinator.com/item?id=49383326&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter reports a read/write cache ratio under 5% on their own Bedrock setup and says setting &lt;em&gt;web_search&lt;/em&gt; to disabled resolved it.&lt;/li&gt;&lt;li&gt;Another argues the issue thread itself is hard to follow and appears partly machine-written, and that it conflates setting the caching mode with setting the breakpoint.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Anna&amp;#x27;s Archive is asking volunteers to scan rare books, citing destructive scanning by AI companies.&lt;/strong&gt; The &lt;a href=&quot;https://annas-archive.gl/blog/physical-destruction.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;guest post&lt;/a&gt; claims several companies buy secondhand books through intermediaries to obtain pre-2022 text, scanning and then destroying them, and points to Anthropic&amp;#x27;s book-scanning programme surfaced in a copyright settlement. It offers memberships for small uploads and scanning costs for larger efforts, with a stated goal of 10 million volunteers (&lt;a href=&quot;https://news.ycombinator.com/item?id=49383026&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters push back on the framing: a company only needs to buy and destroy one copy of a title, most books exist in many copies, and copyright rules around format-shifting are what make destruction the compliant path.&lt;/li&gt;&lt;li&gt;Others doubt the logistics, noting home scanning takes hours per book, and one asks whether uploading everything simply hands AI companies a cleaner corpus.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A blog post contrasts Amazon&amp;#x27;s destructive book scanning with the Internet Archive&amp;#x27;s approach.&lt;/strong&gt; It summarises a &lt;a href=&quot;http://observationalepidemiology.blogspot.com/2026/08/it-is-sign-of-times-that-amazon-gets-to.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;404 Media investigation&lt;/a&gt; that placed a tracker in a rare book and followed it to an Amazon warehouse in Las Vegas, where staff describe cutting bindings off incoming shipments to speed up scanning. The post sets that against the Internet Archive&amp;#x27;s page-by-page digitisation, which preserves the physical volume (&lt;a href=&quot;https://news.ycombinator.com/item?id=49382200&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters repeat that copyright law effectively rewards the destructive method, framing this as a legal design problem rather than only a corporate choice.&lt;/li&gt;&lt;li&gt;One pushes back on the rarity argument, suggesting most of the books involved are low-value rather than culturally irreplaceable, and another links the original 404 Media submission from earlier in the week.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A widely shared post says AI-generated content is not protected by copyright in the EU.&lt;/strong&gt; The claim circulated as a &lt;a href=&quot;https://mathstodon.xyz/@maxpool/117128107757895678&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;short Mastodon post&lt;/a&gt; rather than a detailed legal write-up, and the thread is largely about what follows from it in practice (&lt;a href=&quot;https://news.ycombinator.com/item?id=49382041&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters say this is already the position in the US and call it unremarkable, pointing to the monkey-selfie dispute as the closest established precedent for non-human authorship.&lt;/li&gt;&lt;li&gt;Others raise the practical edge cases: how much human editing is needed to qualify, and the asymmetry of outputs being unprotectable while inputs remain protected.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Encore rebuilt its Firecracker-based microVM stack to run on Apple Silicon.&lt;/strong&gt; The &lt;a href=&quot;https://encore.dev/blog/firecracker-apple-silicon&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt; describes four years of developing the build system on a shared remote Linux box — per-engineer users, ports and image directories — because Firecracker needs /dev/kvm. Their tool, crackling, presents one microVM API that drives Firecracker on Linux and Apple&amp;#x27;s hypervisor on macOS, which required porting much of the Docker-layers-to-block-device pipeline to run locally (&lt;a href=&quot;https://news.ycombinator.com/item?id=49384716&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note Virtualization.framework is quite limited and that Hypervisor.framework is the closer analogue to KVM, and that some useful capabilities sit behind private Apple entitlements.&lt;/li&gt;&lt;li&gt;Someone who worked on the same problem elsewhere describes taking a different route — nested virtualization via vfkit and QEMU — after roughly a month of engineering effort.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A retrospective covers TRON, the 1984 Japanese operating system project, and its inclusion in a 1989 US trade barrier report.&lt;/strong&gt; The &lt;a href=&quot;https://www.xda-developers.com/japan-tried-build-operating-system-entire-world-us-government-intervened/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt; describes a vertically integrated architecture spanning embedded systems, desktops and telecom switches, with its own CPU, keyboard layout and character encoding scheme that exceeded Unicode&amp;#x27;s CJK coverage for years. The desktop variant BTRON stalled after the trade report, while the embedded ITRON became widely deployed (&lt;a href=&quot;https://news.ycombinator.com/item?id=49384180&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters largely reject the single-cause framing, arguing MS-DOS was already entrenched in Japan by 1989 and that lack of DOS application compatibility would have been fatal regardless.&lt;/li&gt;&lt;li&gt;Others place it alongside Amiga OS, BeOS and OS/2 as technically forward platforms that lost to network effects, and point to surviving TRON descendants and archived BTRON images that still boot in VMs.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A retrospective examines the design of Sid Meier&amp;#x27;s Pirates!&lt;/strong&gt; The &lt;a href=&quot;https://remapradio.com/articles/the-lost-treasure-of-sid-meiers-pirates/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;piece&lt;/a&gt; traces how the 1987 game sat outside existing genres, with joystick-mapped fencing, a simulated silver trade running from Potosí to the treasure fleet, and a randomised family-rescue quest. It argues the game reshaped MicroProse&amp;#x27;s identity and reflects an era when mechanics were derived from theme rather than from established conventions (&lt;a href=&quot;https://news.ycombinator.com/item?id=49384896&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters offer parallel cases of a single title redirecting a studio, notably Team17 pivoting to Worms, and compare Pirates! to later Meier games and to European trade sims such as Die Hanse.&lt;/li&gt;&lt;li&gt;One points to a multi-hour interview series with Meier covering the design decisions behind his career.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-21">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

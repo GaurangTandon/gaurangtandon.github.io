@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 17, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 17, 2026</h1>
+    <p class="date">Monday, August 17, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet Monday dominated by model releases, database plumbing, and a reminder that old-fashioned shell quoting still breaks things.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alibaba&amp;#x27;s Qwen 3.8 27B is strong locally but ships with an extreme reasoning default.&lt;/strong&gt; Simon Willison &lt;a href=&quot;https://simonwillison.net/2026/Aug/16/qwen-38-27b/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;tested the Apache 2.0, vision-capable 27B model&lt;/a&gt; in a 17GB Q4_K_M build and found it defaults to an &amp;quot;xhigh&amp;quot; reasoning effort that burned 22,276 reasoning tokens and 21 minutes on a single SVG prompt, and turned &amp;quot;draw an svg of a circle&amp;quot; into an animated geometric study. With reasoning off, the same prompt finished in about two minutes; he also found it accurate at returning bounding boxes on photos (&lt;a href=&quot;https://news.ycombinator.com/item?id=49324985&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note the cost is worse on a dense model than an MoE — one reports roughly 7–8x slower generation than a 35B-A3B model, and another says a coding task took eleven hours on a dual-GPU setup that larger hosted models finished in well under an hour.&lt;/li&gt;
+&lt;li&gt;Several point out that llama.cpp&amp;#x27;s thinking-budget and thinking-message options can cap or redirect the loops, and that for agent workloads token efficiency is simply an operating cost.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Artificial Analysis scored the same model at 52 on its intelligence index.&lt;/strong&gt; The &lt;a href=&quot;https://artificialanalysis.ai/models/qwen3-8-27b&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;independent listing&lt;/a&gt; places Qwen3.8 27B first in its open-weights size class, with a 256k context window and text-plus-image input, while flagging it as unusually verbose: 160M output tokens to complete the index versus a 43M median (&lt;a href=&quot;https://news.ycombinator.com/item?id=49334544&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters add context that the predecessor Qwen3.6 27B scored 38, and that this result puts a small model level with considerably larger ones.&lt;/li&gt;
+&lt;li&gt;Others caution that leaderboard scores are increasingly benchmark-optimized and ask what still correlates with real-world use.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;DuckDB previewed v2.0, adding a client/server mode.&lt;/strong&gt; The &lt;a href=&quot;https://duckdb.org/2026/08/17/duckdb-20-highlights&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;preview post&lt;/a&gt; describes a stable &amp;quot;quack&amp;quot; extension and a new CONNECT statement that lets one DuckDB attach to another over the network or push queries down to PostgreSQL and MySQL, alongside triggers, a first-class VARIANT type, async I/O, a new SQL parser, and a new default storage format built from over 10,000 commits since v1.5 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49330781&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters read the past year of work as a shift from in-process engine toward the foundation of a cloud data warehouse, despite the founders&amp;#x27; earlier reluctance.&lt;/li&gt;
+&lt;li&gt;Gaps raised include the absence of PL/pgSQL-style procedural functionality and unanswered questions about runtime size for stripped WASM builds in the browser.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Wiz reported a GitHub Actions injection in a Snowflake repository that reached an internal Jira.&lt;/strong&gt; Per &lt;a href=&quot;https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Wiz&amp;#x27;s write-up&lt;/a&gt;, a merged PR replaced a safe env/jq pattern with direct interpolation of an issue title into a shell command, letting any user trigger command execution and exfiltrate Jira credentials; GitHub Advanced Security scanned the workflow without flagging it, and Snowflake patched and rotated the credential the same day it was disclosed on June 23 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49331423&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters correct the framing that Copilot generated the flaw — the post&amp;#x27;s own update says Copilot reviewed the merged change and cleared it, and the autofix contribution was to a different file.&lt;/li&gt;
+&lt;li&gt;Several note the workflow&amp;#x27;s supposed guard condition would have been near-useless even if it had worked, since excluding one bot account is not a security control, and that quote injection and YAML footguns remain the underlying issue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;GPT-5.6 Sol appeared on OpenRouter at half price.&lt;/strong&gt; The &lt;a href=&quot;https://openrouter.ai/openai/gpt-5.6-sol&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;model page&lt;/a&gt; lists a 50% discount bringing the OpenAI endpoint to $2.50 input and $15 output per million tokens, against $5/$30 from Azure and other hosts, for a 1M-context model released July 9 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49337602&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters correct the headline: the cut appears limited to OpenRouter and does not apply to OpenAI&amp;#x27;s own published API pricing.&lt;/li&gt;
+&lt;li&gt;Others weigh it against cheaper competitors at similar capability and question whether cut-rate access is partly about collecting reasoning traces from traffic.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Roboflow benchmarked GPT-5.6&amp;#x27;s vision performance.&lt;/strong&gt; Its &lt;a href=&quot;https://blog.roboflow.com/openai-gpt-5-6/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;test run&lt;/a&gt; puts Sol at 46.2 mAP@50 on object detection versus 13.8 for GPT-5.5, with counting up from 64.9% to 73.0%, while OCR was flat and targeted text extraction actually regressed. The post notes detection works best with absolute XYXY pixel coordinates, and that OpenAI confirmed stability degrades on images around 2,000x2,000 pixels at lower reasoning effort (&lt;a href=&quot;https://news.ycombinator.com/item?id=49329575&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters point out apparent errors in the published examples themselves — at least one ground-truth label looks wrong and some boxes appear rotated 90 degrees, consistent with mishandled EXIF orientation rather than model failure.&lt;/li&gt;
+&lt;li&gt;Hands-on reports split sharply, from strong results critiquing UI screenshots to complaints that it still misses fine detail on iterative image work.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Bluesky uses an iOS privacy API to swap its logo into screenshots.&lt;/strong&gt; Tim Marinin &lt;a href=&quot;https://timmarinin.net/2026/bluesky-screenshots/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;traced the behaviour&lt;/a&gt; to a file named GrowthHack.tsx and an accompanying package that renders the &amp;quot;Follow&amp;quot; button inside a UITextField with secure text entry enabled; when iOS blanks that layer during a screenshot, a Bluesky logo underneath becomes visible instead (&lt;a href=&quot;https://news.ycombinator.com/item?id=49338459&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point to the same technique in Telegram&amp;#x27;s secret chats, Signal, and reportedly X, Threads, and RevenueCat, so the trick is well established rather than novel.&lt;/li&gt;
+&lt;li&gt;A common objection is that apps detecting or altering screenshots has consistently worked against users, and that the API&amp;#x27;s intended purpose is security rather than branding.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A teardown explains why Quake&amp;#x27;s 1996 shareware CD was cracked in 39 days.&lt;/strong&gt; Fabien Sanglard &lt;a href=&quot;https://fabiensanglard.net/quake_shareware_cd/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;documents&lt;/a&gt; id Software&amp;#x27;s plan to ship encrypted copies of its whole catalogue on one disc, unlockable by phoning an 800 number for a serial keyed to a rotating challenge code. A tool from the group GNOMON decrypted every game on the disc weeks after the August 30 release, and id was left holding roughly 150,000 CDs (&lt;a href=&quot;https://news.ycombinator.com/item?id=49338328&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters question whether the scheme is fairly labelled security through obscurity, and ask whether it could ever have held without per-disc encryption keys.&lt;/li&gt;
+&lt;li&gt;Collectors note the disc remains the only CD release of the Nine Inch Nails soundtrack, with track names since confirmed by a later vinyl release.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Germany&amp;#x27;s competition authority closed its case on Apple&amp;#x27;s tracking rules.&lt;/strong&gt; The &lt;a href=&quot;https://www.bundeskartellamt.de/SharedDocs/Meldung/EN/Pressemitteilungen/2026/08_17_2026_Apple_ATTF.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Bundeskartellamt announced&lt;/a&gt; that Apple has offered binding commitments after it objected that the App Tracking Transparency Framework imposed an extra, Apple-defined consent prompt on third-party apps while Apple&amp;#x27;s own advertising used its own prompt. Apple maintains the rules were lawful but will align the two consent flows more closely and give third-party developers more room to combine required requests (&lt;a href=&quot;https://news.ycombinator.com/item?id=49331222&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters observe the remedy levels down rather than up — the friction was reduced for third-party data collection instead of raised for Apple&amp;#x27;s own.&lt;/li&gt;
+&lt;li&gt;Several add that Apple&amp;#x27;s first-party apps still hold system permissions unavailable to third parties, which this settlement does not touch.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-17">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

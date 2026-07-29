@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — July 29, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — July 29, 2026</h1>
+    <p class="date">Wednesday, July 29, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter Tuesday&amp;#x27;s worth of releases, ports, and measurements — mostly people making existing things smaller, faster, or stranger.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenAI released a CLI and TypeScript SDK for AI-assisted security scanning.&lt;/strong&gt; &lt;a href=&quot;https://github.com/openai/codex-security&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Codex Security&lt;/a&gt; scans repositories, reviews changes, tracks findings over time and runs checks in CI, requiring Node 22+ and Python 3.10+, with either a ChatGPT sign-in or an API key for authentication (&lt;a href=&quot;https://news.ycombinator.com/item?id=49089755&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It is Apache-2.0 licensed and one of the people working on it says it was open-sourced early and will change quickly.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters report hitting refusal errors during scans and want clarity on which projects are in scope and how ownership of the code is determined.&lt;/li&gt;
+&lt;li&gt;One reading is that this is mainly a convenient CI wrapper around existing models; others point to comparable tools including an open-source scanner with a large following and a recently open-sourced Alibaba code-review CLI.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The Model Context Protocol spec dropped sessions and the initialize handshake.&lt;/strong&gt; The &lt;a href=&quot;https://blog.modelcontextprotocol.io/posts/2026-07-28/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;2026-07-28 release&lt;/a&gt; makes every request self-describing, retires the Mcp-Session-Id header, moves method and tool names into HTTP headers for gateway routing, adds cache hints to list responses, and replaces held-open server-initiated streams with Multi Round-Trip Requests (&lt;a href=&quot;https://news.ycombinator.com/item?id=49088058&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Authorization changes include RFC 9207 issuer validation and a shift away from Dynamic Client Registration, alongside a twelve-month deprecation policy.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters running long workflows — some lasting days — ask what replaces the persistent connection they were depending on.&lt;/li&gt;
+&lt;li&gt;Others who already moved to stateless HTTP report better reliability but note reconnection and timeout rough edges in practice, and one suggests URL paths could carry the routing information now placed in headers.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;uv shipped its first breaking release since March.&lt;/strong&gt; &lt;a href=&quot;https://github.com/astral-sh/uv/releases/tag/0.12.0&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Version 0.12.0&lt;/a&gt; makes uv init declare a build system and use a packaged src/ layout by default, and rejects legacy source-distribution formats such as .tar.bz2 and .tar.xz along with wheels containing bzip2, LZMA or XZ-compressed entries (&lt;a href=&quot;https://news.ycombinator.com/item?id=49088887&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Existing projects are unaffected, and the maintainers expect most users to upgrade without changes.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A maintainer is answering questions in the thread, including on supply-chain safety around exclude-newer and how to handle unpinned git dependencies.&lt;/li&gt;
+&lt;li&gt;Recurring requests include a sensible uv upgrade for bumping all dependencies and better output from the show commands.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A research project runs a 2.8-trillion-parameter model on a 64 GB laptop chip, very slowly.&lt;/strong&gt; &lt;a href=&quot;https://github.com/gavamedia/deltafin&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Deltafin&lt;/a&gt; executes Kimi K3 by keeping the resident model on MPS, CUDA or CPU and streaming routed MXFP4 experts, with a reference figure of 0.0687 tokens per second — about 14.6 seconds per token — on an M1 Max (&lt;a href=&quot;https://news.ycombinator.com/item?id=49090233&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Each token reads roughly 25.8 GB of expert data, which is why the full local mode wants about 1.7 TB of disk and the streaming mode is minutes per token.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters question whether that throughput counts as usable at all, given a thousand tokens would take most of a day.&lt;/li&gt;
+&lt;li&gt;Others raise SSD wear as the real constraint, since the design reads tens of gigabytes per token, and point to reports of faster streaming on newer Apple hardware or across multiple large-memory machines.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Andrew Ng announced a new AI education company backed by Coursera.&lt;/strong&gt; &lt;a href=&quot;https://learnvector.ai/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;LearnVector&lt;/a&gt; is a Mountain View company founded in 2026 with a $100 million investment from Coursera, building agentic systems intended to plan a learning path, adapt to the learner and stay with them until a skill is mastered (&lt;a href=&quot;https://news.ycombinator.com/item?id=49092499&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The site says the team is hiring and expects to show products by early 2027.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters note edtech&amp;#x27;s historically weak venture returns and argue the Coursera relationship, with its existing content library, is the main thing that could offset that.&lt;/li&gt;
+&lt;li&gt;Others push back on the &amp;quot;one-to-one&amp;quot; framing since the tutor is a model rather than a person, and note that simple Socratic-method prompts already work reasonably well, while questioning whether current models are tuned for teaching rather than answering.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A long post surveys SQLite tuning for server-side use.&lt;/strong&gt; The &lt;a href=&quot;https://micrologics.org/blog/sqlite-in-production-optimizing-wal-mode-concurrency-and-vfs-layers-for-low-latency-app-servers&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt; walks through WAL mode, the four checkpointing strategies, synchronous = NORMAL, busy timeouts, and the single-writer constraint that produces SQLITE_BUSY (&lt;a href=&quot;https://news.ycombinator.com/item?id=49094346&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Its central argument is that on local NVMe, eliminating network round-trips matters more than the features a client-server database adds.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Practitioners suggest serialising writes through a single application-level writer rather than relying on busy timeouts, and caution that synchronous = NORMAL trades away durability for recent transactions.&lt;/li&gt;
+&lt;li&gt;Some suspect the piece is model-generated and note it skips the operational annoyances that bite before performance tuning does, including how to attach a GUI client to a database file living on the app server.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Someone spent three weeks testing multiple mice and keyboards on one Wayland desktop.&lt;/strong&gt; The &lt;a href=&quot;https://blinry.org/multi-seat-wayland/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt; finds the core Wayland protocol has deep multi-seat support — every input event ties to a seat — and rates compositors and toolkits individually, with sway and River strong, Weston and SDL middling, and niri having no support yet (&lt;a href=&quot;https://news.ycombinator.com/item?id=49092112&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The author published patched libraries and small tools alongside the post and flagged open project ideas.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point out that toolkits and applications assume a single focused window, so APIs like GTK&amp;#x27;s active-window and Qt&amp;#x27;s equivalent break down under multiple seats.&lt;/li&gt;
+&lt;li&gt;A compositor author says supporting this properly is considerably more work than it appears, and others note adjacent cases that already stress the assumption, such as laptops with both a touchscreen and a pointer, or eye tracking in mixed reality.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Scripps researchers argue ocean and freshwater oxygen loss should be treated as a critical planetary process.&lt;/strong&gt; A &lt;a href=&quot;https://scripps.ucsd.edu/news/underwater-oxygen-loss-threatens-earths-stability-researchers-warn&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Scripps-led review&lt;/a&gt; calls for aquatic deoxygenation to be formally recognised among the processes under threat (&lt;a href=&quot;https://news.ycombinator.com/item?id=49090867&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The framing centres on changes that would be irreversible on human timescales.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note the link is a university press release and point to the underlying peer-reviewed paper for the actual findings.&lt;/li&gt;
+&lt;li&gt;Several add context that oxygen loss and coastal dead zones already occur; the shift the review describes is in how widespread and persistent they become, with some effects potentially lasting centuries.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Half-Life now runs on PowerPC Macs under Mac OS 9.&lt;/strong&gt; A developer using a fork of Xash3D FWGS, a re-implementation of the GoldSrc engine, produced a &lt;a href=&quot;https://mac-classic.com/news/half-life-ported-to-mac-os-9/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;port&lt;/a&gt; that is playable start to finish with multiplayer, plus Blue Shift and Opposing Force, on G3 and G4 machines running OS 9.0 or later (&lt;a href=&quot;https://news.ycombinator.com/item?id=49089814&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Valve had planned a Mac OS 9 release in 1999 but cancelled it before launch, and did not ship a Mac version until 2013 on Intel.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For some readers the more interesting discovery is Xash3D FWGS itself — an open-source GoldSrc re-implementation that has existed since around 2011 and that many had not encountered.&lt;/li&gt;
+&lt;li&gt;Commenters note the target hardware is roughly period-correct for the 1998–99 iMacs, with VRAM the practical limit on playability.&lt;/li&gt;
+&lt;li&gt;The developer has said publicly that AI tooling assisted the work, which still took well over 40 hours spread across a couple of months.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An illustrated tour of the tools the demo scene built for itself.&lt;/strong&gt; The &lt;a href=&quot;https://www.datagubbe.se/scenegui/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;piece&lt;/a&gt; catalogues Amiga-era sine-table precalculators, Seka and AsmOne assemblers, memory rippers for extracting music and graphics after a crash, and the tracker lineage from Ultimate Soundtracker through NoiseTracker to ProTracker (&lt;a href=&quot;https://news.ycombinator.com/item?id=49093434&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Many interfaces prioritised looking impressive over being legible.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A former Amiga scene coder says they generated sine tables from their own code and had no idea dedicated precalc tools existed at the time.&lt;/li&gt;
+&lt;li&gt;One commenter offers an explanation for the recurring &amp;quot;sinus&amp;quot; spelling: many sceners came from European language backgrounds that retained the Latin form rather than English&amp;#x27;s &amp;quot;sine&amp;quot;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-07-29">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
