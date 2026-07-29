@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 9, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 9, 2026</h1>
+    <p class="date">Sunday, August 9, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet Sunday&amp;#x27;s worth of infrastructure improvisation, database rewrites, retro computing, and one imminent eclipse.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer replaced a rented VPS with a rooted Android phone.&lt;/strong&gt; The write-up describes moving personal web apps onto a CMF Phone 1 — eight ARM cores, 8 GB of RAM, a built-in battery — after an attempt to flash postmarketOS left the device with broken Wi-Fi and a black screen (&lt;a href=&quot;https://seg6.space/posts/phone-server/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49226636&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The working setup keeps stock Android for its drivers and treats Termux as the host, with runit supervising services, proot-distro providing Debian filesystems, and Tailscale plus Termux:Boot restoring everything after a reboot.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters raise the battery question the post treats as a feature, asking whether a permanently charging phone is a fire risk and whether charge should be capped.&lt;/li&gt;&lt;li&gt;At least one reader deflates the cost motivation, saying they run many headless browser instances on an $8 VPS without trouble.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Shopify moved inventory reservations from Redis into MySQL.&lt;/strong&gt; The engineering post explains that reservations in Redis and the inventory ledger in MySQL could not be updated in one atomic step, allowing both overselling and underselling; the rewrite uses MySQL 8&amp;#x27;s SKIP LOCKED with one row per sellable unit instead of a single quantity column (&lt;a href=&quot;https://shopify.engineering/scaling-inventory-reservations&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49226536&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The team reports hitting throughput targets during peak 2025 traffic, and says the harder lesson was that the real bottleneck was not what they were measuring.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters flag the detail that makes the design work: the row-per-unit pool is bounded — capped per item and location, with a replenishment process — rather than one row per physical unit.&lt;/li&gt;&lt;li&gt;Several readers, including one who works with commerce platforms, judge the post to be AI-written and light on the engineering specifics they wanted.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Macintosh-style graphical OS for the IBM PC/XT was released.&lt;/strong&gt; os8088 is a 78,950-byte kernel written in real-mode assembly that boots from floppy on an 8086, offering overlapping windows, pull-down menus, serial mouse support, loadable programs and pre-emptive multitasking — which the 1984 Macintosh did not have (&lt;a href=&quot;https://os8088.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project site&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49226923&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It runs in VGA, Hercules and CGA modes in 256K of RAM, ships apps including a Mandelbrot viewer, MOD player and paint program, and has an in-browser demo.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;The author states in the thread that it was written with Claude&amp;#x27;s help, which several commenters contrast with the &amp;quot;hand-written real-mode 8086, no C, no runtime library&amp;quot; framing.&lt;/li&gt;&lt;li&gt;Others ask how thoroughly the real-hardware claims have been verified before digging out their own XT machines.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Microsoft Word for Windows 1.1a has been ported to native x64.&lt;/strong&gt; The project builds the original Word source — codename Opus — against a compatibility layer that translates the 16-bit assembly entry points to fixed-width C, maps segmented memory handles to an x64-safe runtime, and adapts Win16 startup and messaging to Win32 (&lt;a href=&quot;https://github.com/jmarshall23/msword&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;repository&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49228663&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It builds with CMake and Visual Studio 2022 and includes unit, smoke and automated UI tests.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter reports the build failing on a referenced CMake file that appears to be missing from the repository.&lt;/li&gt;&lt;li&gt;Readers note the absence of screenshots and ask how hard a Linux port would be.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A write-up explains how to hide dithered photographs inside scannable QR codes.&lt;/strong&gt; The technique shrinks each data module to the centre of a three-by-three grid, leaving the surrounding pixels free for an image, then applies Floyd-Steinberg error diffusion in two passes — the first specifically to diffuse the large error introduced by the fixed data modules into their neighbours (&lt;a href=&quot;https://www.andrewt.net/dithered-qr-codes/wtf/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49226742&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The author is explicit about the trade-off: codes that scan from a laptop screen may not survive a crumpled printed flyer in bad lighting.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to adjacent work in the same space, including colour QR codes and animated ones.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A 2023 conference abstract reports melatonin impairing morning cognition in healthy young adults.&lt;/strong&gt; The abstract is hosted in &lt;em&gt;Sleep&lt;/em&gt; and is the only text available; notably, it also reports no significant differences between the melatonin and sleep groups on any of the sleep measures taken (&lt;a href=&quot;https://academic.oup.com/sleep/article/46/Supplement_1/A34/7181621&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;abstract&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49227365&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note the abstract gives neither dose nor formulation, and one links a related thesis indicating 2 mg and 5 mg were used without distinguishing between them in the cognitive analysis.&lt;/li&gt;&lt;li&gt;Several point out those are common US retail doses but far above physiological levels and above what some sleep specialists recommend, so dose may explain the effect.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An open-source interactive map covers the August 12 total solar eclipse.&lt;/strong&gt; The site layers the eclipse track, Besselian elements, a live umbra, a 3D shadow and cloud projection over OpenStreetMap, with adjustable opacity and minute-by-minute stepping (&lt;a href=&quot;https://eclipsefan.org/?v=2&amp;amp;t=max&amp;amp;layers=eclipse%2Cbesselian%2Cumbra-live%2Cshadow-3d%2Ccloud-projection%2Cosm&amp;amp;lat=43.4623&amp;amp;lon=-3.8099&amp;amp;opacity=besselian%3A0.2%2Cumbra-live%3A0.2&amp;amp;zoom=6&amp;amp;palier=minute&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;map&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49225139&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters stress that a partial eclipse is not a near-substitute for totality, and that terrain and sunlight path modelling in the map is unusually detailed.&lt;/li&gt;&lt;li&gt;Spanish readers note this is the first of three consecutive eclipses visible there through 2028, the last of them annular, and share practical viewing precautions around removing filters during totality.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Illinois signed an age-verification law that puts the check at the operating-system level.&lt;/strong&gt; HB5511 requires device makers, OS providers and app stores to collect a child&amp;#x27;s birth date at account setup by January 1, 2028 and expose one of four age brackets — under 13, 13–15, 16–17, 18 and up — through an API; apps must request the signal by July 1, 2028 and apply default restrictions, with penalties up to $50,000 per violation (&lt;a href=&quot;https://itsfoss.com/news/illinois-age-verification-bill/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49228350&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Colorado and California adopted the same OS-signal model but later added carve-outs for freely redistributable and modifiable software; the Illinois definitions include no such exemption.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters describe a split among large platforms, with Meta reportedly pushing for OS-level verification while Apple and Google prefer it to sit with applications.&lt;/li&gt;&lt;li&gt;Readers disagree on the merits: some see a standardised OS-reported bracket as preferable to third-party verification services, while others expect constitutional challenges over compelling developers to implement it.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-09">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
