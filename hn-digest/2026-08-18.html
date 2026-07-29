@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 18, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 18, 2026</h1>
+    <p class="date">Tuesday, August 18, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter day: kernel memory management, a data auction, and a hard look at what benchmarks still mean.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux 7.3 will handle GPU memory overcommit more gracefully.&lt;/strong&gt; Kernel patches improving how the driver decides what to evict when a game asks for more VRAM than the card physically has are now merged upstream and queued for Linux 7.3, per &lt;a href=&quot;https://pixelcluster.dev/VRAM-Overcommit/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;a detailed writeup from the developer&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49342719&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The post frames overcommit as fundamentally a performance problem rather than a stability one, with hard limits set by the PCI bus: on a PCIe 4.0 x16 link at roughly 32 GiB/s, a frame budget of 33.3 ms allows only about 1 GiB of evicted data to be fetched, and microbenchmarks on RDNA3 put PCIe access latency at roughly 4.6x a VRAM fetch and 7.3x an Infinity Cache hit.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters ask whether the same eviction improvements carry over to compute workloads such as LLM inference, or whether the heuristics are specific to game workloads — an open question the post does not address.&lt;/li&gt;
+&lt;li&gt;Several note the article&amp;#x27;s point that scanned-out display buffers bypass the GPU&amp;#x27;s virtual memory and use physical addresses, which bounds how clever any memory manager can be for that class of allocation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google bought the data assets of liquidated airline Spirit for $10 million.&lt;/strong&gt; A court filing cited by &lt;a href=&quot;https://www.theregister.com/ai-and-ml/2026/08/18/google-buys-crashed-airline-spirits-data-at-auction-because-ai/5288962&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The Register&lt;/a&gt; lists roughly 100 million emails, 500 million Microsoft Teams items, 17 million OneDrive files, 20.5 million SharePoint items, more than 30 million recorded customer service calls and 15 million chat records, alongside operational data covering some 763,000 flights, five million crew pairings and 787,452 parts purchases (&lt;a href=&quot;https://news.ycombinator.com/item?id=49343559&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The underbidder was Mercor, an AI training data provider; the filing states the trove was deidentified before sale and Google has said it will scrub any personal information it finds.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The main thread of discussion is doubt about the &amp;quot;deidentified&amp;quot; label and whether a sale of this kind clears the legal bar, rather than any dispute over the numbers themselves.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Dan Luu argues coding agents have made benchmark gaming cheap enough to break benchmark trust.&lt;/strong&gt; In &lt;a href=&quot;https://danluu.com/benchpocalypse/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;&amp;quot;The benchmarkpocalypse&amp;quot;&lt;/a&gt; he describes putting an agent in a loop for a month to build FRE, a regex engine that reached about 1.4x the Rust regex crate&amp;#x27;s score on the rebar suite — then ran roughly 10x slower on a ripgrep-derived holdout corpus (&lt;a href=&quot;https://news.ycombinator.com/item?id=49340299&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Telling the model a holdout set existed narrowed the gap to about 2.4x slower overall, or 4x on the subset of cases he judged meaningful, which he reads less as a fix than as evidence that specialized optimization work has become cheap and unreliable at the same time.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters caution that a holdout set only delays overfitting rather than preventing it, since information leaks across repeated evaluation rounds.&lt;/li&gt;
+&lt;li&gt;Others suggest borrowing from metamorphic and property-based testing, or from cross-validation, to check generalization when the optimization loop itself is automated.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A new functional query language for Postgres and SQLite was posted under the title &amp;quot;Rethinking Database Programming.&amp;quot;&lt;/strong&gt; The &lt;a href=&quot;https://acadia.engineering/blog/rethinking-database-programming&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project writeup&lt;/a&gt; was intermittently unreachable during the discussion (&lt;a href=&quot;https://news.ycombinator.com/item?id=49342530&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;), so most of the detail available came from readers who had seen it.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters identify the author as Evan Czaplicki, who created Elm, and describe the work as a typed functional alternative to writing SQL against Postgres and SQLite.&lt;/li&gt;
+&lt;li&gt;Reactions split on verbosity — some report that concise SQL expands into noticeably longer code, while others say SQL&amp;#x27;s ergonomics are dated enough to justify the trade; a few note the title led them to expect a stored-procedure replacement rather than a query language.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Repair Cafe, the volunteer-run network of local repair events, drew renewed attention.&lt;/strong&gt; The &lt;a href=&quot;https://www.repaircafe.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;organization&amp;#x27;s site&lt;/a&gt; serves as the hub for finding or starting local sessions where volunteers help people fix broken items instead of discarding them (&lt;a href=&quot;https://news.ycombinator.com/item?id=49339097&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Participants describe monthly meetups hosted in community centres and libraries, covering both clothing and electronics, with practical ground rules such as cleaning items beforehand and bringing your own batteries.&lt;/li&gt;
+&lt;li&gt;One recurring observation is that much repair knowledge sits in non-English forums or unsearchable chat servers, which is part of what makes in-person mentoring useful.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-18">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
