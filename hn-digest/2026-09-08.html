@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 8, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 8, 2026</h1>
+    <p class="date">Tuesday, September 8, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s stories lean toward infrastructure and verification: a large European AI funding round, a genome-wide prediction database, factored 1990s certificate keys, and several careful measurements of how search, CDNs, and coding agents actually behave.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mistral raises a €3 billion Series D at a valuation above €21 billion.&lt;/strong&gt; The Paris-based lab says the round, led by Samsung Electronics with Scaleup Europe Fund and PSG Equity as co-leads, is the largest equity raise ever by a European technology company, three years after launch. The money is earmarked for compute, frontier research, and commercial expansion, with the company pitching a full open-weight stack aimed at enterprises and governments that want to keep data and infrastructure under their own control (&lt;a href=&quot;https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49605767&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters doubt Mistral&amp;#x27;s models are competitive with US and Chinese frontier models, and note the valuation gap with American rivals.&lt;/li&gt;&lt;li&gt;Others report Mistral working well for simpler RAG and OCR workloads, and argue a European option is worth having regardless of frontier standing.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google DeepMind publishes AlphaGenome Atlas, a precomputed map of every single-letter change in the human genome.&lt;/strong&gt; The database uses the AlphaGenome model to predict the regulatory effect of all roughly 9 billion single nucleotide variants, producing about a petabyte of data queryable through a no-code web portal. A new AlphaGenome Variant Impact score combines coding and non-coding predictions, and the post cites early uses at the Broad Institute on a rare-disease case and on UK Biobank data for body mass index (&lt;a href=&quot;https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphagenome-atlas/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49611251&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out the release is essentially a cache of model outputs, and that the post does not address how much the predictions should be trusted, referring readers to the underlying Nature paper from January.&lt;/li&gt;&lt;li&gt;Some ask how the non-commercial terms of use square with drug discovery applications.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A researcher factors the 512-bit RSA keys of a defunct 1990s certificate authority.&lt;/strong&gt; Matthew McPherrin found that Netscape 4.51 shipped two 512-bit roots from Canadian CA E-Certify in 1999, then ran CADO-NFS on a desktop Ryzen 9 5950X for about 32 and 29 hours respectively to recover the private keys. The keys expired in 2003 and only affect a period build of Netscape with its clock rolled back, so the post is a demonstration rather than a live threat, complete with a custom Go TLS server that old browsers can connect to (&lt;a href=&quot;https://mcpherrin.ca/2026/09/07/rsa.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49604637&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that factoring cost roughly doubles per bit, so a 512-bit result says little about 1024-bit keys, though some worry about recorded traffic being decrypted later.&lt;/li&gt;&lt;li&gt;Several caution that the author&amp;#x27;s LLM-generated root extraction was not verified, and note the custom TLS server was needed because Go&amp;#x27;s standard library dropped SSLv3 years ago.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Dan Luu tests whether telling coding agents to use specific testing techniques improves correctness.&lt;/strong&gt; Using a Rust Zstd implementation task with codex and GPT-5.6 Sol, he compared 26 prompt conditions, from fuzzing and property-based testing to Lean 4, TLA+, and &amp;quot;make no mistakes,&amp;quot; plus four published skills. Nothing wildly outperformed, the default prompt with no extra instructions did above average, fuzzing and property-based conditions did slightly better than formal methods at high effort, and the popular testing skills codex recommended underperformed (&lt;a href=&quot;https://danluu.com/agentic-testing/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49605246&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters question having agents do manual mutation testing rather than using a mutation framework with a kill-rate gate, and argue test effectiveness depends mostly on code architecture, which the experiment does not control.&lt;/li&gt;&lt;li&gt;Others suggest formal-methods results are unsurprising given how little Verus, TLA+, or Lean code exists relative to ordinary code in training data.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A survey finds most European companies using a CDN sit behind Cloudflare.&lt;/strong&gt; CipherCue examined 44,143 tracked European companies with a detected CDN and found 39,547, or 89.6 percent, fronted by Cloudflare, with Amazon, Fastly, and Akamai far behind and country shares ranging from about 79 percent in Spain and Ireland to about 96 percent in the Netherlands. The post argues this concentration turns Cloudflare&amp;#x27;s internal mistakes, including three global outages since late 2025, into market-wide outages, while noting the CDN says nothing about where data is actually hosted (&lt;a href=&quot;https://ciphercue.com/blog/european-cdn-concentration-cloudflare-nine-in-ten&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49607443&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters question the sample, noting the UK has several times as many CDN-fronted companies as France or Germany despite similar populations.&lt;/li&gt;&lt;li&gt;Several point out Cloudflare&amp;#x27;s free and low-cost plans offer DDoS protection that once cost a fortune from Akamai or others, which explains the dominance, with Bunny.net mentioned as a growing alternative.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Independent wikis on new domains struggle to get more than their main page indexed by Google.&lt;/strong&gt; Weird Gloop, which hosts wikis migrating off Fandom, reports that since Google&amp;#x27;s March 2024 core update, about 90 percent of wikis launched on brand-new domains have only their front page appear in search for months and sometimes up to a year. Subdomains of established domains are unaffected, so the newly moved Overwatch and Fortnite wikis launched under weirdgloop.org rather than their own domains (&lt;a href=&quot;https://weirdgloop.org/blog/google-jail&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49604870&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter running a niche wiki on a domain created about 18 months ago reports being indexed fine, suggesting the problem may be specific to sites competing with an existing incumbent like Fandom rather than new domains generally.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;LibreOffice 26.8 tops one million installer downloads in its first week.&lt;/strong&gt; The August 26 release became the most-downloaded LibreOffice update, not counting Linux distribution repositories, and the author attributes the surge to the project&amp;#x27;s statement that it ships no generative AI features. The Document Foundation followed up with a post explaining it does not reject AI outright but requires local execution, no data leaving the machine, no telemetry, no single-vendor dependency, and full optionality before including it, and recommends community plugins for now (&lt;a href=&quot;https://manualdousuario.net/en/libreoffice-download-record-no-ai/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49610538&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note weekly downloads have been rising steadily for years, so each new release setting a record is expected rather than evidence of a specific cause.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Jellyfin 12.0 drops the leading &amp;quot;10&amp;quot; from its version scheme and rewrites the library database on first boot.&lt;/strong&gt; The media server release requires a full manual backup, an existing install of 10.10.7 or 10.11.x, a full library scan afterward, and removal of third-party plugins, which will not load until rebuilt. It also makes usernames case insensitive, removes the legacy Emby-style API paths, stores playlist and collection items as individual database rows for faster large-library browsing, and includes security fixes (&lt;a href=&quot;https://jellyfin.org/posts/jellyfin-release-12.0/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;release notes&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49604861&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Terrastruct open-sources TALA, its layout engine for architecture diagrams.&lt;/strong&gt; TALA is now available under MPL-2.0 alongside D2, and differs from the bundled Dagre and ELK engines by producing orthogonal, whiteboard-style layouts and allowing individual nodes to be pinned to coordinates while it handles routing. The post is candid about tradeoffs, including seed-based randomness that can rearrange a diagram when one node is added, weaker results on long DAG-style flows, and nonlinear runtime growth on large diagrams (&lt;a href=&quot;https://d2lang.com/blog/tala-is-open-source/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49604150&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters find the first comparison diagrams tidier but note at least one example where TALA loses grouping and left-to-right flow that Dagre and ELK preserve.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-08">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

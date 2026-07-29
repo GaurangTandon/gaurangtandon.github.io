@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 23, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 23, 2026</h1>
+    <p class="date">Sunday, August 23, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet weekend on HackerNews leans toward infrastructure and retrospection: a networking standard that trades speed for reliability, two pieces of vintage-PC history, and some reflections on craft.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Wi-Fi 8 will focus on reliability rather than raw speed.&lt;/strong&gt; The next Wi-Fi standard, dubbed &amp;quot;Ultra High Reliability&amp;quot; by the IEEE and expected to be finalized in 2028, keeps the same maximum data rate, bands, and channel bandwidth as Wi-Fi 7. Instead, it targets a 25% improvement in throughput under interference, 95th-percentile latency, and packet loss, using features like distributed-tone resource units and per-stream modulation adjustments, as &lt;a href=&quot;https://www.xda-developers.com/wi-fi-8-first-wireless-upgrade-years-isnt-chasing-speed-home-networks-need-it/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;XDA Developers explains&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49406539&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters broadly welcome the shift, noting that edge-of-coverage stability and congestion matter far more in practice than theoretical peak speeds that already exceed most home internet connections.&lt;/li&gt;
+&lt;li&gt;Several are skeptical about how much will survive contact with real consumer hardware, pointing to Wi-Fi 6 features like OFDMA that sounded good on paper, and to persistent real-world problems like unreliable roaming between access points.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;MartyPC emulates early IBM-compatible PCs in the browser.&lt;/strong&gt; The Rust-based, cross-platform emulator has a &lt;a href=&quot;https://martypc.net/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;web demo&lt;/a&gt; that lets you pick a system and configure period video cards (MDA, Hercules, CGA, EGA, VGA), memory sidecars, and an AdLib card (&lt;a href=&quot;https://news.ycombinator.com/item?id=49405816&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters report rough edges in the browser version, including a backslash key mapped to backspace and no support for non-QWERTY keyboard layouts.&lt;/li&gt;
+&lt;li&gt;A few note the name is misleading if you expect it to emulate Fujitsu&amp;#x27;s FM Towns Marty console, which it does not.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A vintage Athlon XP loses a chunk of its die during heatsink removal.&lt;/strong&gt; The OS/2 Museum blog &lt;a href=&quot;http://www.os2museum.com/wp/the-end-of-an-athlon/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;documents a CPU&lt;/a&gt; that worked fine until a piece of exposed silicon came away with the heatsink, likely along a pre-existing micro-crack. The post uses it to revisit why Intel and AMD&amp;#x27;s flip-chip packaging of the early 2000s, adopted for better cooling, was quickly abandoned in favor of sturdier lidded designs (&lt;a href=&quot;https://news.ycombinator.com/item?id=49406333&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters share the practical technique of gently rotating the heatsink while the system is still warm to break the thermal-paste bond, avoiding the straight pull that can rip a chip out of its socket.&lt;/li&gt;
+&lt;li&gt;Others note that enthusiasts still remove the lids from modern CPUs for marginally better cooling, with the same risk of destroying the chip.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A novelist argues that reading widely is the one non-negotiable rule of writing.&lt;/strong&gt; Author T. R. Napper &lt;a href=&quot;https://nappertime.com/the-golden-rule-of-becoming-a-better-writer/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;writes&lt;/a&gt; that a growing number of aspiring writers in his workshops don&amp;#x27;t read at all, and makes the case that reading teaches craft implicitly, supplies ideas from outside one&amp;#x27;s genre, and matters more than formal creative-writing education (&lt;a href=&quot;https://news.ycombinator.com/item?id=49405870&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters add a caveat: reading deeply but narrowly can produce derivative work, with one comparing genre writers who only read their own genre to overtrained language models.&lt;/li&gt;
+&lt;li&gt;Others describe writing as strongly imitative of whatever one reads daily, and note that the influence runs both ways — attempting to write changes how you read.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A retrospective on the visual design of Blade Runner resurfaces.&lt;/strong&gt; A 2015 essay &lt;a href=&quot;https://nappertime.com/the-art-of-and-beauty-of-blade-runner/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;collects fan art and production details&lt;/a&gt; from the film, covering Syd Mead&amp;#x27;s design work, Ridley Scott&amp;#x27;s frame-by-frame attention to detail, and props like Deckard&amp;#x27;s pistol, built from a sawn-off rifle (&lt;a href=&quot;https://news.ycombinator.com/item?id=49405331&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters argue the article&amp;#x27;s focus on visuals undersells the film&amp;#x27;s sound design, crediting the Vangelis score and layered ambient effects as an equal part of what makes it immersive.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-23">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

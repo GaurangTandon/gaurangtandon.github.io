@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 19, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 19, 2026</h1>
+    <p class="date">Wednesday, August 19, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter Tuesday&amp;#x27;s worth of reading: new inference silicon, a five-year air-quality study, and several projects handing control back to the people running the software.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cerebras announced the CS-4, a rack-scale inference system built from three WSE-3 Turbo wafers.&lt;/strong&gt; The company says it delivers up to 30x faster inference than GPU systems and more than 1,000 tokens per second on models above 10 trillion parameters, helped by wafer-to-wafer interconnect latency as low as two microseconds and power delivery placed 0.5mm from the processor (&lt;a href=&quot;https://www.cerebras.ai/cs4&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;product page&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49354949&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). First shipments are said to begin this quarter.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that power consumption figures are absent from the announcement, which makes the efficiency claims hard to evaluate.&lt;/li&gt;
+&lt;li&gt;Several point out the system targets inference only, not training, and that the open-weight models used in the marketing benchmarks are several releases behind current ones.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A five-year London study found children&amp;#x27;s lung growth accelerated after the Ultra Low Emission Zone was introduced.&lt;/strong&gt; Researchers followed more than 3,400 primary school children in London and Luton with annual lung function tests; London children started with smaller lung capacity and ended at near-identical levels, while the share with clinically impaired capacity fell from 14% to 9% in London against 9% to 7% in Luton (&lt;a href=&quot;https://www.bbc.com/news/articles/c1l1r1zne1ro&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;BBC&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49355105&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Independent researchers quoted in the piece caution that Covid effects and unmeasured differences between the two cities need further work.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters push back on the &amp;quot;stunned scientists&amp;quot; framing, arguing the link between combustion pollution and respiratory harm has been understood since London&amp;#x27;s smog era.&lt;/li&gt;
+&lt;li&gt;Others offer first-hand accounts of reduced inhaler use and fewer respiratory symptoms after moving away from heavy traffic, which is consistent with but weaker than the study&amp;#x27;s design.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Mojo 1.0 is now fully open source under Apache 2.0, and Modular has been acquired by Qualcomm.&lt;/strong&gt; The compiler and tooling are open, following the standard library in 2024 and MAX kernels in 2025; Modular also announced its cloud is generally available, support for AWS Trainium, Google TPUs and Qualcomm accelerators, and native Windows support developed with the Microsoft Windows team (&lt;a href=&quot;https://www.modular.com/blog/modcon-announcements&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49358327&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters question whether Mojo has meaningful traction, suggesting the years spent closed-source cost it the attention it had at launch.&lt;/li&gt;
+&lt;li&gt;Others are wary that open-sourcing immediately after the Qualcomm acquisition signals the language is being set loose while the commercial cloud business is what gets invested in.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Terence Tao announced Palomar, a registry for Lean-verified mathematical results.&lt;/strong&gt; Incubated by the Lean FRO and ICARM, it registers snapshots of GitHub repositories that pair a human-readable &amp;quot;challenge file&amp;quot; of claims with a proof module, and checks both that the proof typechecks against the claims (mechanically, via the Comparator tool) and that the informal description matches (via a large language model) (&lt;a href=&quot;https://terrytao.wordpress.com/2026/08/18/palomar-a-registry-of-lean-verified-mathematics/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;blog post&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49355968&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Tao stresses it is not a peer-reviewed journal and the checks fall short of human review for novelty or interest.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters ask what incentive authors have to submit, since registration confers no peer-review credit.&lt;/li&gt;
+&lt;li&gt;Others point to existing efforts covering similar ground, including the Metamath community&amp;#x27;s centralized result database and theoremdb.org.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;SoLo is an ELF loader that lets fully static musl-linked Linux binaries dlopen the host&amp;#x27;s glibc-built shared libraries.&lt;/strong&gt; It provides a dlfcn-style API with a glibc ABI bridge on top of musl for x86-64 and aarch64, and ships an end-to-end demo where a static executable loads the machine&amp;#x27;s unmodified Vulkan driver, runs a compute shader and writes a PNG; CI loads the shared objects of the 1,000 most-installed Debian packages on every commit (&lt;a href=&quot;https://github.com/pg83/solo&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;repository&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49354613&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters observe that a binary bridging to the host libc is not static in the strict sense, and treat the need to embed an ELF loader as a symptom of long-standing Linux ABI and distribution fragmentation.&lt;/li&gt;
+&lt;li&gt;Some criticize the README as apparently LLM-generated, while others point to the repo&amp;#x27;s own section comparing the approach to prior work.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenLogi is a local-first Rust alternative to Logitech Options+ for configuring Logitech mice and keyboards.&lt;/strong&gt; It talks to devices over HID++ across Bolt, Unifying, Lightspeed, Bluetooth or USB, supports button remapping with 44 built-in actions, DPI presets and SmartShift, and stores bindings in a plain TOML file with no account and no telemetry; signed builds exist for macOS, Linux and Windows (&lt;a href=&quot;https://openlogi.org/en&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project site&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49355606&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Per-app profiles and Options+ settings import are listed as not yet shipped.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point to substantial prior art, including Solaar on Linux, SteerMouse and LinearMouse on macOS, and note Logitech itself publishes an offline build of Options+ for air-gapped systems.&lt;/li&gt;
+&lt;li&gt;Several find the site&amp;#x27;s marketing copy conspicuously LLM-generated, which colors their read of how much of the project is original.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A new Becker Friedman Institute working paper examines sticky wage norms and the real wage cost of unexpected inflation.&lt;/strong&gt; The paper argues that nominal wage adjustment norms leave workers exposed when inflation surprises to the upside (&lt;a href=&quot;https://bfi.uchicago.edu/wp-content/uploads/2026/08/BFI_WP_2026-108-1.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;paper, PDF&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49355142&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters focus on a figure that only 57% of workers who stayed in their jobs matched or beat inflation, leaving 43% with a real pay cut.&lt;/li&gt;
+&lt;li&gt;Several add that much of the group that did keep pace appears to have done so by changing employers, and ask for a version of the analysis restricted to high-cost-of-living metros.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The Economist covers Meta&amp;#x27;s ongoing trial over social media harms and the comparisons being drawn to tobacco litigation.&lt;/strong&gt; The piece frames the case in terms of the parallels plaintiffs are drawing to the big tobacco suits (&lt;a href=&quot;https://www.economist.com/business/2026/08/18/metas-blockbuster-trial-draws-parallels-to-big-tobacco&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49355825&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters expect the outcome to hinge on what Meta knew internally, and note that goodwill-motivated internal studies and working groups could become the strongest evidence against the company.&lt;/li&gt;
+&lt;li&gt;Others raise the harder general question of how a court or regulator would define and test an &amp;quot;addictive&amp;quot; platform, given that gambling regulation attaches to a much more specific mechanism.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-19">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 18, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 18, 2026</h1>
+    <p class="date">Friday, September 18, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet day dominated by supply-chain trust: who holds your code, your credentials, and the text your models were trained on.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Unsealed filings in the New York Times case against OpenAI and Microsoft quote internal descriptions of AI training data practices as theft.&lt;/strong&gt; According to &lt;a href=&quot;https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;TechCrunch&amp;#x27;s account of the newly unredacted material&lt;/a&gt;, a January 2023 memo from a Microsoft applied science director called the scraping &amp;quot;the largest theft of labor in human history,&amp;quot; and a separate internal presentation described Copilot&amp;#x27;s answer engine cutting click-through to nytimes.com by as much as 93% versus traditional Bing search. The filing also cites figures on scale — more than 91,692 copies of works from the plaintiff publishers in OpenAI&amp;#x27;s mid-training datasets — though the article notes the quotes come from the Times&amp;#x27; own brief, with the underlying exhibits still sealed (&lt;a href=&quot;https://news.ycombinator.com/item?id=49752056&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters push back on the &amp;quot;theft&amp;quot; framing itself, noting that the originals were copied rather than removed, and that the real objection is harder to name than theft of knowledge.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Security researchers chained a libheif heap overflow and an SSO misconfiguration to reach OpenAI&amp;#x27;s internal repositories.&lt;/strong&gt; Hacktron&amp;#x27;s &lt;a href=&quot;https://www.hacktron.ai/blog/hacking-openai&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt; describes getting remote code execution on the Discourse instance behind community.openai.com via image processing, then using an identity flaw to take over employee ChatGPT and Codex accounts and open a proof-of-concept pull request in OpenAI&amp;#x27;s internal monorepo — all inside 72 hours in July. OpenAI confirmed a fix about 14 hours after the report, Discourse shipped a patch and image-processing sandboxing within days, and the bounty paid was $6,500 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49749656&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Multiple commenters call the bounty far too low relative to the potential impact of source-code and model access at a company of that size.&lt;/li&gt;&lt;li&gt;Others focus on the upstream cause: the vulnerable code was fixed a year earlier without being labelled a security fix or given a CVE, which is why distribution backports never arrived, and on the broader pattern of employees using consumer-grade account protections on accounts with elevated access.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A reverse-engineering post found that Z.ai&amp;#x27;s ZCode desktop app packages and uploads entire workspaces, including full .git directories, to Alibaba Cloud storage.&lt;/strong&gt; The &lt;a href=&quot;https://blog.ferstar.org/en/posts/zcode-silent-workspace-snapshot-upload/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;original analysis&lt;/a&gt; documents a 313MB encrypted archive built from a 345MB project, with the .git directory — objects, LFS cache and reflogs — accounting for roughly 86.6% of the payload, and 564 logged upload retries. The symmetric key is wrapped with an RSA public key served by Z.ai, so neither the user nor the client can decrypt the archive sitting on their own disk, and the two relevant UI toggles only govern training use and server-side indexing rather than packaging and upload (&lt;a href=&quot;https://news.ycombinator.com/item?id=49750694&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;, plus a &lt;a href=&quot;https://news.ycombinator.com/item?id=49752422&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;second thread&lt;/a&gt; on follow-up coverage).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters draw a line between open weights and closed harnesses, noting that several readers assumed ZCode was open source because GLM is, and pointing to an earlier incident with another vendor&amp;#x27;s coding tool as the same pattern.&lt;/li&gt;&lt;li&gt;One commenter corrects the secondary coverage for conflating &amp;quot;git history&amp;quot; in the commit-log sense with the full repository object store that is actually being uploaded.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Alibaba published Qwen 3.8 Omni Flash, a multimodal model release.&lt;/strong&gt; The &lt;a href=&quot;https://qwen.ai/blog?id=qwen3.8-omni-flash&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement post&lt;/a&gt; claims audio-visual performance close to Gemini 3.8 Flash and overall audio performance that exceeds it, with other capabilities described as matching or exceeding that model (&lt;a href=&quot;https://news.ycombinator.com/item?id=49747925&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter comparing published list prices puts Qwen 3.8 at $0.15/$0.47 per million input/output tokens against $1.50/$9.00 for the Gemini comparison point, which would be a large cost gap if the quality claims hold.&lt;/li&gt;&lt;li&gt;Readers report that the accompanying evaluation harness repository linked from the post 404s and appears to have been removed.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A new arXiv paper decomposes coding agent harnesses into components and measures each one.&lt;/strong&gt; The &lt;a href=&quot;https://arxiv.org/abs/2609.20804&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;study&lt;/a&gt; fixes the execution loop and varies planning, action space and context management across 176 matched settings, four models, and SWE-Bench Verified plus Terminal-Bench 2.1. Among the findings: context management matters most under tight context budgets and mainly by preventing overflow failures; planning acts as an accuracy scaffold for weaker models but mostly a cost saver for stronger ones; and predefined tools help models with weak bash proficiency while bash-capable models do as well or better with a bash-only interface at lower cost (&lt;a href=&quot;https://news.ycombinator.com/item?id=49753878&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note the evaluation uses Nemotron and Mistral models rather than current frontier or leading open Chinese models, which limits how far the conclusions transfer.&lt;/li&gt;&lt;li&gt;Several point out the paper never defines what makes a model &amp;quot;bash capable,&amp;quot; leaving the most actionable recommendation hard to apply.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A blog post argues that Bend 2 reinvents formal verification without engaging with the existing field.&lt;/strong&gt; The &lt;a href=&quot;https://blog.liampwll.com/posts/bend_vibe_coding/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; compares Bend&amp;#x27;s demo — 58 lines to state that a player can never win, and a 442-line machine-generated proof — against a recreation in SPARK that discharges the same properties with GNATprove reporting all 12 checks proved. Its broader claim is that fast AI-assisted building makes it possible to ship a whole language and compiler before learning enough about the problem domain to find the established approach (&lt;a href=&quot;https://news.ycombinator.com/item?id=49753179&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters cite Bend&amp;#x27;s own README, which states the compiler is 99% AI-written and not yet fully audited, and that strings are linked lists of characters.&lt;/li&gt;&lt;li&gt;Others question what Bend adds beyond writing specifications first, and note that the cost of writing and understanding a formal specification remains prohibitive for most software outside algorithmic kernels.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer laid out why passkeys fit corporate environments better than personal ones.&lt;/strong&gt; The &lt;a href=&quot;https://hawksley.dev/blog/i-dont-like-passkeys&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; argues that passkeys eliminate phishing and breach exposure but shift risk toward permanent lockout, since accounts remain only as strong as their weakest recovery path and hardware keys cannot be backed up — requiring multiple keys enrolled per site, against discoverable-credential limits of roughly 25–100 per key. It also covers synced passkeys anchoring identity to Apple or Google accounts, immature third-party autofill outside browsers, and flaky hybrid QR-plus-Bluetooth sign-in on borrowed machines (&lt;a href=&quot;https://news.ycombinator.com/item?id=49753211&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The FEX project published a long explanation of why emulating x86 memory ordering on ARM is so expensive.&lt;/strong&gt; The &lt;a href=&quot;https://fex-emu.com/Scourge-of-emulation/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt; walks through x86&amp;#x27;s Total Store Ordering against ARM&amp;#x27;s weak model, and how baseline ARMv8.0-a forces every emulated x86 load and store to become a load-acquire or store-release — semantically safe but stricter than necessary, and costly on hardware never designed for those instructions to dominate the instruction mix (&lt;a href=&quot;https://news.ycombinator.com/item?id=49750094&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters supply context that FEX is the x86-to-ARM translation layer Valve sponsors for the Steam Frame, comparable to Rosetta 2 and Prism, and note Apple sidestepped this class of problem years ago by adding a hardware TSO mode.&lt;/li&gt;&lt;li&gt;One commenter links an argument that the performance advantage of relaxed memory models over stricter ones may be smaller than the framing in the article suggests.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;jemalloc shipped 5.4.0, a cleanup-focused release of over 160 commits.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/jemalloc/jemalloc/releases/tag/5.4.0&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;release notes&lt;/a&gt; cover a new pinned-extent allocation flag with matching mallctl statistics for non-reclaimable mappings such as HugeTLB pages, plus fixes for errno preservation across free, TSD lifecycle edge cases, and a potential arena_reset deadlock. The notable incompatible change replaces the fixed tcache refill and flush policy with per-bin adaptation to observed demand, removing seven previously non-experimental tuning options that will now be silently ignored (&lt;a href=&quot;https://news.ycombinator.com/item?id=49750152&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters explain the significance others were missing: this follows a period with no releases since 2022 and a widely read postmortem about the project&amp;#x27;s future, so the question is who is now driving development.&lt;/li&gt;&lt;li&gt;Practitioners report large real-world effects, including one Sidekiq workload whose memory use dropped from roughly 8GiB to under 1GiB after switching allocators.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A linguistics newsletter examined the roughly 1,000 Ancient Greek words with no traceable Indo-European origin.&lt;/strong&gt; The &lt;a href=&quot;https://linguisticdiscovery.com/posts/pre-greek/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt; covers vocabulary including &amp;quot;labyrinth,&amp;quot; &amp;quot;olive,&amp;quot; and names such as Athens, Achilles and Odysseus, situating them against the Paleo-European languages spoken before Indo-European arrival — a group that left almost no written record and of which only Basque survives (&lt;a href=&quot;https://news.ycombinator.com/item?id=49749771&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter with domain knowledge corrects the premise, saying no working Indo-Europeanist now posits a single unified Pre-Greek language; that idea traces to one scholar&amp;#x27;s late work and the article only reaches the current consensus after several paragraphs.&lt;/li&gt;&lt;li&gt;Another disputes the claim that Proto-Indo-European lacked a reconstructable word for &amp;quot;sea,&amp;quot; pointing to reflexes of *mori across widely separated branches.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-18">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
