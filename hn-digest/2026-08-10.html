@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 10, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 10, 2026</h1>
+    <p class="date">Monday, August 10, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet Monday of infrastructure and tooling news: two new sandboxing stories for coding agents, an open-weights local model from Meta, and a patent decision that has been fifteen years in the making.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Meta released Muse Glimmer, a 30B-parameter open-weights model aimed at local agent workflows.&lt;/strong&gt; The &lt;a href=&quot;https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt; describes an Apache 2.0 release distilled from a larger teacher model, quantized to roughly 4-bit to fit under 20GB, with a speculative-decoding drafter and a perception encoder for image input; llama.cpp, MLX, and ExecuTorch integrations are said to be landing shortly (&lt;a href=&quot;https://news.ycombinator.com/item?id=49241679&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Meta compares it against Gemma4-31B and Qwen3.6-27B on agentic benchmarks.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters treat the benchmark numbers cautiously until independent testing, noting that models in this size class are often tuned toward the benchmarks they are compared on.&lt;/li&gt;&lt;li&gt;Others point out that a 24–32GB memory envelope is still an expensive machine in practice, and that a Qwen 27B refresh due this week will be the more useful comparison.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Claude Code will switch to auto mode as the default for Pro, Max, and Team plans on August 14.&lt;/strong&gt; Rather than prompting per action, auto mode routes each tool call through a classifier that blocks irreversible or destructive operations, falling back to manual approvals after three consecutive blocks or twenty in a session; Anthropic &lt;a href=&quot;https://claude.com/blog/auto-mode-default-in-claude-code&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;says&lt;/a&gt; users currently approve 97% of permission prompts, versus rejecting 39% of proposed plans (&lt;a href=&quot;https://news.ycombinator.com/item?id=49239021&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The classifier&amp;#x27;s token overhead is no longer billed on those plans.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters say they already run the agent with permissions skipped inside a container and consider the isolation, not the prompt, to be the real control — with follow-up questions about how to sandbox reasonably on macOS.&lt;/li&gt;&lt;li&gt;One asks whether anyone has actually seen an agent approve a damaging command in auto mode, distinguishing failures caused by model mistakes from the harder case of deliberate misbehaviour.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Docker launched Sandboxes, disposable microVM environments for running coding agents unattended.&lt;/strong&gt; The &lt;a href=&quot;https://www.docker.com/products/docker-sandboxes/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;product page&lt;/a&gt; describes a CLI (sbx) installed via Homebrew or winget, with configurable filesystem and network controls, support for Claude Code, Gemini CLI, Copilot CLI, Codex, OpenCode and Kiro, and the ability for agents to start their own containers inside the sandbox (&lt;a href=&quot;https://news.ycombinator.com/item?id=49239751&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Docker Desktop is not required.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to prior art in Apple&amp;#x27;s containerization examples and note that many developers have already assembled their own agent sandboxes, making a proprietary tool a harder sell.&lt;/li&gt;&lt;li&gt;One raises the practical governance gap: nothing stops a developer from running the agent directly on the host instead, short of scanning machines for binaries.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Snowflake described moving Postgres change data capture into the database itself via an extension.&lt;/strong&gt; Instead of an external client pulling from logical decoding, a snowflake_cdc extension pushes batches of changes directly into Iceberg change logs and a meta log in object storage, which Snowflake then applies transactionally; the &lt;a href=&quot;https://www.snowflake.com/en/blog/engineering/postgres-to-snowflake-replication-mirroring/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;writeup&lt;/a&gt; argues this removes a class of failure modes around schema changes, snapshots and restarts (&lt;a href=&quot;https://news.ycombinator.com/item?id=49238050&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The feature is in public preview.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to earlier systems with similar shapes — Vertica&amp;#x27;s write-optimized and read-optimized stores, Oracle GoldenGate, and Debezium-plus-lakehouse pipelines — and note that most of them broke down around schema updates.&lt;/li&gt;&lt;li&gt;Several compare the approach to ClickHouse&amp;#x27;s PeerDB-based path and Databricks&amp;#x27; unified storage, and note that Snowflake&amp;#x27;s open-source pg_lake omits the CDC piece.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer published Klepton, a compatibility layer that runs Android ARM64 VR apps on visionOS and macOS without JIT.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/shinyquagsire23/Klepton&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project&lt;/a&gt; relinks Android .so libraries into Mach-O dylibs, reimplements bionic, NDK and JNI surfaces, maps GLES to ANGLE&amp;#x27;s Metal backend and Vulkan to MoltenVK, and patches uses of the x18 register that macOS reserves. Beat Saber currently runs on both platforms with minor graphical issues; SteamVR Link is still in progress (&lt;a href=&quot;https://news.ycombinator.com/item?id=49238818&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter elaborates on the x18 problem: Darwin zeroes the register on any exception return, including timer interrupts, so a guest app cannot hold state there for even one scheduling window.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The Japanese Patent Office invalidated one of Red&amp;#x27;s key raw video patents after a challenge by Panasonic.&lt;/strong&gt; The patent, first filed in the US in 2008, covers a high-resolution camera that compresses raw data; the court found many of its claims would have been obvious to someone skilled in the field, according to &lt;a href=&quot;https://www.dpreview.com/news/panasonic-did-what-apple-sony-and-nikon-couldnt-overturn-a-red-raw-video-patent/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;DPReview&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49237873&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Nikon, which acquired Red, was in the position of defending a patent it had previously argued was invalid; one possible effect is on license fees tied to Apple&amp;#x27;s ProRes RAW.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters describe the core claim as compressing sensor data before debayering rather than after, and characterise the patent as a list of features rather than a specific invention.&lt;/li&gt;&lt;li&gt;Little expectation that any licence savings reach consumers, though several note the significance of a competitor finally succeeding where Apple, Sony and Nikon did not.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A longtime bug bounty hunter and program manager published an account of HackerOne&amp;#x27;s shift away from its researcher-focused era.&lt;/strong&gt; The &lt;a href=&quot;https://blog.teknogeek.io/posts/what-happened-to-hackerone/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;essay&lt;/a&gt; traces the platform from its 2011 founding through the live hacking events of 2017–2020 — which the author credits with creating a sharing culture among previously isolated researchers — to the wind-down of community programmes, staff departures, and increasingly gamified event invitations (&lt;a href=&quot;https://news.ycombinator.com/item?id=49238561&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter disputes the essay&amp;#x27;s framing of the pre-platform era, arguing that the widely held belief that researchers were routinely jailed for reporting vulnerabilities does not hold up against the actual documented cases.&lt;/li&gt;&lt;li&gt;Others add practitioner context from the other direction: reports dismissed or downgraded, and at least one severity-reduced finding still unresolved seven years later, plus a dissenting view that AI triage of low-quality reports saves everyone time.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Savannah, Georgia&amp;#x27;s police department fired six employees for misusing its Flock license plate reader system.&lt;/strong&gt; Four sworn officers and two civilian staff ran searches on personal acquaintances and family members, and one officer gave an outside agency unauthorized access; the activity surfaced through the department&amp;#x27;s own auditing, including Flock&amp;#x27;s Audit Assist program introduced in April, and all six cases were referred to the Georgia Bureau of Investigation (&lt;a href=&quot;https://www.wtoc.com/2026/08/07/savannah-police-department-fires-6-employees-over-flock-safety-system-misuse/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;report&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49236033&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The department has since added weekly audits.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter argues the story is narrower than it appears — improper lookups of plates and personal records have been an investigable offence for decades, and what is new here is the automated logging that caught it.&lt;/li&gt;&lt;li&gt;Others note the deployment side rather than the misuse side, describing camera expansions arriving in their own towns with little advance notice.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A blog post on using LLMs to learn technical subjects describes generating interactive simulations rather than explanations.&lt;/strong&gt; The &lt;a href=&quot;https://laurentiugabriel.github.io/blog/articles/how-i-use-llms-to-learn/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;author&lt;/a&gt; asks a model to build a foundational knowledge base for a topic, review it for accuracy, then turn it into a low-poly browser simulation — in this case following a cart through semiconductor fabrication from quartz sand to finished chip (&lt;a href=&quot;https://news.ycombinator.com/item?id=49234675&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters flag the post&amp;#x27;s claim that the result is &amp;quot;100% accurate and free of hallucinations&amp;quot; as the weak point, since a learner encountering a subject for the first time has no way to detect where the model was wrong.&lt;/li&gt;&lt;li&gt;Several offer adjacent methods they find more reliable: having a model quiz you and then arguing about your answers, generating literate implementations of protocols to read as source, or simply watching the existing high-quality material on chip fabrication.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-10">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

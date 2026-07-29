@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — October 2, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — October 2, 2026</h1>
+    <p class="date">Friday, October 2, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter day of infrastructure updates, new developer tools, and a few thoughtful explorations of how AI models work in creative and practical settings.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Debian issues a large Linux kernel security update.&lt;/strong&gt; Debian Security Advisory DSA-6528-1, dated September 29, 2026, patches the Linux kernel package against a very long list of CVEs spanning identifiers from 2024 through 2026 (&lt;a href=&quot;https://lwn.net/Articles/1097401/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;LWN&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49928121&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The advisory lists the CVE identifiers for the update; the provided text does not describe the individual issues.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that nearly any kernel bug now receives a CVE by default, so the count reflects that policy rather than an equal number of serious vulnerabilities.&lt;/li&gt;&lt;li&gt;Several observe that most of these CVEs have no CVSS score yet, though many of the scored ones exceed 7.0, possibly because higher-impact issues get scored first.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;DeepSeek releases an open-source agent harness as a desktop app.&lt;/strong&gt; DeepSeek Harness is now in public preview as an open-source tool with desktop builds for Apple silicon Macs and 64-bit Windows, plus a web UI that launches via npx (&lt;a href=&quot;https://www.deepseek.com/en/harness/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;DeepSeek&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49929489&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It is built on a &amp;quot;Cordis&amp;quot; architecture where everything is a plugin, and users can create plugins through chat in a &amp;quot;Creator mode.&amp;quot; Experimental official plugins include scheduled tasks, agent teams, and voice input.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter points to a third-party harness benchmark that places it on the Pareto frontier, but cautions that the benchmark emphasizes one-shot tasks, uses a single backend model, and may not reflect long-running work.&lt;/li&gt;&lt;li&gt;Others raise concerns about granting a large desktop binary broad system permissions.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Supabase is acquiring Turso, maker of a Rust rewrite of SQLite.&lt;/strong&gt; Supabase says it launches over one million databases per week and is acquiring Turso to support agents that spin up many small databases on demand (&lt;a href=&quot;https://supabase.com/blog/supabase-is-acquiring-turso&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Supabase&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49934784&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Turso rebuilt SQLite in Rust and runs a cloud platform where one server can manage millions of databases, suspending them when idle. Supabase says nothing changes for existing users and that Turso co-founder Glauber Costa will lead the combined agentic infrastructure effort.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some commenters had treated the open-source project&amp;#x27;s dependence on Turso the company as a risk, and say the acquisition makes them more willing to adopt it.&lt;/li&gt;&lt;li&gt;Others point to past attempts to add Turso to the ClickBench benchmark that surfaced bugs and performance gaps compared with SQLite, and hope for more work on those issues.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Home Assistant Cloud is renamed Home Assistant Link.&lt;/strong&gt; Nabu Casa has renamed its optional subscription service, which provides remote access and integrations such as Alexa and Google Home, to reflect that it does not run Home Assistant in the cloud (&lt;a href=&quot;https://www.home-assistant.io/blog/2026/10/02/big-tech-ruined-the-cloud-so-were-renaming-ours/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Home Assistant blog&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49934228&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The company says the old name confused new users, that data is encrypted with keys only the user holds, and that most subscription profits fund the Open Home Foundation.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter notes that unless the company runs its own data centers, the service likely still sits on a major cloud provider, which makes the rebrand&amp;#x27;s framing partly a marketing choice.&lt;/li&gt;&lt;li&gt;Others raise long-standing gaps unrelated to the rename, such as the lack of real role-based permissions to restrict which users can control which devices.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An experiment has AI models paint through code in a simulated oil-paint studio.&lt;/strong&gt; The stillwet project has models such as Claude Opus 5.5 and GPT-6.1 write programs that drive a simulation of brushes, wet paint, drying, and glazes; no image generator is involved (&lt;a href=&quot;https://stillwet.art/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;stillwet&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49928566&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Most of the 75 paintings were made in the manner of Caspar David Friedrich from written research alone. The site documents recurring patterns: 31 of 65 titled works reference evening, dusk, twilight, or sunset, and several models independently chose a jug with lemons when given a free subject.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to related prior work from March 2026 that trained a Qwen model to paint with code, as part of a broader interest in having models perform the creative process rather than generate a final image.&lt;/li&gt;&lt;li&gt;One commenter notes that many landscapes include implausible clusters of churches placed side by side.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Audionaut, an open-source multitrack audio editor, is released.&lt;/strong&gt; Audionaut is a free desktop editor written in C++ on the JUCE framework for Windows, macOS, and Linux, aimed at music, podcasts, and multitrack recording without the complexity of a full DAW (&lt;a href=&quot;https://github.com/kvoltmer/Audionaut&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;GitHub&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49931031&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It supports MCP so AI agents can edit open sessions, with each edit recorded as one undo step. Optional features include audio analysis via Essentia and stem separation via a C++ port of Demucs.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;The author says the project took three to four years and began as a way to recreate the region-and-playlist workflow of the older Sound Designer II.&lt;/li&gt;&lt;li&gt;Early hands-on feedback lists missing features such as menu-based file import, keyboard shortcuts for splitting, automatic crossfades, envelopes, and effects.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Details emerge on Singapore&amp;#x27;s government-run dating pilot.&lt;/strong&gt; GovTech&amp;#x27;s FirstDate pilot is open to government workers first, verifies identity through Singpass, offers one match per cycle, and shares contact details only when both people agree (&lt;a href=&quot;https://www.singapore-samizdat.com/p/how-singapores-government-run-dating-service-firstdate-works&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Singapore Samizdat&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49929113&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The article lists its questionnaire of more than 30 questions and notes that the service cites the Gale-Shapley stable matching algorithm.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out that Gale-Shapley gives the proposing side its best possible stable match and the other side its worst, an asymmetry that &amp;quot;stable&amp;quot; does not imply is fair.&lt;/li&gt;&lt;li&gt;Some suggest a government service may face fewer of the engagement-driven incentives that shape commercial dating apps.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A review of the Shimano Bicycle Museum in Japan.&lt;/strong&gt; The cycling site INRNG reviews the museum in Japan&amp;#x27;s Kansai region and finds it focused on the history of the bicycle rather than on the company (&lt;a href=&quot;https://inrng.com/2026/10/shimano-bicycle-museum/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;INRNG&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49930047&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Exhibits range from early hobby horses to a fully disassembled modern race bike, displayed close up rather than behind glass. The museum also has a library and a research archive of catalogues and brochures.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-10-02">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

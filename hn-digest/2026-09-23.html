@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 23, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 23, 2026</h1>
+    <p class="date">Wednesday, September 23, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers AI models tested on a real car, a configuration issue in a coding tool, a failed appliance update, and a few smaller engineering stories.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A new benchmark gives frontier AI models control of a real car on a cone course.&lt;/strong&gt; &lt;a href=&quot;https://drivingbench.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;DrivingBench&lt;/a&gt; connects models to a Toyota Corolla&amp;#x27;s steering, accelerator and brakes and gives each up to three attempts in one continuous chat. GPT-6 Astra finished the course on its second attempt in 5:22, while Claude Fable 5.1 reached 45%, Grok 4.6 reached 11% and GPT-5.6 Sol reached 6% of the course (&lt;a href=&quot;https://news.ycombinator.com/item?id=49817404&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters ask how a model with conventional response latency can handle a continuous control task like driving, and one suggests newer context-compaction features may explain part of the result.&lt;/li&gt;&lt;li&gt;One commenter reports that Astra first refused to drive once it recognized a real car, and only complied after the control tool was renamed to a &amp;quot;sandbox,&amp;quot; which raises questions about how models judge real-world risk.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Claude Code&amp;#x27;s AGENTS.md support was silently disabled when telemetry was off.&lt;/strong&gt; A &lt;a href=&quot;https://blog.szypowi.cz/p/claude-code-reads-agents.md-only-when-telemetry-is-on/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt; shows that the AGENTS.md loader added in version 2.1.277 depends on a remote feature flag. With DISABLE_TELEMETRY or CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC set, and on Bedrock, Vertex or third-party gateways, the file was skipped without any warning. The author&amp;#x27;s workaround is a one-line CLAUDE.md containing @AGENTS.md, and the HN title now marks the issue as fixed (&lt;a href=&quot;https://news.ycombinator.com/item?id=49814947&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that putting new features behind remote flags is a common way to run progressive rollouts, so it is unclear whether this behavior was intended or a bug.&lt;/li&gt;&lt;li&gt;A commenter who shares one skills folder across several agents reports a separate problem: Claude Code syncs skills into its own subfolder, which creates duplicates when the folder is symlinked.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Samsung paused a smart-fridge software update in Korea after some units stopped working.&lt;/strong&gt; Owners of affected fridges &lt;a href=&quot;https://www.androidauthority.com/samsung-accidentally-freezes-its-smart-fridges-with-a-software-update-3714472/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;reported&lt;/a&gt; spoiled food, doors that would not open automatically, and internal lights that stayed off. Samsung said the error occurred during the testing process for the update and that it had stopped distributing it. Users report that technicians have been replacing motherboards in affected units (&lt;a href=&quot;https://news.ycombinator.com/item?id=49815381&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters question why basic temperature control depends on the connected software at all, and point to earlier cases such as Nest thermostats failing to run furnaces without an internet connection.&lt;/li&gt;&lt;li&gt;Some note that the losses can include refrigerated medication, which can be worth more than the appliance itself.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Waymo will credit riders who combine its rides with public transit in the Bay Area.&lt;/strong&gt; Under the &lt;a href=&quot;https://waymo.com/blog/2026/09/transit-rewards/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;transit rewards program&lt;/a&gt;, riders who use the same linked Visa card for a Waymo trip and a transit fare within two hours receive $2.85 in Waymo Cash. The program covers the 27 Bay Area transit agencies that accept contactless Visa payments. Waymo is also leasing 40 parking spaces at Caltrain stations to stage vehicles for connecting riders (&lt;a href=&quot;https://news.ycombinator.com/item?id=49811065&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out that the program does not work with Clipper transit cards, which many local riders use instead of a credit card.&lt;/li&gt;&lt;li&gt;Others note that the Muni line linking Van Ness to Caltrain has been suspended since 2020, and that some riders already find Waymo vehicles hard to get during busy times.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An essay argues that the cost of LLM inference is falling fast enough to reshape computing.&lt;/strong&gt; The &lt;a href=&quot;https://jyn.dev/tokens-too-cheap-to-meter/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; separates cost per token, which has not fallen consistently for frontier models, from cost per task, which it says has fallen sharply. It cites gains in GPU efficiency and in inference engines, including roughly a 40% efficiency improvement in vLLM over 15 months. It predicts current frontier-quality models will run locally on commodity hardware within 3–6 years (&lt;a href=&quot;https://news.ycombinator.com/item?id=49813482&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters are skeptical that consumer hardware will keep pace given current memory and GPU market conditions, and question whether the cited hardware trend line was checked for statistical significance.&lt;/li&gt;&lt;li&gt;Some suggest the argument implies data-center buildout could outrun demand, and note that the post does not examine whether AI providers&amp;#x27; business models are viable.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A parody post reimplements the core idea of the Jev classifier in 25 lines of Python.&lt;/strong&gt; NobodyWho&amp;#x27;s &lt;a href=&quot;https://www.nobodywho.ai/posts/jev-in-25-lines/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; runs a small local Qwen3 model through llama-cpp-python. It frames a classification task as a multiple-choice prompt and converts the logits of the answer labels into probabilities. The authors state that it is a parody and link to more complete open implementations (&lt;a href=&quot;https://news.ycombinator.com/item?id=49812769&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that the post includes no comparison of latency, error rate or malformed-output rate, which are the areas where a production system would need to prove itself.&lt;/li&gt;&lt;li&gt;One commenter warns that reading label probabilities directly from a chat-tuned model can be unreliable, because the model may spread probability across other prose it wants to write.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Volunteers worked out how to set an 1877 clock tower after a community bought Portobello&amp;#x27;s old police station.&lt;/strong&gt; The &lt;a href=&quot;https://pointinthecloud.com/2026-04-11-211700.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt; describes setting the time by lifting a pawl so the minute-hand shaft could be turned by hand. The chime is run by an unlabeled control box with a PIC 16F628 microcontroller, relays and a lead-acid backup battery, and the author suspects the box dates from around 2001 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49817469&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter points out that the unexplained status-LED pattern, long-long-short-short-short, is the number 7 in Morse code.&lt;/li&gt;&lt;li&gt;Another suggests the lead-acid backup battery is likely at or near the end of its life, based on the lifespan of similar alarm-system batteries.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A 2022 post argues that project docs belong in a /docs folder rather than a GitHub wiki.&lt;/strong&gt; The &lt;a href=&quot;https://michaelheap.com/github-wiki-is-an-antipattern/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;author&amp;#x27;s case&lt;/a&gt; is that a docs folder is versioned with the code, reviewed through pull requests, can be linted in CI, and can be published via GitHub Pages. The wiki&amp;#x27;s main advantage, the author says, is that it is always one click away (&lt;a href=&quot;https://news.ycombinator.com/item?id=49815484&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some commenters counter that low-friction editing matters, because setup docs are often improved by the next person to use them, and a review step can discourage those small fixes.&lt;/li&gt;&lt;li&gt;Others mention Fossil as prior art that versions both wiki pages and in-tree docs, and one commenter uses a wiki as a scratchpad for ideas rather than as documentation.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-23">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

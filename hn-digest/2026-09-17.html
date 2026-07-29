@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 17, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 17, 2026</h1>
+    <p class="date">Thursday, September 17, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quieter day&amp;#x27;s worth of technology news: inference infrastructure, browser engine maintenance, ID cryptography, and a few tools worth a closer look.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A researcher documented how the cryptographic keys behind US driver&amp;#x27;s license barcodes can be recovered.&lt;/strong&gt; The &lt;a href=&quot;https://ryan.science/blog/keys-not-included&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt; covers the signing material used for the machine-readable barcodes on US licenses and how it can be derived rather than obtained from an official source (&lt;a href=&quot;https://news.ycombinator.com/item?id=49735930&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The work sits at the intersection of document verification and everyday retail ID scanning.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;At least one commenter reads the post as demonstrating recovery of public keys rather than private signing keys, and questions whether the HN headline overstates the result.&lt;/li&gt;
+&lt;li&gt;Others point out a practical limit: because the photo is not part of the signed barcode payload, a valid signature alone does not bind an ID to the person holding it, so scanner-based checks can still be defeated.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Z.ai published an account of building its own inference stack for GLM models.&lt;/strong&gt; The &lt;a href=&quot;https://z.ai/blog/glm-built-its-inference-infrastructure&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; describes a production-grade inference service built from scratch on a cluster of more than 100,000 domestically produced AI accelerators, with all production inference for GLM-5.3-Flash running on that system (&lt;a href=&quot;https://news.ycombinator.com/item?id=49737922&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters ask how far &amp;quot;domestically produced&amp;quot; extends — whether it covers design, memory and lithography end to end, or only assembly — and note the announcement&amp;#x27;s tone now closely resembles that of US labs.&lt;/li&gt;
+&lt;li&gt;Several discuss pricing for the coding plans, saying tiers appear to have moved up substantially, which they read as a sign of capacity constraints; one shares an unrelated experiment running the full GLM-5.3 weights on a single laptop by streaming experts from NVMe at a few tokens per second.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A detailed architectural breakdown of DeepSeek-V4.1-Flash focuses on KV cache compression.&lt;/strong&gt; The &lt;a href=&quot;https://zartbot.github.io/blog/model_arch/dsv41flash_arch/en.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;analysis&lt;/a&gt; walks through a 552B-parameter multimodal mixture-of-experts model with a causal encoder-decoder design that activates 8B parameters during prefill and 16B during decoding, supports contexts up to one million tokens, and cuts runtime KV cache storage to roughly a quarter of its predecessor&amp;#x27;s (&lt;a href=&quot;https://news.ycombinator.com/item?id=49735410&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The stated motivation is long-horizon agent workloads where persistent KV storage and data movement, not attention compute, have become the bottleneck.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter reports the compression and prefix caching holding up in practice across very long working sessions, with throughput staying high as context grew.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Servo published a one-year review of its first donation-funded maintainer role.&lt;/strong&gt; Maintainer Josh Bowman-Matthews spent the year reviewing 1,150 pull requests, nominating eight new maintainers, filing 114 newcomer-friendly issues (92% since fixed), and writing documentation on borrow hazards, experimental features, and flaky-test triage, all funded by monthly OpenCollective and GitHub donations (&lt;a href=&quot;https://servo.org/blog/2026/09/15/one-year-of-sponsorship/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49737849&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that Servo still relies on mozjs — Rust bindings around the C++ SpiderMonkey engine — so the JavaScript engine, often the largest memory-safety surface in a browser, is not itself Rust.&lt;/li&gt;
+&lt;li&gt;Several add that NLnet has separately funded sizeable blocks of Servo work, and others ask what Servo is actually usable for today given it is not yet a drop-in browser engine.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Cloudflare open-sourced the coding-agent skill that seeded its vulnerability discovery harness.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/cloudflare/security-audit-skill&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;security-audit skill&lt;/a&gt; runs a six-phase audit — reconnaissance, coverage-led hunting, candidate validation, structured JSON output, independent record verification, and target-neutral reporting — with separate hunting classes for memory safety, LLM/prompt injection, web protocol and auth, supply chain, and cloud deployment (&lt;a href=&quot;https://news.ycombinator.com/item?id=49736466&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Cloudflare describes it as the single-repo starting point its larger fleet-wide system grew from.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters report high token consumption for limited return on mid-sized codebases, and some ask why the skill requires an OS-enforced sandbox.&lt;/li&gt;
+&lt;li&gt;One practitioner notes that framing a task explicitly as security research can trigger refusals from frontier models, and suggests splitting bug-class detection from the security framing as a workaround.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenSpec is a framework for writing and maintaining software specifications that coding agents work from.&lt;/strong&gt; The &lt;a href=&quot;https://openspec.dev/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;MIT-licensed tool&lt;/a&gt; installs as an npm package and structures work into explore, propose, apply, verify, and archive steps, generating proposal, spec, design, and task files that are checked against the implementation (&lt;a href=&quot;https://news.ycombinator.com/item?id=49734264&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). It advertises compatibility with a long list of agent front-ends.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Users who have adopted it describe it as lighter-weight than SpecKit and workable as the planning stage of a larger agent pipeline, while others question why a bundle of markdown skill files needs a dedicated CLI.&lt;/li&gt;
+&lt;li&gt;One commenter found the documentation site linking to template files rather than the real concept docs, which undercut their confidence in it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Wind-assisted propulsion is spreading beyond demonstration vessels in commercial shipping.&lt;/strong&gt; The International Windship Association counts more than 100 large merchant ships with modern wind propulsion systems, and Maersk plans to fit a 35-metre rotor sail to an 8,700-TEU containership for testing on Atlantic routes from 2027 (&lt;a href=&quot;https://gcaptain.com/the-return-of-sail-power-cargo-ships-are-turning-back-to-the-wind/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49734929&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Vale&amp;#x27;s 400,000-dwt Sohar Max already carries five rotor sails, and studies are underway for VLCCs and LNG carriers.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Skeptics argue wind assistance scales poorly and is too unreliable for modern schedule-driven logistics, expecting ammonia combustion or fuel cells to do the real decarbonisation work; others note similar revivals have surfaced roughly every twenty years.&lt;/li&gt;
+&lt;li&gt;Several readers were confused by the photographs of vertical cylinders and clarify that these are rotor and suction sails using aerodynamic lift, not conventional canvas.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An HN post flagged an untouched Bitcoin donation listed on Neovim&amp;#x27;s site.&lt;/strong&gt; The &lt;a href=&quot;https://news.ycombinator.com/item?id=49738879&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; describes a 10 BTC donation received in 2023 to the address linked in the project&amp;#x27;s donation footer, with no outgoing activity from that address since 2019 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49738879&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point out that the project&amp;#x27;s official donation channel is OpenCollective and that the Bitcoin address is no longer used for bounties, suggesting the footer link is simply stale.&lt;/li&gt;
+&lt;li&gt;Others raise the practical complications a project would face in accepting such funds, including provenance checks and tax treatment of gains.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-17">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

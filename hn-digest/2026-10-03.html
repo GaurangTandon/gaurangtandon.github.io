@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — October 3, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — October 3, 2026</h1>
+    <p class="date">Saturday, October 3, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today brings a new open-weight language model from Germany, a privacy-protocol service from Cloudflare, an independent browser moving to community hands, a statistical critique of a set of cancer studies, and a look at a long-running creative site.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aleph Alpha released Kolibri, an open-weight German–English language model.&lt;/strong&gt; Kolibri is a mixture-of-experts model with about 78 billion total parameters, of which roughly 3.5 billion are active per token. It is released under Apache 2.0 with weights on Hugging Face, supports contexts up to 1 million tokens, and is aimed at regulated sectors such as public administration, industry, and aerospace, according to the &lt;a href=&quot;https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;launch post&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49942706&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). A separate &lt;a href=&quot;https://tej.as/blog/aleph-alpha-kolibri&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;technical explainer&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49943034&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;) notes that its tokenizer splits long German compound words into far fewer tokens, and that the full model still needs about 78 GB of memory in FP8 even though only a fraction of it runs per token.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One person who ran it locally reports fast generation, around 170 tokens per second in FP8, but says the model spends too many tokens on overthinking.&lt;/li&gt;
+&lt;li&gt;Commenters question parts of the framing: one says a smaller Qwen model scores higher on German in Kolibri&amp;#x27;s own benchmark harness, and others ask whether the &amp;quot;sovereign&amp;quot; claim holds given Aleph Alpha&amp;#x27;s announced agreement with Cohere.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Cloudflare launched an Oblivious HTTP (OHTTP) gateway.&lt;/strong&gt; The &lt;a href=&quot;https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt; is part of Cloudflare&amp;#x27;s Birthday Week posts on privacy protocols and standards. According to excerpts cited in the &lt;a href=&quot;https://news.ycombinator.com/item?id=49941091&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;, it addresses the trail of user data, such as IP address and TLS fingerprint, that an ordinary client–server exchange creates.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters ask how this works with Cloudflare&amp;#x27;s own firewall, which relies on TLS fingerprinting, and whether that metadata is still processed by Cloudflare but withheld from the application server.&lt;/li&gt;
+&lt;li&gt;Others point out that few browsers or VPN tools appear to support OHTTP as a transport yet, and mention an existing self-service relay as an alternative.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Kagi is ending development of Orion for Linux and Windows and will open-source both.&lt;/strong&gt; The company says its small team will focus on Orion for macOS and iOS. It plans to share open-source details within 30 days and is approaching foundations about long-term stewardship, according to its &lt;a href=&quot;https://blog.kagi.com/update-orion-linux-windows&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;blog post&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49941447&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The Linux beta stops receiving updates from Kagi after October 2, 2026, and the planned Windows release will not come from Kagi.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A replication applies a nuclear-proximity cancer methodology to unrelated landmarks.&lt;/strong&gt; Writing in &lt;a href=&quot;https://www.breakthroughjournal.org/p/things-that-apparently-cause-cancer&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The Breakthrough Journal&lt;/a&gt; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49940219&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;), Deric Tilson and Adam Stein approximately reproduced the &amp;quot;proximity score&amp;quot; method that Harvard researchers used to associate nuclear power plants with higher cancer rates. They then applied it to Costco warehouses, private colleges, and stadiums, which produced even larger attributed cancer deaths. They argue that proximity is not the same as radiation exposure.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that the original papers use the language of risk and association rather than proof, and that earlier power-plant studies found socioeconomic status to be a stronger explanatory variable than proximity.&lt;/li&gt;
+&lt;li&gt;Some ask whether the critique explains the specific statistical flaw, noting that the authors say their replication relied on trial and error after the supplied code did not reproduce the results.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Newgrounds remains active as a hub for web games, animation, music, and art.&lt;/strong&gt; The site&amp;#x27;s &lt;a href=&quot;https://www.newgrounds.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;front page&lt;/a&gt; features current animations, games, and audio, along with long-running events such as its 20th annual Madness Day (&lt;a href=&quot;https://news.ycombinator.com/item?id=49940394&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter recalls that founder Tom Fulp was making small web games featuring his friends as characters before he started the site.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-10-03">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

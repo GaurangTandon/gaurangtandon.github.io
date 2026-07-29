@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 27, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 27, 2026</h1>
+    <p class="date">Sunday, September 27, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers a copyright case over AI training data, a long-standing error in a basic geographic statistic, and several reflections on software quality and online communities.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Newly unsealed filings in the authors&amp;#x27; copyright case against OpenAI and Microsoft.&lt;/strong&gt; The Authors Guild has &lt;a href=&quot;https://authorsguild.org/news/ag-v-openai-top-execs-knew-mass-book-piracy-was-illegal/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;published its account&lt;/a&gt; of recently unsealed briefs in Authors Guild v. OpenAI, a lawsuit alleging that OpenAI and Microsoft trained their models on copyrighted books without permission. The plaintiffs, who include the Guild and authors such as John Grisham, George R.R. Martin, and Jodi Picoult, say the documents show the companies knew the practice was unlawful and could harm authors. These are the plaintiffs&amp;#x27; allegations and have not been ruled on by the court (&lt;a href=&quot;https://news.ycombinator.com/item?id=49863864&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that the linked page is a press release from an advocacy organization, so it presents selected excerpts rather than the full filings.&lt;/li&gt;&lt;li&gt;Some described the book source as a shadow library of partly public-domain material, but a commenter who had built a corpus from Library Genesis said it is mostly in-copyright textbooks.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Neovim replaced Vim&amp;#x27;s persistent undo files with an incompatible format.&lt;/strong&gt; A &lt;a href=&quot;https://unsung.aresluna.org/they-had-no-concept-of-a-duty-of-care-to-their-users/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post on the Unsung blog&lt;/a&gt; quotes computer scientist David Chisnall. He describes how early Neovim found his existing Vim undo files, deleted them, and wrote new ones in a format Vim could not read, which erased his undo history. When he reported it, he was told the format was unstable and not meant to be relied on. The author connects the episode to Jef Raskin&amp;#x27;s principle that software should not harm a user&amp;#x27;s work (&lt;a href=&quot;https://news.ycombinator.com/item?id=49867067&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Early users recall that Neovim was openly positioned as Vim with breaking changes, while others argue that volunteer open-source maintainers owe users no duty beyond what they choose to give.&lt;/li&gt;&lt;li&gt;A long-time Neovim user said the post explained a case where their own undo history disappeared after an upgrade, which suggests the issue affects more than people switching from Vim.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Yemen&amp;#x27;s commonly cited land area appears to be significantly overstated.&lt;/strong&gt; A &lt;a href=&quot;https://theborys.substack.com/p/what-is-the-size-of-yemen&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;2024 investigation&lt;/a&gt; traced Yemen&amp;#x27;s borders and measured about 456,000 km², well below the 527,968 km² used by the CIA World Factbook, the World Bank, and the UN. The author traces the North Yemen figure to a 1904 encyclopedia entry for a larger Ottoman province. The South Yemen figure appears to come from a 1976 World Bank table that counted one area twice (&lt;a href=&quot;https://news.ycombinator.com/item?id=49862809&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter reports that shortly after the article appeared, someone found a 2005 Yemeni government document with a figure that looks correct and updated Wikipedia, which suggests Yemen&amp;#x27;s own government was not using the inflated number.&lt;/li&gt;&lt;li&gt;Others note that stale inputs carried forward without re-checking are also common in projections and budgets.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A catalogue of common visual patterns in AI-generated interfaces.&lt;/strong&gt; A &lt;a href=&quot;https://hereticpleb.vercel.app/blog/10-tells-of-slop&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;blog post&lt;/a&gt; lists ten recurring traits the author associates with low-effort, AI-generated UI. They include heavy gradients, unrelated accent colors, pulsing status badges that carry no information, emoji, glassmorphism, default fonts like Inter and JetBrains Mono, and generic marketing taglines. The author, whose own site is AI-assisted, says the problem is a lack of design intent rather than the use of AI itself (&lt;a href=&quot;https://news.ycombinator.com/item?id=49867038&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jeff Atwood shares a reader&amp;#x27;s account of being helped on Stack Overflow.&lt;/strong&gt; In a &lt;a href=&quot;https://blog.codinghorror.com/if-we-do-not-stop-to-help-each-other-what-do-we-become/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;short post&lt;/a&gt;, the Stack Overflow co-founder publishes an email from a former Air Force member. The reader was studying remotely while deployed during the 2013 Zamboanga siege and got help from strangers on Stack Overflow when others would not help. Atwood argues that as LLMs replace Q&amp;amp;A sites, people should deliberately build community-owned spaces for helping each other (&lt;a href=&quot;https://news.ycombinator.com/item?id=49863062&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters question the portrayal, recalling that Stack Overflow was often unwelcoming to people asking questions.&lt;/li&gt;&lt;li&gt;A regular contributor to the GrapheneOS forum notes that experienced community members still know niche software better than AI tools do and can answer quickly.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-27">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

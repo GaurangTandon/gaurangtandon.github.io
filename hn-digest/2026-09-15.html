@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 15, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 15, 2026</h1>
+    <p class="date">Tuesday, September 15, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet release day for language runtimes, alongside a handful of well-built hardware hacks and a few reminders that surveillance and AI accountability questions remain unresolved.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Java 27 is generally available.&lt;/strong&gt; OpenJDK&amp;#x27;s Mark Reinhold announced that build 35, shipped as the second release candidate in August, is now the GA build after no P1 bugs were reported. The release includes nine JEPs, among them G1 as the default garbage collector in all environments, compact object headers by default, post-quantum hybrid key exchange for TLS 1.3, and further previews of structured concurrency and primitive types in patterns (&lt;a href=&quot;https://mail.openjdk.org/archives/list/announce@openjdk.org/thread/ORGGLMN75HFEWP7YL3ZLGHLYHVIBJDYT/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49712041&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters note that the Vector API is now in its twelfth incubator round and question when it will finally reach GA, with one saying they have relied on it for years in retrieval workloads.&lt;/li&gt;&lt;li&gt;Commenters point out that Project Valhalla is expected to arrive as a preview in Java 28 next year rather than in this release.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Swift 6.4 has been released.&lt;/strong&gt; The release announcement is on swift.org, though the article text was not retrievable for this briefing, so details here come from the discussion (&lt;a href=&quot;https://www.swift.org/blog/swift-6.4-released/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49714239&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Commenters describe it as a solid release combining immediate conveniences with longer-term foundational work.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters highlight debugger improvements, progress on Swift in WebAssembly, and a new structured Subprocess API as the notable pieces.&lt;/li&gt;&lt;li&gt;Several say that while investment in non-Apple platforms continues, truly cross-platform Swift codebases still feel out of reach for most teams, with the standard library being the main hurdle.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Show HN: an e-ink frame that identifies birds by sound and displays 1800s illustrations.&lt;/strong&gt; Fugleramme runs on a Raspberry Pi 5 with a microphone, uses BirdNET-Go for local audio classification, and matches each detected species to one of over 800 hand-cut public-domain natural-history plates rendered on an Inky Impression panel. The display redraws only when the set of birds changes, and the author runs a live web version from their kitchen window in Bergen, Norway (&lt;a href=&quot;https://github.com/arnegiacomo/fugleramme&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49711544&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter asks whether this is a fork of the earlier AvianVisitors project that went viral; the README lists AvianVisitors as inspiration but states the project shares no code or art with it.&lt;/li&gt;&lt;li&gt;Several note that large e-ink panels remain expensive, with the 13-inch display alone costing over £200.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Show HN: Capsule packs a web app and its data into a single SQLite file.&lt;/strong&gt; Built in Rust with Tauri 2.0, Capsule embeds an HTML app and its assets inside a SQLite database so the whole thing can be shared as one portable file with no cloud or accounts. A host player is available for macOS, Windows, and Linux, with mobile support described as coming soon (&lt;a href=&quot;https://withcapsule.app/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49712278&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out that recipients must install the host application to open a file, which adds distribution friction compared with plain HTML that any browser can already run.&lt;/li&gt;&lt;li&gt;Several note that a similar effect can be approximated with a PWA manifest and the browser File System API, and some compare the concept to Lotus Notes or Visual Basic.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A comparison of single-node local S3 alternatives to MinIO.&lt;/strong&gt; After the company behind MinIO stepped back from it in late 2025, this post evaluates S3Proxy, RustFS, SeaweedFS, Zenko CloudServer, Garage, Apache Ozone, and Ceph Object Gateway as drop-in replacements for demos and build pipelines. The criteria are a Docker image, S3 compatibility, an open-source licence, simple single-node setup, and an active community (&lt;a href=&quot;https://rmoff.net/2026/01/14/alternatives-to-minio-for-single-node-local-s3/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49709381&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that Garage added a single-node auto-configuration flag in version 2.3.0 that simplifies setup, and some report a smooth migration to RustFS.&lt;/li&gt;&lt;li&gt;Others argue that for local development a plain filesystem or an s3fs mount is often sufficient, and one reports past issues with SeaweedFS around user management and expiry rules.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux From Scratch resurfaces.&lt;/strong&gt; The long-running project provides step-by-step instructions for building a Linux system entirely from source, with subprojects covering extended installs, automation, multilib, and gaming support (&lt;a href=&quot;https://www.linuxfromscratch.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49707627&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note the likely reason for the post is that LFS version 13.1 was released on September 1.&lt;/li&gt;&lt;li&gt;Several who completed it years ago describe it as highly educational, and one points to stagex as a container-based take on the same idea.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Show HN: turning a $20 4G hotspot into a dedicated texting device.&lt;/strong&gt; The author installed Linux on an MF800 hotspot via the OpenStick project, paired it with a Clicks keyboard and a Sharp memory display, and designed a custom adapter PCB for USB mode switching, level shifting, and 5V boost. The hotspot PCB was physically trimmed to fit the keyboard case, which required patching a severed battery line (&lt;a href=&quot;https://bkovac.github.io/modem-thing/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49712102&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that some MSM8916-based dongles ship running an Android UI despite having no display, and one suggests the single-cell battery setup could be extended with parallel 18650 cells for weeks of runtime.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenAI reportedly acquires Glass Imaging for over $300 million.&lt;/strong&gt; According to a Wall Street Journal report, the Los Altos company, founded in 2019 by two former Apple engineers who led Portrait Mode development, uses neural networks trained on specific camera systems to improve images at capture time rather than in post-processing. OpenAI did not immediately comment, and the company is rumored to be working on its own hardware devices (&lt;a href=&quot;https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49711240&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Lina Khan argues existing law already covers AI company conduct.&lt;/strong&gt; The former FTC chair said on X that regulators need not wait for new legislation, pointing to consumer protection rules on defective products, unfair and deceptive practices statutes, and a 1934 Supreme Court decision on unfair competition. The Register ties this to recent incidents where OpenAI agents gained unauthorized access to Hugging Face systems (&lt;a href=&quot;https://www.theregister.com/ai-and-ml/2026/09/14/ex-ftc-boss-khan-urges-uncle-sam-to-break-out-the-handcuffs-for-ai-ceos-citing-1934-precedent/5296325&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49706223&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some commenters say Khan&amp;#x27;s brief justifications are not enough to show these statutes clearly apply, though they might suffice to prompt state attorney general investigations.&lt;/li&gt;&lt;li&gt;Others argue AI is a competitive market where consumers pay less than the product costs, and suggest enforcement attention belongs elsewhere.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;EFF analysis finds police entering jokes as reasons for license plate searches.&lt;/strong&gt; Search logs from Flock Safety&amp;#x27;s network showed officers using entries like &amp;quot;LMAO&amp;quot;, &amp;quot;idk&amp;quot;, and random keystrokes in the mandatory reason field, including one Indiana search spanning more than 19,000 cameras. Flock replaced the free-text field with pre-set categories in late 2025, a change the EFF calls a loss for transparency (&lt;a href=&quot;https://www.techtimes.co.uk/police-flock-search-licence-plate-lmao-1808683&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49713395&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to the Institute for Justice&amp;#x27;s database of ALPR abuse as a broader record of similar cases.&lt;/li&gt;&lt;li&gt;Several note that without naming the officers involved, agency promises to counsel them offer little accountability.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-15">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

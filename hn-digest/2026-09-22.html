@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 22, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 22, 2026</h1>
+    <p class="date">Tuesday, September 22, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet day of concrete releases and careful teardowns: two model launches, an AI-assisted cryptanalysis result, and several people poking at systems to see what falls out.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Anthropic released Claude Opus 5.5.&lt;/strong&gt; The company says the model performs at roughly the level of Claude Fable 5.1 on most work while costing 40% less to run than Opus 5, with input and output priced at $4 and $20 per million tokens and cache reads at $0.20 per million; it also reports a Terminal-Bench 4.0 score of 66.4% and more than 30% faster output generation (&lt;a href=&quot;https://www.anthropic.com/claude-opus-5-5&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49803863&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Sonnet 5.5 and Haiku 5.5 are said to follow in the coming weeks, and Anthropic notes the model ships with safeguards similar to those applied to Fable 5.1 in biology and cybersecurity.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;The original HN thread was redirected to a separate discussion, with early commentary focused on whether the price drop and raised usage limits change the value of the subscription tiers.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An Enigma message unbroken since 2005 was solved with GPT-6 Astra.&lt;/strong&gt; Crypto Cellar Research reports that German Army message MVUEH, sent 10 July 1941, was broken after the model selected it from a list of unsolved messages, guessed its plaintext was related to an already-broken neighbouring message, and built its own Enigma simulator and Bombe in Python and C++ to run a crib attack on the repeated place name ROSENOW (&lt;a href=&quot;https://www.cryptocellar.org/bgac/the-mvueh-break.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49801324&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The recovered key used a different wheel order from the other messages that day, and the author attributes the long resistance partly to transcription errors and a rare left-hand wheel turnover at the 72nd letter.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer built a text generator that uses gzip as its language model.&lt;/strong&gt; The system scores candidate continuations by how small gzip compresses them after priming the window with a corpus, then runs a beam search over byte spans rather than single bytes, since DEFLATE&amp;#x27;s integer output length makes per-byte scoring too coarse (&lt;a href=&quot;https://nathan.rs/posts/gzip-lm/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49797323&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). Primed on tiny Shakespeare, the output is not coherent but carries recognisable structure; the whole thing is standard-library Python using zlib.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that only a vanishingly small portion of the continuation space can actually be searched, so the results bound the search quality more than gzip&amp;#x27;s abilities as a predictor.&lt;/li&gt;&lt;li&gt;Several point to the absence of anything like attention and to DEFLATE&amp;#x27;s fixed sliding window as the reason it can echo one narrative cheaply but cannot generalise the way a trained model does.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A report claims AMD&amp;#x27;s RDRAND never returns zero at 16-bit width.&lt;/strong&gt; A flat assembler forum user generating charts from rdrand and rdseed found that on their AMD part the value zero never appeared for 16-bit requests, while the same program on an Intel processor produced zeros; requesting 32- or 64-bit values and taking the low bits works normally (&lt;a href=&quot;https://board.flatassembler.net/topic.php?t=24261&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;thread&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49798204&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter reproduced the behaviour on a Ryzen 5 3600 specifically for rdrand16 while 32-bit output was fine, and recalled an earlier Zen 2 bug where the instruction returned all ones until a microcode fix.&lt;/li&gt;&lt;li&gt;Several argue the practical impact is small because hardware RNG output normally seeds a CSPRNG rather than being used directly, and speculate zeros may have been deliberately filtered.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Git 2.56 is in release candidate form, with 3.0 possibly next.&lt;/strong&gt; LWN covers the roughly 700 non-merge commits in 2.56, including a git history drop subcommand that replays history to remove a commit (though it still refuses repositories with merge commits), new git refs subcommands, git branch --delete-merged, and git add --resolved (&lt;a href=&quot;https://lwn.net/SubscriberLink/1094575/2385e98583715c2b/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49794736&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The larger question is whether the following release becomes 3.0, which would switch the default hash to SHA-256 and restrict object IDs to lower case.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters ask what the hash transition means in practice for existing repositories and whether it implies rewriting history.&lt;/li&gt;&lt;li&gt;Several read GitHub&amp;#x27;s missing SHA-256 support as symptomatic of deeper difficulty changing its foundational infrastructure.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A researcher asked Meta&amp;#x27;s Muse agent to archive its own filesystem and received 6.8 GB.&lt;/strong&gt; The export, sent to a connected Google Drive, appeared to contain the root filesystem of the session&amp;#x27;s Linux environment: internal documentation, roughly 68 skill directories, 113 subagent records, container startup scripts, memory files, a Codex CLI binary, docs for an experimental ESP32-C5 device integration called Home Link, and SSH key files (&lt;a href=&quot;https://mouse.dev/blog/muse-runtime-export/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49802871&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The author reported it to Meta&amp;#x27;s bug bounty program and states he did not demonstrate a sandbox escape or access to another user&amp;#x27;s data.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters argue the severity is overstated because each user gets a dedicated environment and the files are browsable in the app anyway, making this an export of one&amp;#x27;s own sandbox.&lt;/li&gt;&lt;li&gt;Others focus on the sheer surface area implied by the documentation covering payments, credentials, and connectors.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An article proposes &amp;quot;spymark&amp;quot; as a separate term for tracking-capable invisible watermarks.&lt;/strong&gt; It distinguishes visible marks of ownership or authenticity from hidden payloads, citing Google&amp;#x27;s reported SynthID-O capacity of a 136-bit payload in a 512×512 image, the open source audiowmark tool that has hidden 128-bit AES-protected payloads in audio since 2018, and printer tracking dots as a 1980s precursor (&lt;a href=&quot;https://brand.io/article/spymarks/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49794615&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out the identifying use of watermarking is not new, citing per-purchase marks in digital downloads and marked film screeners well before generative AI.&lt;/li&gt;&lt;li&gt;Others push back on the renaming as loaded, noting invisible marks are not inherently adversarial, and question robustness — whether re-photographing an image, re-marking it, or paraphrasing text would strip the signal.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Xiaomi&amp;#x27;s MiMo-V2.6-Pro posts a leading score among open weights models.&lt;/strong&gt; Artificial Analysis lists the MIT-licensed model at 46 on its Intelligence Index, first in its comparison class, with 1T total and 42B active parameters, a 1M-token context window, text, image, speech and video input, and pricing of $0.435 per million input and $0.87 per million output tokens at about 76 output tokens per second (&lt;a href=&quot;https://artificialanalysis.ai/models/mimo-v2-6-pro&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;analysis page&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49796660&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters question the index&amp;#x27;s comparability, noting ordering that conflicts with the vendor&amp;#x27;s own appendix and a recent ranking correction between two other models.&lt;/li&gt;&lt;li&gt;One commenter running a private benchmark places it below Opus 5 and GPT-6 Astra but well ahead on cost, and others cite Xiaomi&amp;#x27;s stated $3.47M training run as far below the figures reported for larger labs.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;TechRadar reports Apple has added persistent promotional prompts to iOS.&lt;/strong&gt; The piece describes ads and nag prompts users cannot clear, and the discussion centres on where these appear and whether they can be dismissed (&lt;a href=&quot;https://www.techradar.com/phones/iphone/i-wish-apple-would-just-stop-that-crap-apple-has-added-persistent-ads-to-ios-and-its-driving-users-crazy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=49801939&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;An iOS developer describes App Store search ads placing two full-screen ads above results even for exact app-name searches, sometimes unrelated to the query, which they say disadvantages smaller developers.&lt;/li&gt;&lt;li&gt;Several commenters say the pattern is not new, recalling years of iCloud setup nags, trial promotions, and a persistent red badge on Settings that cannot be turned off from the notifications panel.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-22">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

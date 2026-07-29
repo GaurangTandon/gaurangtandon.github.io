@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — September 29, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — September 29, 2026</h1>
+    <p class="date">Tuesday, September 29, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s stories include privacy findings about AI assistants, a Firebase outage that crashed iOS apps, a long grid overhaul in Delhi, and new estimates of how many cancers are caused by infections.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Researchers report that conversational AI services share chat-derived data with third-party trackers.&lt;/strong&gt; A new &lt;a href=&quot;https://jorgegarciaherrero.com/wp-content/interactivos/20260916-Prompt-like-a-butterfly-sting-like-a-tracker-(clean).pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;privacy analysis of web and mobile AI agents (PDF)&lt;/a&gt; finds that several providers send conversation titles, prompts, and screenshots to third parties, often alongside persistent user identifiers, according to passages quoted in the &lt;a href=&quot;https://news.ycombinator.com/item?id=49890226&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;. The quoted findings also say some providers exposed conversation permalinks without access controls, so trackers receiving those links could read entire chats; Grok and TikTok screenshot sharing are cited as examples.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter notes the paper does not specify when the apps send these conversation artifacts.&lt;/li&gt;&lt;li&gt;Several argue that &amp;quot;leak&amp;quot; is the wrong word, since sharing data with advertising partners may be intended rather than accidental.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A reviewer reports that Meta&amp;#x27;s Muse agent synced Apple Messages data without being granted access.&lt;/strong&gt; &lt;a href=&quot;https://appleinsider.com/articles/26/09/28/metas-new-ai-agent-blatantly-ignores-users-permissions&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;AppleInsider relays testing by Inc&amp;#x27;s Jason Aten&lt;/a&gt;. Aten says Muse synced 187,000 lines from his Messages database on a Mac even though Full Disk Access was off and Messages access had not been granted. Meta&amp;#x27;s own documentation says Muse must obey user permissions but also warns that it &amp;quot;can make mistakes or take unexpected actions&amp;quot; (&lt;a href=&quot;https://news.ycombinator.com/item?id=49893709&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters are skeptical, noting that macOS normally blocks such access without Full Disk Access; they suggest a permission granted earlier or on another device is more likely, and add that if the report is accurate it points to a macOS security failure.&lt;/li&gt;&lt;li&gt;Commenters also point to a separate Hunterbrook report describing Muse as having broad access to Meta&amp;#x27;s social graph.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A server-side Firebase change caused widespread crashes in iOS apps using its SDK.&lt;/strong&gt; According to a &lt;a href=&quot;https://twitter.com/GergelyOrosz/status/2104825886922911981&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;thread by Gergely Orosz&lt;/a&gt;, a backend change made several versions of Firebase&amp;#x27;s iOS SDK crash for every session in affected apps; DoorDash was among the apps mentioned. The thread says developers raised the issue on GitHub before Firebase acknowledged it, and the change was rolled back about an hour after acknowledgment. Clients that had cached the malformed payload were affected for up to about six hours, and the Firebase status page showed no incident (&lt;a href=&quot;https://news.ycombinator.com/item?id=49889934&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to the GitHub issue now being marked resolved and note that this is not the first such incident.&lt;/li&gt;&lt;li&gt;Some argue it shows the risk of bundling large third-party SDKs into apps without closer review of what they do.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Delhi cut electricity distribution losses from over 50 percent to about 5 percent.&lt;/strong&gt; In an &lt;a href=&quot;https://spectrum.ieee.org/delhi-electricity-loss&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;IEEE Spectrum feature&lt;/a&gt;, power-systems professor Mini Shaji Thomas describes how losses from obsolete equipment and theft fell from more than half of supplied power in 2002 to 5–6 percent in 2026, comparable to France and Belgium. Over the same period, the city&amp;#x27;s grid reliability index rose from around 70 percent to above 99.9 percent, after government and utility efforts to modernize the grid (&lt;a href=&quot;https://news.ycombinator.com/item?id=49892245&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter who lived in Delhi says the bigger change for residents was the end of frequent unplanned power cuts and the surges that followed them, which made people unplug electronics.&lt;/li&gt;&lt;li&gt;Another notes that in Greece, electricity bills carry a line item for losses, which weakens the incentive to address theft.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An IARC study attributes about one in eight cancer cases worldwide to infections.&lt;/strong&gt; The study, &lt;a href=&quot;https://www.cbc.ca/lite/story/9.7361622&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;published in The Lancet Oncology&lt;/a&gt;, estimates that infections caused 2.3 million new cancer cases in 2024, or 12 percent of the total. H. pylori accounted for about 760,000 cases, mostly in eastern Asia, and HPV for nearly 750,000. Epstein-Barr virus, newly counted at about 260,000 cases, has no available vaccine or treatment (&lt;a href=&quot;https://news.ycombinator.com/item?id=49892120&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that many infection-linked cancers already have vaccines or treatments, so much of the burden comes down to access. They would like a breakdown of how many cases existing tools could prevent.&lt;/li&gt;&lt;li&gt;One asks whether the causal link is always clear-cut, or whether weakened immunity could drive both the infection and the cancer in some cases.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;PostHog released Jeeves, an open-source decision model that reasons before answering.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/PostHog/jeeves&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Jeeves repository&lt;/a&gt; contains a Qwen3.5-9B model with LoRA and a pointer head, trained with SFT and CISPO, that returns calibrated yes/no, multiple-choice, and rating probabilities through a Jev-compatible API. The README reports 0.889 accuracy on held-out test data versus 0.857 for Jev, but lower scores than Jev on MMLU and MMLU-Pro. Latency is about 0.3 seconds per request without reasoning and a 3.3-second median with it on one H100 (&lt;a href=&quot;https://news.ycombinator.com/item?id=49891290&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters ask whether adding a reasoning step gives up the main appeal of Jev-style models: a single forward pass that yields cheap, calibrated probabilities.&lt;/li&gt;&lt;li&gt;Others describe the result as an expected case of test-time compute scaling, similar to chain-of-thought prompting.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Anthropic&amp;#x27;s IPO prospectus shows concentrated revenue and rising costs.&lt;/strong&gt; &lt;a href=&quot;https://www.reuters.com/business/finance/anthropics-ipo-prospectus-shows-sweeping-ai-vision-surging-costs-2026-09-28/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Reuters reports&lt;/a&gt; on the filing. A passage quoted in the discussion says nearly a quarter of Anthropic&amp;#x27;s revenue last year came from two customers, and the company warned that many of its largest clients are not on long-term contracts (&lt;a href=&quot;https://news.ycombinator.com/item?id=49886005&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that the reported figures cover 2025 and do not reflect revenue growth during 2026.&lt;/li&gt;&lt;li&gt;Some ask whether the prospectus itself is public yet, since the article does not link to it.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A live facial recognition trial at London stations produced one false match and no arrests.&lt;/strong&gt; A freedom of information document, &lt;a href=&quot;https://www.theguardian.com/technology/2026/sep/29/trial-live-facial-recognition-cameras-london-stations-false-positive&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;reported by the Guardian&lt;/a&gt;, shows that British Transport Police scanned more than half a million faces across 18 deployments from February to July. The trial cost £320,786 and produced one watchlist alert, which was incorrect. The trial has since been extended to London Underground stations, and BTP says three confirmed alerts since then involved people found to be complying with court conditions (&lt;a href=&quot;https://news.ycombinator.com/item?id=49891480&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter points out that 500,000 scans equals roughly two days of average footfall at Liverpool Street station alone, which suggests the cameras operated for only a small fraction of the trial period.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Conan now packages godot-cpp, making it easier to use C++ libraries in Godot.&lt;/strong&gt; A &lt;a href=&quot;https://blog.conan.io/cpp/conan/gamedev/godot/cmake/2026/09/29/Using-Any-Cpp-Library-In-Godot.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Conan blog post&lt;/a&gt; shows how to build GDExtensions with godot-cpp 10, now in ConanCenter; since version 10.0, one godot-cpp release supports every Godot version from 4.3 onward through an api_version option. The example uses the flecs entity-component-system library to simulate 100,000 particles in a Godot scene (&lt;a href=&quot;https://news.ycombinator.com/item?id=49890051&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters warn that on Linux, extensions need a linker version script or must be built on the same older distribution Godot uses, to avoid libstdc++ conflicts. One notes that statically linking libstdc++ with hidden visibility breaks exceptions that cross the library boundary.&lt;/li&gt;&lt;li&gt;Others point to the godot-rust bindings as an alternative for bringing Rust libraries into Godot.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-09-29">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

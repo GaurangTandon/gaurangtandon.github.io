@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — October 12, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — October 12, 2026</h1>
+    <p class="date">Monday, October 12, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers a supply-chain compromise in a popular JavaScript library, a GitHub service disruption, and new work on browser emulation, database storage, and tooling for coding agents, along with open-source policy, Linux phones, and a skeptical note on Anthropic&amp;#x27;s planned IPO.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A commit in the Zod repository for version 4.6.6 contains a malware downloader.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/colinhacks/zod/commit/d821685ea6732436fcdf786a81d076958471e467&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;commit&lt;/a&gt; is labelled &amp;quot;Fix bugs and improve performance.&amp;quot; It changes the release workflow so that version bumps on main publish automatically, where previously a maintainer had to trigger and approve each release. It also adds a meta.test.mjs file that queries an Ethereum smart contract through public RPC endpoints to get domain names, then downloads a payload from them, writes it to a temporary directory, and executes it (&lt;a href=&quot;https://news.ycombinator.com/item?id=50052814&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters report that the compromised version does not appear to have reached npm, though they still advise flagging it.&lt;/li&gt;
+&lt;li&gt;Several note that storing the server address on a blockchain lets an attacker change it remotely at any time without touching the published code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;GitHub had a multi-hour disruption affecting Actions, Issues, Pull Requests, and notifications.&lt;/strong&gt; According to the &lt;a href=&quot;https://www.githubstatus.com/incidents/93njd414rpbx&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;status page&lt;/a&gt;, an initial mitigation on October 12 was not fully successful. Actions, Issues, and Projects were later restored, and notifications resumed by 15:50 UTC but were still working through a backlog (&lt;a href=&quot;https://news.ycombinator.com/item?id=50055375&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters describe running CI checks on generic Docker setups or their own servers, keeping GitHub Actions only as a fallback, so an outage does not block builds.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;PlayStation 2 games have been statically recompiled to run in the browser.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/snuri00/ps2-web-recomp&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;ps2-web-recomp&lt;/a&gt; project translates a game&amp;#x27;s Emotion Engine code into C++ ahead of time and compiles it to WebAssembly. That code is linked against a reimplementation of the PS2&amp;#x27;s operating system and hardware, with graphics drawn through WebGPU. Gran Turismo 4 runs at full speed in Chrome on a laptop&amp;#x27;s integrated GPU, and God of War II holds 60 frames per second in combat. No game data is included, so users must supply a disc image of a game they own (&lt;a href=&quot;https://news.ycombinator.com/item?id=50052251&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter points out that the project is not purely a recompilation, since parts of the system are still emulated. The README confirms that the I/O processor runs on an interpreter.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A ClickHouse talk recap argues that many Postgres scaling problems come from network-attached storage.&lt;/strong&gt; The &lt;a href=&quot;https://clickhouse.com/blog/posette-talk-recap-postgres-isnt-slow-your-storage-is&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; summarizes a benchmark that ran a 3.3-billion-row workload on identical clusters, comparing baseline gp3 EBS with local NVMe. The talk&amp;#x27;s claim is that once the working set no longer fits in memory, slow ingestion, tail latency, autovacuum lag, checkpoint contention, and replication lag can all come from the same storage bottleneck. ClickHouse sells a managed Postgres product (&lt;a href=&quot;https://news.ycombinator.com/item?id=50052163&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter reports that moving RDS instances to a variant with local NVMe cut average I/O latency from about 1.0 ms to 0.1 ms.&lt;/li&gt;
+&lt;li&gt;Others argue that network block storage made more sense in the hard-drive era, and say they would like clouds to offer local NVMe with snapshots and asynchronous replication.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Pensieve is a local search index for macOS that gives coding agents more targeted context.&lt;/strong&gt; The &lt;a href=&quot;https://tedhaley.ca/pensieve/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;tool&lt;/a&gt; indexes files, git repositories, and past agent sessions, and connects to Claude Code, Codex, Cursor, and other agents over MCP. The author&amp;#x27;s own benchmark with Claude Code reports 2.0 tool calls per lookup instead of 3.4 with grep, the right file found in 131 of 144 runs versus 123, and roughly 18% lower cost per lookup (&lt;a href=&quot;https://news.ycombinator.com/item?id=50049508&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that many similar tools exist; Cursor once offered a comparable feature and later removed it, and another commenter points to a Hugging Face project for searching past conversations.&lt;/li&gt;
+&lt;li&gt;Others ask which embedding model the tool uses and say the documentation explains little about how it works, while one questions the install method of having the agent pipe a remote script into the shell.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer built type-safe HTML templating for Zig, modelled on Go&amp;#x27;s Templ.&lt;/strong&gt; In this &lt;a href=&quot;https://lalinsky.com/2026/10/11/type-safe-html-templating-in-zig.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt;, the author introduces zt, which turns templates into Zig code at build time. Template errors therefore show up as ordinary compiler errors, and output is written directly to a writer without allocations. Values are escaped by default, URL attributes are checked for dangerous schemes, and raw HTML requires explicit syntax (&lt;a href=&quot;https://news.ycombinator.com/item?id=50051573&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that Rust&amp;#x27;s macro-based approaches get similar type-checked templates inline, without a separate file type.&lt;/li&gt;
+&lt;li&gt;Others point to much older prior art, such as using M4 includes to assemble static HTML.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;QGIS has adopted a policy disallowing AI-assisted contributions.&lt;/strong&gt; The project &lt;a href=&quot;https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;merged QEP 428&lt;/a&gt; on October 7, replacing its earlier &amp;quot;human in the loop&amp;quot; policy with a strict prohibition. A project member explains that the volume of AI-generated contributions has exceeded what maintainers can properly review (&lt;a href=&quot;https://news.ycombinator.com/item?id=50054751&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters ask where the line falls, for example when AI is used only for prototyping and the final code is written by hand, and how the policy could be enforced.&lt;/li&gt;
+&lt;li&gt;One points to a follow-up proposal, QEP 429, that would add an exception for trusted contributors.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An essay examines whether Linux phones could become a small but viable alternative to Android and iOS.&lt;/strong&gt; The &lt;a href=&quot;https://amosbbatto.wordpress.com/2026/10/05/linux-phones-alternative/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;piece&lt;/a&gt; attributes the stagnation after the 2020 Librem 5 and PinePhone launches to underpowered chips and immature mobile interfaces. It argues that newer chips such as the RK3588S, Qualcomm IoT parts, and more mature interfaces like Phosh could support a niche market similar to today&amp;#x27;s Linux PC vendors (&lt;a href=&quot;https://news.ycombinator.com/item?id=50051530&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter notes that iOS and Android depend on app-level designs that desktop Linux apps generally lack, such as apps that can be suspended or killed and restart cleanly, and notifications delivered through a separate channel.&lt;/li&gt;
+&lt;li&gt;Another argues that Jolla&amp;#x27;s Sailfish OS devices are already a viable alternative.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A research firm says Anthropic&amp;#x27;s planned IPO is heavily overvalued.&lt;/strong&gt; According to &lt;a href=&quot;https://www.cnbc.com/2026/10/07/anthropic-will-be-most-ridiculous-ipo-of-year-analyst-says.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;CNBC&lt;/a&gt;, New Constructs values Anthropic at about $150 billion, compared with a reported $2 trillion target for its Nasdaq listing. The firm cites reported operating losses and competition from open-source models. CNBC also notes the firm&amp;#x27;s mixed record, correct on WeWork and wrong on DoorDash. Anthropic has not made its prospectus public and did not respond to a request for comment (&lt;a href=&quot;https://news.ycombinator.com/item?id=50051583&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that New Constructs takes a similar stance on most large IPOs, and cite Uber, which fell after listing but later became profitable and now trades above its IPO price.&lt;/li&gt;
+&lt;li&gt;Others note that inference is reportedly profitable on its own, and say the open question is whether that can cover the ongoing cost of training new models.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-10-12">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

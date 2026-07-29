@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — October 7, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — October 7, 2026</h1>
+    <p class="date">Wednesday, October 7, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers a new image format in Chrome, a certificate-security incident, new results in chemistry and algorithms, and several hands-on engineering projects.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Chrome adds JPEG XL decoding, built on a Rust decoder.&lt;/strong&gt; Google &lt;a href=&quot;https://developer.chrome.com/blog/jpeg-xl-in-chrome&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announced&lt;/a&gt; that Chrome 155 will decode JPEG XL images. Google says the format compresses 30–50% better than JPEG and supports lossless compression, HDR and lossless JPEG transcoding. Chrome uses jxl-rs, a pure Rust decoder that limits unsafe code to a few vetted SIMD paths, and the team recommends testing both AVIF and JPEG XL, since JPEG XL suits high-fidelity and lossless photographic images best (&lt;a href=&quot;https://news.ycombinator.com/item?id=49991227&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point out that Chrome previously removed JPEG XL support, and that this browser&amp;#x27;s absence had limited the format&amp;#x27;s use on the web.&lt;/li&gt;
+&lt;li&gt;One commenter says AVIF still compresses better at roughly 1 bit per pixel and below, with JPEG XL more efficient at higher quality levels.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Attackers took over three country-code domain registries and obtained unauthorized TLS certificates.&lt;/strong&gt; According to &lt;a href=&quot;https://arstechnica.com/security/2026/10/hackers-obtain-counterfeit-tls-certificates-for-google-and-other-large-services/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Ars Technica&lt;/a&gt;, attackers compromised the .gh, .sl and .as registries and changed DNS records for selected domains. That let them pass automated domain-validation checks and obtain certificates for several Google domains and other major services. Google says Chrome now blocks the certificates it identified, but it cannot guarantee it found them all, and it advises domain owners to monitor certificate transparency logs and publish restrictive CAA records (&lt;a href=&quot;https://news.ycombinator.com/item?id=49988230&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that CAA records offer no protection when attackers control the DNS that publishes them, and that the now-deprecated HPKP pinning mechanism was designed for this kind of attack.&lt;/li&gt;
+&lt;li&gt;One commenter points to a certificate transparency entry showing a Let&amp;#x27;s Encrypt certificate issued for google.as in late September, although Google normally uses its own certificate authority.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenAI posts a preprint claiming integer multiplication faster than n log n.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/openai/math/tree/main/preprints/Integer-multiplication-below-n-log-n-September-23-2026&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;preprint&lt;/a&gt;, dated September 23, 2026 and credited to OpenAI as author, was published in the company&amp;#x27;s math repository. The page itself contains only the title, citation and paper file (&lt;a href=&quot;https://news.ycombinator.com/item?id=49985524&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters say the improvement is extremely small and only applies to astronomically large inputs, so it has no practical effect; others argue that any result below this threshold could attract further work.&lt;/li&gt;
+&lt;li&gt;One commenter asks whether a machine-checked proof exists, saying careful verification matters for a result like this.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The 2026 Nobel Prize in Chemistry recognizes work on how molecules come to favor one mirror image.&lt;/strong&gt; The &lt;a href=&quot;https://www.nobelprize.org/prizes/chemistry/2026/press-release/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;prize&lt;/a&gt; goes to Henri B. Kagan and Kenso Soai &amp;quot;for the discovery of non-linear effects and autocatalysis in asymmetric organic synthesis.&amp;quot; Kagan showed in 1986 that reactions could produce a larger excess of one mirror-image molecule than previously thought possible. Soai designed a potentially homochiral reaction in 1995 and in 2003 demonstrated one that produced only a single mirror image, work the committee calls decisive for pharmaceutical manufacturing (&lt;a href=&quot;https://news.ycombinator.com/item?id=49990470&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A commenter with a chemistry background points to related research on sodium chlorate crystallization, where simply stirring or not stirring the solution determined which chirality the crystals took.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A DNS ad-blocker runs on a $2 microcontroller by storing hashes in flash memory.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/M-Abozaid/esp32-c3-adblock&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;ESP32-C3 Adblock&lt;/a&gt; project works like Pi-hole on a chip without extra RAM. It stores up to 537,000 blocked domains as sorted 40-bit FNV-1a hashes in flash and finds matches by binary search, using about 50 KB of RAM. The author reports lookups of about 10 ms and expects about one hash collision at the largest list size (&lt;a href=&quot;https://news.ycombinator.com/item?id=49986862&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters clarify that the collisions that matter are false positives, where an unrelated domain shares a hash with a blocked one, and note the dashboard&amp;#x27;s unblock feature can fix these.&lt;/li&gt;
+&lt;li&gt;Some suggest that for users who visit a fairly stable set of sites, an allowlist could be smaller and simpler than a large blocklist.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Strands releases Decider 2B, a small open-source model for making decisions.&lt;/strong&gt; The &lt;a href=&quot;https://strandsagents.com/blog/introducing-strands-decider/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Strands Agents project&lt;/a&gt; introduced a 2-billion-parameter model built for fast experimentation and local development. The extracted announcement text is truncated, so details of its training and benchmarks are not available here (&lt;a href=&quot;https://news.ycombinator.com/item?id=49987076&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter reports running it in the browser through a WebGPU port to classify email in bulk, and says its size and speed suit that kind of task.&lt;/li&gt;
+&lt;li&gt;Another cautions that good benchmark calibration does not show the model will be reliable on unfamiliar real-world inputs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;AnyPS5 converts PS5 executables to run natively on Linux and Windows without emulation.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/boykopovar/AnyPS5&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;open-source project&lt;/a&gt; includes a relinker that converts PS5 binaries into the target system&amp;#x27;s native format, along with its own versions of system libraries and a shader recompiler that outputs SPIR-V. The &amp;quot;87%&amp;quot; figure counts functions the project has catalogued so far, not every PS5 system function. One verified game, the 2D platformer Dreaming Sarah, runs at 60 fps on modest hardware (&lt;a href=&quot;https://news.ycombinator.com/item?id=49985664&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that the PS5 already uses an x86-64 processor, so translating its proprietary graphics API is likely the main challenge rather than translating CPU instructions.&lt;/li&gt;
+&lt;li&gt;Others recommend keeping local copies of the code, citing past legal takedowns of the Switch emulators Yuzu and Ryujinx.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Survey of 5,463 developers reports widespread job insecurity, burnout, and split views on AI.&lt;/strong&gt; The &lt;a href=&quot;https://2026.stateofdevs.com/en-US/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;State of Devs 2026&lt;/a&gt; survey ran from July 5 to September 5. Nearly half of respondents reported job insecurity, about one in ten had been laid off in the past nine months, and 62% reported burnout at some point in their careers. Attitudes toward AI were polarized: 49% positive and 42% negative (&lt;a href=&quot;https://news.ycombinator.com/item?id=49985643&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters ask how much selection bias affects a voluntary survey like this, and link to the Stack Overflow 2026 survey for comparison.&lt;/li&gt;
+&lt;li&gt;One respondent says their own expectation of a forced career change shifted noticeably in the few months since they filled out the survey.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-10-07">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

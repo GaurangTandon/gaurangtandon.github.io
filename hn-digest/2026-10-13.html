@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — October 13, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — October 13, 2026</h1>
+    <p class="date">Tuesday, October 13, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers a long-hidden Rust compiler bug, new AI models and research, a critical look at a claimed algorithmic result, a hardware wallet supply-chain attack, and a newly uncovered Bronze Age archive.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A soundness bug in Rust&amp;#x27;s borrow checker lets a struct&amp;#x27;s lifetime requirements be bypassed.&lt;/strong&gt; A &lt;a href=&quot;https://github.com/rust-lang/rust/issues/164250&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;newly filed issue&lt;/a&gt; shows a short program, using a covariant field assignment and a custom Drop implementation, that compiles and then reads stack memory after it has gone out of scope. The bug affects current nightly and stable releases back to at least 1.85.0 and is labeled high priority. A Types Team member wrote that the bug is about 11 years old and that exploiting it requires an intentionally malicious Drop implementation, so it is unlikely to have caused accidental memory unsafety (&lt;a href=&quot;https://news.ycombinator.com/item?id=50069499&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter who once worked on a variance-related lint notes that variance is rarely written out by hand, so bugs in that area can go untested for years.&lt;/li&gt;&lt;li&gt;Others point to counterexamples.org, which collects soundness holes across many type systems, including several Rust examples.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An independent project turned Google&amp;#x27;s EmbeddingGemma 2 embedding model into an on-device speech-to-text tool.&lt;/strong&gt; The &lt;a href=&quot;https://eg2.haku.sh/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project&lt;/a&gt; keeps the model&amp;#x27;s audio encoder unchanged and trains a small &amp;quot;reader&amp;quot; that maps short audio slices to the nearest of roughly 229,000 English words. A separate tiny model adds punctuation. The developers report transcribing an hour of audio in about 12.6 seconds on a base M3 MacBook Air, with a word error rate of about 5%, compared with 2–3% for leading speech models. Training the reader took under two hours on 8×H100 (&lt;a href=&quot;https://news.ycombinator.com/item?id=50069971&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter suggests that training a CTC head directly on the Gemma audio encoder would likely give better accuracy and faster inference.&lt;/li&gt;&lt;li&gt;Others note they could not find source code. The Apache 2.0 license mentioned on the page appears to apply to Google&amp;#x27;s base model, not to the app.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google DeepMind released Gemini 4 Argon, its new frontier model.&lt;/strong&gt; The &lt;a href=&quot;https://deepmind.google/models/gemini/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;launch page&lt;/a&gt; says Argon ties for first on CWE-Bench, scoring 68% for vulnerability remediation, and calls it Google&amp;#x27;s most resilient model against indirect prompt injection. Google also describes Argon helping the Chrome team separate a roughly 6-million-line legacy folder from Chromium&amp;#x27;s 40-million-line codebase (&lt;a href=&quot;https://news.ycombinator.com/item?id=50073879&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters report a staggered rollout: the model appeared first for Pro and Ultra subscribers and in some Antigravity accounts, while others expect API access to follow.&lt;/li&gt;&lt;li&gt;One commenter cautions that major labs may be optimizing specifically for public benchmarks.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A NeurIPS paper shows that AI models can carry hidden capabilities that are provably hard to detect.&lt;/strong&gt; The &lt;a href=&quot;https://arxiv.org/abs/2610.13928&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;authors&lt;/a&gt; embed encrypted neural networks inside a host model&amp;#x27;s weights. Using cryptographic &amp;quot;digital lockers,&amp;quot; these networks decrypt and run only when the model receives a secret trigger. The hidden circuits withstood fine-tuning, weight noising, gradient-based trigger search, and latent adversarial training on a small chemistry task used as a stand-in for dangerous capabilities. The authors argue this shows a limit of capability audits that rely on eliciting behavior, and they released their models (&lt;a href=&quot;https://news.ycombinator.com/item?id=50065692&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters link the result to Rice&amp;#x27;s theorem: non-trivial runtime behavior of a sufficiently expressive program generally cannot be determined by static inspection alone.&lt;/li&gt;&lt;li&gt;Several raise the concern for open-weight models used locally, especially when connected to tools like web search.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A signal-processing researcher argues that OpenAI&amp;#x27;s claimed faster Fourier transform has no practical benefit.&lt;/strong&gt; In a &lt;a href=&quot;https://www.argmin.net/p/faster-fourier-transforms&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;detailed post&lt;/a&gt;, Ben Recht examines a result from OpenAI&amp;#x27;s recently published math repository. He finds that it is asymptotically slightly faster than the standard FFT but has estimated constants around 10^100, which places it among so-called &amp;quot;galactic&amp;quot; algorithms. He argues the result reflects how loosely the rules of the problem were specified more than a real speedup (&lt;a href=&quot;https://news.ycombinator.com/item?id=50065932&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters push back, noting that theory venues such as STOC, FOCS, and SODA have long accepted galactic results and are not meant to judge practical performance.&lt;/li&gt;&lt;li&gt;Others focus on the model of computation: it assumes exact complex arithmetic on numbers whose magnitudes grow superpolynomially, which some argue undercuts the asymptotic claim.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Character.ai filed for Chapter 11 bankruptcy to pursue a court-supervised sale.&lt;/strong&gt; The &lt;a href=&quot;https://blog.character.ai/an-update-on-character-ai/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;company says&lt;/a&gt; the platform and paid subscriptions continue for now, the sale should finish by late November or early December, and the service will be wound down if no suitable bid emerges. &lt;a href=&quot;https://www.theverge.com/ai-artificial-intelligence/1009802/character-ai-files-for-bankruptcy-disney&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The Verge reports&lt;/a&gt; estimated liabilities of $50–100 million. Disney is the lead bidder, offering $20 million for certain assets, and it recently hired Character.ai&amp;#x27;s former CEO as its chief technology officer (&lt;a href=&quot;https://news.ycombinator.com/item?id=50068036&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters raise the question of what will happen to the personal and sensitive conversation data users shared if the assets are sold.&lt;/li&gt;&lt;li&gt;Others note that the company had already lost its co-founders to Google in a 2024 deal worth over $2 billion and later barred minors, a group one commenter suspects made up much of its user base.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Tampered Ledger hardware wallets with hidden cellular modems were used to steal cryptocurrency.&lt;/strong&gt; According to &lt;a href=&quot;https://www.heise.de/en/news/Crypto-thieves-sell-hardware-wallets-with-secret-eSIM-11485188.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;heise&lt;/a&gt;, modified Ledger Nano X devices contained an extra chip that read the seed phrase from the connection to the device&amp;#x27;s screen. An added LTE modem, eSIM, and antenna then sent the phrase to the attackers. The device&amp;#x27;s secure chip itself was never compromised. Blockchain observers have identified more than 300 affected wallets, drained of roughly $93 million in total. Ledger has told anyone who bought from the Malaysian dealer Cryptobilis in the past three months to move their funds (&lt;a href=&quot;https://news.ycombinator.com/item?id=50068508&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to hardware researcher Joe Grand&amp;#x27;s earlier analysis of the tampered devices. They suggest that publishing reference weights, or filling the device&amp;#x27;s internals with epoxy so no free space remains, would make this kind of tampering harder.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Archaeologists uncovered a large Hittite royal archive in central Turkey.&lt;/strong&gt; This season&amp;#x27;s excavation at ancient Samuha, modern Sivas, &lt;a href=&quot;https://www.thehistoryblog.com/archives/77107&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;yielded 131 cuneiform tablets and fragments&lt;/a&gt;, adding to 53 found last year. The texts are about 3,400 years old, written in Hittite and Hurrian, and date to the reign of King Tudhaliya II. They include an account of a fever that killed the king&amp;#x27;s infant daughter, a letter from generals requesting reinforcements, and a diary-like record of bird diviners&amp;#x27; travels. The report describes it as the largest Hittite-language archive found this century (&lt;a href=&quot;https://news.ycombinator.com/item?id=50067414&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter notes that the blog post condenses an original report from Daily Sabah.&lt;/li&gt;&lt;li&gt;Another adds context: the Hittites were long known mainly from biblical references, and when Texier found their capital Hattusa in 1834, he mistook it for the Greek-recorded city of Pteria.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;SolidCraft is a new open-source parametric 3D CAD application written in Rust.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/bherbruck/solidcraft&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project&lt;/a&gt; runs on desktop and in the browser, and it includes a built-in MCP server so AI agents can build models. It supports sketches, constraints, and a feature timeline that rebuilds the model when a dimension changes. Its author describes it as early but usable for simple parts: 75 of 76 reference parts match analytic or FreeCAD-computed properties (&lt;a href=&quot;https://news.ycombinator.com/item?id=50064840&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note it is built on the Truck B-rep kernel. They point out that a previous browser CAD project, CADmium, also started on Truck before its author moved to OpenCASCADE, which raises the question of how quickly a young kernel can mature.&lt;/li&gt;&lt;li&gt;One commenter reports that agents using FreeCAD&amp;#x27;s MCP rarely produced properly parameterized sketches, and that OpenSCAD workflows suffered from the model&amp;#x27;s weak visual reasoning. These are the gaps a tool like this would need to address.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-10-13">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

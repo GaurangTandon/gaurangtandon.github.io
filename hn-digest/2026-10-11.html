@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — October 11, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — October 11, 2026</h1>
+    <p class="date">Sunday, October 11, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers lessons from months of AI-driven game decompilation, a new LineageOS release, and practical notes on shell configuration, documentation, and handheld hardware.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A months-long experiment used AI agents to decompile a commercial first-person shooter.&lt;/strong&gt; Maurice Heumann &lt;a href=&quot;https://momo5502.com/posts/2026-10-09-game-decompilation/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;describes&lt;/a&gt; spending three months and more than 500 billion tokens orchestrating Claude and Codex agents. The agents tracked their work through GitHub issues, coordinated over Discord, and used Hex-Rays&amp;#x27; ida-mcp. Within the first month they had decompiled roughly 80% of the game and could load maps, but the code turned out to be semantically wrong in many places, with wrong function signatures, invented logic, and unnecessary architectural changes, which the author attributes to never defining objective acceptance criteria (&lt;a href=&quot;https://news.ycombinator.com/item?id=50039092&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that an earlier version of the page identified the game as Call of Duty: Modern Warfare 2 (2009), which the post now leaves unnamed after what it describes as corporate pressure.&lt;/li&gt;&lt;li&gt;One commenter describes a faster approach for cases where byte-matching is not needed: an agent writes a semantically equivalent version of each function along with tests, and a harness judges the result against the original.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Terence Tao published slides for a talk on AI and the future of mathematics.&lt;/strong&gt; The &lt;a href=&quot;https://teorth.github.io/tao-web/slides/math-2-0-caltech-2026.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;&amp;quot;Math 2.0&amp;quot; slides&lt;/a&gt; discuss how humans and AI might work together in mathematics. Judging from the discussion, they also include a thought experiment on alignment and understanding, which asks whether people would want a human expert to understand the mechanism behind an AI-discovered cancer treatment (&lt;a href=&quot;https://news.ycombinator.com/item?id=50043026&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Many commenters dispute the medical analogy, pointing out that widely used treatments, including general anesthesia, lack a fully understood mechanism, and that patients facing terminal illness often prioritize efficacy.&lt;/li&gt;&lt;li&gt;Others raise separate doubts: AI could produce results that are technically valid but impractical, and heavy reliance on formal tools such as Lean could change how mathematicians find inspiration.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;LineageOS 24.0 is released, based on Android 17.&lt;/strong&gt; The &lt;a href=&quot;https://lineageos.org/Changelog-32/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;changelog&lt;/a&gt; says the rebase arrived earlier than in past years and that security patches through October 2026 have been merged into versions 18.1 to 24.0. The release adds a new image editor called Canvas and an updater that streams updates by default. It also introduces browser-based WebUSB flashing tools for ADB, Fastboot, Amlogic Burn, and Samsung Odin, and notes an experimental generic target that has booted on x86_64 PCs, Apple Silicon Macs, and Snapdragon X laptops. The project turns 10 years old on December 24, 2026 (&lt;a href=&quot;https://news.ycombinator.com/item?id=50040276&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Users report that older devices such as the Pixel 4a and OnePlus 6T are still supported. One commenter says the lack of GrapheneOS-style contact and storage scopes is what keeps them from switching.&lt;/li&gt;&lt;li&gt;One commenter recalls that camera quality on older Samsung devices was noticeably worse than on stock firmware and suspects proprietary camera drivers are the cause.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Nitter&amp;#x27;s maintainer says the project has no legal counsel after cease-and-desist letters from X Corp.&lt;/strong&gt; According to the &lt;a href=&quot;https://nitter.net&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project&amp;#x27;s update&lt;/a&gt;, X Corp. sent letters on August 24 and September 8, 2026 demanding a permanent takedown of Nitter instances and the repository. The maintainer retracted an earlier statement that legal representation was in place and is now seeking funding and legal help (&lt;a href=&quot;https://news.ycombinator.com/item?id=50041682&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters explain that Nitter is an open-source alternative front-end for viewing public X posts without an account, ads, or tracking. Some doubt it can operate legally given X&amp;#x27;s terms of service, while others note that the many existing forks would make it hard to remove entirely.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A quoted tilde in PATH is not expanded to the home directory.&lt;/strong&gt; A &lt;a href=&quot;https://disconnect3d.pl//2026/10/02/dont-put-tilde-in-your-path/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;blog post&lt;/a&gt; explains that export PATH=&amp;quot;$PATH:~/.local/bin/&amp;quot; adds a literal relative path. As a result, the shell can run binaries from a ./~/.local/bin directory inside whatever directory is current. The author noticed the problem through a warning from the nono agent sandboxing tool and recommends using $HOME instead (&lt;a href=&quot;https://news.ycombinator.com/item?id=50042425&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter suggests prepending the directory rather than appending it, so that user-installed binaries take precedence over system ones.&lt;/li&gt;&lt;li&gt;Another recalls an AI coding tool creating a literal ~ directory inside a repository, which shows the same confusion can happen in practice.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer paid testers to follow a project&amp;#x27;s README and narrate their experience.&lt;/strong&gt; Terence Eden &lt;a href=&quot;https://shkspr.mobi/blog/2026/10/i-paid-people-to-try-and-follow-my-readme/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;paid volunteers&lt;/a&gt; €25 per hour, about €150 in total and funded through an NLnet grant, to share their screens and think aloud while installing ActivityBot. The sessions turned up a broken demo link, unexplained terminology, confusing section ordering, and the fact that the README never said what the software does. The README was revised after each session (&lt;a href=&quot;https://news.ycombinator.com/item?id=50042219&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter points out a step that is still missing: installing and configuring php-fpm and a web server, which newcomers to PHP hosting would need to work out on their own.&lt;/li&gt;&lt;li&gt;Others note that the method is essentially traditional QA and usability testing applied to documentation.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The PSPi 6 replaces a PSP-1000&amp;#x27;s mainboard with a Raspberry Pi.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/othermod/PSPi-Version-6&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;open-hardware project&lt;/a&gt; provides a custom board that fits a Pi Zero, Zero 2W, or CM4 (with a carrier board) inside the original shell. It drives an 800x480 LCD and uses the original buttons and joystick. Boards can be bought ready-made or fabricated from the published design files (&lt;a href=&quot;https://news.ycombinator.com/item?id=50038623&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that Raspberry Pi chips have no sleep or suspend mode, so the device must either stay powered on or boot each time it is used.&lt;/li&gt;&lt;li&gt;Others warn that original PSP batteries often swell with age and suggest using units sold for parts rather than taking apart a working console.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Game Boy emulator runs on an ESP32-driven e-paper display at 30 frames per second.&lt;/strong&gt; A &lt;a href=&quot;https://www.youtube.com/watch?v=XiZmM6hwwAU&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;video&lt;/a&gt; demonstrates the project, which, according to the discussion, relies on custom driver techniques to reach refresh rates far above typical e-paper behavior (&lt;a href=&quot;https://news.ycombinator.com/item?id=50039536&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters familiar with e-paper mention dithering and lookup tables (LUTs) as key techniques. They also ask whether grayscale tuning would need per-panel calibration and whether it would drift with temperature.&lt;/li&gt;&lt;li&gt;One commenter cautions that &amp;quot;e-paper&amp;quot; is not synonymous with particle-based E Ink, since some displays sold as e-paper are LCD-based.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-10-11">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

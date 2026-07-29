@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — August 2, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — August 2, 2026</h1>
+    <p class="date">Sunday, August 2, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;A quiet day of infrastructure news: a proof-assistant soundness bug, a Go release, and several claims that the discussion threads promptly resized.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A soundness bug in the Lean kernel let an AI-assisted &amp;quot;disproof&amp;quot; of the Collatz conjecture pass verification.&lt;/strong&gt; Lean&amp;#x27;s Leonardo de Moura &lt;a href=&quot;https://leodemoura.github.io/blog/2026-8-1-postmortem-for-kernel-soundness-bug-14576/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;published a postmortem&lt;/a&gt; explaining that a repository posted on July 25 exploited the kernel&amp;#x27;s handling of nested inductive types, where phantom parameters escaped type checking; it was reduced to a proof of False on July 28 and fixed within an hour of the report. The flaw is only reachable through metaprogramming, and an independent checker, nanoda, missed it only because of a second, unrelated bug in its own projection handling (&lt;a href=&quot;https://news.ycombinator.com/item?id=49137060&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters draw the practical lesson that a machine-checked proof produced by a model is not self-validating, since the model may be optimizing against the checker rather than the mathematics.&lt;/li&gt;&lt;li&gt;Several add context that soundness holes appear periodically even in simpler type checkers such as Rust&amp;#x27;s, and argue verification should be treated as an extraordinarily strong guarantee rather than an absolute one; some point to Metamath&amp;#x27;s smaller trusted core as an alternative design.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Go 1.27 adds generic methods and several smaller language and runtime changes.&lt;/strong&gt; A &lt;a href=&quot;https://victoriametrics.com/blog/go-1-27/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;hands-on tour with runnable examples&lt;/a&gt; covers methods that declare their own type parameters, struct literal keys that accept promoted fields, broader function type inference, and size-specialized allocation that cuts the cost of some sub-80-byte allocations by up to 30% at the price of roughly 60 KB of binary size. Interfaces still cannot declare type-parameterized methods (&lt;a href=&quot;https://news.ycombinator.com/item?id=49140218&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter notes the release also fixes a runtime function for compatibility with memory tagging on Android, which had been the remaining blocker for enabling MTE on gomobile-based apps.&lt;/li&gt;&lt;li&gt;Others question how the language&amp;#x27;s stance on generics evolved over time, and some find the resulting syntax harder to read.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ByteDance released Seedance 2.5, a video generation model that produces 30-second clips in a single pass.&lt;/strong&gt; The &lt;a href=&quot;https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt; describes multi-round extension for multi-minute output, reference inputs of up to 30 images, 10 video clips and 10 audio clips per generation, and timestamp-level editing controls. It is rolling out on Jimeng AI and Doubao Pro, with API access via BytePlus ModelArk described as coming soon (&lt;a href=&quot;https://news.ycombinator.com/item?id=49138302&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Skepticism about real applications is met by commenters who say they have already seen AI-generated video in ad spots from large brands.&lt;/li&gt;&lt;li&gt;Viewers who found the quality convincing still flag continuity errors in the demos, such as a concert clip whose auditorium is nearly empty at the start and packed by the end.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An MIT Sloan study finds LLM financial advice is reasonable on the basics but weak at adapting.&lt;/strong&gt; Researchers had &lt;a href=&quot;https://mitsloan.mit.edu/ideas-made-to-matter/ai-financial-advice-surprisingly-good-especially-if-you-ask-right-questions&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;1,000 adults write their own prompts&lt;/a&gt; to GPT-5.2, GPT-5.6 and Gemini 3 Flash, then simulated following that advice across ages 22 to 89: the models consistently recommended saving, diversified stock funds and reducing equity exposure after 45, but adjusted poorly to shocks like unemployment and let portfolios drift instead of rebalancing. More structured prompts improved results without fixing the rebalancing gap (&lt;a href=&quot;https://news.ycombinator.com/item?id=49139102&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters read the headline finding as confirmation that the models reproduce conventional guidance rather than anything sophisticated, and note the same tendency causes them to dismiss less common but defensible strategies.&lt;/li&gt;&lt;li&gt;Others point out the comparison baseline matters, since human financial advice carries its own costs and conflicts, and worry the models will validate a user&amp;#x27;s poor decisions if asked to.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An inference vendor reports serving Kimi K3 on AMD MI355X hardware at better throughput per dollar than Nvidia B300.&lt;/strong&gt; Wafer&amp;#x27;s &lt;a href=&quot;https://www.wafer.ai/blog/kimi-k3-mi355x&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;writeup&lt;/a&gt; puts a 2.8T-parameter model on eight MI355X GPUs at 952 tok/s per node against 1,568 for a B300 node, arguing the price gap flips the ranking; the engineering detail includes a missing top-k renormalization function in the ROCm build and padding the attention head count from 12 to 16 to reach a fast prefill kernel. It also concedes prefill is much slower on AMD, at roughly 51 seconds versus 23 for a 172k-token cold start (&lt;a href=&quot;https://news.ycombinator.com/item?id=49141073&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Multiple commenters observe that the B300 wins every raw performance row and that the conclusion rests entirely on assumed hourly prices they consider unrepresentative of real contracts.&lt;/li&gt;&lt;li&gt;Several read the post as largely AI-drafted and treat the unreviewed prose as a reason to discount the benchmark; one also objects to calling weights-only releases &amp;quot;open source&amp;quot; rather than open weight.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A widely shared statistic puts Linux desktop share above 10% in North America.&lt;/strong&gt; The &lt;a href=&quot;https://old.reddit.com/r/linux/comments/1vcpk8i/linux_desktop_market_share_has_hit_over_10_in/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Reddit post&lt;/a&gt; reporting the milestone drew heavy upvoting, but the underlying measurement method is what the thread actually turns on (&lt;a href=&quot;https://news.ycombinator.com/item?id=49140696&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters cite Cloudflare Radar showing roughly 6% when filtered to likely-human traffic and about 9.3% including bots, and argue headless browsers used for agentic scraping inflate the Linux figure.&lt;/li&gt;&lt;li&gt;Others question the dataset&amp;#x27;s reliability on its face, noting it lists &amp;quot;OS X&amp;quot; and &amp;quot;macOS&amp;quot; as separate categories, and add that desktop share is measured against a shrinking share of overall computing.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Diátaxis, a framework that splits technical documentation into four types, resurfaced.&lt;/strong&gt; The &lt;a href=&quot;https://diataxis.fr/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;site&lt;/a&gt; organizes docs into tutorials, how-to guides, reference and explanation, mapping each to a distinct user need, and positions itself as a lightweight approach to content, structure and voice rather than a tooling requirement (&lt;a href=&quot;https://news.ycombinator.com/item?id=49138188&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note the framework has been posted repeatedly, with a larger 2024 thread available, and that its main practical benefit is knowing which voice a given page should be written in.&lt;/li&gt;&lt;li&gt;One newer use reported is simply instructing a coding model to follow Diátaxis to get a usable first documentation pass.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A 15-year-old published a 3D-printed cycloidal gearbox along with the Python script that generates its geometry.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/tom-ilan/cycloidal_gearbox&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;repository&lt;/a&gt; documents three design iterations, including a micro version that failed on print tolerances, and a working 1:9 version driven by a NEMA 17 stepper at 90 mm outer diameter. The reported figures are 1.3 N·m output against 0.21 N·m at the motor, with 66% measured efficiency (&lt;a href=&quot;https://news.ycombinator.com/item?id=49140396&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters advise against publishing one&amp;#x27;s age online alongside a project, and some suspect AI assistance in the work.&lt;/li&gt;&lt;li&gt;A related suggestion is to build a comparable project without model assistance for the learning value, alongside pointers to teen hardware communities.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A long-running Tumblr archive collects user interfaces depicted in anime.&lt;/strong&gt; The &lt;a href=&quot;https://animeuserinterface.tumblr.com&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;collection&lt;/a&gt; gathers screens, cockpits and control panels from titles including Macross Plus and Dirty Pair, presenting a visual record of how an earlier generation imagined computer interaction (&lt;a href=&quot;https://news.ycombinator.com/item?id=49139304&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters temper expectations, noting the archive is on the order of sixty images and that many have little to do with interface design, and identify at least one clip as live-action footage from WarGames rather than animation.&lt;/li&gt;&lt;li&gt;Others draw a comparison to nuclear control room design, where dense physical layouts prioritized clarity over decoration, in contrast to contemporary flat interfaces.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-08-02">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
