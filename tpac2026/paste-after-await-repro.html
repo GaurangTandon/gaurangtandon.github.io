@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Paste and drop DataTransfer read after await: real world repro</title>
+<style>
+  body { font: 14px/1.4 system-ui, sans-serif; margin: 24px; max-width: 1400px; }
+  h1 { font-size: 20px; }
+  h2 { font-size: 15px; margin: 0 0 8px; }
+  .row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 24px; align-items: start; }
+  .row > div { min-width: 0; }
+  .editable { border: 1px solid #888; min-height: 140px; padding: 8px; white-space: pre-wrap; }
+  .editable:focus { outline: 2px solid #3b82f6; }
+  .editable.is-dragging { outline: 2px dashed #f59e0b; }
+  .editable img { max-width: 100%; display: block; margin: 6px 0; }
+  .chip { display: inline-block; border: 1px solid #888; border-radius: 4px; padding: 2px 8px; cursor: grab; background: #f3f4f6; }
+  pre { background: #111; color: #ddd; padding: 10px; overflow: auto; font: 12px/1.45 ui-monospace, Menlo, monospace; margin: 0; }
+  pre#log { min-height: 180px; white-space: pre-wrap; word-break: break-all; margin-top: 12px; }
+  .ok { color: #4ade80; } .bad { color: #f87171; } .dim { color: #999; }
+  code { background: #eee; padding: 0 3px; }
+  /* syntax colors for the embedded source listing */
+  .tok-kw { color: #c678dd; }
+  .tok-str { color: #98c379; }
+  .tok-cm { color: #7f848e; font-style: italic; }
+  .tok-num { color: #d19a66; }
+  .tok-fn { color: #61afef; }
+  .tok-prop { color: #e5c07b; }
+  .tok-hl { background: #3a2a1a; display: inline-block; width: 100%; }
+</style>
+</head>
+<body>
+<h1>Paste and drop handlers that read the DataTransfer after an await</h1>
+
+<p>
+  Pattern copied from
+  <a href="https://github.com/strictdoc-project/strictdoc/blob/main/strictdoc/export/html/_static/editable_field.js">strictdoc editable_field.js</a>.
+</p>
+<p>Try: (1) Ctrl+V / Cmd+V with text, (2) paste a screenshot, (3) drag the chip <span class="chip" draggable="true" id="chip">drag me into the box</span> or a file from your desktop into the box, (4) repeat in Firefox/Safari.</p>
+
+<div class="row">
+  <div>
+    <h2>Demo</h2>
+    <div class="editable" contenteditable="true" data-field-type="multiline">Click here, then paste or drop text or an image.</div>
+    <pre id="log"></pre>
+    <p><button id="clear">clear log</button></p>
+  </div>
+  <div>
+    <h2>The handlers running on this page</h2>
+    <pre id="source"></pre>
+  </div>
+</div>
+
+<script id="app">
+(() => {
+  const logEl = document.getElementById('log');
+  const editable = document.querySelector('.editable');
+
+  function log(msg, cls) {
+    const line = document.createElement('div');
+    if (cls) line.className = cls;
+    line.textContent = `${performance.now().toFixed(1).padStart(9)} ms  ${msg}`;
+    logEl.appendChild(line);
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+  document.getElementById('clear').onclick = () => { logEl.textContent = ''; };
+
+  function describe(dt) {
+    return `types=${JSON.stringify(Array.from(dt.types))} items=${dt.items.length}`;
+  }
+
+  // simulates the upload round trip. only reached when the transfer carried a file.
+  async function uploadSupportedImages(files) {
+    await new Promise((r) => setTimeout(r, 150));
+    for (const file of files) {
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      editable.appendChild(img);
+      log(`uploaded ${file.name} (${file.type}, ${file.size} bytes)`, 'ok');
+    }
+  }
+
+  function insertText(text) {
+    const sel = window.getSelection();
+    if (!sel.rangeCount || !editable.contains(sel.anchorNode)) {
+      editable.appendChild(document.createTextNode(text));
+      return;
+    }
+    sel.deleteFromDocument();
+    sel.getRangeAt(0).insertNode(document.createTextNode(text));
+    sel.collapseToEnd();
+  }
+
+  // the chip gives the page something to drag without leaving the browser
+  document.getElementById('chip').addEventListener('dragstart', (event) => {
+    event.dataTransfer.setData('text/plain', 'dropped text from the chip');
+    event.dataTransfer.effectAllowed = 'copy';
+  });
+  editable.addEventListener('dragenter', (event) => { event.preventDefault(); editable.classList.add('is-dragging'); });
+  editable.addEventListener('dragover', (event) => { event.preventDefault(); event.dataTransfer.dropEffect = 'copy'; });
+  editable.addEventListener('dragleave', () => editable.classList.remove('is-dragging'));
+
+  // SHOW_START
+  // same shape as strictdoc handleImagePaste. items are read synchronously at the top,
+  // and the function returns false without a real suspension when there is no file.
+  async function handleImageTransfer(kind, dt) {
+    const pastedFiles = [];
+    for (const item of dt.items) {
+      const file = item.getAsFile();
+      if (file) pastedFiles.push(file);
+    }
+    log(`${kind} handleImageTransfer: ${dt.items.length} items, ${pastedFiles.length} files`);
+    if (pastedFiles.length === 0) return false;
+    await uploadSupportedImages(pastedFiles);
+    return true;
+  }
+
+  document.addEventListener('paste', async (event) => {
+    if (!event.target.closest?.('.editable')) return;
+    event.preventDefault();
+    const dt = event.clipboardData;
+    log(`paste listener start isTrusted=${event.isTrusted} ${describe(dt)}`);
+
+    if (await handleImageTransfer('paste', dt)) return;
+
+    // this read happens after the listener returned, in the microtask that resumes the async function
+    const text = dt.getData('text/plain'); // HL
+    log(`  paste text read after await: ${JSON.stringify(text)}`);
+    if (text) insertText(text);
+  });
+
+  editable.addEventListener('drop', async (event) => {
+    event.preventDefault();
+    editable.classList.remove('is-dragging');
+    const dt = event.dataTransfer;
+    log(`drop listener start isTrusted=${event.isTrusted} ${describe(dt)}`);
+
+    if (await handleImageTransfer('drop', dt)) return;
+
+    // same read, same timing, but on the drop event's dataTransfer
+    const text = dt.getData('text/plain'); // HL
+    log(`  drop text read after await:  ${JSON.stringify(text)}`);
+    if (text) insertText(text);
+  });
+  // SHOW_END
+
+  log('ready. ' + navigator.userAgent, 'dim');
+})();
+</script>
+
+<script>
+// renders the important part of the #app script with a small tokenizer, so the page needs no external highlighter
+(() => {
+  const full = document.getElementById('app').textContent;
+  const region = full.slice(full.indexOf('// SHOW_START\n') + '// SHOW_START\n'.length, full.indexOf('  // SHOW_END'));
+  const indent = Math.min(...region.split('\n').filter((l) => l.trim()).map((l) => l.match(/^ */)[0].length));
+  const lines = region.split('\n').map((l) => l.slice(indent));
+  while (lines.length && !lines[lines.length - 1].trim()) lines.pop();
+
+  const KW = new Set(('async await const let var function return if else for of in new true false null undefined ' +
+    'typeof this class extends import export try catch finally throw while do switch case break continue').split(' '));
+  const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const tokenRe = /(\/\/[^\n]*|\/\*[\s\S]*?\*\/)|(`(?:\\.|[^`\\])*`|'(?:\\.|[^'\\\n])*'|"(?:\\.|[^"\\\n])*")|(\b\d+(?:\.\d+)?\b)|([A-Za-z_$][\w$]*)(?=\s*\()|\.([A-Za-z_$][\w$]*)|([A-Za-z_$][\w$]*)/g;
+
+  function highlightLine(line) {
+    let out = '';
+    let last = 0;
+    for (const m of line.matchAll(tokenRe)) {
+      out += esc(line.slice(last, m.index));
+      const [raw, cm, str, num, fn, prop, ident] = m;
+      if (cm) out += `<span class="tok-cm">${esc(raw)}</span>`;
+      else if (str) out += `<span class="tok-str">${esc(raw)}</span>`;
+      else if (num) out += `<span class="tok-num">${esc(raw)}</span>`;
+      else if (fn) out += KW.has(fn) ? `<span class="tok-kw">${esc(raw)}</span>` : `<span class="tok-fn">${esc(raw)}</span>`;
+      else if (prop) out += `.<span class="tok-prop">${esc(prop)}</span>`;
+      else if (ident) out += KW.has(ident) ? `<span class="tok-kw">${esc(raw)}</span>` : esc(raw);
+      last = m.index + raw.length;
+    }
+    return out + esc(line.slice(last));
+  }
+
+  const width = String(lines.length).length;
+  document.getElementById('source').innerHTML = lines.map((line, i) => {
+    const marked = / \/\/ HL$/.test(line);
+    const body = highlightLine(marked ? line.replace(/ \/\/ HL$/, '') : line);
+    const num = `<span class="dim">${String(i + 1).padStart(width)}  </span>`;
+    return marked ? `<span class="tok-hl">${num}${body}</span>` : `${num}${body}`;
+  }).join('\n');
+})();
+</script>
+</body>
+</html>
