@@ -41,6 +41,7 @@
   <div>
     <h2>Demo</h2>
     <div class="editable" contenteditable="true" data-field-type="multiline">Click here, then paste or drop text or an image.</div>
+    <p><label><input type="checkbox" id="task"> also <code>await</code> a <code>setTimeout(0)</code> before the read (task boundary instead of microtask)</label></p>
     <pre id="log"></pre>
     <p><button id="clear">clear log</button></p>
   </div>
@@ -63,6 +64,7 @@
     logEl.scrollTop = logEl.scrollHeight;
   }
   document.getElementById('clear').onclick = () => { logEl.textContent = ''; };
+  const taskBox = document.getElementById('task');
 
   function describe(dt) {
     return `types=${JSON.stringify(Array.from(dt.types))} items=${dt.items.length}`;
@@ -114,6 +116,13 @@
     return true;
   }
 
+  // with the checkbox on, the read below crosses a task boundary rather than just a microtask one
+  async function maybeWaitForTask() {
+    if (!taskBox.checked) return 'microtask';
+    await new Promise((r) => setTimeout(r, 0));
+    return 'setTimeout 0';
+  }
+
   document.addEventListener('paste', async (event) => {
     if (!event.target.closest?.('.editable')) return;
     event.preventDefault();
@@ -121,10 +130,11 @@
     log(`paste listener start isTrusted=${event.isTrusted} ${describe(dt)}`);
 
     if (await handleImageTransfer('paste', dt)) return;
+    const mode = await maybeWaitForTask();
 
-    // this read happens after the listener returned, in the microtask that resumes the async function
+    // this read happens after the listener returned, in the microtask (or task) that resumes the async function
     const text = dt.getData('text/plain'); // HL
-    log(`  paste text read after await: ${JSON.stringify(text)}`);
+    log(`  paste text read after ${mode}: ${JSON.stringify(text)}`);
     if (text) insertText(text);
   });
 
@@ -135,10 +145,11 @@
     log(`drop listener start isTrusted=${event.isTrusted} ${describe(dt)}`);
 
     if (await handleImageTransfer('drop', dt)) return;
+    const mode = await maybeWaitForTask();
 
     // same read, same timing, but on the drop event's dataTransfer
     const text = dt.getData('text/plain'); // HL
-    log(`  drop text read after await:  ${JSON.stringify(text)}`);
+    log(`  drop text read after ${mode}:  ${JSON.stringify(text)}`);
     if (text) insertText(text);
   });
   // SHOW_END
