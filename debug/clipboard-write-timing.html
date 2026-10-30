@@ -62,7 +62,7 @@
 </p>
 <table id="table">
   <thead><tr>
-    <th class="l">#</th><th class="l">wall clock</th><th class="l">kind</th><th>text words</th><th>html len</th>
+    <th class="l">#</th><th class="l">wall clock</th><th class="l">kind</th><th>text len</th><th>html len</th>
     <th>promise ms</th><th>landed ms</th><th>read ms</th><th class="l">match</th><th class="l">note</th>
   </tr></thead>
   <tbody></tbody>
@@ -278,10 +278,10 @@
     if (!res.match) tr.className = 'bad';
     else if (res.landedMs === null && changeSupported) tr.className = 'warn';
     const note = [res.note, !res.match ? `read: ${res.readPreview}` : '', res.landedMs === null && changeSupported ? 'no clipboardchange within 2 s' : ''].filter(Boolean).join('; ');
-    tr.innerHTML = `<td class="l">${n}</td><td class="l">${wall()}</td><td class="l">${kind}</td><td>${text.split(/\s+/).length}</td><td>${html === undefined ? '' : html.length}</td>` +
+    tr.innerHTML = `<td class="l">${n}</td><td class="l">${wall()}</td><td class="l">${kind}</td><td>${text.length}</td><td>${html === undefined ? '' : html.length}</td>` +
       `<td>${res.promiseMs}</td><td>${res.landedMs ?? ''}</td><td>${res.readMs}</td><td class="l">${res.match ? 'yes' : 'NO'}</td><td class="l">${note}</td>`;
     tbody.appendChild(tr);
-    raw('write', n, wall(), kind, text.split(/\s+/).length, html === undefined ? '' : html.length, res.promiseMs, res.landedMs, res.readMs, res.match ? 'yes' : 'NO', note);
+    raw('write', n, wall(), kind, text.length, html === undefined ? '' : html.length, res.promiseMs, res.landedMs, res.readMs, res.match ? 'yes' : 'NO', note);
     stats.writes++;
     if (!res.match) stats.dropped++;
     if (res.landedMs !== null) stats.landed.push(res.landedMs); else stats.noChange++;
