@@ -32,7 +32,7 @@
 <ol>
   <li>Close other apps that might watch the clipboard only if asked to. Otherwise leave the machine exactly as it is day to day.</li>
   <li>Click <b>Run</b>. Allow clipboard access if the browser asks.</li>
-  <li>Keep this tab focused until the status line says done (about 20 to 40 seconds). The write landed signal only fires while the page is focused.</li>
+  <li>Keep this tab focused until the status line says done (about 20 to 40 seconds). The write landed signal only fires while the page is focused. If a "Click to continue" button appears, click it.</li>
   <li>Click <b>Select results</b>, press Ctrl+C, and paste the text into your reply.</li>
 </ol>
 
@@ -42,10 +42,11 @@
   <label>Gap before second write <input id="gap" type="number" value="300" min="0" max="5000"> ms</label>
   <label><input id="withHtml" type="checkbox" checked> write html alongside text on the first write</label>
   <label><input id="richRead" type="checkbox" checked> rich read sample each iteration (text + html + png)</label>
-  <label><input id="useExec" type="checkbox"> use execCommand('copy') instead of navigator.clipboard</label>
+  <label><input id="useExec" type="checkbox"> use execCommand('copy') instead of navigator.clipboard <span class="muted">(a web page may only call it within 5 s of a click, so this mode asks you to click again every few iterations)</span></label>
 </fieldset>
 <button id="run">Run</button>
 <button id="stop" disabled>Stop</button>
+<button id="continue" hidden>Click to continue</button>
 <button id="select">Select results</button>
 <button id="clear">Clear</button>
 <div id="status">Idle.</div>
@@ -91,6 +92,24 @@
   const now = () => performance.now();
   const wall = () => new Date().toISOString().slice(11, 23);
   const sleep = ms => new Promise(r => setTimeout(r, ms));
+  // 200 random alphanumeric chars so every write differs and no clipboard watcher can serve a cached value
+  const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  function randomString(len) {
+    const bytes = crypto.getRandomValues(new Uint8Array(len));
+    let out = '';
+    for (const b of bytes) out += ALPHABET[b % ALPHABET.length];
+    return out;
+  }
+  // transient activation lasts about 5 s after a click, so exec mode waits for a fresh click when it has lapsed
+  function ensureActivation() {
+    if (!navigator.userActivation || navigator.userActivation.isActive) return Promise.resolve();
+    return new Promise(resolve => {
+      const btn = $('continue');
+      btn.hidden = false;
+      $('status').textContent = 'The browser needs a fresh click before execCommand(\'copy\') may run again. Click the button to continue.';
+      btn.addEventListener('click', () => { btn.hidden = true; resolve(); }, { once: true });
+    });
+  }
   const median = arr => {
     if (!arr.length) return null;
     const s = [...arr].sort((a, b) => a - b);
@@ -140,6 +159,7 @@
   });
 
   async function writeClipboard(text, html, useExec) {
+    if (useExec) await ensureActivation();
     const t0 = now();
     const landedPromise = waitForChange(2000);
     let note = '';
@@ -189,7 +209,7 @@
 
   async function richSample(i) {
     const png = await pngBlob();
-    const text = `rich sample ${i} ${Date.now()}`;
+    const text = randomString(200);
     const html = `<table><tr><td style="font-weight:bold">${text}</td><td>${'cell '.repeat(40)}</td></tr></table>`;
     const t0 = now();
     const landedPromise = waitForChange(2000);
@@ -278,7 +298,6 @@
     const useExec = $('useExec').checked;
     const env = await envLine();
     raw('env', wall(), env, `clipboardchange=${changeSupported}`, `iters=${iters}`, `gap=${gap}`, `html=${withHtml}`, `rich=${richRead}`, `exec=${useExec}`);
-    const reference = Date.now();
     try {
       for (let i = 1; i <= iters && !stopRequested; i++) {
         $('status').textContent = `Running iteration ${i} of ${iters}. Keep this tab focused.`;
@@ -286,16 +305,17 @@
           try { stats.rich.push(await richSample(i)); } catch (e) { raw('rich', i, wall(), 'error', String(e)); }
           await sleep(gap);
         }
-        const textA = `probe ${reference} ${i} A ${'x'.repeat(120)}`;
+        const textA = randomString(200);
         const htmlA = withHtml ? `<p style="color:rgb(0,0,0);font-family:docs-Calibri">${textA}</p>` : undefined;
         addRow(i, 'first write', textA, htmlA, await writeClipboard(textA, htmlA, useExec));
         await sleep(gap);
-        const textB = `probe ${reference} ${i} B`;
+        const textB = randomString(200);
         addRow(i, `second write +${gap} ms`, textB, undefined, await writeClipboard(textB, undefined, useExec));
         await sleep(400);
       }
       const lines = renderSummary(env);
       lines.forEach(l => raw('summary', l));
+      $('continue').hidden = true;
       $('status').textContent = stopRequested ? 'Stopped. Click Select results and press Ctrl+C.' : 'Done. Click Select results and press Ctrl+C.';
     } catch (e) {
       $('status').textContent = `Error: ${e}. Make sure the tab is focused and clipboard access was allowed, then run again.`;
