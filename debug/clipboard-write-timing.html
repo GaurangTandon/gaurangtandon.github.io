@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Clipboard write timing probe</title>
+<style>
+  body { font: 14px/1.45 system-ui, sans-serif; margin: 24px; max-width: 1200px; }
+  h1 { font-size: 20px; }
+  h2 { font-size: 15px; margin: 20px 0 6px; }
+  fieldset { border: 1px solid #bbb; padding: 10px 14px; margin: 0 0 12px; }
+  label { display: inline-block; margin: 2px 16px 2px 0; }
+  input[type=number] { width: 70px; }
+  button { font: inherit; padding: 6px 14px; margin-right: 8px; }
+  table { border-collapse: collapse; font-size: 13px; width: 100%; }
+  th, td { border: 1px solid #ccc; padding: 3px 6px; text-align: right; white-space: nowrap; }
+  th:first-child, td:first-child, td.l, th.l { text-align: left; }
+  tr.bad td { background: #ffe0e0; }
+  tr.warn td { background: #fff4d6; }
+  #status { margin: 10px 0; font-weight: 600; }
+  #summary { white-space: pre; font-family: ui-monospace, monospace; background: #f4f4f4; padding: 10px; }
+  textarea { width: 100%; height: 160px; font: 12px ui-monospace, monospace; }
+  .muted { color: #555; }
+  ol li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<h1>Clipboard write timing probe</h1>
+<p>
+  Measures how long each clipboard write takes to land in the OS clipboard, whether any write is silently dropped,
+  and how long reads of plain, html and image content take. Nothing leaves this page: results stay in the table below until you copy them.
+</p>
+<ol>
+  <li>Close other apps that might watch the clipboard only if asked to. Otherwise leave the machine exactly as it is day to day.</li>
+  <li>Click <b>Run</b>. Allow clipboard access if the browser asks.</li>
+  <li>Keep this tab focused until the status line says done (about 20 to 40 seconds). The write landed signal only fires while the page is focused.</li>
+  <li>Click <b>Select results</b>, press Ctrl+C, and paste the text into your reply.</li>
+</ol>
+
+<fieldset>
+  <legend>Settings</legend>
+  <label>Iterations <input id="iters" type="number" value="20" min="1" max="200"></label>
+  <label>Gap before second write <input id="gap" type="number" value="300" min="0" max="5000"> ms</label>
+  <label><input id="withHtml" type="checkbox" checked> write html alongside text on the first write</label>
+  <label><input id="richRead" type="checkbox" checked> rich read sample each iteration (text + html + png)</label>
+  <label><input id="useExec" type="checkbox"> use execCommand('copy') instead of navigator.clipboard</label>
+</fieldset>
+<button id="run">Run</button>
+<button id="stop" disabled>Stop</button>
+<button id="select">Select results</button>
+<button id="clear">Clear</button>
+<div id="status">Idle.</div>
+
+<h2>Summary</h2>
+<div id="summary">No data yet.</div>
+
+<h2>Per write</h2>
+<p class="muted">
+  <b>landed</b>: ms from the write call until the browser's clipboardchange event, the OS write itself. <b>promise</b>: how long the write API took to resolve, which does not wait for the OS write.
+  <b>read</b>: ms for a readText after the write (queues behind the write, so landed + a few ms when healthy). <b>match</b>: whether the read returned what we wrote.
+  A red row is a dropped write: the read still shows the previous content.
+</p>
+<table id="table">
+  <thead><tr>
+    <th class="l">#</th><th class="l">wall clock</th><th class="l">kind</th><th>text len</th><th>html len</th>
+    <th>promise ms</th><th>landed ms</th><th>read ms</th><th class="l">match</th><th class="l">note</th>
+  </tr></thead>
+  <tbody></tbody>
+</table>
+
+<h2>Rich read samples</h2>
+<p class="muted">Each sample writes text + html + a small png, then times a readText, a read() of the html blob and a read() of the png blob. Shows which format is slow to read on this machine.</p>
+<table id="rich">
+  <thead><tr>
+    <th class="l">#</th><th>write landed ms</th><th>readText ms</th><th>read() ms</th><th>html blob ms</th><th>png blob ms</th><th class="l">types</th>
+  </tr></thead>
+  <tbody></tbody>
+</table>
+
+<h2>Raw results (tab separated)</h2>
+<textarea id="raw" readonly spellcheck="false"></textarea>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const tbody = $('table').querySelector('tbody');
+  const richBody = $('rich').querySelector('tbody');
+  const rawLines = [];
+  let stopRequested = false;
+  let runId = 0;
+
+  const now = () => performance.now();
+  const wall = () => new Date().toISOString().slice(11, 23);
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const median = arr => {
+    if (!arr.length) return null;
+    const s = [...arr].sort((a, b) => a - b);
+    const m = Math.floor(s.length / 2);
+    return s.length % 2 ? s[m] : Math.round((s[m - 1] + s[m]) / 2);
+  };
+
+  function raw(...cols) {
+    rawLines.push(cols.map(c => c === undefined || c === null ? '' : String(c)).join('\t'));
+    $('raw').value = rawLines.join('\n');
+  }
+
+  // clipboardchange support (Chrome 144+). Each pending write registers a waiter.
+  let changeWaiters = [];
+  let changeEventsSeen = 0;
+  const changeSupported = !!(navigator.clipboard && 'addEventListener' in navigator.clipboard);
+  if (changeSupported) {
+    navigator.clipboard.addEventListener('clipboardchange', e => {
+      changeEventsSeen++;
+      const at = now();
+      const types = e.types ? Array.from(e.types).join(',') : '';
+      const waiters = changeWaiters;
+      changeWaiters = [];
+      waiters.forEach(w => w.resolve({ at, types }));
+    });
+  }
+  function waitForChange(timeoutMs) {
+    if (!changeSupported) return Promise.resolve(null);
+    return new Promise(resolve => {
+      const waiter = { resolve: v => { clearTimeout(timer); resolve(v); } };
+      const timer = setTimeout(() => {
+        changeWaiters = changeWaiters.filter(w => w !== waiter);
+        resolve(null);
+      }, timeoutMs);
+      changeWaiters.push(waiter);
+    });
+  }
+
+  // execCommand path mirrors how a copy listener sets both formats
+  let pendingExec = null;
+  document.addEventListener('copy', e => {
+    if (!pendingExec) return;
+    e.clipboardData.setData('text/plain', pendingExec.text);
+    if (pendingExec.html !== undefined) e.clipboardData.setData('text/html', pendingExec.html);
+    e.preventDefault();
+    pendingExec = null;
+  });
+
+  async function writeClipboard(text, html, useExec) {
+    const t0 = now();
+    const landedPromise = waitForChange(2000);
+    let note = '';
+    if (useExec) {
+      pendingExec = { text, html };
+      const ok = document.execCommand('copy');
+      if (!ok) note = 'execCommand returned false';
+      if (pendingExec) { note += (note ? '; ' : '') + 'copy event did not fire'; pendingExec = null; }
+    } else if (html === undefined) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      await navigator.clipboard.write([new ClipboardItem({
+        'text/plain': new Blob([text], { type: 'text/plain' }),
+        'text/html': new Blob([html], { type: 'text/html' })
+      })]);
+    }
+    const promiseMs = Math.round(now() - t0);
+    const r0 = now();
+    let readText = null, readErr = '';
+    try { readText = await navigator.clipboard.readText(); } catch (e) { readErr = String(e); }
+    const readMs = Math.round(now() - r0);
+    const landed = await landedPromise;
+    return {
+      promiseMs,
+      landedMs: landed ? Math.round(landed.at - t0) : null,
+      readMs,
+      match: readText === text,
+      readPreview: readText === null ? readErr : readText.slice(0, 40),
+      note
+    };
+  }
+
+  let pngBlobPromise = null;
+  function pngBlob() {
+    if (!pngBlobPromise) {
+      const c = document.createElement('canvas');
+      c.width = 400; c.height = 300;
+      const ctx = c.getContext('2d');
+      for (let i = 0; i < 40; i++) {
+        ctx.fillStyle = `hsl(${i * 9}, 70%, ${40 + (i % 5) * 10}%)`;
+        ctx.fillRect((i % 8) * 50, Math.floor(i / 8) * 60, 50, 60);
+      }
+      pngBlobPromise = new Promise(r => c.toBlob(r, 'image/png'));
+    }
+    return pngBlobPromise;
+  }
+
+  async function richSample(i) {
+    const png = await pngBlob();
+    const text = `rich sample ${i} ${Date.now()}`;
+    const html = `<table><tr><td style="font-weight:bold">${text}</td><td>${'cell '.repeat(40)}</td></tr></table>`;
+    const t0 = now();
+    const landedPromise = waitForChange(2000);
+    await navigator.clipboard.write([new ClipboardItem({
+      'text/plain': new Blob([text], { type: 'text/plain' }),
+      'text/html': new Blob([html], { type: 'text/html' }),
+      'image/png': png
+    })]);
+    const landed = await landedPromise;
+    const landedMs = landed ? Math.round(landed.at - t0) : null;
+    let r = now();
+    await navigator.clipboard.readText();
+    const readTextMs = Math.round(now() - r);
+    r = now();
+    const items = await navigator.clipboard.read();
+    const readMs = Math.round(now() - r);
+    const types = items.map(it => it.types.join(',')).join(' | ');
+    let htmlMs = null, pngMs = null;
+    for (const it of items) {
+      if (it.types.includes('text/html')) { r = now(); await (await it.getType('text/html')).text(); htmlMs = Math.round(now() - r); }
+      if (it.types.includes('image/png')) { r = now(); await (await it.getType('image/png')).arrayBuffer(); pngMs = Math.round(now() - r); }
+    }
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td class="l">${i}</td><td>${landedMs ?? ''}</td><td>${readTextMs}</td><td>${readMs}</td><td>${htmlMs ?? ''}</td><td>${pngMs ?? ''}</td><td class="l">${types}</td>`;
+    richBody.appendChild(tr);
+    raw('rich', i, wall(), landedMs, readTextMs, readMs, htmlMs, pngMs, types);
+    return { landedMs, readTextMs, readMs, htmlMs, pngMs };
+  }
+
+  const stats = { landed: [], read: [], dropped: 0, writes: 0, noChange: 0, rich: [] };
+
+  function addRow(n, kind, text, html, res) {
+    const tr = document.createElement('tr');
+    if (!res.match) tr.className = 'bad';
+    else if (res.landedMs === null && changeSupported) tr.className = 'warn';
+    const note = [res.note, !res.match ? `read: ${res.readPreview}` : '', res.landedMs === null && changeSupported ? 'no clipboardchange within 2 s' : ''].filter(Boolean).join('; ');
+    tr.innerHTML = `<td class="l">${n}</td><td class="l">${wall()}</td><td class="l">${kind}</td><td>${text.length}</td><td>${html === undefined ? '' : html.length}</td>` +
+      `<td>${res.promiseMs}</td><td>${res.landedMs ?? ''}</td><td>${res.readMs}</td><td class="l">${res.match ? 'yes' : 'NO'}</td><td class="l">${note}</td>`;
+    tbody.appendChild(tr);
+    raw('write', n, wall(), kind, text.length, html === undefined ? '' : html.length, res.promiseMs, res.landedMs, res.readMs, res.match ? 'yes' : 'NO', note);
+    stats.writes++;
+    if (!res.match) stats.dropped++;
+    if (res.landedMs !== null) stats.landed.push(res.landedMs); else stats.noChange++;
+    if (res.match) stats.read.push(res.readMs);
+  }
+
+  async function envLine() {
+    let brands = navigator.userAgent;
+    try {
+      if (navigator.userAgentData) {
+        const hv = await navigator.userAgentData.getHighEntropyValues(['fullVersionList', 'platformVersion']);
+        const list = (hv.fullVersionList || []).filter(b => !/Not.A.Brand/i.test(b.brand)).map(b => `${b.brand} ${b.version}`).join(', ');
+        if (list) brands = `${list} on ${hv.platform || navigator.platform} ${hv.platformVersion || ''}`.trim();
+        else brands = `${navigator.userAgent} (uaData platform ${hv.platform || 'unknown'})`;
+      }
+    } catch (e) { /* fall back to the user agent string */ }
+    return brands;
+  }
+
+  function renderSummary(env) {
+    const l = stats.landed, r = stats.read;
+    const lines = [
+      `browser: ${env}`,
+      `clipboardchange supported: ${changeSupported} (events seen: ${changeEventsSeen})`,
+      `writes: ${stats.writes}, dropped (read mismatch): ${stats.dropped}, no clipboardchange: ${stats.noChange}`,
+      l.length ? `write landed ms: median ${median(l)}, min ${Math.min(...l)}, max ${Math.max(...l)}` : 'write landed ms: no data',
+      r.length ? `read after write ms (matched only): median ${median(r)}, min ${Math.min(...r)}, max ${Math.max(...r)}` : '',
+    ];
+    if (stats.rich.length) {
+      const k = key => median(stats.rich.map(x => x[key]).filter(v => v !== null));
+      lines.push(`rich sample medians ms: landed ${k('landedMs')}, readText ${k('readTextMs')}, read() ${k('readMs')}, html blob ${k('htmlMs')}, png blob ${k('pngMs')}`);
+    }
+    $('summary').textContent = lines.filter(Boolean).join('\n');
+    return lines.filter(Boolean);
+  }
+
+  $('run').addEventListener('click', async () => {
+    runId++;
+    const myRun = runId;
+    stopRequested = false;
+    $('run').disabled = true; $('stop').disabled = false;
+    const iters = Math.max(1, +$('iters').value || 20);
+    const gap = Math.max(0, +$('gap').value || 0);
+    const withHtml = $('withHtml').checked;
+    const richRead = $('richRead').checked;
+    const useExec = $('useExec').checked;
+    const env = await envLine();
+    raw('env', wall(), env, `clipboardchange=${changeSupported}`, `iters=${iters}`, `gap=${gap}`, `html=${withHtml}`, `rich=${richRead}`, `exec=${useExec}`);
+    const reference = Date.now();
+    try {
+      for (let i = 1; i <= iters && !stopRequested; i++) {
+        $('status').textContent = `Running iteration ${i} of ${iters}. Keep this tab focused.`;
+        if (richRead) {
+          try { stats.rich.push(await richSample(i)); } catch (e) { raw('rich', i, wall(), 'error', String(e)); }
+          await sleep(gap);
+        }
+        const textA = `probe ${reference} ${i} A ${'x'.repeat(120)}`;
+        const htmlA = withHtml ? `<p style="color:rgb(0,0,0);font-family:docs-Calibri">${textA}</p>` : undefined;
+        addRow(i, 'first write', textA, htmlA, await writeClipboard(textA, htmlA, useExec));
+        await sleep(gap);
+        const textB = `probe ${reference} ${i} B`;
+        addRow(i, `second write +${gap} ms`, textB, undefined, await writeClipboard(textB, undefined, useExec));
+        await sleep(400);
+      }
+      const lines = renderSummary(env);
+      lines.forEach(l => raw('summary', l));
+      $('status').textContent = stopRequested ? 'Stopped. Click Select results and press Ctrl+C.' : 'Done. Click Select results and press Ctrl+C.';
+    } catch (e) {
+      $('status').textContent = `Error: ${e}. Make sure the tab is focused and clipboard access was allowed, then run again.`;
+      raw('error', wall(), String(e));
+      renderSummary(env);
+    } finally {
+      if (myRun === runId) { $('run').disabled = false; $('stop').disabled = true; }
+    }
+  });
+
+  $('stop').addEventListener('click', () => { stopRequested = true; });
+  $('select').addEventListener('click', () => { $('raw').focus(); $('raw').select(); });
+  $('clear').addEventListener('click', () => {
+    tbody.innerHTML = ''; richBody.innerHTML = ''; rawLines.length = 0; $('raw').value = '';
+    Object.assign(stats, { landed: [], read: [], dropped: 0, writes: 0, noChange: 0, rich: [] });
+    $('summary').textContent = 'No data yet.'; $('status').textContent = 'Idle.';
+  });
+})();
+</script>
+</body>
+</html>
