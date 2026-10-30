@@ -62,7 +62,7 @@
 </p>
 <table id="table">
   <thead><tr>
-    <th class="l">#</th><th class="l">wall clock</th><th class="l">kind</th><th>text len</th><th>html len</th>
+    <th class="l">#</th><th class="l">wall clock</th><th class="l">kind</th><th>text words</th><th>html len</th>
     <th>promise ms</th><th>landed ms</th><th>read ms</th><th class="l">match</th><th class="l">note</th>
   </tr></thead>
   <tbody></tbody>
@@ -92,13 +92,45 @@
   const now = () => performance.now();
   const wall = () => new Date().toISOString().slice(11, 23);
   const sleep = ms => new Promise(r => setTimeout(r, ms));
-  // 200 random alphanumeric chars so every write differs and no clipboard watcher can serve a cached value
-  const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  function randomString(len) {
-    const bytes = crypto.getRandomValues(new Uint8Array(len));
-    let out = '';
-    for (const b of bytes) out += ALPHABET[b % ALPHABET.length];
-    return out;
+  // random report text built from veterinary clinical pathology vocabulary, so each write differs and reads like the customer's real snippets
+  const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+  const VOCAB = {
+    species: ['canine', 'feline', 'equine', 'bovine', 'caprine', 'lapine', 'avian', 'reptile', 'ferret', 'porcine'],
+    age: ['juvenile', 'young adult', 'adult', 'middle aged', 'geriatric', 'neonatal', 'senior'],
+    sample: ['peripheral blood smear', 'EDTA whole blood', 'serum sample', 'heparinized plasma', 'fine needle aspirate', 'bone marrow aspirate', 'abdominal effusion', 'thoracic effusion', 'synovial fluid', 'cerebrospinal fluid', 'urine sediment', 'tracheal wash', 'bronchoalveolar lavage'],
+    site: ['the left prescapular lymph node', 'a cutaneous mass on the dorsum', 'the spleen', 'the liver', 'a subcutaneous mass on the left thorax', 'the right popliteal lymph node', 'a mammary mass', 'the thyroid region', 'a digital mass', 'the perianal region'],
+    cells: ['neutrophils', 'lymphocytes', 'monocytes', 'eosinophils', 'basophils', 'heterophils', 'erythrocytes', 'thrombocytes', 'reticulocytes', 'plasma cells', 'macrophages', 'mast cells', 'mesothelial cells', 'spindle cells', 'epithelial cells', 'band neutrophils', 'nucleated red blood cells'],
+    density: ['adequate', 'increased', 'decreased', 'markedly increased', 'mildly decreased', 'within reference interval', 'moderately increased'],
+    morphology: ['mild anisocytosis', 'moderate polychromasia', 'rare Howell Jolly bodies', 'occasional target cells', 'a left shift', 'mild toxic change', 'Dohle bodies', 'rouleaux formation', 'agglutination', 'spherocytes', 'schistocytes', 'acanthocytes', 'hypersegmented neutrophils', 'reactive lymphocytes', 'macroplatelets', 'platelet clumping'],
+    interp: ['consistent with inflammation', 'suggestive of a regenerative anemia', 'consistent with a stress leukogram', 'supportive of immune mediated hemolysis', 'consistent with reactive lymphoid hyperplasia', 'suggestive of a round cell neoplasm', 'consistent with a mesenchymal proliferation', 'suggestive of septic exudate', 'consistent with a modified transudate', 'consistent with lipoma', 'supportive of chronic antigenic stimulation', 'consistent with eosinophilic inflammation'],
+    chem: ['ALT', 'ALP', 'GGT', 'total bilirubin', 'BUN', 'creatinine', 'SDMA', 'glucose', 'total protein', 'albumin', 'globulin', 'calcium', 'phosphorus', 'potassium', 'sodium', 'chloride', 'cholesterol', 'triglycerides', 'CK', 'amylase', 'lipase'],
+    direction: ['mildly elevated', 'moderately elevated', 'markedly elevated', 'mildly decreased', 'within reference interval', 'at the upper end of the reference interval', 'at the lower end of the reference interval'],
+    ddx: ['hepatocellular injury', 'cholestasis', 'prerenal azotemia', 'renal azotemia', 'dehydration', 'hypoadrenocorticism', 'hyperadrenocorticism', 'pancreatitis', 'protein losing enteropathy', 'hyperthyroidism', 'diabetes mellitus', 'postprandial lipemia'],
+    rec: ['Recommend repeat CBC in two to three weeks.', 'Recommend reticulocyte count to assess regeneration.', 'Recommend saline agglutination test.', 'Recommend tissue biopsy with histopathology for definitive diagnosis.', 'Recommend urinalysis with urine specific gravity.', 'Recommend abdominal ultrasound.', 'Recommend fluid analysis with culture and sensitivity.', 'Recommend correlation with clinical signs.', 'Recommend bile acids stimulation test.', 'Recommend serum protein electrophoresis.', 'Please see comments.', 'Recommend monitoring trends over time.']
+  };
+  const TEMPLATES = [
+    v => `${cap(v.species)} ${v.sample} from a ${v.age} patient.`,
+    v => `${cap(v.cells)} density ${v.density} with ${v.morphology} and ${v.morphology2}.`,
+    v => `Cytologic evaluation of ${v.site} reveals a highly cellular sample composed of ${v.cells} and fewer ${v.cells2}, ${v.interp}.`,
+    v => `${v.chem} is ${v.direction} and ${v.chem2} is ${v.direction2}, which may reflect ${v.ddx} or ${v.ddx2}.`,
+    v => `Thrombocyte density ${v.density} for hemostasis; ${v.morphology} noted on feathered edge review.`,
+    v => `No infectious agents or atypical cells are identified in the ${v.sample} examined.`,
+    v => `Leukocyte differential shows ${v.density} ${v.cells} and ${v.density2} ${v.cells2}, ${v.interp}.`,
+    v => `Background contains moderate blood, scattered ${v.cells}, and rare ${v.cells2}.`,
+    v => v.rec
+  ];
+  const cap = str => str.charAt(0).toUpperCase() + str.slice(1);
+  function randomReport(targetWords) {
+    const sentences = [];
+    let words = 0;
+    while (words < targetWords) {
+      const v = {};
+      for (const key of Object.keys(VOCAB)) { v[key] = pick(VOCAB[key]); v[key + '2'] = pick(VOCAB[key]); }
+      const sentence = pick(TEMPLATES)(v);
+      sentences.push(sentence);
+      words += sentence.split(/\s+/).length;
+    }
+    return sentences.join(' ');
   }
   // transient activation lasts about 5 s after a click, so exec mode waits for a fresh click when it has lapsed
   function ensureActivation() {
@@ -209,7 +241,7 @@
 
   async function richSample(i) {
     const png = await pngBlob();
-    const text = randomString(200);
+    const text = randomReport(200);
     const html = `<table><tr><td style="font-weight:bold">${text}</td><td>${'cell '.repeat(40)}</td></tr></table>`;
     const t0 = now();
     const landedPromise = waitForChange(2000);
@@ -246,10 +278,10 @@
     if (!res.match) tr.className = 'bad';
     else if (res.landedMs === null && changeSupported) tr.className = 'warn';
     const note = [res.note, !res.match ? `read: ${res.readPreview}` : '', res.landedMs === null && changeSupported ? 'no clipboardchange within 2 s' : ''].filter(Boolean).join('; ');
-    tr.innerHTML = `<td class="l">${n}</td><td class="l">${wall()}</td><td class="l">${kind}</td><td>${text.length}</td><td>${html === undefined ? '' : html.length}</td>` +
+    tr.innerHTML = `<td class="l">${n}</td><td class="l">${wall()}</td><td class="l">${kind}</td><td>${text.split(/\s+/).length}</td><td>${html === undefined ? '' : html.length}</td>` +
       `<td>${res.promiseMs}</td><td>${res.landedMs ?? ''}</td><td>${res.readMs}</td><td class="l">${res.match ? 'yes' : 'NO'}</td><td class="l">${note}</td>`;
     tbody.appendChild(tr);
-    raw('write', n, wall(), kind, text.length, html === undefined ? '' : html.length, res.promiseMs, res.landedMs, res.readMs, res.match ? 'yes' : 'NO', note);
+    raw('write', n, wall(), kind, text.split(/\s+/).length, html === undefined ? '' : html.length, res.promiseMs, res.landedMs, res.readMs, res.match ? 'yes' : 'NO', note);
     stats.writes++;
     if (!res.match) stats.dropped++;
     if (res.landedMs !== null) stats.landed.push(res.landedMs); else stats.noChange++;
@@ -305,11 +337,11 @@
           try { stats.rich.push(await richSample(i)); } catch (e) { raw('rich', i, wall(), 'error', String(e)); }
           await sleep(gap);
         }
-        const textA = randomString(200);
+        const textA = randomReport(200);
         const htmlA = withHtml ? `<p style="color:rgb(0,0,0);font-family:docs-Calibri">${textA}</p>` : undefined;
         addRow(i, 'first write', textA, htmlA, await writeClipboard(textA, htmlA, useExec));
         await sleep(gap);
-        const textB = randomString(200);
+        const textB = randomReport(200);
         addRow(i, `second write +${gap} ms`, textB, undefined, await writeClipboard(textB, undefined, useExec));
         await sleep(400);
       }
