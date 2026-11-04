@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 17, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 17, 2026</h1>
+    <p class="date">Tuesday, November 17, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers a large third-party script compromise, an outage traced to patching, new findings on Windows telemetry, and coding-model and agent-tooling releases, plus longer reads on display gamma, chemistry, and free course material.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Malicious code was served to 178 organisations&amp;#x27; websites through Optimizely.&lt;/strong&gt; According to &lt;a href=&quot;https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;a Report URI analysis&lt;/a&gt;, on 16 November an attacker inserted code into the &amp;quot;Project JavaScript&amp;quot; field of Optimizely Web customer snippets. Affected sites included Zoom, the BBC, GitLab and HSBC. The payload swapped cryptocurrency wallet addresses, skimmed payment cards, stole cookies, and delivered iOS exploit kits to older iPhones. Most infected snippets were cleaned by that evening, and the report says it is not yet known how the attacker got write access across unrelated customer projects (&lt;a href=&quot;https://news.ycombinator.com/item?id=50524767&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to earlier incidents of the same kind and argue that compromises of third-party tag scripts are a known, recurring risk rather than a new one.&lt;/li&gt;&lt;li&gt;Others note that Optimizely&amp;#x27;s own status page showed only a partial outage affecting recommendations tracking and reporting while this was happening.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The NSA&amp;#x27;s internal classified network went down after a software patch.&lt;/strong&gt; &lt;a href=&quot;https://www.cnn.com/2026/11/17/politics/highly-classified-national-security-communications-network-goes-down&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;CNN reports&lt;/a&gt; that NSANet, the agency&amp;#x27;s internal network for classified communications, was down and the campus was limited to essential personnel. The agency described the problem as degradation during scheduled maintenance. The Director of National Intelligence attributed it to systems not coming back up after patches for PHP vulnerabilities disclosed last month, and sources said there was no evidence of a cyberattack (&lt;a href=&quot;https://news.ycombinator.com/item?id=50532849&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A Windows 11 diagnostics component records which coding agents and developer tools are used.&lt;/strong&gt; A &lt;a href=&quot;https://xusheng.dev/posts/windows-coding-agent-telemetry/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;reverse-engineering write-up&lt;/a&gt; found that MissionControlAggregator.dll checks for executables such as codex.exe, claude.exe, cursor.exe, python.exe and gcc.exe. It records which ones were observed as a bitmap and sends that in a diagnostic report, which is uploaded unless the user opts out of optional diagnostic data. The author found the feature already enabled on a test VM and found no prompt text or source code in the report (&lt;a href=&quot;https://news.ycombinator.com/item?id=50524736&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Microsoft released two lower-cost coding models, MAI Code 2 and MAI Code 2 Flash.&lt;/strong&gt; &lt;a href=&quot;https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Microsoft&amp;#x27;s announcement&lt;/a&gt; positions them for everyday enterprise coding. It claims that, averaged over four benchmarks, MAI Code 2 reaches 98% of GPT-6.1 Sol&amp;#x27;s performance at 40% of the cost. Microsoft says the models are not yet tuned for harder work such as long-horizon agentic tasks (&lt;a href=&quot;https://news.ycombinator.com/item?id=50535885&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters ask whether the models were trained from scratch or built by applying reinforcement learning to existing open models, which the discussion does not resolve.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A benchmark finds that the most cost-effective agent harness depends on the model.&lt;/strong&gt; Runta&amp;#x27;s &lt;a href=&quot;https://runta.com/blog/introducing-frontierharness-eval-v1-1/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;FrontierHarness Eval v1.1&lt;/a&gt; ran 22 harness configurations against 5 open-weight models on 62 terminal tasks, for 27,280 runs in total. Each model had a different best-value harness. For example, Codex CLI ranked first on cost with GLM-5.3 but 16th with Kimi-K3 (&lt;a href=&quot;https://news.ycombinator.com/item?id=50532191&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;The founder notes in the thread that the evaluation runs on their company&amp;#x27;s own runtime, and commenters clarify that &amp;quot;failed&amp;quot; runs means tasks that missed pass criteria, not runtime crashes.&lt;/li&gt;&lt;li&gt;One commenter argues that explaining cost through steps per pass is close to circular, and another asks why harness-specific fine-tuning of open models was not considered.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenCode released Browse, a tool that lets coding agents use a person&amp;#x27;s existing browser.&lt;/strong&gt; &lt;a href=&quot;https://opencode.ai/product/browse&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Browse&lt;/a&gt; combines an MCP server with a Chromium extension. Agents work in background tabs with the user&amp;#x27;s existing logins, and they hand a tab back to the user for steps like 2FA or payments. It supports several Chromium-based browsers and any MCP client (&lt;a href=&quot;https://news.ycombinator.com/item?id=50523459&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that Playwright&amp;#x27;s MCP server and Chrome&amp;#x27;s DevTools MCP already overlap with this, and some advise using separate browser profiles to limit the security risk of giving agents logged-in sessions.&lt;/li&gt;&lt;li&gt;One user reports frequent disconnections that require re-pairing, and others note that Firefox is not supported.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;John Carmack explained why early 3dfx cards produced washed-out colours.&lt;/strong&gt; In &lt;a href=&quot;https://twitter.com/id_aa_carmack/status/2122478083319992513&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;a post&lt;/a&gt;, Carmack writes that 3dfx and NeXT deliberately used near-linear colour output. With only 4–6 bits per channel, that produced visible banding in dark tones. Textures authored on conventional non-linear displays also looked washed out on these cards (&lt;a href=&quot;https://news.ycombinator.com/item?id=50525575&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter gives figures: CRTs have a gamma of roughly 2.2, standard VGA applied no correction, and 3dfx defaulted to about 1.5, so 3dfx was closer to linear but still not fully corrected.&lt;/li&gt;&lt;li&gt;Another notes that sRGB values do map linearly to CRT signal voltage, even though they do not map linearly to light intensity.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An essay introduces chemical reaction network theory, which studies reactions through network structure.&lt;/strong&gt; The &lt;a href=&quot;https://chillphysicsenjoyer.substack.com/p/chemistry-is-actually-geometry&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt; walks through Martin Feinberg&amp;#x27;s deficiency theorems for a beginner audience. It explains how the structure of a reaction network can predict qualitative behaviour, such as oscillation, without estimating hundreds of rate constants. It uses examples like the Belousov–Zhabotinsky and Briggs–Rauscher oscillators (&lt;a href=&quot;https://news.ycombinator.com/item?id=50522643&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some commenters caution that the geometric framing is a useful modelling abstraction rather than a full account of chemistry, which they say ultimately reduces to quantum electrodynamics.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Carnegie Mellon is publishing full semesters of computer science lectures on YouTube.&lt;/strong&gt; The new &lt;a href=&quot;https://www.cs.cmu.edu/learn/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;CS Learn&lt;/a&gt; site lists courses including Machine Learning Systems, AI Agents and Machine Learning in Production. More courses are scheduled for January 2027, and self-paced courseware is planned next (&lt;a href=&quot;https://news.ycombinator.com/item?id=50522980&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;The program&amp;#x27;s lead says in the thread that MIT did something similar 25 years ago, and that the new part is student-built tooling that automates much of the video production.&lt;/li&gt;&lt;li&gt;A commenter recalls that many universities removed free lecture videos in the early 2010s over accessibility liability, before automatic captioning was available.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-17">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

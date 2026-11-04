@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 16, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 16, 2026</h1>
+    <p class="date">Monday, November 16, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers infrastructure reliability and trust: a cloud outage postmortem, two web security issues, and how far a formal proof can be trusted, along with new developer tools and a farming study.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Microsoft traces its multi-day email outage to a defect introduced in a July update.&lt;/strong&gt; According to a preliminary incident report covered by &lt;a href=&quot;https://www.theregister.com/saas/2026/11/16/microsoft-blames-monster-email-outage-on-software-defect-introduced-in-july-fix/5310026&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The Register&lt;/a&gt;, a change to Microsoft 365 network gateway servers caused lock contention in an internal Windows process. The problem got worse on newer machines with more cores, while load testing had focused on weaker hardware. A Teams failover arrived while about 14 percent of gateway capacity was out of service, and the combined load pushed more than 80 percent of servers into an unresponsive state. Because the defect was months old, engineers could not simply roll it back and instead shipped an update restoring the earlier code path (&lt;a href=&quot;https://news.ycombinator.com/item?id=50517321&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters question whether testing on hardware weaker than production is an acceptable trade-off, since the concurrency bug only appeared on higher-spec machines.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An email-only pool alarm went unseen during the outage, and 15 hotel guests were hurt by excess chlorine.&lt;/strong&gt; &lt;a href=&quot;https://www1.wdr.de/nrw/rheinland/rhein-erft-kreis/technischer-defekt-chlor-phantasialand-100.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;WDR reports&lt;/a&gt; that an automatic dosing system at Phantasialand&amp;#x27;s Hotel Ling Bao in Brühl pumped too much chlorine into a pool. The maintenance system&amp;#x27;s email alerts never arrived, so no one acted on them; four guests went to hospital and one stayed for observation. A cybersecurity architect quoted in the piece places responsibility on the installation, which had no second alerting channel (&lt;a href=&quot;https://news.ycombinator.com/item?id=50509411&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters broadly describe the outage as a proximate rather than root cause, and argue that alarms for hazardous systems should be minimal, local and redundant rather than depend on a large cloud service.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A researcher disclosed a now-fixed universal XSS flaw in uBlock Origin&amp;#x27;s element picker.&lt;/strong&gt; In a &lt;a href=&quot;https://iter.ca/post/ubo-uxss/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;detailed writeup&lt;/a&gt;, the researcher shows how a malicious page could leak the Firefox extension&amp;#x27;s per-install UUID through a default filter rule. The page could then embed the picker in an invisible iframe and drive it with messages. A newline injected into the filter options added a trusted scriptlet filter, and a single user click could then run arbitrary JavaScript on any site. The MV3 uBO Lite version had a related but less serious issue. The fix includes a secret that the real picker must present, and the author says an AI model found the core issue, which they then verified (&lt;a href=&quot;https://news.ycombinator.com/item?id=50513160&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters note that the UUID leak alone could serve as a tracking identifier, and point to an earlier report of Firefox extensions leaking their install IDs the same way.&lt;/li&gt;&lt;li&gt;Others note a structural weakness: extensions that place their interfaces inside a page&amp;#x27;s DOM, such as password managers, can expose information to the page they run on.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Old Bitly short links in years-old corporate posts were re-registered and redirected.&lt;/strong&gt; &lt;a href=&quot;https://ransomnews.com/burger-king-tweet-bitly-link-hijack-2026/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Ransomnews found&lt;/a&gt; that links in 2011 posts from Burger King and McDonald&amp;#x27;s had been newly created by other parties and pointed to unrelated pages, even though Bitly&amp;#x27;s help pages say link endings cannot be reused. Neither company&amp;#x27;s account was compromised. Bitly confirmed the issue, suspended the accounts involved and began disabling affected links (&lt;a href=&quot;https://news.ycombinator.com/item?id=50511395&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter describes a related tactic: spammers buy lapsed domains that reputable organizations still point to via CNAME records, which makes spam links look trustworthy.&lt;/li&gt;&lt;li&gt;Others note that short links hide their destination, which adds risk when people run patterns like piping a fetched script straight into a shell.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Lean community blog explains what &amp;quot;checked in Lean&amp;quot; does and doesn&amp;#x27;t guarantee.&lt;/strong&gt; The &lt;a href=&quot;https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Xena Project post&lt;/a&gt; sets out questions to ask of AI-generated Lean code. The first is whether the formal statement actually matches the paper&amp;#x27;s claim, which can mean reading thousands of lines of supporting definitions. The second is whether the code compiles in a trusted setting. It notes that about 38 of the 290 papers with Lean code in OpenAI&amp;#x27;s recent theorem release do not formally state their main theorem, and it warns against running untrusted Lean code without a sandbox (&lt;a href=&quot;https://news.ycombinator.com/item?id=50515058&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters compare it to code that compiles but doesn&amp;#x27;t do what was intended: a valid proof may not prove the intended claim.&lt;/li&gt;&lt;li&gt;Some ask why Lean can execute arbitrary code at all, and others observe that LLM-written Lean tends to be much longer than needed even for simple statements.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Jiff, a Rust datetime library, reaches version 1.0.&lt;/strong&gt; Author Andrew Gallant&amp;#x27;s &lt;a href=&quot;https://burntsushi.net/jiff/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt; describes an API built around time zones so that daylight saving time is handled correctly by default. It notes that Jiff is already used in projects such as uv, Cargo, Starship and Jujutsu. Gallant commits to keeping 1.0 stable indefinitely unless a significant defect is found, so other libraries can safely expose it in their public APIs (&lt;a href=&quot;https://news.ycombinator.com/item?id=50519744&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Self-hosting world map tiles with PMTiles now costs a few dollars a month.&lt;/strong&gt; A &lt;a href=&quot;https://bruceroettgers.eu/blog/protomaps/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;walkthrough&lt;/a&gt; explains how Protomaps&amp;#x27; PMTiles format stores a whole tileset in a single file that clients read via HTTP Range requests, so it can be served from a storage bucket and CDN. The author estimates that the 139GB world map costs about $5 a month to store on Bunny.net with replication. They also estimate per-load costs well below commercial map APIs, though actual bandwidth varies by user (&lt;a href=&quot;https://news.ycombinator.com/item?id=50509837&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter cautions that this only applies to vector basemaps: high-resolution satellite imagery quickly reaches hundreds of terabytes, which forced them to stop at zoom level 17.&lt;/li&gt;&lt;li&gt;Another describes moving a mapping app from a paid tile provider to Protomaps after bills reached about €150 a month, and notes that self-hosting also lets them customize what goes into the tiles.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Cornell studies find that low sheep stocking rates on solar farms increase beneficial insects.&lt;/strong&gt; In &lt;a href=&quot;https://news.cornell.edu/stories/2026/10/sheep-grazing-solar-fields-offers-farmers-economic-ecological-gains&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;research described by Cornell&lt;/a&gt;, grazing two sheep per hectare around solar arrays raised the number of bees and lady beetles by 38 percent compared with mowing, mostly due to more honey bees. At eight sheep per hectare, vegetation control was most effective but honey bee numbers fell by 45 percent. A separate paper introduces a spreadsheet tool to help farmers plan flock size and contracts for solar grazing (&lt;a href=&quot;https://news.ycombinator.com/item?id=50520182&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters place this within the broader field of agrivoltaics, citing earlier work on panels that let some light wavelengths through to crops growing underneath.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-16">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

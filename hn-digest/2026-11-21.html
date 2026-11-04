@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 21, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 21, 2026</h1>
+    <p class="date">Saturday, November 21, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Mathematics leads the day with two separate claims on the Riemann Hypothesis, alongside a small open-weights model, a library security fix, and several careful engineering write-ups.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Lean and Mathlib communities certify Levent Alpöge&amp;#x27;s formal proof of the Riemann Hypothesis.&lt;/strong&gt; In a &lt;a href=&quot;https://leanprover-community.github.io/blog/posts/riemann-hypothesis/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;joint statement&lt;/a&gt;, the Lean and Mathlib communities report that the 17-million-line Lean library Alpöge released on November 20 compiles reproducibly and proves exactly Mathlib&amp;#x27;s statement of the hypothesis. The exported proof was checked by Lean&amp;#x27;s kernel and several independent checkers, including two that carry formal soundness proofs relative to set theory (&lt;a href=&quot;https://news.ycombinator.com/item?id=50589618&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters note that machine verification establishes correctness but not understanding, and ask whether a proof this large will yield new ideas or techniques mathematicians can learn from.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A separate, human-written proof of the Generalized Riemann Hypothesis is released as an early draft.&lt;/strong&gt; Ravi Vakil &lt;a href=&quot;https://math216.wordpress.com/2026/11/20/hurried-announcement-alessandro-masullo-grh/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;posted&lt;/a&gt; a proposed proof by Alessandro Maria Masullo, which Brian Conrad had been reviewing for months and which Vakil describes as produced without AI. About eight hours later, Vakil added that several people had reported problems in the proof, found with the help of AI models, and that all issues must be resolved before it could be accepted (&lt;a href=&quot;https://news.ycombinator.com/item?id=50579568&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that, according to the linked paper, the work had been in progress for about 12 years.&lt;/li&gt;&lt;li&gt;Several discuss whether the early release was prompted by Alpöge&amp;#x27;s same-day announcement, and whether researchers will now post unfinished work sooner to establish priority.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Thinking Machines releases Inkling 2 Mini, a small open-weights &amp;quot;looped&amp;quot; model.&lt;/strong&gt; The &lt;a href=&quot;https://thinkingmachines.ai/news/inkling-2-mini/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;model&lt;/a&gt; is a Mixture-of-Experts transformer with 26.4B total and 3.4B active parameters that runs its middle layers three times per token. It is trained largely in NVFP4 and fits in about 20GB. The company reports leading scores among open models under 100B parameters on coding benchmarks such as DeepSWE v1.1 (48.2%), while noting that looping does not improve factual knowledge (&lt;a href=&quot;https://news.ycombinator.com/item?id=50581260&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters single out the separately released variable-loop research variant, saying they know of no other working open models of this kind.&lt;/li&gt;&lt;li&gt;Community GGUF quantizations appeared quickly, and one commenter expects throughput on modest hardware to be similar to other MoE models with about 3B active parameters.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;GPGME library patches a double-free bug that could allow data exfiltration and possibly code execution.&lt;/strong&gt; The GnuPG project&amp;#x27;s &lt;a href=&quot;https://lists.gnupg.org/pipermail/gnupg-announce/2026q4/000517.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;advisory&lt;/a&gt; says an OpenPGP key with a crafted, very long user ID can trigger a double free in all GPGME versions before 2.3.1. The bug affects software including mail clients, XMPP clients, Samba and Gpg4win, and disclosure was moved up from November 25 after GitLab had to ship an earlier update (&lt;a href=&quot;https://news.ycombinator.com/item?id=50587208&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out that the flaw is in the GPGME library rather than GnuPG itself, and that the advisory says only that remote code execution cannot be ruled out.&lt;/li&gt;&lt;li&gt;One commenter links a Red Hat patch from several years ago that appears to address the same issue but was never adopted upstream.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A USB Ethernet adapter behind a monitor&amp;#x27;s hub capped downloads at about 600 Mbps on a 2.5 Gbps line.&lt;/strong&gt; In a &lt;a href=&quot;https://blog.tymscar.com/posts/studiodisplayethernet/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;debugging write-up&lt;/a&gt;, the author found that a Realtek RTL8156B adapter delivered full speed when plugged directly into a Mac, but plateaued at about 168,000 frames per second when connected through the display&amp;#x27;s hub. The author attributes this to the adapter sending only four packets per USB burst before waiting for acknowledgment, combined with the extra latency of the hub; Realtek&amp;#x27;s own driver and Ethernet flow control recovered most of the speed (&lt;a href=&quot;https://news.ycombinator.com/item?id=50587875&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some commenters say the headline overstates the monitor&amp;#x27;s role, since the root cause is the adapter&amp;#x27;s small burst size, and ask whether other hubs would show the same limit.&lt;/li&gt;&lt;li&gt;Others describe similar unexplained networking problems with USB-C monitor connections, such as Wi-Fi signal loss.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Backblaze publishes an updated privacy notice, effective December 1, 2026.&lt;/strong&gt; The &lt;a href=&quot;https://www.backblaze.com/company/policy/privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;notice&lt;/a&gt; covers its Computer Backup and B2 Cloud Storage services. It includes a &amp;quot;Notice at Collection&amp;quot; listing the categories of personal information collected and whether that information is sold or shared for cross-context behavioral advertising (&lt;a href=&quot;https://news.ycombinator.com/item?id=50585593&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters report that the listed categories include geolocation data, and that opting out requires a separate preferences page, which several consider harder to use than it should be.&lt;/li&gt;&lt;li&gt;Several ask whether the policy covers only account and device metadata or also the contents of backed-up files; the discussion does not settle this.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Winedroid runs real Android APKs in a browser without Android.&lt;/strong&gt; The &lt;a href=&quot;https://winedroid.soham.sh/demo/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;demo&lt;/a&gt; uses a Rust reimplementation of the Android runtime, compiled to WebAssembly as a 12MB bundle, to run apps downloaded from F-Droid. The author describes the project as early-stage and says it runs slower on the web because its JIT compiler does not work there (&lt;a href=&quot;https://news.ycombinator.com/item?id=50580536&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters report apps failing with DEX execution or touch-dispatch errors, which suggests compatibility is still limited.&lt;/li&gt;&lt;li&gt;One asks for a comparison with Waydroid and Android Translation Layer, the latter of which takes a similar approach.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Brian May produces stereoscopic 3D views of the asteroid Didymos from ESA&amp;#x27;s Hera mission.&lt;/strong&gt; According to &lt;a href=&quot;https://www.esa.int/articles/about-us/directorates/operations/space-safety/hera/sir-brian-may-adds-new-dimension-to-hera-asteroid&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;ESA&lt;/a&gt;, May, a Hera science team member, worked with Claudia Manzoni to combine two images taken on November 6 from 29.7 km away, at 2.8 m per pixel. The stereo views show how smooth the asteroid&amp;#x27;s equatorial ridge is compared with the rock-strewn surface elsewhere, and are offered in anaglyph, cross-eyed and parallel-viewing versions (&lt;a href=&quot;https://news.ycombinator.com/item?id=50583768&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Nasdaq turns negative for 2026 as AI-related stocks fall.&lt;/strong&gt; &lt;a href=&quot;https://www.cnbc.com/2026/11/19/stock-market-today-live-updates.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;CNBC reports&lt;/a&gt; that the Nasdaq Composite fell 5.28% on Friday and is now down 2.7% for the year, while the S&amp;amp;P 500 and Dow entered correction territory. Anthropic shares fell 8.5% a day after their Nasdaq debut. Nvidia fell around 14% after Reuters reported that the SEC is examining possible accounting issues at the company (&lt;a href=&quot;https://news.ycombinator.com/item?id=50583254&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-21">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

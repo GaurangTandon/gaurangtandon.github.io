@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 8, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 8, 2026</h1>
+    <p class="date">Sunday, November 8, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing centers on AI tooling and infrastructure: coding-agent harnesses, memory formats, and running very large models on ordinary hardware, plus a funding round, a GitHub outage, and a few smaller items.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A set of llama.cpp patches runs a 284B-parameter DeepSeek model on a 64GB CPU-only machine.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/synchopate/llama-modchip&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;llama-modchip project&lt;/a&gt; combines ggml/llama.cpp kernel patches, quantization transcoders and runtime tools. It shrinks DeepSeek-V4-Flash (284B total parameters, 13.17B active) to 56.56 GiB at 1.71 bits per weight so it fits in RAM with a 256K context, and it reports 44.4 tok/s prefill and 9.1–14.7 tok/s generation on a 16-core Zen 5 CPU. It also targets 30B mixture-of-experts models on 16–32GB machines (&lt;a href=&quot;https://news.ycombinator.com/item?id=50411961&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters doubt output quality at under 2 bits per weight, citing research that the best size-to-performance tradeoff tends to sit around 4-bit quantization. One person who used this model says it needs roughly 150GB of RAM to run well.&lt;/li&gt;&lt;li&gt;Others note that on a machine with 128GB of unified memory the same model reportedly runs fast enough for coding-agent use, and some find the README hard to evaluate because it doesn&amp;#x27;t make its platform assumptions clear.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer explains why they moved from Claude Code to the open-source Pi coding harness.&lt;/strong&gt; In &lt;a href=&quot;https://caleb.software/posts/claude-to-pi.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;the post&lt;/a&gt;, the author lists accumulated frustrations: the split between CLAUDE.md and AGENTS.md files, IDE integration that only works with one session at a time, and frequent releases. By the author&amp;#x27;s count there have been 244 releases this year, more than three-quarters of which changed the system prompt or tool descriptions. They also say the default Bash tool description runs to almost 3,000 tokens, and they cite Pi&amp;#x27;s stability, minimalism and extensibility as reasons for switching (&lt;a href=&quot;https://news.ycombinator.com/item?id=50410107&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter who runs regular harness benchmarks with local models reports that opencode outperforms the oh-my-pi distribution on coding tasks. They caveat that this applies to small models on consumer GPUs and may not hold for a custom Pi setup.&lt;/li&gt;&lt;li&gt;Another points out that Claude Code attributes commits to a Claude GitHub account by default, which users must remove deliberately.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A proposal argues that agent memory needs a shared, OpenTelemetry-style standard.&lt;/strong&gt; In &lt;a href=&quot;https://www.lorekit.io/blog/open-agent-memory-format&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;the essay&lt;/a&gt;, the author of the open-source LoreKit tool surveys today&amp;#x27;s incompatible memory formats, including instruction files like AGENTS.md, Anthropic&amp;#x27;s memory tool, GitHub Copilot Memory, Mem0, LangGraph&amp;#x27;s store, and Graphiti/Zep&amp;#x27;s temporal graph. They compare the situation to observability before OpenTracing and OpenCensus merged in 2019. The essay also distinguishes between exporting memory from one vendor to another, which existing proposals mostly address, and the open problem of several agents reading and writing the same memory live (&lt;a href=&quot;https://news.ycombinator.com/item?id=50411467&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters think standardizing now is premature because the right approach to context and memory isn&amp;#x27;t yet understood, and they warn of ending up with something like SOAP or SGML.&lt;/li&gt;&lt;li&gt;Others argue a common format matters less here because agents are already good at reading files in different shapes, and one says they disable agent memory entirely and instead tell agents explicitly to record findings in a file.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenAI closed $11B of a funding round at a $1.25T valuation, below figures reported earlier.&lt;/strong&gt; According to &lt;a href=&quot;https://247wallst.com/investing/2026/11/07/openai-just-raised-11-billion-at-a-1-25-trillion-valuation-below-the-1-4-trillion-it-first-sought/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;24/7 Wall St.&lt;/a&gt;, CFO Sarah Friar confirmed the pre-money valuation and disputed reports that the company first sought $1.4T or more. A second portion of up to $9B has not closed. Friar said the business grew 70% quarter over quarter and cited 1.2 billion weekly ChatGPT users. The article also notes that Anthropic plans a Nasdaq listing in mid-November (&lt;a href=&quot;https://news.ycombinator.com/item?id=50413822&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters suggest investors may be waiting to see how Anthropic&amp;#x27;s IPO performs before committing more capital to either lab.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;GitHub users reported timeouts and failed release downloads.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/torvalds/linux&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;submission&lt;/a&gt; linked only to a repository page. In the thread, users described 504 gateway timeouts and failing release downloads that broke CI pipelines and Terraform runs for more than 30 minutes, while GitHub&amp;#x27;s status page showed normal operation (&lt;a href=&quot;https://news.ycombinator.com/item?id=50411818&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter notes that the outages seem to hit public-facing GitHub. They say they haven&amp;#x27;t experienced downtime on GitHub Enterprise over the past year.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A distributed-systems researcher makes the case for writing as a way to think.&lt;/strong&gt; &lt;a href=&quot;http://muratbuffalo.blogspot.com/2026/11/writing-as-thinking-tool.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The essay&lt;/a&gt; builds on Manuel Blum&amp;#x27;s observation that the only difference between a finite automaton and a Turing machine is the tape. It describes how writing reviews and blog posts led to deeper understanding and, in one case, to a research paper. The author argues that LLMs have weakened writing as evidence of thinking, which makes writing for yourself more valuable, and recommends starting with a messy, unedited zeroth draft (&lt;a href=&quot;https://news.ycombinator.com/item?id=50412067&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Science examines privacy concerns around consumer brain-wave headsets.&lt;/strong&gt; &lt;a href=&quot;https://www.science.org/content/article/wearable-device-makers-are-harvesting-brain-data-train-ai-without-telling-users?referrer=https%3A%2F%2Fwww.google.com%2F&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The article&lt;/a&gt; addresses privacy risks from consumer wearables that record brain activity. Its text was not available for this briefing, so no further details are given here (&lt;a href=&quot;https://news.ycombinator.com/item?id=50409856&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;iSponsorBlockTV brings SponsorBlock segment skipping to YouTube apps on TVs and consoles.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/dmunozv04/isponsorblocktv&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;self-hosted tool&lt;/a&gt; pairs with the YouTube app on devices such as Apple TV, Samsung, LG, Roku, Fire TV, Android TV, Xbox and PlayStation. It skips crowdsourced segments like sponsor reads and can mute ads and press &amp;quot;Skip Ad&amp;quot; when it appears. It only needs network access to youtube.com, and devices can be added by auto-discovery or with a TV pairing code (&lt;a href=&quot;https://news.ycombinator.com/item?id=50410249&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters clarify that &amp;quot;YouTube TV&amp;quot; here means the YouTube app on television devices, not Google&amp;#x27;s YouTube TV streaming subscription service.&lt;/li&gt;&lt;li&gt;For devices that can sideload Android apps, several people point to SmartTube, an alternative YouTube client with SponsorBlock built in.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-08">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

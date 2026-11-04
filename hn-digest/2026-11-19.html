@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 19, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 19, 2026</h1>
+    <p class="date">Thursday, November 19, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers a physics result from an AI model, a serious Ruby security flaw, early cancer research, and several practical stories about infrastructure, memory, and storage.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Anthropic reports Claude solved two open problems in black hole physics.&lt;/strong&gt; According to &lt;a href=&quot;https://www.anthropic.com/research/claude-black-hole-physics&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Anthropic&amp;#x27;s research post&lt;/a&gt;, Claude finished a calculation first set up in 2003. The result shows that the phase transition linked to black hole formation stays abrupt even where spacetime no longer has a definite shape. In a second result, Claude Fable 5.2 found and proved the exact best ceiling for the simplest version of a &amp;quot;modular bootstrap&amp;quot; technique, which limits how heavy the lightest black hole can be in a simplified universe with two spatial dimensions. The company says neither result describes our universe directly or has practical applications, and preprints are available (&lt;a href=&quot;https://news.ycombinator.com/item?id=50563148&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter describes the first result as mainly a complex, error-prone calculation and calls the bootstrap proof the more significant contribution, while noting that the bootstrap paper is hard to read.&lt;/li&gt;&lt;li&gt;Others point out that the result was first listed as a bullet point in the Fable 5.2 model announcement.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A one-byte heap overflow in Ruby&amp;#x27;s case conversion allows unauthenticated remote code execution on default Rails.&lt;/strong&gt; &lt;a href=&quot;https://verialabs.com/ruby2shell/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Veria Labs describes&lt;/a&gt; a bug in several single-byte encodings, such as ISO-8859 and Windows-125x. Upcasing &amp;quot;ß&amp;quot; writes two bytes (&amp;quot;SS&amp;quot;), but the code only checks room for one. The flaw dates back to Ruby 2.4.0 and is reachable in the default configuration of Rails and classic-style Sinatra. Fixes are in Ruby 3.3.14, 3.4.13 and 4.0.10, and several bundled products have patched, though GitHub Enterprise Server had no fixed release as of the post&amp;#x27;s update. A proof of concept is planned for 25 November 2026 (&lt;a href=&quot;https://news.ycombinator.com/item?id=50556287&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that this flaw is one of several memory-safety issues covered in the broader &lt;a href=&quot;https://www.ruby-lang.org/en/news/2026/11/18/multiple-vulnerabilities-in-regexp-and-string/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Ruby security advisory&lt;/a&gt;.&lt;/li&gt;&lt;li&gt;Others point out that other characters, such as ligatures like &amp;quot;ffi&amp;quot;, also expand when case-converted and could in principle cause similar bugs.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A virus-based injection halted pancreatic cancer in three patients in an early trial.&lt;/strong&gt; &lt;a href=&quot;https://www.newscientist.com/article/2528235-pancreatic-cancer-halted-by-virus-injection-in-three-patients/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;New Scientist reports&lt;/a&gt; the result. The submission links a &lt;a href=&quot;https://clinicaltrials.gov/study/NCT06693986&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;clinical trial registration&lt;/a&gt; for the study (&lt;a href=&quot;https://news.ycombinator.com/item?id=50563066&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters question whether the coverage reported how many patients were treated in total, rather than only the successes.&lt;/li&gt;&lt;li&gt;Others point to a recent paper from the lead researcher and dozens of related oncolytic-virus trials, and describe the work as very early, though they see the field as a whole as promising.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The European Commission rolled out a self-hosted Matrix chat service to more than 40,000 staff.&lt;/strong&gt; &lt;a href=&quot;https://element.io/blog/how-the-european-commission-rolled-out-matrix-to-more-than-40-000-staff/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Element&amp;#x27;s write-up&lt;/a&gt; describes the project&amp;#x27;s path from a proof of concept in December 2025 to deployment on every Commission laptop by September 2026. The service uses Element Server Suite Pro on sovereign cloud providers, with sign-in through EU Login. Problems at scale included finding users across multiple homeservers and performance load from live presence indicators, which were turned off. Federation is still under assessment, and the tool is positioned as a complement to Teams rather than a replacement (&lt;a href=&quot;https://news.ycombinator.com/item?id=50558533&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters with Matrix experience point to device verification friction as a usability cost that would be multiplied across 40,000 users.&lt;/li&gt;&lt;li&gt;Some hope the Commission will contribute development resources to the project, not just users.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Zerodha built a sharded blob store on SQLite that speaks the Redis protocol.&lt;/strong&gt; &lt;a href=&quot;https://zerodha.tech/blog/high-performance-distributed-blob-storage/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Zerodha&amp;#x27;s engineering post&lt;/a&gt; introduces Blobasaur, written in Rust, which replaced an unmaintained single-node SSDB setup for storing user layout and preference blobs. These JSON blobs range from kilobytes to megabytes. The company says it handles thousands of reads and writes per second with single-digit millisecond latency on commodity hardware, after it rejected ScyllaDB, PostgreSQL, SeaweedFS and S3 for this workload (&lt;a href=&quot;https://news.ycombinator.com/item?id=50557537&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters ask about replication, fault tolerance and the consistency model when a node fails, saying they could not find these covered in the post or repository.&lt;/li&gt;&lt;li&gt;One suggests mapping JSON schemas into SQL tables so that incremental updates avoid rewriting whole blobs.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Compressing memory with zram can postpone RAM upgrades on Linux.&lt;/strong&gt; &lt;a href=&quot;https://curiousbits.nl/blog/do-not-buy-ram-compress/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;A blog post&lt;/a&gt; shows zram on a 32GB workstation fitting 5.7GB of data into 1.7GB of RAM, a ratio of about 3.35 to 1, at some CPU and latency cost. The post notes that Fedora and Pop!_OS enable this by default but Ubuntu does not. After the HN thread, the author added an update recommending zswap for most setups (&lt;a href=&quot;https://news.ycombinator.com/item?id=50557661&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters explain the difference: zswap sits in front of disk swap and moves cold pages to disk automatically, while zram is a compressed block device with a hard capacity limit.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;PHP 8.6 is released.&lt;/strong&gt; The &lt;a href=&quot;https://www.php.net/releases/8.6/en.php&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;release page&lt;/a&gt; lists partial function application using placeholder arguments and a nanosecond-precision \Time\Duration class. It also adds an Io\Poll API built on epoll, kqueue and similar mechanisms, intended to get past stream_select()&amp;#x27;s limits for event-loop libraries. Other additions are a clamp() function, a SortDirection enum, and default values for readonly properties (&lt;a href=&quot;https://news.ycombinator.com/item?id=50557870&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter highlights reduced overhead for PHP&amp;#x27;s thread-safe (ZTS) build, which could eventually make native async support more practical.&lt;/li&gt;&lt;li&gt;Others note that the PHP team announced a separate critical security fix for existing versions around the same time, and advise patching first.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An industry outlook expects SSD prices to ease in the second half of 2027, with hard drives later.&lt;/strong&gt; &lt;a href=&quot;https://www.drivevault.io/blog/when-will-hard-drive-prices-come-down.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;A September post on a storage-app vendor&amp;#x27;s blog&lt;/a&gt; cites ComputerBase tracking that shows hard drives about 134% and SSDs about 129% above September 2025 prices, though monthly increases are shrinking. It points to TrendForce&amp;#x27;s forecast that the NAND shortage will end in the second half of 2027. Hard drive capacity, by contrast, is largely contracted to data centers into 2028 (&lt;a href=&quot;https://news.ycombinator.com/item?id=50557716&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some commenters are skeptical of the article&amp;#x27;s framing, and others doubt that lower manufacturing costs will lead to lower retail prices.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-19">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
