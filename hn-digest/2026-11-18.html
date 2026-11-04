@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 18, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 18, 2026</h1>
+    <p class="date">Wednesday, November 18, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Two widely deployed server components received critical security fixes, while new research looks at how AI is changing search traffic, code review, and auditing.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Two critical remote code execution flaws were disclosed in NGINX&amp;#x27;s HTTP/2 handling.&lt;/strong&gt; According to &lt;a href=&quot;https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Wiz&amp;#x27;s write-up&lt;/a&gt;, CVE-2026-123633 (a use-after-free) and CVE-2026-123007 (an integer underflow present since NGINX 1.9.5 in 2015) both carry a CVSS 4.0 score of 9.2. Both require HTTP/2 to be enabled, and they were found independently by five research groups, with Wiz saying it used AI tooling for discovery and validation. F5 shipped fixes in a coordinated release on November 18 (&lt;a href=&quot;https://news.ycombinator.com/item?id=50547374&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters first questioned why so much detail was published before patched builds were visible, then noted the new versions appeared within about 30 minutes.&lt;/li&gt;
+&lt;li&gt;Several observed that past NGINX vulnerabilities have also clustered around HTTP/2, and that HTTP/1.1-only deployments are outside the stated preconditions for these two flaws.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A memory-corruption bug in OpenJDK&amp;#x27;s Base64 decoder can lead to remote code execution.&lt;/strong&gt; Calif&amp;#x27;s &lt;a href=&quot;https://calif.io/java4shell/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;disclosure of CVE-2026-114938&lt;/a&gt; places the bug in hand-written AVX-512 VBMI assembly used on x86-64. A malformed input as short as 64 &amp;quot;A&amp;quot; characters followed by &amp;quot;=&amp;quot; causes a write past the end of the output array. The researchers report pre-authentication RCE against default configurations of Keycloak, Jira, Confluence, Artifactory, Jenkins, and PingFederate, and say AI assistance let them find the bug and build a first exploit in about three hours, for under $200 in tokens (&lt;a href=&quot;https://news.ycombinator.com/item?id=50538240&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters relayed unconfirmed reports that running Java with -XX:UseAVX=2 avoids the vulnerable code path as a temporary workaround.&lt;/li&gt;
+&lt;li&gt;A link to the corresponding OpenJDK fix commit was shared for those checking whether their builds are patched.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A randomized experiment finds Google&amp;#x27;s AI Overviews cut clicks to outside websites by about 40%.&lt;/strong&gt; A &lt;a href=&quot;https://revscope.co/blog/search-seo-geo-2026/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Revscope analysis&lt;/a&gt; summarizes a working paper in which US desktop Chrome users were randomly assigned to have Overviews hidden or shown. On searches that would show an Overview, users who saw it made 0.37 outbound clicks per search, compared with 0.62 for users who didn&amp;#x27;t, while ad clicks were unchanged. Separate DataForSEO data shows Overviews on 61% of tracked US keywords in August 2026, up from about 6% two years earlier. The paper has not been peer reviewed and covers desktop only (&lt;a href=&quot;https://news.ycombinator.com/item?id=50540178&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters note that organic results were already being pushed down by ads and SEO-driven content well before AI answers appeared.&lt;/li&gt;
+&lt;li&gt;Others argue that if Google withheld AI answers, users would likely go to other LLM products instead, some of which are now adding ads of their own.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Harvard working paper finds AI coding agents increased code output but not finished work.&lt;/strong&gt; As &lt;a href=&quot;https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;reported by ComplexDiscovery&lt;/a&gt;, Ph.D. candidates Fiona Chen and James Stratton used engineering-analytics data from 718 firms. Agent adoption raised lines of code by about 30%, but resolved issues did not rise measurably, and getting code through review took 49% longer. The paper is a job-market paper with no indication of completed peer review (&lt;a href=&quot;https://news.ycombinator.com/item?id=50538303&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some commenters argue the binding constraint is still unclear upfront specification rather than review itself.&lt;/li&gt;
+&lt;li&gt;Others suggest the finding raises the value of engineers who can read and critically analyze code they did not write.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;KPMG UK says AI agents sometimes probed issues more deeply than its human team in a trial audit.&lt;/strong&gt; According to &lt;a href=&quot;https://europeanbusinessmagazine.com/ai-agents-better-questions-kpmg/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;European Business Magazine&lt;/a&gt;, citing the Financial Times, the effort was codenamed Project Exponential. More than 100 agents worked alongside a conventional audit team on an unnamed FTSE 250 company&amp;#x27;s accounts, gathering data, drafting conclusions, and suggesting next steps. KPMG&amp;#x27;s UK head of audit said the agents in several instances raised questions the human auditors had not (&lt;a href=&quot;https://news.ycombinator.com/item?id=50547777&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters suggest the result may say as much about the incentives and depth of Big Four audits, pointing to past accounting scandals such as Enron, as about AI capability.&lt;/li&gt;
+&lt;li&gt;Others note that AI tends to perform well in domains with fixed, well-defined procedures, which may describe much of auditing.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Researchers propose Energy-Based Reasoners, small looped models that solve constraint puzzles with far less inference compute.&lt;/strong&gt; The &lt;a href=&quot;https://energy-based-reasoners.github.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project page&lt;/a&gt; from Duke, UIUC, and Harvard researchers describes models that learn an energy function over latent reasoning states and refine their answers by gradient descent on it. The gradient also serves as a stopping signal. With 1.8M parameters, the model reaches 99.9% on Sudoku-Extreme using 345× less inference compute than the next-best model (the headline&amp;#x27;s 385× figure does not match the page), and it reports state-of-the-art solution coverage on N-Queens and graph coloring (&lt;a href=&quot;https://news.ycombinator.com/item?id=50543989&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters stress that the benchmarks are tightly constrained puzzles with few valid solutions, and that &amp;quot;reasoning&amp;quot; here differs from what LLM reasoning models do.&lt;/li&gt;
+&lt;li&gt;Some suggest testing on open-ended games like chess or Go would better show whether the efficiency gains generalize.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Microsoft announced seven new MAI models positioned on price-performance.&lt;/strong&gt; The &lt;a href=&quot;https://microsoft.ai/news/microsoft-ignite-2026/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Ignite announcement&lt;/a&gt; covers models for coding, security, image editing, realtime speech, transcription, and decision-making. Each is compared against OpenAI and Anthropic models on cost and quality, using Microsoft&amp;#x27;s own figures. Microsoft also said its second-generation Maia 200 accelerator is now in production running its largest models (&lt;a href=&quot;https://news.ycombinator.com/item?id=50548021&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point out that the weights are closed, technical detail is limited, and the models are not yet listed in independent indexes such as Artificial Analysis.&lt;/li&gt;
+&lt;li&gt;Some question the usefulness of comparisons like pitting a specialized decision model against a general frontier model.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;SolidJS 2.0 reached stable after five years of development.&lt;/strong&gt; The &lt;a href=&quot;https://www.solidjs.com/blog/solid-2-0-the-long-hold/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;release post&lt;/a&gt; describes async support built into the reactive graph, so computations can return promises or async iterators. Server functions, including streaming &amp;quot;live&amp;quot; functions over Server-Sent Events, now live in Solid&amp;#x27;s core. Development builds report reactivity mistakes with stable error codes, source locations, and repair guides aimed at coding agents (&lt;a href=&quot;https://news.ycombinator.com/item?id=50536387&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that the ecosystem of ready-made component libraries for Solid is still relatively thin.&lt;/li&gt;
+&lt;li&gt;One observes that the &amp;quot;built for agents&amp;quot; diagnostics are simply better debugging output that helps human developers equally.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Phrack published issue 73.&lt;/strong&gt; The &lt;a href=&quot;https://phrack.org/issues/73/introduction_md&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;new issue&lt;/a&gt;, released November 17, includes technical articles on escaping Docker containers via vDSO, escaping the Chromium renderer sandbox through Skia, kernel exploit development with LLMs, and backdoor attacks against machine learning. It also adds history pieces on the 2000 SSH1 exploit and a 2003 Linux kernel backdoor (&lt;a href=&quot;https://news.ycombinator.com/item?id=50535992&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-18">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

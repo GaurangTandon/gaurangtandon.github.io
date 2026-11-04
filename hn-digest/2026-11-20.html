@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 20, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 20, 2026</h1>
+    <p class="date">Friday, November 20, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s notable items include two major AI-assisted mathematics claims now under verification, plus new releases of core infrastructure and a pending OpenSSL security fix.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mathematician Levent Alpöge has released a claimed proof of the Generalized Riemann Hypothesis, produced with an AI model and written in the Lean proof language.&lt;/strong&gt; According to &lt;a href=&quot;https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Terence Tao&amp;#x27;s summary&lt;/a&gt;, the proof was generated with an internal AI model and exists only in Lean, and it is very large. Early analysis suggests it draws heavily on the Langlands program and arithmetic geometry. Alpöge&amp;#x27;s &lt;a href=&quot;https://alpo.ge/remark.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;accompanying note&lt;/a&gt; calls the argument &amp;quot;incredibly long,&amp;quot; says the formalization is finished, and says he intends to write it up properly and explain it. Efforts to check the proof and extract its strategy are under way on the Lean Zulip (&lt;a href=&quot;https://news.ycombinator.com/item?id=50574968&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=50578358&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion of Tao&amp;#x27;s post&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter reports that two independent Lean kernels accept the proof, which makes it less likely that the proof exploits a bug in a checker.&lt;/li&gt;
+&lt;li&gt;Commenters point out a difference in method: this proof appears to have been generated directly in Lean, while an earlier AI-assisted Navier–Stokes result was reportedly written in natural language first and formalized afterward. Some worry about results that no human can practically read.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Alpöge and Tristan Buckmaster have published a paper and Lean formalization showing that the unforced 3D Navier–Stokes equations can blow up in finite time.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/tristanbuckmaster/navier-stokes/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;repository&lt;/a&gt; holds a 79-page paper and a Lean library of about 600,000 lines. The repository&amp;#x27;s own notes say a numerical certificate, and the interval-arithmetic computation that checks it, are not yet included. Tao describes the approach as numerically constructing an approximate self-similar solution and then using rigorous perturbation theory to turn it into an exact one, and says the paper still needs professional polishing (&lt;a href=&quot;https://news.ycombinator.com/item?id=50576232&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters clarify that this is the unforced version of the problem. An earlier OpenAI result depended on a carefully designed external force, so many consider this version closer to the original question.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Architect Labs describes Frostbite, a CPU with a new instruction set that its AI systems designed from compiler through to final chip layout.&lt;/strong&gt; The &lt;a href=&quot;https://architectlabs.com/blog/frostbite&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;design&lt;/a&gt; is built around interaction nets, a model of computation where every step is local and each value has one owner. The company says this exposes parallelism without threads and reduces the need for large caches. On 25 workloads, 15 of which were held out until final evaluation, the company reports 4.59x better performance per watt than a silicon-proven dual-issue in-order core (&lt;a href=&quot;https://news.ycombinator.com/item?id=50572503&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that the benchmarks are small, such as JSON parsing of 4,096 characters, mergesort on 1,024 elements, and fib(20). The post itself says some kernels were scaled down 64x.&lt;/li&gt;
+&lt;li&gt;Several commenters compare the design to earlier architectures such as the Transputer and the Mill, which sounded promising but did not achieve broad adoption.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Signal will block screenshots to keep operating-system AI agents on iOS 27 and Android from capturing its content.&lt;/strong&gt; In a &lt;a href=&quot;https://signal.org/blog/protecting-your-privacy/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;blog post&lt;/a&gt;, Signal says assistants built into the operating system read on-screen data that then leaves the app&amp;#x27;s control. Users can turn the protection off. Signal calls the fix incomplete, since agents could still reach data through the filesystem, and says it cannot implement the protection on macOS at all. It asks Apple, Google, and Microsoft to provide a documented way for apps to opt out of AI data access (&lt;a href=&quot;https://news.ycombinator.com/item?id=50572348&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters suggest Signal publish the results of its forensic investigation of these agents, possibly as a shared living document, so smaller developers can benefit.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;PostgreSQL 19 has been released.&lt;/strong&gt; According to the &lt;a href=&quot;https://www.postgresql.org/docs/release/19.0/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;release notes&lt;/a&gt;, highlights include a REPACK command that can run concurrently to reclaim disk space, logical replication of sequence values, a WAIT command for read-your-writes consistency on standbys, and parallel autovacuum of indexes. Upgraders should note several compatibility changes: JIT is now off by default, RADIUS support has been removed, and standard_conforming_strings is now always on (&lt;a href=&quot;https://news.ycombinator.com/item?id=50569890&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters say sequence replication removes a manual scripting step from major-version upgrades done through logical replication. They add that WAIT addresses a common problem where a read sent to a replica does not yet see a write just made on the primary.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An OpenSSL patch fixes a buffer overflow in the EVP_EncodeBlock() base64 function (CVE-2026-121481, CVSS 9.8).&lt;/strong&gt; The &lt;a href=&quot;https://github.com/openssl/openssl/pull/33652&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;pull request&lt;/a&gt; makes the function return -1 for NULL buffers, negative lengths, and inputs whose encoded size would not fit in an int. The author shows the bug can be triggered through a very large proxy password passed to s_client. The project&amp;#x27;s security team asked for a public fix, and the formal advisory is still pending (&lt;a href=&quot;https://news.ycombinator.com/item?id=50569226&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters reading the patch say the bug only triggers on inputs of roughly 1.5 GB or more. They add that the API is fragile because callers must calculate the output buffer size themselves and never pass it in.&lt;/li&gt;
+&lt;li&gt;Commenters also cite a reviewer&amp;#x27;s concern that existing callers may cast the new -1 return value to an unsigned size without checking it. Based on the branch labels, some think only OpenSSL 4.x is affected.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A preprint reports that a 27B open model improved itself by editing its own weights, without gradient training.&lt;/strong&gt; The &lt;a href=&quot;https://arxiv.org/abs/2611.21885&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;paper&lt;/a&gt; gives the model its weights, its graded answers, and the ability to run itself. The authors report a 6.6-point accuracy gain on unseen problems, steady gains over eight consecutive sessions, and recovery of a damaged copy to over 80% of the original&amp;#x27;s accuracy on image tasks. They say only the largest model in the family they tested could do this (&lt;a href=&quot;https://news.ycombinator.com/item?id=50577265&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some commenters ask whether testing edits against practice problems amounts to overfitting, and where the extra capability actually comes from.&lt;/li&gt;
+&lt;li&gt;Others point to Google&amp;#x27;s earlier &amp;quot;sleep&amp;quot; framework, in which a model updated reserved mixture-of-experts weights using practice examples it generated itself.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Mozilla says Apple&amp;#x27;s rules still prevent any non-WebKit browser from shipping on iOS.&lt;/strong&gt; Apple allows alternative browser engines in the EU and Japan, but &lt;a href=&quot;https://blog.mozilla.org/en/mozilla/internet-policy/apple-ios-browser-engine-rules/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Mozilla writes&lt;/a&gt; that no developer has launched one in nearly three years. Under Apple&amp;#x27;s conditions, Firefox could not simply update its existing app to use its Gecko engine. It would have to ship a separate app and ask users to move their data to it by hand (&lt;a href=&quot;https://news.ycombinator.com/item?id=50575644&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A commenter points to Apple&amp;#x27;s published requirements for alternative engines. These include rules on syncing state and security-response timelines, such as resolving most vulnerabilities within 30 days.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;FFmpeg 9.1 &amp;quot;Gauss&amp;quot; has been released.&lt;/strong&gt; The &lt;a href=&quot;https://ffmpeg.org/download.html#release_9.1&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;release&lt;/a&gt; comes from a branch cut on October 24. Its tarballs carry both standard PGP signatures and post-quantum signatures. According to the changelog posted in the &lt;a href=&quot;https://news.ycombinator.com/item?id=50569998&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;, additions include ASTC image encoding and decoding, an extensively improved AAC encoder, an APV Vulkan encoder, a graph-based bitstream filtering API, and DVD-Audio LPCM decoding.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-20">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

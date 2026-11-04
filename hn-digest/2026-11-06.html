@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 6, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 6, 2026</h1>
+    <p class="date">Friday, November 6, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s stories cover two new AI models, a first-hand report on the limits of autonomous AI research, several open-source infrastructure and interface projects, and a long-running field study of ants trapped underground.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Thinking Machines releases Inkling 2 Small, a mixture-of-experts model with weights to follow.&lt;/strong&gt; &lt;a href=&quot;https://thinkingmachines.ai/news/inkling-2-small/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Inkling 2 Small&lt;/a&gt; has 594B total parameters with 17B active, accepts image inputs, and supports variable effort. It scores 31 on the Artificial Analysis Intelligence Index. It is available now through the company&amp;#x27;s Tinker platform with closed weights, and the company says it intends to release the full weights under Apache 2.0 next week, once external safety testing and red-teaming are complete (&lt;a href=&quot;https://news.ycombinator.com/item?id=50386338&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters noted that the published benchmark tables do not show the reporting team as the clear winner, and DeepSeek-V4.1-Flash leads several rows.&lt;/li&gt;&lt;li&gt;Others pointed out that pricing was hard to find, which makes it difficult to compare against DeepSeek&amp;#x27;s Flash model, which they described as very low cost for its capability.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google&amp;#x27;s Gemini Omni 1.2 Flash extends generated video clips to 15 seconds and lowers the price.&lt;/strong&gt; According to &lt;a href=&quot;https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Google&amp;#x27;s announcement&lt;/a&gt;, the model raises the maximum clip length from 10 to 15 seconds, adds multi-turn conversational editing, and holds better to reference images, motion clips, and audio cues. The price is 30% lower than Omni 1.1, at $0.07 per second for 720p, and the model is generally available on the Gemini API and Google Cloud (&lt;a href=&quot;https://news.ycombinator.com/item?id=50392118&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter listed the token-based pricing and observed that, unlike some launches, this one could be used immediately.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A researcher reports that AI agents still show weak judgment in autonomous R&amp;amp;D.&lt;/strong&gt; In a &lt;a href=&quot;https://www.lesswrong.com/posts/DALNiKBjMGMF8grme/arjun-panickssery-s-shortform?commentId=fJtaHHHfx45tD7BSL&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;LessWrong post&lt;/a&gt;, Arjun Panickssery describes side projects that included a Scrabble engine, an Ultimate Tic-Tac-Toe bot, and formal philosophy proofs. In these projects, models overlooked the most relevant papers and ran experiments too small to tell the compared approaches apart. The exception was hill-climbing tasks with fast feedback, where repeated prompting gave a 10x speedup in listing legal Scrabble moves, though the largest gains came from the author&amp;#x27;s own suggestions (&lt;a href=&quot;https://news.ycombinator.com/item?id=50388513&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters described the same pattern: agents carry out a human&amp;#x27;s suggestions well but propose poor directions of their own, and one wondered whether running many agents in parallel might offset this.&lt;/li&gt;&lt;li&gt;Others said the main value is handing off routine experiments and literature work so they can spend their own effort on the important questions.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Nvidia publishes a preview of NVKE, a management plane for GPU Kubernetes on bare metal.&lt;/strong&gt; &lt;a href=&quot;https://github.com/dsx-ai-factory/nvke&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;NVIDIA Kubernetes Engine&lt;/a&gt; lets platform teams create and run workload clusters for their customers, each with its own control plane, etcd, and node pools. It is Apache-2.0 licensed and marked as a preview that is not recommended for production. NVIDIA Infra Controller is currently the only supported infrastructure provider (&lt;a href=&quot;https://news.ycombinator.com/item?id=50387738&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter explained that it targets tenant-isolated clusters on Nvidia&amp;#x27;s DSX reference stack, using BlueField-based network isolation and wiping and re-attesting hosts between tenants, which makes it most relevant to providers seeking Nvidia Cloud Partner status.&lt;/li&gt;&lt;li&gt;Another said it bundles functions already handled by separate projects such as Cluster API, Kamaji, and gpu-operator.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;BUI turns Blender&amp;#x27;s interface code into a standalone UI library.&lt;/strong&gt; &lt;a href=&quot;https://github.com/ppmpreetham/BUI&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;BUI&lt;/a&gt; ports Blender&amp;#x27;s widget drawing and interaction rules into a small C core, with bindings for Python, Rust, JavaScript/React, C, C++, and Dear ImGui. It renders on either the CPU or the GPU, is GPL-3.0 licensed, and its authors claim it outperforms GPUI (&lt;a href=&quot;https://news.ycombinator.com/item?id=50389333&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter questioned the decision to offer clones of other toolkits&amp;#x27; APIs, such as tkinter and Qt syntax, instead of a native Blender-style API.&lt;/li&gt;&lt;li&gt;A GPUI user said some expected behaviors are missing in GPUI and that a UI as heavily used as Blender&amp;#x27;s could fill those gaps.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Unleash, an open-source feature flag platform, marks 11 years of development.&lt;/strong&gt; &lt;a href=&quot;https://github.com/Unleash/unleash&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Unleash&lt;/a&gt; is AGPL-3.0 licensed, can be self-hosted with Docker, and has official and community SDKs for many languages, alongside a paid enterprise tier. Its creator wrote in the thread that it began in 2014 as an internal tool and that server-side SDKs evaluate flags in-process, so user data stays inside the application (&lt;a href=&quot;https://news.ycombinator.com/item?id=50391145&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter pointed to prior art: Amazon&amp;#x27;s internal system in 2009 already supported multivariate flags, weighting, and a feedback loop for measuring performance and attribution.&lt;/li&gt;&lt;li&gt;Others debated whether teams will now just build simple flag systems with LLMs, and one said they started out thinking that but changed their mind after reviewing the product.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Dutch bank ASN reportedly blocks Android devices without Google certification, including GrapheneOS.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/PrivSec-dev/banking-apps-compat-report/issues/105&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;linked report&lt;/a&gt; is an issue in a community tracker of banking-app compatibility. Its earlier entries, from 2022, recorded the main ASN app working on GrapheneOS even without Google Play services, while a separate contactless-payment app did not (&lt;a href=&quot;https://news.ycombinator.com/item?id=50390124&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters noted that other European banks, including N26, also reject GrapheneOS.&lt;/li&gt;&lt;li&gt;One described a bank app that runs on GrapheneOS but disables biometrics and lowers limits after a Play Integrity check, while a government signing app uses hardware attestation and treats GrapheneOS as fully secure.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Kugelblitz is a free, Mac-native 3D globe and atlas built on open geodata.&lt;/strong&gt; &lt;a href=&quot;https://apps.metaebene.me/en/kugelblitz&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Kugelblitz&lt;/a&gt;, from Tim Pritlove&amp;#x27;s Metaebene, shows imagery and drawn maps on real terrain. It streams OpenStreetMap from its own tile server, needs no account, and also covers the Moon, Mars, and computed eclipses spanning 5,000 years. It requires macOS 27 on Apple silicon and supports SpaceMouse controllers and Vision Pro streaming (&lt;a href=&quot;https://news.ycombinator.com/item?id=50389370&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter confirmed it does not run on macOS Sequoia, consistent with the stated macOS 27 requirement.&lt;/li&gt;&lt;li&gt;Another questioned the emphasis on smooth performance on an M1, recalling that Google Earth ran smoothly on much older hardware.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A 2016 study describes wood ants surviving for years in a sealed bunker.&lt;/strong&gt; The &lt;a href=&quot;https://jhr.pensoft.net/articles.php?id=9096&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;paper&lt;/a&gt; in the Journal of Hymenoptera Research documents workers of the wood ant &lt;em&gt;Formica polyctena&lt;/em&gt; that fell through a ventilation pipe from a colony nesting on top of a former nuclear-weapons bunker and could not find their way back. According to the abstract quoted in the thread, the trapped group produced no offspring, and the floor held an estimated two million dead workers (&lt;a href=&quot;https://news.ycombinator.com/item?id=50390525&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter observed that the lack of offspring is better explained by the absence of a queen than by the cold and scarce food the paper cites, since a group of workers alone cannot reproduce.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-06">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

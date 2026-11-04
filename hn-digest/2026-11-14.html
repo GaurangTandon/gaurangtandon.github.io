@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 14, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 14, 2026</h1>
+    <p class="date">Saturday, November 14, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers a shorter disclosure deadline for software bugs, a data-exposure study of AI-built web apps, an air traffic control outage, and several releases from the machine learning and developer tooling world.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Project Zero is shortening its vulnerability disclosure deadline in stages.&lt;/strong&gt; Since 2021, Project Zero has given vendors 90 days to fix a bug, plus 30 days for patch rollout. Under its &lt;a href=&quot;https://projectzero.google/2026/11/disclosure-policy.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;new &amp;quot;Full X&amp;quot; policy&lt;/a&gt;, details are now published 90 days after reporting. That drops to 60 days on February 2, 2027 and to 30 days on January 3, 2028, and most grace-period exceptions are removed. The team says AI-assisted tools have sped up both bug discovery and exploitation from patches, and that it now finds several vulnerabilities a week in targets that once yielded a few a year (&lt;a href=&quot;https://news.ycombinator.com/item?id=50496051&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters expect downstream Linux distributions such as Ubuntu to have trouble shipping fixes within the shorter windows.&lt;/li&gt;
+&lt;li&gt;Some suggest that organizations using AI to find bugs should give vendors and open-source maintainers the same tools to help them fix those bugs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A study finds sensitive data exposed in many apps built with Lovable.&lt;/strong&gt; Researchers &lt;a href=&quot;https://www.crissyfield.de/research/lovable-en/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;examined 159,041 Lovable projects&lt;/a&gt; found through Common Crawl. Of the 24,664 that loaded Supabase data without a login, 7,403 (about 30%) had tables containing email addresses that further read-only requests could reach. The authors caution that this figure is not a confirmed leak rate. The specific cases they found include more than 80,000 forum profiles with over 200,000 chat messages, and more than 1,000 records with passport details (&lt;a href=&quot;https://news.ycombinator.com/item?id=50499017&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that misconfigured databases are not new. They argue that AI-built apps are easier targets because they appear in large numbers and can often be probed by inspecting browser network requests.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An equipment failure caused a nationwide FAA ground stop lasting more than four hours.&lt;/strong&gt; The FAA halted all U.S. departures at 3:54 p.m. ET on Friday after controllers saw inconsistencies in radar data and aircraft communications. It lifted the stop at 8:15 p.m. ET, &lt;a href=&quot;https://www.nbcnews.com/news/us-news/faa-orders-nationwide-ground-stop-departing-flights-reasons-safety-rcna609247&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;NBC News reports&lt;/a&gt;. The FAA said a router sent too much data and overloaded older air traffic control equipment, and officials said they had found no evidence of a cyberattack. More than 7,000 flights were canceled Friday, and FlightAware logged over 3,700 more cancellations by Saturday morning (&lt;a href=&quot;https://news.ycombinator.com/item?id=50489641&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters shared the original FAA advisory, which gave only &amp;quot;extraordinary circumstances&amp;quot; and &amp;quot;reasons of safety&amp;quot; as the cause. One passenger reported that their captain did not know what the order meant at first.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ggml, the tensor library behind llama.cpp, reaches version 1.0.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/ggml-org/ggml/releases/tag/v1.0.0&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;1.0.0 release&lt;/a&gt; removes the deprecated public API and some legacy operations, adds FP8 support and configurable YaRN truncation, and bumps the RPC protocol so that incompatible peers are rejected. It also includes performance work across CUDA, Metal, Vulkan, SYCL, OpenCL, WebGPU and Hexagon backends, much of it aimed at mixture-of-experts models and FlashAttention (&lt;a href=&quot;https://news.ycombinator.com/item?id=50493062&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One user reports steady speed gains of roughly 5–10% from monthly upgrades on the same hardware. Their 50K-token benchmark dropped from 4:22 to 3:59 after this update.&lt;/li&gt;
+&lt;li&gt;Another says ggml&amp;#x27;s Vulkan backend is what makes local inference usable on their older AMD card.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;PyPI project pages now show whether release files can be traced to their source.&lt;/strong&gt; PyPI has &lt;a href=&quot;https://blog.pypi.org/posts/2026-11-06-ui-updates-complete/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;finished its redesign&lt;/a&gt; of project pages, adding a security tab that shows each file&amp;#x27;s attestations. The tab labels a release as having full or no provenance, and it warns when provenance is incomplete, inconsistent, changed, or lost compared with earlier releases. The design follows the OpenSSF Attestations Style Guide (&lt;a href=&quot;https://news.ycombinator.com/item?id=50497892&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters stress that these signals help detect hijacked releases of legitimate projects, but do not identify packages that were malicious from the start.&lt;/li&gt;
+&lt;li&gt;Some maintainers point out that publishing only some files through Trusted Publishing triggers a warning. Others ask how self-hosted builds or smaller forges such as Codeberg could produce attestations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A proposed terminal protocol would draw borders on cell edges instead of using character cells.&lt;/strong&gt; Ratatui&amp;#x27;s maintainer &lt;a href=&quot;https://www.joshka.net/cell-borders/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;describes a cell attribute&lt;/a&gt; that lets a terminal draw thin lines along the edges of character cells. Each cell can carry up to twelve line segments with their own color and style, so panels no longer give up a row and column on each side. The author has a working patch for Ghostty, has built demo apps, and is asking terminal and TUI authors for feedback (&lt;a href=&quot;https://news.ycombinator.com/item?id=50491423&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter points to an existing approach: overstrike mode (DECSET 20), which lets border characters be drawn over text cells but is supported by few terminals other than mintty.&lt;/li&gt;
+&lt;li&gt;Others question why the author says the feature would not work through multiplexers like tmux, since other cell attributes pass through without problems.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer reimplements DeepSeek V3&amp;#x27;s architecture in about 190 lines of JAX.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/Vaibhaav-Tiwari/deepseek-v3-jax&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Show HN project&lt;/a&gt; implements four core ideas from the DeepSeek V3 paper in plain JAX with no framework: multi-head latent attention, a mixture-of-experts design, load balancing without an auxiliary loss, and multi-token prediction. A 36.2M-parameter version trained in about 2.6 hours on a MacBook Air. Turning on the bias-based balancing evened out expert usage without changing validation loss (&lt;a href=&quot;https://news.ycombinator.com/item?id=50497589&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter reports running it end to end on an AMD RX 7600 XT under ROCm. They note that JAX&amp;#x27;s plugin rejected the card&amp;#x27;s architecture until they set an environment variable override.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Removing the enzyme granzyme K reduced signs of organ ageing in mice.&lt;/strong&gt; According to a &lt;a href=&quot;https://www.nature.com/articles/d41586-026-03638-3&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Nature research highlight&lt;/a&gt;, aged mice engineered to lack granzyme K had better heart and liver function and less kidney damage. The underlying study appears in Immunity. Its authors suggest that drugs lowering the enzyme might one day reduce ageing effects without weakening immune defences (&lt;a href=&quot;https://news.ycombinator.com/item?id=50488470&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters quoting the paper&amp;#x27;s abstract note that immune ageing still occurred in these mice. The authors describe the enzyme as a driver of tissue ageing, not of immune ageing or systemic inflammation.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-14">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

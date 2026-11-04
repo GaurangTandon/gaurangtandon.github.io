@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 4, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 4, 2026</h1>
+    <p class="date">Wednesday, November 4, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s stories cover security lessons from AI-assisted auditing and a major exchange breach, new open-weight and verification work in AI, and steady progress in languages and systems tooling.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;An AI-assisted audit turned a years-old PHP crash bug into a critical vulnerability.&lt;/strong&gt; IEEE Spectrum &lt;a href=&quot;https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;reports&lt;/a&gt; on &amp;quot;PHP2Shell.&amp;quot; The underlying memory bug was reported to the PHP Foundation in 2024, but it was treated as a simple crash. During an OpenAI-sponsored audit by the security firm Calif, a researcher using AI tools found a way to turn it into arbitrary code execution on host servers within two weeks. A patch shipped before any known exploitation, and researchers quoted in the piece describe it as an early sign that AI will expose decades of legacy code (&lt;a href=&quot;https://news.ycombinator.com/item?id=50364336&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters with compliance experience note that certifications like ISO 27001 are easy to game, and that AI-driven bug finding changes the risk calculation for companies relying on them.&lt;/li&gt;&lt;li&gt;Some argue for shrinking the attack surface with smaller, purpose-built software rather than patching large general-purpose stacks.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Binance traces its $6.3B theft to a fake job interview and compromised developer machines.&lt;/strong&gt; According to Binance&amp;#x27;s incident report, &lt;a href=&quot;https://www.theregister.com/security/2026/11/03/north-korean-fake-job-interview-led-to-63b-binance-heist/5307398&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;covered by The Register&lt;/a&gt;, an engineer was recruited for a fake job and ran an &amp;quot;assignment&amp;quot; repository on a work computer. The repository swapped a legitimate pyenv component for a malicious one that endpoint tools did not catch. The attackers then used an internal AI tool to reach other wallet engineers&amp;#x27; machines and used a stolen container-deployment token to launch the October 29 theft, which the FBI attributes to the North Korean group TraderTraitor (&lt;a href=&quot;https://news.ycombinator.com/item?id=50365755&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters point to running a third-party interview assignment on a work-issued machine as the critical lapse.&lt;/li&gt;&lt;li&gt;Others report receiving repeated fake recruiter approaches on LinkedIn and say the platform does little to stop them.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;C++26 failed its final ISO ballot over the Contracts feature.&lt;/strong&gt; Committee member Andreas Fertig &lt;a href=&quot;https://andreasfertig.com/blog/2026/11/cpp26-dis-failed-how-does-cpp-survive/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;writes&lt;/a&gt; that the October 23 Draft International Standard vote missed the required two-thirds majority. It is the first such failure in C++&amp;#x27;s history, and national bodies&amp;#x27; comments centered on Contracts not being ready. ISO&amp;#x27;s options are a revised ballot, a return to committee draft, a Technical Specification, or cancellation, and each one delays the standard (&lt;a href=&quot;https://news.ycombinator.com/item?id=50360164&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters would prefer that the committee focus on smaller safety-oriented changes, such as C++26&amp;#x27;s &amp;quot;erroneous behavior,&amp;quot; rather than adding further language complexity.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux runs on Nvidia&amp;#x27;s RTX Spark laptops, but GPU clocks drop sharply on wall power.&lt;/strong&gt; A &lt;a href=&quot;https://www.mindstudio.ai/blog/linux-nvidia-rtx-spark-laptop&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;hands-on test&lt;/a&gt; on an MSI Prestige found the GPU locked near 780 MHz under Linux versus about 2.2 GHz on Windows. The author attributes this to an encrypted power table that only the Windows driver can read. On GPT-OSS-120B, native Linux reached 13.9 tokens/s, compared with 65.4 on Windows and 65.1 under WSL, and the article says a real fix depends on Nvidia porting its power-management logic (&lt;a href=&quot;https://news.ycombinator.com/item?id=50362905&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters stress that this affects the RTX Spark laptop, not the DGX Spark desktop, which already ships with Linux.&lt;/li&gt;&lt;li&gt;One suggests running inference on a machine at home and reaching it remotely, which avoids laptop power and thermal limits.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Moonshot AI released open weights for Kimi K3.1 Pro.&lt;/strong&gt; The &lt;a href=&quot;https://huggingface.co/moonshotai/Kimi-K3.1-Pro&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;model card&lt;/a&gt; describes a natively multimodal mixture-of-experts model with 2.8T total and 104B active parameters, a 1M-token context window, and quantization-aware-trained MXFP4 weights. It is released under a custom Kimi license (&lt;a href=&quot;https://news.ycombinator.com/item?id=50366999&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that running it requires datacenter-class multi-GPU hardware, though third-party hosts on OpenRouter are already serving it with noticeably different throughput.&lt;/li&gt;&lt;li&gt;Some are skeptical of the published scores and say the model looks weaker on independent benchmarks than on the vendor&amp;#x27;s own.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Anthropic shared progress on cryptographic proofs that a response came from a specific model.&lt;/strong&gt; The &lt;a href=&quot;https://www.anthropic.com/research/provable-inference&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;research post&lt;/a&gt; introduces FlashProve, a zkSNARK-based system built largely by Claude. On Llama 4 Maverick, it generates proofs at about 110 tokens/s on one H100, at roughly 70–95x the GPU time of normal inference. The proofs hide the model weights, the security claims are stated in Lean, and the code and proofs are released under Apache 2.0 (&lt;a href=&quot;https://news.ycombinator.com/item?id=50368626&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters note that this proves which model produced the output, but not whether the output is correct or how user data is handled.&lt;/li&gt;&lt;li&gt;One points out that for open models, comparing outputs from several independent providers gives a cheaper, probabilistic check.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An open-source DisplayLink driver was taken down after a patent-based cease and desist from Synaptics.&lt;/strong&gt; Phoronix &lt;a href=&quot;https://www.phoronix.com/news/Synaptics-Blocks-Vino-Driver&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;reports&lt;/a&gt; that the &amp;quot;Vino&amp;quot; driver, a clean-room reverse-engineered Rust driver developed partly with AI, is no longer public on GitHub. The correspondence was posted to the Linux kernel mailing list (&lt;a href=&quot;https://news.ycombinator.com/item?id=50363968&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters argue that using LLM code generation in a clean-room effort weakens the clean-room claim, since the models are trained on broad bodies of code.&lt;/li&gt;&lt;li&gt;Others note that DisplayLink&amp;#x27;s macOS logs are encrypted, which makes troubleshooting the official drivers difficult.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Go 1.27 ships encoding/json/v2 as a stable package.&lt;/strong&gt; The &lt;a href=&quot;https://go.dev/blog/jsonv2&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Go blog&lt;/a&gt; says the new encoding/json/v2 and jsontext packages are now generally available. They change several defaults: invalid UTF-8 and duplicate object keys are rejected, nil slices and maps marshal as empty values, and field matching is case-sensitive. The API also lets options pass consistently through custom marshalers (&lt;a href=&quot;https://news.ycombinator.com/item?id=50369106&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Users note that dropping a simple MarshalIndent equivalent makes migration and quick debugging output more awkward.&lt;/li&gt;&lt;li&gt;Some point out that the redesign took about six years to land.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A look at memory allocation in early Unix source code.&lt;/strong&gt; This &lt;a href=&quot;https://napcakes.nekoweb.org/posts/malloc/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; examines code from the recently recovered Unix V4 tape and later editions. It covers a bump allocator in the early C toolchain that grows the heap with sbrk and simply exits on failure. It also covers Dennis Ritchie&amp;#x27;s original malloc and mfree, which take an explicit memory map and a size, a design that John Lions&amp;#x27; commentary ties to separate core and swap resources (&lt;a href=&quot;https://news.ycombinator.com/item?id=50362466&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters disagree on whether free should take a size, and some caution that arena-style allocators can increase memory use and fragmentation.&lt;/li&gt;&lt;li&gt;One traces SIMULA 67&amp;#x27;s &amp;quot;new&amp;quot; and related features to C.A.R. Hoare&amp;#x27;s 1965 paper &amp;quot;Record Handling.&amp;quot;&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-04">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

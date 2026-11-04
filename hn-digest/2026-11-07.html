@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 7, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 7, 2026</h1>
+    <p class="date">Saturday, November 7, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers on-device data collection in macOS, research on agent memory, steady progress on Linux for Apple Silicon, and a few hardware, software, and science stories.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Researchers document a personal knowledge graph that macOS builds on every Mac.&lt;/strong&gt; A &lt;a href=&quot;https://8rank.ai/game/apple-intelligence-personal-knowledge-graph&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up from the Eighth Rank&lt;/a&gt; describes two daemons, knowledgeconstructiond and intelligenceplatformd, that have shipped since macOS 13. Together they build an on-device graph of the user&amp;#x27;s contacts, relationships (including inferred kinship), communications, locations, and activities, drawing on Contacts, Calendar, Photos, Messages, Mail, location, and Screen Time. The authors report that the data sits in about fifty plaintext SQLite databases under ~/Library/IntelligencePlatform, protected by Full Disk Access, and they released an open-source dashboard, iKnow, for inspecting your own graph (&lt;a href=&quot;https://news.ycombinator.com/item?id=50403097&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some commenters note that building this on the device is preferable to similar profiles held in a company&amp;#x27;s cloud data warehouse, provided the data does not leave the machine.&lt;/li&gt;&lt;li&gt;The author joined the thread and pointed to follow-up research on the same knowledge graph.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Anthropic describes how it evaluates memory for Claude agents.&lt;/strong&gt; In a &lt;a href=&quot;https://www.anthropic.com/research/components-of-agent-memory&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;research post&lt;/a&gt;, Anthropic defines agent memory as knowledge that is retained between sessions as readable context. It also describes &amp;quot;dreaming,&amp;quot; a process in which the agent reflects on its logs during idle time to correct mistakes and reorganize notes, building on earlier sleep-time compute work from Letta and UC Berkeley. On a database task from CL-Bench 1.0, the post traces a progression: Sonnet 4.6 kept untested guesses, Opus 4.7 began marking which facts were verified, and Opus 5, Opus 5.5, and Sonnet 5.5 recorded validated rules along with the evidence for them (&lt;a href=&quot;https://news.ycombinator.com/item?id=50402212&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters argue that terms like &amp;quot;dreaming&amp;quot; overstate what is, in practice, markdown notes written to files and re-injected into context in later sessions.&lt;/li&gt;&lt;li&gt;One practitioner says they disable automatic memory and delete most auto-created notes because they rarely apply beyond the task at hand, and would like better judgment about what is worth saving.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Asahi Linux reports upstreaming progress and general availability for M3 Macs.&lt;/strong&gt; The project&amp;#x27;s &lt;a href=&quot;https://asahilinux.org/2026/11/progress-report-7-3/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Linux 7.3 progress report&lt;/a&gt; says the macaudio driver (about 3,100 lines) and the AVD driver (about 13,000 lines) have been submitted upstream, along with initial device trees for M4 Pro/Max and M5. M3 support no longer requires the installer&amp;#x27;s EXPERT flag and now enables sleep, and the m1n1 hypervisor can virtualize macOS on M4 and M5 by running Apple&amp;#x27;s Secure Kernel and Exclaves in a separate VM. The report also notes that reverse engineering of the M3 GPU has reached a rendered triangle and that Thunderbolt support is now on the mailing list (&lt;a href=&quot;https://news.ycombinator.com/item?id=50401867&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A visit to Unitree&amp;#x27;s factory finds robot production still largely manual.&lt;/strong&gt; In &lt;a href=&quot;https://josef.cn/blog/unitree&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;a blog post&lt;/a&gt;, Josef Chen describes Unitree&amp;#x27;s Hangzhou actuator plant as mostly staffed by workers at winding machines, with one or two automated lines, and cites the company&amp;#x27;s IPO prospectus, which says assembly is &amp;quot;currently mainly manual.&amp;quot; Chen reports that labor was about 8% of production cost in 2025 and that research and education accounted for most humanoid revenue. Chen argues that because China&amp;#x27;s robots are built by hand, the market for machines that build robots remains open to Western firms (&lt;a href=&quot;https://news.ycombinator.com/item?id=50400597&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter accepts the cost analysis but argues the conclusion does not follow: a stronger incentive to automate does not mean Western companies will capture the robotics market.&lt;/li&gt;&lt;li&gt;Others note that demand for humanoids is currently driven by government agencies and research institutions rather than consumers.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A fan project runs a recompiled Need for Speed Underground 2 in the browser.&lt;/strong&gt; The &lt;a href=&quot;https://nfsu2.xyz/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;site&lt;/a&gt; runs the PC game&amp;#x27;s code in Chrome and Firefox via a static x86-to-C recompiler, offering widescreen at up to 120 fps, online free roam and races, and controller, wheel, and touch support. It is forked from the MIT-licensed NFSU2Recomp project, and the site states it is not affiliated with Electronic Arts (&lt;a href=&quot;https://news.ycombinator.com/item?id=50403052&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters report mixed performance, including stutters during asset loading and garbage-collection pauses, and one needed Chrome&amp;#x27;s unsafe WebGPU flag to run it at all.&lt;/li&gt;&lt;li&gt;Several point out that the game is not currently sold anywhere, and question whether hosting the original assets is legal.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A small UK law firm describes its fully free-software setup in 2026.&lt;/strong&gt; Neil Brown of decoded.legal &lt;a href=&quot;https://decoded.legal/blog/2026/11/running-a-law-firm-on-free-software-2026-edition/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;updates his account&lt;/a&gt; of running the firm on Debian and GNOME, with self-hosted services mostly on Intel NUCs. Since the last update, he replaced Nextcloud with Syncthing and radicale and retired his Jitsi server in favor of Signal, since he mostly joins other people&amp;#x27;s Teams or Zoom calls (&lt;a href=&quot;https://news.ycombinator.com/item?id=50403066&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters raise the risk of relying on a single person to run the infrastructure, and ask whether larger clients require security certifications.&lt;/li&gt;&lt;li&gt;One relays a view, heard at a legal workshop, that not using Microsoft Word in a law firm amounts to malpractice, which highlights how much the profession depends on document compatibility.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ancient DNA supports the Goths&amp;#x27; traditional account of a Scandinavian origin.&lt;/strong&gt; &lt;a href=&quot;https://www.science.org/content/article/barbarian-tribe-s-mythic-origin-story-true-ancient-dna-reveals&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Science reports&lt;/a&gt; that genetic evidence supports the tribe&amp;#x27;s origin story; according to the discussion, the story traces the Goths to Scandinavia (&lt;a href=&quot;https://news.ycombinator.com/item?id=50401740&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;). The article text was not available for this briefing, so details of the study are not summarized here.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that Swedish place names such as Gotland, Götaland, and Gothenburg made a Scandinavian origin seem plausible long before this study.&lt;/li&gt;&lt;li&gt;Others point out that the oldest surviving Gothic text is the Bible translation by Wulfila from around 350, produced in what is now Bulgaria.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A 2022 post shows what it took to get Linux running on an $8 RISC-V board.&lt;/strong&gt; Bram Stolk&amp;#x27;s &lt;a href=&quot;http://thelittleengineerthatcould.blogspot.com/2022/12/the-8-linux-computer.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;blog post&lt;/a&gt; covers the Ox64, a board with three different RISC-V cores that can run Linux with an MMU, although Ethernet, Wi-Fi, and SD card were not working at the time. Flashing it required UART instead of USB, an RP2040 board running picoprobe as a serial bridge, and a patched copy of the vendor&amp;#x27;s flashing tool (&lt;a href=&quot;https://news.ycombinator.com/item?id=50404599&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to earlier low-cost Linux boards, including the $9 C.H.I.P. and the original $5 Raspberry Pi Zero.&lt;/li&gt;&lt;li&gt;One observes that cheap, capable microcontrollers like the ESP32 have since taken over much of the hobbyist role that inexpensive Linux devices once filled.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-07">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

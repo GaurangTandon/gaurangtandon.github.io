@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 22, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 22, 2026</h1>
+    <p class="date">Sunday, November 22, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s stories center on AI infrastructure and its practical costs, data-handling trust between AI providers, and a set of developer tools that use coding agents for narrow, well-defined tasks.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Toyota, Nissan, and Honda will standardize some vehicle parts to cut costs.&lt;/strong&gt; According to a &lt;a href=&quot;https://www.caranddriver.com/news/a74490092/toyota-nissan-honda-standardize-parts-lower-costs/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Car and Driver report&lt;/a&gt; citing Automotive News, Japan Automobile Manufacturers Association chairman Koji Sato announced that the first steps will be unified quality criteria for steel, consistent protocols for plastics and resins, and a universal color-coding scheme for wiring harnesses. These areas were chosen because consumers don&amp;#x27;t notice them and they carry significant production costs, and the first measures are expected next year as Japanese automakers respond to competition from Chinese manufacturers (&lt;a href=&quot;https://news.ycombinator.com/item?id=50596133&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;An advocacy group estimates that most of Anthropic&amp;#x27;s 2028 power will come from fossil fuels.&lt;/strong&gt; The Better Data Center Project &lt;a href=&quot;https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;attributed on-site gas and marginal grid generation&lt;/a&gt; to Anthropic&amp;#x27;s contracted U.S. data center sites and estimates that about 87% of the power will come from gas and 11% from coal, with a mid-case of 32 million metric tons of CO₂e that year. The group says Anthropic&amp;#x27;s only publicly disclosed renewable commitments are in Norway and Canada, and that 80% of the on-site gas capacity uses less efficient simple-cycle turbines and engines (&lt;a href=&quot;https://news.ycombinator.com/item?id=50597612&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter expects energy efficiency per token to rise sharply with techniques such as disaggregated inference, which could change the long-term picture.&lt;/li&gt;&lt;li&gt;A commenter who works in the energy sector says total U.S. electricity generation has been roughly flat for about 20 years after long underinvestment, which helps explain why new demand is being met with gas.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenRouter removed three inference providers after researchers found data-policy violations.&lt;/strong&gt; In a &lt;a href=&quot;https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;blog post&lt;/a&gt;, OpenRouter says security researchers, credited to a Dragos report, found that some providers had compromised data or were not upholding their data policies. OpenRouter off-boarded three providers, removed 125 endpoints from Zero Data Retention eligibility, notified affected customers, and plans to run similar checks on an ongoing basis. Atlas Cloud, Novita, Phala, and Together have posted their own notices (&lt;a href=&quot;https://news.ycombinator.com/item?id=50595554&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that a direct ZDR agreement with a provider is stronger than going through an intermediary, but it still depends on trusting the provider without technical enforcement.&lt;/li&gt;&lt;li&gt;Several ask why OpenRouter has not named the off-boarded providers, so that users can check whether their requests were routed to them.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Raph Levien updates his advice for building Rust GUI toolkits.&lt;/strong&gt; In a &lt;a href=&quot;https://linebender.org/blog/next-100-guis/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;follow-up to a 2022 post&lt;/a&gt;, Levien counts about 20 new Rust GUI toolkits since then. He describes text layout (Parley) and accessibility (AccessKit) as largely solved, while integration with the system compositor remains open. He also argues that on mobile, a native UI on top of shared Rust logic is a strong option, and that AI-assisted rewrites are driving new interest in Rust UI (&lt;a href=&quot;https://news.ycombinator.com/item?id=50593737&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters describe hybrid approaches already in use, such as Qt through C++ with application logic in Rust, or Flutter connected to Rust through flutter_rust_bridge.&lt;/li&gt;&lt;li&gt;One commenter says a GUI toolkit should take a position on how it handles async events, citing Qt&amp;#x27;s signal/slot system as a useful model.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An open-source project is building a native PC recompilation of the Xbox version of GTA 6, though the game does not boot yet.&lt;/strong&gt; &lt;a href=&quot;https://github.com/ItsNotRexed/Leonida&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Leonida&lt;/a&gt; is a static recompilation effort. Because the Xbox Series CPU is x86-64, the game&amp;#x27;s code is meant to run natively while the console&amp;#x27;s system software is reimplemented, and the project reports translating all 26,503 of the game&amp;#x27;s RDNA2 shaders to SPIR-V for Vulkan. It requires the user&amp;#x27;s own readable copy of the game and states that it includes no game files or keys (&lt;a href=&quot;https://news.ycombinator.com/item?id=50595168&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out that work is coordinated as a crowdsourced, agent-assisted effort, with contributors claiming tasks through GitHub issues.&lt;/li&gt;&lt;li&gt;One commenter asks why the project translates to Vulkan rather than D3D12, given that Windows is the target.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;PcapAnalyzer is a self-hosted tool that runs 27 automated fault detectors on packet captures.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/sebaandrada-cell/PcapAnalyzer&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Apache-licensed beta&lt;/a&gt; runs locally in Docker and flags issues such as TCP retransmissions, PMTUD black holes, DNS failures, one-way VPN tunnels, and cleartext logins. It also offers Wireshark-style views and an optional AI investigation feature that uses the user&amp;#x27;s own Anthropic API key (&lt;a href=&quot;https://news.ycombinator.com/item?id=50594132&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters mention prior art, including a similar network-diagnosis project at CableLabs and several comparable open-source tools.&lt;/li&gt;&lt;li&gt;One commenter asks which capture data is sent to the AI provider, and whether sensitive fields such as IP and MAC addresses are redacted.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A browser game casts the player as the subagent of a real LLM orchestrator.&lt;/strong&gt; In &lt;a href=&quot;https://github.com/gulivan/worker755&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Worker 755&lt;/a&gt;, a model such as Claude, GPT, or Gemini assigns tasks that appear in the player&amp;#x27;s terminal with a 90-second clock. The model then checks the work, files incident reports, and writes a performance review, while a simulated user&amp;#x27;s important files sit at risk. The game is MIT-licensed and can run with the player&amp;#x27;s own API key or offline with a scripted manager (&lt;a href=&quot;https://news.ycombinator.com/item?id=50599762&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter describes a similar practice for debugging: intercepting a model&amp;#x27;s requests and answering them by hand to understand what the model can and cannot infer from its context.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;fast-anything ports only an application&amp;#x27;s slowest functions to Rust and checks that they behave the same.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/EL4CTEO/fast-anything&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;tool&lt;/a&gt; profiles Python, Node, Ruby, and other apps and ranks functions by time spent and how easily they can be ported. A coding agent then ports the selected function, and the tool replays up to 500 recorded real calls plus generated edge cases before enabling the Rust version. The project&amp;#x27;s own benchmarks include a Python fuzzy-dedupe example dropping from 4.91s to 42ms (&lt;a href=&quot;https://news.ycombinator.com/item?id=50596155&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A maintainer of a Python web framework says they took the same approach manually, moving route matching, JSON encoding, and compression to Rust via PyO3.&lt;/li&gt;&lt;li&gt;Commenters note that rewrites can be motivated by memory safety as well as speed, and that the same selective-porting idea applies to C or Zig.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Pandex offers official European legislation and high-court decisions to AI agents through an API and an MCP server.&lt;/strong&gt; The &lt;a href=&quot;https://www.pandex.io&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;service&lt;/a&gt; says it holds 2.8 million documents from the EU and seven European countries, sourced from the publishing institutions, with past versions of laws and linked citations. It also lists which institutions it holds only partially. Access is free during the beta, up to 1,000 requests a day (&lt;a href=&quot;https://news.ycombinator.com/item?id=50593481&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters who build legal AI systems say raw access to the text is not enough for reliable answers, and that useful tools need multiple retrieval passes and must link each claim to the exact paragraph it relies on.&lt;/li&gt;&lt;li&gt;Others point to existing European competitors in this space and suggest the corpus could help spot inconsistencies between national implementations of EU law.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-22">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

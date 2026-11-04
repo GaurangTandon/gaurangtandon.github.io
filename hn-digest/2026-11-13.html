@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 13, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 13, 2026</h1>
+    <p class="date">Friday, November 13, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Friday was shaped by a long Microsoft 365 outage and a shorter Claude disruption, alongside two data-exposure disclosures, a new payment model for search APIs, and some systems-programming reading old and new.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Microsoft 365 suffered a prolonged global email and collaboration outage.&lt;/strong&gt; According to &lt;a href=&quot;https://twitter.com/MSFT365Status/status/2121079061774491735&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Microsoft&amp;#x27;s status updates&lt;/a&gt;, Exchange Online connectivity problems began in the Americas on November 12 and later affected users in any region. Microsoft said the cause was not a traffic increase but servers failing automated health checks and dropping out of service, which overloaded the remaining capacity. &lt;a href=&quot;https://www.cnn.com/2026/11/12/business/live-news/microsoft-global-outage-intl-hnk&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;CNN reports&lt;/a&gt; that Outlook, Teams and Copilot were disrupted, that Microsoft attributed the outage to a technical issue rather than a security breach, and that email queues were later &amp;quot;approaching normal levels&amp;quot; (&lt;a href=&quot;https://news.ycombinator.com/item?id=50478609&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=50479098&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;second HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Users with email-based two-factor authentication describe being locked out of unrelated accounts, a reminder that an email outage can spread to other services.&lt;/li&gt;
+&lt;li&gt;One commenter calculates that this incident alone pulls Office 365&amp;#x27;s uptime for the year down to roughly three nines, and notes that customers may be able to claim SLA credits.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Claude services had a roughly two-hour authentication incident.&lt;/strong&gt; Anthropic&amp;#x27;s &lt;a href=&quot;https://status.claude.com/incidents/nn11wk485zfn&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;status page&lt;/a&gt; shows an investigation into users failing to authenticate to claude.ai and Claude Code starting at 09:58 UTC on November 13. A fix was deployed around 11:05 and the incident was marked resolved at 11:58. Affected services included claude.ai, the Claude Console, Claude Code and Claude Cowork (&lt;a href=&quot;https://news.ycombinator.com/item?id=50481187&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;, &lt;a href=&quot;https://news.ycombinator.com/item?id=50481220&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;second HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Users reported existing sessions suddenly requiring re-login and then failing with OAuth errors. Some commenters suspect a link to the concurrent Microsoft outage, but the status page does not state a cause.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;TSMC reported that employee data appeared online and said it found no compromise of its own systems.&lt;/strong&gt; In a &lt;a href=&quot;https://www.sec.gov/Archives/edgar/data/1046179/000104617926000800/a20261112statementregardin.htm&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;statement filed with the SEC&lt;/a&gt;, the chipmaker said data on current and former employees was posted on an external website without authorization. TSMC said the data matches records held with a cloud service provider and is unrelated to operations or customer data (&lt;a href=&quot;https://news.ycombinator.com/item?id=50479721&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point out that the &amp;quot;TSMC Hacked&amp;quot; headline overstates the filing, since the company describes exposed employee data, possibly via a third party, rather than a breach of its systems.&lt;/li&gt;
+&lt;li&gt;A commenter cites outside reporting that the leakers claim about 6.9GB covering roughly 46,000 employee records and are seeking a ransom. TSMC&amp;#x27;s statement does not confirm this.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A Brazilian insurer disclosed a breach affecting names and tax IDs of all 7.6 million customers.&lt;/strong&gt; The incident involves Caixa&amp;#x27;s insurance arm and was disclosed in a &lt;a href=&quot;https://filemanager-cdn.mziq.com/published/3972906b-e50b-4f74-ab74-4d0d32125d11/9567a559-d20a-486e-a7ae-5c6bbc030c5e&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;company filing&lt;/a&gt;. According to the headline, the exposed data consists of names and Brazilian tax ID (CPF) numbers (&lt;a href=&quot;https://news.ycombinator.com/item?id=50485295&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters from Brazil explain that the CPF is not treated as a secret like a US Social Security number. It is routinely requested by pharmacies, gyms and shops, and earlier leaks mean it is already widely available.&lt;/li&gt;
+&lt;li&gt;Others note that many of Caixa&amp;#x27;s customers are not tech-savvy, so the main risk is follow-on phishing and fraud. The company is also unrelated to the Catalan bank &amp;quot;la Caixa.&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Brave&amp;#x27;s Search API now accepts per-request stablecoin payments from AI agents.&lt;/strong&gt; Brave &lt;a href=&quot;https://brave.com/blog/search-api-agentic-payments/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announced&lt;/a&gt; support for the x402 protocol. A request sent without payment gets an HTTP 402 response stating the price, and the agent then retries with a signed USDC payment on the Base blockchain, so no account or API key is required. Pricing matches Brave&amp;#x27;s published rate of $0.005 per request, and gas fees are covered for a limited time (&lt;a href=&quot;https://news.ycombinator.com/item?id=50477649&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A commenter who runs agents notes that agents often rephrase and repeat searches, and each retry is a separate paid call. Without an API key there is no monthly bill to reveal this, so per-agent budget limits matter.&lt;/li&gt;
+&lt;li&gt;Several see per-query micropayments as a possible alternative to ad-funded search, noting that card networks were asked for this kind of model decades ago.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Eli Lilly&amp;#x27;s CEO said AI is unlikely to cure major diseases within a decade.&lt;/strong&gt; A &lt;a href=&quot;https://garymarcus.substack.com/p/breaking-eli-lilly-ceo-becomes-latest&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post by Gary Marcus&lt;/a&gt; collects responses to an IPO-related video in which Anthropic CEO Dario Amodei predicted that cancer, Alzheimer&amp;#x27;s, heart disease and mental illness would be cured within ten years. Lilly CEO Dave Ricks responded that biology remains largely unmapped, that randomized human trials are the main bottleneck, and that progress will likely be &amp;quot;steady and incremental.&amp;quot; Researchers including Eric Topol made similar points (&lt;a href=&quot;https://news.ycombinator.com/item?id=50483480&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters stress that drug development is limited mainly by lab work, manufacturing and clinical testing rather than by software. For slow-moving cancers, even finding out whether a therapy is working can take years.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A C programmer explains why they now write new systems code in Zig.&lt;/strong&gt; In &lt;a href=&quot;https://www.mtsoukalos.eu/2026/11/why-zig-over-c-for-systems-programming/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;this post&lt;/a&gt;, Mihalis Tsoukalos compares C&amp;#x27;s goto-based cleanup with Zig&amp;#x27;s errdefer, which sits next to each allocation. He shows how a testing allocator can exercise every failure path, and how slices that carry their length turn a silent off-by-one read in C into a bounds-check panic. He also covers compiler-enforced error handling and replacing the preprocessor with comptime (&lt;a href=&quot;https://news.ycombinator.com/item?id=50483611&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that C code can partly enforce error checking with warn_unused_result in GCC and Clang, or [[nodiscard]], and that D and Nim have offered many of these features for years.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Andy Hertzfeld&amp;#x27;s account of building Switcher, the Mac&amp;#x27;s first multitasking environment, resurfaced.&lt;/strong&gt; The &lt;a href=&quot;https://folklore.org/Switcher.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Folklore.org story&lt;/a&gt; describes how, in October 1984, Hertzfeld watched a journalist switch instantly between programs on a PC using a DOS utility and realized the new 512K Macintosh could do the same. Making it work meant giving each application its own heap zone and working out exactly which low-memory system globals had to be swapped on every switch (&lt;a href=&quot;https://news.ycombinator.com/item?id=50477714&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter, a developer from that era, could not find any record of a DOS utility called &amp;quot;Memory Shift&amp;quot; and wonders whether the story describes something like Borland&amp;#x27;s Sidekick, also released in 1984.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;IceWM, a lightweight X11 window manager first released in 1997, is still actively maintained.&lt;/strong&gt; The &lt;a href=&quot;https://ice-wm.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;project site&lt;/a&gt; describes a fast, keyboard-friendly window manager with a built-in taskbar, multiple workspaces, more than 450 downloadable themes and translations into about three dozen languages. The latest release is 4.1.0, from August 2026 (&lt;a href=&quot;https://news.ycombinator.com/item?id=50478515&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One user still runs it today as a low-resource desktop for a headless remote-desktop machine, valuing that the panel, menu and window manager work together without configuration.&lt;/li&gt;
+&lt;li&gt;A former distribution developer recalls shipping IceWM as a commercial Linux desktop&amp;#x27;s default in 2004–2005, with GNOME&amp;#x27;s Nautilus drawing the desktop icons.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-13">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

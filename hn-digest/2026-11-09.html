@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 9, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 9, 2026</h1>
+    <p class="date">Monday, November 9, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers security findings in connected cars and AI desktop tools, new payment infrastructure in Canada, and a set of technical pieces on language models, memory allocation, UI frameworks and GPU pricing.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Researchers describe a chain of flaws in one automaker&amp;#x27;s connected-car platform.&lt;/strong&gt; In a &lt;a href=&quot;https://shubs.io/unlocking-any-car-from-x-brand-in-most-of-the-world/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt;, Assetnote co-founder Shubs and Sam Curry describe how they decompiled the automaker&amp;#x27;s app and found an internet-facing admin &amp;quot;test harness&amp;quot; whose APIs needed only hardcoded keys from its JavaScript bundle. Those APIs let them go from a number plate to a VIN, then to a subscriber&amp;#x27;s account and email. They then examined the company&amp;#x27;s ForgeRock-based identity platform, with the goal of issuing auth tokens that permit remote commands such as unlocking (&lt;a href=&quot;https://news.ycombinator.com/item?id=50419215&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note the title means &amp;quot;a major manufacturer&amp;quot;, not literally any car, since the automaker is never named. Some speculate from the vehicles in the demo video that it may be Toyota/Lexus.&lt;/li&gt;
+&lt;li&gt;Several point out that older or non-connected models without remote features would not be exposed to this kind of chain.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ChatGPT Desktop forwards the local SSH agent to remote machines where its agent runs.&lt;/strong&gt; A user reports that the remote agent can authenticate with the user&amp;#x27;s local SSH credentials, which would let it push to private GitHub repositories, for example. The report cites a &lt;a href=&quot;https://github.com/openai/codex/pull/28131#discussion_r3410013180&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Codex pull request discussion&lt;/a&gt; as evidence (&lt;a href=&quot;https://news.ycombinator.com/item?id=50422628&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One suggested mitigation is to keep SSH keys in the macOS Secure Enclave and require a fingerprint for each new session, so an agent cannot open connections without the user noticing.&lt;/li&gt;
+&lt;li&gt;Commenters point to similar SSH-forwarding behavior in Docker Desktop and DevPod. They also argue that agent guardrails based on blocklists tend to leak, which leaves sandboxing to the user.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Canada launches its Real-Time Rail payment system.&lt;/strong&gt; Payments Canada &lt;a href=&quot;https://www.payments.ca/canada-launches-real-time-rail-bringing-247-payment-infrastructure-national-economy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announced&lt;/a&gt; that the RTR is live. Participating institutions can now clear and settle payments in real time, 24/7, using ISO 20022 messaging. The system launches with mandatory centralized fraud services, including confirmation of payee. An initial cohort that includes Wealthsimple, KOHO and Bank of America is live, and major Canadian banks are due to join over the coming year (&lt;a href=&quot;https://news.ycombinator.com/item?id=50427362&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters stress that RTR is back-end infrastructure for institutions rather than a consumer product. It differs from Interac e-Transfer, although e-Transfer may eventually run on it.&lt;/li&gt;
+&lt;li&gt;Some ask whether consumer access will end up depending on device attestation or Google/Apple accounts. One notes that their bank already blocks e-Transfers from a non-stock mobile OS.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A paper proposes coarse-to-fine parallel text generation as an alternative to diffusion language models.&lt;/strong&gt; &lt;a href=&quot;https://arxiv.org/abs/2610.14162&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Next-Concept Modeling&lt;/a&gt; encodes text into a hierarchy of discrete codes with a multiscale residual VQ-VAE. A transformer then generates one level at a time, predicting all codes within a level in parallel. The authors report better generative perplexity than the strongest diffusion baseline on LM1B while running 21× faster, results competitive at 10× faster on OpenWebText, and stronger Sudoku results than autoregressive and diffusion baselines (&lt;a href=&quot;https://news.ycombinator.com/item?id=50422168&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters note that a new tokenizer and training method require substantial retraining, so adoption depends on how the approach performs at frontier scale.&lt;/li&gt;
+&lt;li&gt;Some push back on online videos claiming this &amp;quot;obsoletes LLMs.&amp;quot; They point out that NCM is still a large language model, just not an autoregressive one.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Show HN: Flide, an inference engine for structured &amp;quot;decision&amp;quot; models.&lt;/strong&gt; &lt;a href=&quot;https://github.com/OmniJev/Flide&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Flide&lt;/a&gt; serves models that answer structured choice or yes/no questions about a given input. It uses exact state forking so that each answer matches what the model would give for that question alone. The team reports speedups of up to 9.5× over vLLM and SGLang, plus support for 30+ models (&lt;a href=&quot;https://news.ycombinator.com/item?id=50421155&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A team member clarifies that the largest gains come when many questions share one input, which is computed once. Single-question speedups are up to about 3×.&lt;/li&gt;
+&lt;li&gt;One commenter reports getting similar speedups on suitable workloads by modifying vLLM to reuse the shared context, and questions whether a separate engine is needed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;On-demand H100 SXM prices vary about 4.6× across providers.&lt;/strong&gt; A &lt;a href=&quot;https://github.com/datareceipts/data-receipts/tree/main/109-gpu-pricing&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;data analysis&lt;/a&gt; normalizes list prices per GPU-hour: $2.69 on RunPod Community, $3.99 on RunPod Secure, $6.88 on AWS p5, and $12.29 on Azure&amp;#x27;s ND series. The author notes the gap is not pure margin, since Azure&amp;#x27;s SKU includes InfiniBand for multi-node training along with SLAs and compliance. The comparison also covers on-demand pricing in a single region only (&lt;a href=&quot;https://news.ycombinator.com/item?id=50427085&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters say availability on cheaper platforms is often the real constraint, which can make the listed price for high-VRAM GPUs largely irrelevant.&lt;/li&gt;
+&lt;li&gt;One warns against running sensitive workloads on community-hosted GPUs, saying hosts can inspect VMs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A walkthrough of what glibc&amp;#x27;s malloc does under the hood.&lt;/strong&gt; This &lt;a href=&quot;https://benmandrew.com/articles/what-is-malloc-doing-anyway&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;article&lt;/a&gt; uses strace to show that a thousand malloc(16) calls trigger only two brk syscalls, because the first call grows the heap by 132 KiB. In the author&amp;#x27;s measurements an empty syscall costs about 575 ns, while malloc(16) costs about 27 ns. The post then builds a toy allocator step by step and explains chunk headers, 16-byte alignment, and the flags glibc stores in the low bits of each chunk&amp;#x27;s size (&lt;a href=&quot;https://news.ycombinator.com/item?id=50424157&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point to an older sploitfun write-up on glibc malloc internals for further detail.&lt;/li&gt;
+&lt;li&gt;One notes that some code snippets in the article would not compile as shown, for example because an include is missing.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer argues GPUI&amp;#x27;s state model does not scale for complex desktop apps.&lt;/strong&gt; The &lt;a href=&quot;https://blog.zortax.de/posts/a-critique-of-gpui&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; says GPUI&amp;#x27;s notify only identifies which entity changed, so every view without a valid cache re-renders. In the author&amp;#x27;s benchmark, changing one label among 3,000 rows took 8.4 ms with cached views and 92 ms with plain elements. The author argues for signal-based, run-once components and discloses working on zgui, one such framework (&lt;a href=&quot;https://news.ycombinator.com/item?id=50420857&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter disputes how the egui benchmarks were built and says the post quotes egui&amp;#x27;s creator out of context.&lt;/li&gt;
+&lt;li&gt;Others ask whether splitting large entities into smaller groups, or diffing, would be enough to avoid the scaling problem in practice.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Harvest&amp;#x27;s pricing changed sharply after its acquisition by Bending Spoons, according to one long-time user.&lt;/strong&gt; In a &lt;a href=&quot;https://aphyr.com/posts/427-rip-harvest&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;blog post&lt;/a&gt;, a self-employed contractor reports that their plan rose from $13.32 to $133.98 per month after a move to an &amp;quot;enterprise&amp;quot; plan. The alternative &amp;quot;flex&amp;quot; plan adds a 2% fee on top of card processing fees. The author also says support replies now appear to come from an LLM (&lt;a href=&quot;https://news.ycombinator.com/item?id=50420035&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter notes that Harvest&amp;#x27;s public site lists annually billed plans at $9 and $14 per month and questions whether the reported figure reflects a typo or a yearly price.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-09">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
