@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 11, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 11, 2026</h1>
+    <p class="date">Wednesday, November 11, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers privacy and security engineering, hardware research, and a few AI claims that look more modest on closer analysis.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;An analysis argues that a widely reported AI weight-editing result is mostly a linear program.&lt;/strong&gt; MIT CSAIL&amp;#x27;s &amp;quot;Sparks of Weight-Space Programming&amp;quot; reported that GPT-6 Astra raised Qwen3.5-0.8B&amp;#x27;s MATH-500 score from 7.9% to 48.1% by editing 0.016% of its weights. The edit mainly stops the small model from getting stuck in repetitive &amp;quot;thinking loops.&amp;quot; In &lt;a href=&quot;https://nathan.rs/posts/weight-space-lp/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;a new write-up&lt;/a&gt;, Nathan Barry shows that the edit is a rank-1 change and that choosing it can be framed as a linear program. Astra searched for about 8 hours, while a couple of LP solves of roughly a minute each produce a comparable edit that changes 8× fewer weights (&lt;a href=&quot;https://news.ycombinator.com/item?id=50452655&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters say the analysis tempers earlier headlines: Astra looks less like a model that reads weights directly and more like one running ordinary model-editing experiments.&lt;/li&gt;&lt;li&gt;Others note the technique resembles existing &amp;quot;refusal direction&amp;quot; ablation methods used to uncensor models, which the model may have seen in its training data.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A researcher used voltage glitching to unlock disabled hardware on an NVIDIA mining card.&lt;/strong&gt; &lt;a href=&quot;https://blog.kate.land/posts/using-voltage-glitching-to-unlock-the-a100/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The post&lt;/a&gt; describes a voltage fault-injection vulnerability in the GA100 die that allows arbitrary fuses to be blown. Because NVIDIA&amp;#x27;s design lets some blown fuses relax restrictions, the author converted a CMP 170HX into what is effectively an A100-80G, with features such as NVLink and PCIe Gen4 re-enabled. With all functional SMs turned on, it measured about 1.18× a retail A100&amp;#x27;s FP16 throughput. The author says the findings were disclosed to NVIDIA and that another researcher found the same issue independently (&lt;a href=&quot;https://news.ycombinator.com/item?id=50451903&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters caution that the fuses may mark real manufacturing defects, and that many unlocked cards may have faulty memory, which could be why they became mining cards in the first place.&lt;/li&gt;&lt;li&gt;Others note that the card has no cooler and expects loud server airflow, and that its resale prices have already risen sharply.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Mozilla published research behind Firefox&amp;#x27;s newer anti-fingerprinting protections.&lt;/strong&gt; According to &lt;a href=&quot;https://blog.mozilla.org/security/2026/11/10/open-research-stronger-privacy-making-firefox-users-harder-to-fingerprint/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Mozilla&amp;#x27;s post&lt;/a&gt;, the team simulated measurements collected by fingerprinting scripts from Fingerprint Pro, Signifyd, and Akamai across nearly 25 million Firefox users, using OHTTP relays and keeping only aggregate data. The research, accepted at CCS 2026, found that protecting a handful of browser features sharply weakens common techniques. Resulting changes include hiding taskbar and dock dimensions and reporting processor counts as only 4 or 8, with the latest shipping in Firefox 145 (&lt;a href=&quot;https://news.ycombinator.com/item?id=50452742&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that systems like Cloudflare Turnstile remain unaffected, and that privacy-hardened browsers are often met with heavy captcha challenges.&lt;/li&gt;&lt;li&gt;One commenter points to a long-open Bugzilla report about per-installation extension UUIDs that could still serve as a tracking identifier.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;AWS released an official local emulator for its APIs.&lt;/strong&gt; &lt;a href=&quot;https://github.com/aws/aws-emulator&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The repository&lt;/a&gt; describes a local program that serves AWS API endpoints, so code can be tested with the AWS CLI or SDKs without an AWS account. It can run as a server or be embedded in Rust tests, with one isolated instance per test. Each release publishes per-service fidelity scores, and the project is CC0-licensed and not intended for production or security testing (&lt;a href=&quot;https://news.ycombinator.com/item?id=50456631&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some commenters are hesitant to adopt it until it is clear whether AWS will maintain it long term, and point to existing alternatives such as Floci (used with Testcontainers) and LocalStack.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A step-by-step guide covers keeping SSH keys in the macOS Secure Enclave.&lt;/strong&gt; &lt;a href=&quot;https://gatezh.com/posts/macos-secure-enclave-ssh-keys/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The guide&lt;/a&gt; shows how recent macOS versions can create non-exportable SSH keys inside the Secure Enclave using sc_auth, ssh-keygen, and the system ssh-keychain.dylib provider, with Touch ID required for each use. The author found the native approach functional but awkward, and has since switched to Secretive, a third-party app built on the same hardware (&lt;a href=&quot;https://news.ycombinator.com/item?id=50449748&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters caution that the native mechanism appears to be undocumented by Apple and could change, and that keys created in the enclave cannot be backed up, so separate recovery access is needed.&lt;/li&gt;&lt;li&gt;One commenter describes forwarding a Secretive agent into development VMs so that each git operation requires a fingerprint, rather than storing keys inside the VMs.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The Verge asked TV and streaming-device makers 17 yes-or-no questions about data collection.&lt;/strong&gt; &lt;a href=&quot;https://www.theverge.com/tech/1012372/tv-privacy-acr-questions&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The article&lt;/a&gt; compiles responses from Amazon, Apple, Google, LG, Roku, Samsung, and TCL on microphones, automatic content recognition (ACR), and data storage. Some companies declined to answer, and Hisense did not respond. It also cites a Northeastern University study finding that Vizio TVs kept sending data after users opted out, while Samsung and Roku traffic was limited but not fully stopped (&lt;a href=&quot;https://news.ycombinator.com/item?id=50453474&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters contrast LG&amp;#x27;s direct answers with Apple&amp;#x27;s less direct ones, and some wish the article had published the indirect answers in full so readers could judge them.&lt;/li&gt;&lt;li&gt;One commenter asks how the article&amp;#x27;s statement that many TVs use ACR fits with the responding companies&amp;#x27; answers, and which manufacturers it actually applies to.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An AI-assisted lidar survey flagged a Maya site that turned out to be already published.&lt;/strong&gt; In &lt;a href=&quot;https://pietromiotti.com/latest/maya-site/?maya&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;a diary-style post&lt;/a&gt;, a software engineer describes 48 AI agents reviewing images made from about 1,200 km² of NASA lidar data. The agents worked from a written guide, with no specialized model, and flagged a hilltop plaza with an oval pyramid. Mexico&amp;#x27;s INAH replied that no site was registered at that location. An update dated today says the site had already been mapped in Estrada-Belli et al. 2025, which the agents missed in their literature search (&lt;a href=&quot;https://news.ycombinator.com/item?id=50452455&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter says they would wait for an archaeologist&amp;#x27;s verification, citing personal experience with agents producing impressive-sounding findings that did not hold up.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A former Jane Street engineer recounts how a false smoke alarm put its NYC datacenter at risk.&lt;/strong&gt; In &lt;a href=&quot;https://michael.bacarella.com/2026/11/10/false-smoke-alarm-jane-street-datacenter/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;the account&lt;/a&gt;, construction dust set off the smoke alarm. The alarm pressurized the room&amp;#x27;s sprinkler pipes and also shut down the air-conditioning units. Since each sprinkler head opens on heat, the rising temperature in the uncooled server room could have set them off, and the author rushed in to cut power to the equipment (&lt;a href=&quot;https://news.ycombinator.com/item?id=50455394&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that machine rooms have historically used gas-based fire suppression such as Halon specifically to avoid water damage.&lt;/li&gt;&lt;li&gt;Others recall Hurricane Sandy, when New York datacenter staff carried diesel up stairwells by hand to keep generators running.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Python core developer Tim Peters has died.&lt;/strong&gt; The Python community posted &lt;a href=&quot;https://discuss.python.org/t/in-memoriam-tim-peters-1952-2026/110028&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;a memorial notice&lt;/a&gt; on its discussion forum. Commenters remember him as a contributor since the 1990s, the creator of the Timsort algorithm, the author of the &amp;quot;Zen of Python&amp;quot; shown by import this, and a patient, widely read presence on comp.lang.python (&lt;a href=&quot;https://news.ycombinator.com/item?id=50450488&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-11">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

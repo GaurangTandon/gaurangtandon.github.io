@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 10, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 10, 2026</h1>
+    <p class="date">Tuesday, November 10, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers formal verification of Signal&amp;#x27;s code, a new Gemini frontier model, a vendor breach that reached Notion users, and steady releases in graphics and developer tooling.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Google DeepMind used AI agents to formally verify the implementation of the Signal protocol.&lt;/strong&gt; DeepMind &lt;a href=&quot;https://deepmind.google/blog/introducing-alphaproof-code/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;introduced AlphaProof Code&lt;/a&gt;, a multi-LLM agentic framework. In it, human experts and models translated Signal&amp;#x27;s security goals into formal specifications, and agents powered by Gemini Carbon generated more than six million lines of Lean proofs. The team says the agents flagged about one percent of the work for human review, and that this is the first formal verification of a widely deployed protocol&amp;#x27;s implementation by any method (&lt;a href=&quot;https://news.ycombinator.com/item?id=50439193&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Google released Gemini 4 Carbon, its new top-tier model.&lt;/strong&gt; According to &lt;a href=&quot;https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Google&amp;#x27;s announcement&lt;/a&gt;, Carbon is available through the API to paying developers at the same introductory price as Gemini 4 Argon: $2 per million input tokens and $10 per million output tokens. It is also rolling out to Google AI Ultra subscribers, alongside a preview of a multi-agent /swarm feature in Google Antigravity. Google positions Carbon for long, multi-step coding and research tasks, and recommends Argon for most everyday work (&lt;a href=&quot;https://news.ycombinator.com/item?id=50442303&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that consumer app access currently appears limited to the Ultra tier, and Pro-plan subscribers report not yet seeing the model.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A security incident at inference provider Fireworks AI exposed some Notion AI chat transcripts.&lt;/strong&gt; Notion&amp;#x27;s &lt;a href=&quot;https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;incident notice&lt;/a&gt; says fewer than 1% of workspaces may be affected. The exposed data consists of chat transcripts that were not labeled with a user or workspace and were used for its Insights classification feature. Notion has disabled Insights, stopped serving open-weight models through Fireworks, and advises affected users to rotate any credentials they pasted into Notion AI (&lt;a href=&quot;https://news.ycombinator.com/item?id=50437106&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters ask why the data existed at all, since Fireworks is described as zero-data-retention by default, which suggests retention was configured for this use.&lt;/li&gt;&lt;li&gt;Commenters also note that the per-user annotated breakdown of affected data is available only to Enterprise workspace owners.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Amazon replaced a large language model with a smaller classifier for ticket routing.&lt;/strong&gt; A &lt;a href=&quot;https://strandsagents.com/blog/amazon-saves-millions-replacing-sonnet-with-strands-decider/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post on the Strands Agents blog&lt;/a&gt; says Amazon swapped Sonnet 4.6 for a model called Strands Decider to classify operational tickets. The post reports savings in the millions. The extracted article text contained mostly site navigation, so details beyond the headline claim are limited (&lt;a href=&quot;https://news.ycombinator.com/item?id=50436640&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to prior art: fast SVM-based ticket and log classifiers built years ago that ran in milliseconds, and several describe the shift as a return to purpose-built classifiers.&lt;/li&gt;&lt;li&gt;One commenter works through the per-ticket savings and estimates that &amp;quot;millions&amp;quot; implies tens of millions of tickets a year, which seems plausible given that the scope includes alarms and security findings.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Blender 5.3 adds native 3D Gaussian splat support.&lt;/strong&gt; The &lt;a href=&quot;https://www.blender.org/download/releases/5-3/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;release&lt;/a&gt; imports splats from PLY, SPZ, and glTF files as a new point-cloud type that Geometry Nodes can process and that EEVEE, Cycles, and Workbench can render. Relighting support is rudimentary, and the release notes warn of color inaccuracies from sRGB/linear differences. Other additions include a DLSS 4.5 Ray Reconstruction denoiser, light dispersion in the Principled BSDF, and panoramic cameras in EEVEE (&lt;a href=&quot;https://news.ycombinator.com/item?id=50442426&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to triangle splatting as a related technique that may suit GPUs, which are built around rendering triangles.&lt;/li&gt;&lt;li&gt;A regular user highlights the new bundle support in Geometry Nodes, combined with lists and closures, as a major improvement for complex pipelines.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ordinary TV broadcast signals can reveal motion through walls.&lt;/strong&gt; In &lt;a href=&quot;https://maurycyz.com/projects/fading/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;this write-up&lt;/a&gt;, the author recorded an ATSC TV signal with a software-defined radio. Placing the antenna where a reflection cancels the direct signal, a state called selective fading, makes it extremely sensitive to nearby movement. From the striped pattern in the spectrogram, the author estimated their walking speed in a neighboring room at about 1.3 m/s, and notes that WiFi or LTE signals can be used the same way with more processing (&lt;a href=&quot;https://news.ycombinator.com/item?id=50436410&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to related work, including Van Eck phreaking and academic research on detecting human presence from WiFi signals.&lt;/li&gt;&lt;li&gt;Others note that anyone who used analog rooftop antennas will recall how much a person&amp;#x27;s position affected reception.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Global fossil CO2 emissions are projected to fall slightly in 2026.&lt;/strong&gt; The Global Carbon Project&amp;#x27;s &lt;a href=&quot;https://news.exeter.ac.uk/faculty-of-environment-science-and-economy/fossil-co2-emissions-decrease-in-2026/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;2026 budget&lt;/a&gt; projects fossil emissions of 38.2 billion tonnes, a 0.4% drop. It attributes the decline to growth in solar, wind, and electric vehicles, plus a likely short-term fall in oil use. Total CO2 emissions including land-use change are still projected to rise, from 42.8 to 43.3 billion tonnes, and the remaining budget for 1.5°C is estimated at 150 billion tonnes, under four years at current rates (&lt;a href=&quot;https://news.ycombinator.com/item?id=50437752&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that atmospheric CO2 concentration, as tracked by NOAA, continues to rise steadily, so a small drop in annual emissions does not yet change that trend.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer used several phones and laptops to locate a beeping device by sound.&lt;/strong&gt; Simon Willison &lt;a href=&quot;https://simonwillison.net/2026/Nov/9/mysterious-beeps/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;describes building Beep Locator&lt;/a&gt; with Claude Code. Browser-based listeners on several devices stream audio to a Python server, which aligns the recordings using a reference chirp and triangulates the source, drawing on a 2007 acoustic ranging paper. It placed the beep within about 40 cm, which led to an old carbon monoxide detector with a low battery (&lt;a href=&quot;https://news.ycombinator.com/item?id=50434310&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters suggest a low-tech alternative: a physical binary search that repeatedly splits the boxes between rooms.&lt;/li&gt;&lt;li&gt;Others note that commercial acoustic imaging cameras do this directly, though at a cost of around $1,000.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;.NET 11 raises its hardware baseline and previews runtime-native async.&lt;/strong&gt; The &lt;a href=&quot;https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;runtime notes&lt;/a&gt; say .NET 11 now requires x86-64-v2 on x86/x64. ReadyToRun targets move to x86-64-v3 on Windows and Linux, and the Arm64 baselines change on Windows. A preview feature, Runtime Async, has the runtime manage async suspension and resumption instead of compiler-generated state machines, with the aim of cleaner stack traces and lower overhead (&lt;a href=&quot;https://news.ycombinator.com/item?id=50439284&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-10">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
