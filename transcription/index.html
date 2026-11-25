@@ -80,19 +80,6 @@ layout: null
       word-break: break-word;
     }
     #transcript .interim { color: var(--muted); }
-    .meter {
-      height: 8px;
-      background: var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-top: 8px;
-    }
-    .meter > div {
-      height: 100%;
-      width: 0%;
-      background: var(--green);
-      transition: width 0.08s linear;
-    }
     #log {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
@@ -128,7 +115,6 @@ layout: null
         </div>
         <button id="copyBtn" class="ghost">Copy debug info</button>
       </div>
-      <div class="meter"><div id="micMeter"></div></div>
     </div>
 
     <div class="panel">
@@ -160,12 +146,18 @@ layout: null
   <script>
     'use strict';
 
+    // keep the recognizer, mic and audio graph setup in sync with the extension's transcriber.js so this page reproduces production behavior.
+    // this page deliberately skips the extension's retry on 'network' or 'aborted' and its transcript trimming.
     const LANG = 'en-US';
     const SPEECH_EVENT_NAMES = ['start', 'audiostart', 'soundstart', 'speechstart', 'speechend', 'soundend', 'audioend', 'result', 'nomatch', 'error', 'end'];
     // quiet rooms sit around -60 dBFS with noise suppression on, while normal speech is well above -40
     const VAD_THRESHOLD_DB = -45;
     // keep the local detector on through short pauses between words
     const VAD_HANGOVER_MS = 300;
+    // log an audio clock only once it slips this much further from the page clock
+    const CLOCK_DRIFT_LOG_MS = 50;
+    // speechStartTime and speechEndTime ship in Chrome 159, https://chromestatus.com/feature/5811907077472256
+    const HAS_RESULT_TIMESTAMPS = typeof SpeechRecognitionResult !== 'undefined' && 'speechStartTime' in SpeechRecognitionResult.prototype;
 
     const startBtn = document.getElementById('startBtn');
     const copyBtn = document.getElementById('copyBtn');
@@ -173,7 +165,6 @@ layout: null
     const transcriptEl = document.getElementById('transcript');
     const logEl = document.getElementById('log');
     const envEl = document.getElementById('env');
-    const micMeter = document.getElementById('micMeter');
     const recAudio = document.getElementById('recAudio');
     const recEmpty = document.getElementById('recEmpty');
     const recLinks = document.getElementById('recLinks');
@@ -183,13 +174,19 @@ layout: null
     let running = false;
     let micStream = null;
     let rawTranscriber = null;
+    // the recognizer and the analyzer each get their own AudioContext, same as the extension
     let audioContext = null;
+    let analyzerContext = null;
     let sourceNode = null;
     let destinationNode = null;
     let audioTrack = null;
     let shouldStopTranscriber = false;
     let analyzer = null;
-    let meterTimer = null;
+    let analyzerTimer = null;
+    // aborts every track, device and context listener of the run in one go
+    let watchAbort = null;
+    let pressureObserver = null;
+    let clocks = [];
     const finals = [];
 
     let recorder = null;
@@ -203,7 +200,8 @@ layout: null
     // timing for the current recognizer instance, all values are performance.now() ms
     let instance = null;
     let instanceCount = 0;
-    // every speech event and local VAD transition of the run, exported as JSON next to the audio
+    let contextCount = 0;
+    // everything that happened in the run, exported as JSON next to the audio
     let eventRecords = [];
     const vad = { active: false, onAt: null, offAt: null, lastLoudAt: null, peakDb: -Infinity };
 
@@ -230,6 +228,11 @@ layout: null
       logEl.appendChild(div);
       logEl.scrollTop = logEl.scrollHeight;
       console.log(div.textContent);
+      return div;
+    }
+
+    function record(type, data, at) {
+      eventRecords.push({ type, rec: recOffset(at == null ? performance.now() : at), ...data });
     }
 
     function setStatus(text, cls) {
@@ -238,17 +241,17 @@ layout: null
     }
 
     function renderTranscript() {
-      transcriptEl.textContent = finals.join(' ');
+      transcriptEl.textContent = finals.join('');
     }
 
-    // collects every primitive the object exposes, including inherited getters like resultIndex, error and message
+    // collects every primitive the object exposes, including inherited getters like resultIndex, error and speechStartTime
     function primitiveFields(obj) {
       const out = {};
       for (const k in obj) {
         if (/^[A-Z_]+$/.test(k) || /^on/.test(k)) continue;
         let v;
         try { v = obj[k]; } catch (e) { continue; }
-        if (typeof v === 'number') out[k] = Math.round(v * 10) / 10;
+        if (typeof v === 'number') out[k] = Math.round(v * 1000) / 1000;
         else if (v === null || typeof v === 'string' || typeof v === 'boolean') out[k] = v;
       }
       return out;
@@ -260,12 +263,25 @@ layout: null
       return out;
     }
 
+    function gpuRenderer() {
+      try {
+        const gl = document.createElement('canvas').getContext('webgl');
+        const ext = gl && gl.getExtension('WEBGL_debug_renderer_info');
+        if (!ext) return '(unknown)';
+        return `${gl.getParameter(ext.UNMASKED_VENDOR_WEBGL)} / ${gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)}`;
+      } catch (e) {
+        return '(unknown)';
+      }
+    }
+
     async function showEnvironment() {
       const ua = navigator.userAgent;
       const uaData = navigator.userAgentData;
       let brandsStr = '(navigator.userAgentData not available)';
       let platformStr = '(unknown)';
       let mobileStr = '(unknown)';
+      let archStr = '(unknown)';
+      let formFactorStr = '(unknown)';
       if (uaData) {
         const fmt = (list) => (list && list.length)
           ? list.map(b => `${b.brand} ${b.version}`).join(', ')
@@ -274,26 +290,46 @@ layout: null
         platformStr = uaData.platform || '(unknown)';
         mobileStr = String(uaData.mobile);
         try {
-          const high = await uaData.getHighEntropyValues(['fullVersionList', 'platformVersion', 'model']);
+          const high = await uaData.getHighEntropyValues(['fullVersionList', 'platformVersion', 'model', 'architecture', 'bitness', 'wow64', 'formFactors']);
           if (high.fullVersionList && high.fullVersionList.length) brandsStr = fmt(high.fullVersionList);
           if (high.platformVersion) platformStr += ' ' + high.platformVersion;
           if (high.model) platformStr += ' / ' + high.model;
+          if (high.architecture) archStr = `${high.architecture} ${high.bitness || '?'}bit${high.wow64 ? ' (wow64)' : ''}`;
+          if (high.formFactors && high.formFactors.length) formFactorStr = high.formFactors.join(', ');
         } catch (e) { /* high entropy values may be blocked, keep the basics */ }
+      }
+
+      let batteryStr = '(not available)';
+      if (navigator.getBattery) {
+        try {
+          const b = await navigator.getBattery();
+          batteryStr = `${Math.round(b.level * 100)}%, ${b.charging ? 'charging' : 'on battery'}`;
+        } catch (e) { /* keep the default */ }
       }
 
       const lines = [
         `Brands: ${brandsStr}`,
         `Platform: ${platformStr}`,
+        `ChromeOS: ${navigator.appVersion.includes('CrOS') ? 'yes (the extension never processes on device here)' : 'no'}`,
         `Mobile: ${mobileStr}`,
+        `Form factors: ${formFactorStr}`,
+        `CPU architecture: ${archStr}`,
+        `CPU cores (hardwareConcurrency): ${navigator.hardwareConcurrency || '(unknown)'}`,
+        `Device memory: ${navigator.deviceMemory != null ? navigator.deviceMemory + ' GB (rounded and capped by the browser)' : '(unknown)'}`,
+        `GPU: ${gpuRenderer()}`,
+        `Battery: ${batteryStr}`,
         `User agent: ${ua}`,
         `window.SpeechRecognition: ${typeof window.SpeechRecognition !== 'undefined' ? 'yes' : 'no'}`,
         `SpeechRecognition.available(): ${window.SpeechRecognition && 'available' in window.SpeechRecognition ? 'yes' : 'no'}`,
+        `result speechStartTime/speechEndTime (Chrome 159+): ${HAS_RESULT_TIMESTAMPS ? 'yes' : 'no'}`,
+        `PressureObserver (CPU pressure): ${typeof window.PressureObserver !== 'undefined' ? 'yes' : 'no'}`,
         `MediaRecorder: ${typeof window.MediaRecorder !== 'undefined' ? 'yes' : 'no'}`,
         `secure context (https/localhost): ${window.isSecureContext ? 'yes' : 'no'}`
       ];
       envEl.textContent = lines.join('\n');
     }
 
+    // same as isTranscriberSupported in the extension, which installs on 'downloading' too instead of erroring
     async function checkOnDeviceSupport() {
       const recognizer = window.SpeechRecognition;
       const recognitionOptions = { langs: [LANG], processLocally: true };
@@ -309,14 +345,12 @@ layout: null
         log(`SpeechRecognition.available() => ${state} (took ${fmtMs(performance.now() - t0)})`, 'info');
         if (state === 'unavailable') {
           return { success: false, error: `The on-device ${LANG} pack cannot be installed on this device.` };
-        } else if (state === 'downloadable') {
+        } else if (state === 'downloadable' || state === 'downloading') {
           setStatus('Installing language pack…', 'wait');
           log(`Installing ${LANG} language pack on device…`, 'info');
           const t1 = performance.now();
           await recognizer.install(recognitionOptions);
           log(`Installation finished (took ${fmtMs(performance.now() - t1)})`, 'info');
-        } else if (state === 'downloading') {
-          return { success: false, error: 'Please wait while the language pack installs, then try again.' };
         } else {
           log(`Device already has ${LANG} language pack`, 'info');
         }
@@ -332,8 +366,81 @@ layout: null
       t.continuous = true;
       t.interimResults = false;
       t.processLocally = true;
+      t.unspokenPunctuation = true;
       log('Recognizer params: ' + JSON.stringify(primitiveFields(t)), 'info');
       return t;
+    }
+
+    function watchTrack(name, track) {
+      const signal = watchAbort.signal;
+      for (const ev of ['mute', 'unmute', 'ended']) {
+        track.addEventListener(ev, () => {
+          record('track-' + ev, { track: name });
+          log(`${name} track ${ev} (readyState=${track.readyState} muted=${track.muted})`, ev === 'unmute' ? 'info' : 'error');
+        }, { signal });
+      }
+      if (track.muted) {
+        record('track-muted-at-start', { track: name });
+        log(`${name} track is already muted`, 'error');
+      }
+    }
+
+    function watchDevices() {
+      navigator.mediaDevices.addEventListener('devicechange', async () => {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const inputs = devices.filter(d => d.kind === 'audioinput').map(d => d.label || d.deviceId);
+        record('devicechange', { inputs });
+        log(`devicechange audio inputs=${JSON.stringify(inputs)}`, 'error');
+      }, { signal: watchAbort.signal });
+    }
+
+    function watchAudioContext(name, ctx) {
+      const signal = watchAbort.signal;
+      clocks.push({ name, ctx, offset: null, lastLogged: 0 });
+      ctx.addEventListener('statechange', () => {
+        record('audiocontext-state', { context: name, state: ctx.state, currentTime: ctx.currentTime });
+        log(`AudioContext ${name} state=${ctx.state} currentTime=${ctx.currentTime.toFixed(3)}s`, ctx.state === 'suspended' || ctx.state === 'interrupted' ? 'error' : 'info');
+      }, { signal });
+      ctx.addEventListener('error', (e) => {
+        record('audiocontext-error', { context: name, error: String(e.error || e.message || e.type) });
+        log(`AudioContext ${name} error: ${e.error || e.message || e.type}`, 'error');
+      }, { signal });
+      log(`AudioContext ${name}: sampleRate=${ctx.sampleRate} baseLatency=${(ctx.baseLatency * 1000).toFixed(1)}ms outputLatency=${((ctx.outputLatency || 0) * 1000).toFixed(1)}ms state=${ctx.state}`, ctx.state === 'running' ? 'info' : 'error');
+    }
+
+    // compares each audio clock against the page clock, a growing gap means audio rendering stalled or glitched
+    function sampleClocks(now) {
+      for (const c of clocks) {
+        if (c.ctx.state === 'closed') continue;
+        const audioMs = c.ctx.currentTime * 1000;
+        if (audioMs === 0) continue;
+        const offset = now - audioMs;
+        if (c.offset == null) {
+          c.offset = offset;
+          continue;
+        }
+        const drift = offset - c.offset;
+        if (Math.abs(drift - c.lastLogged) >= CLOCK_DRIFT_LOG_MS) {
+          c.lastLogged = drift;
+          record('audiocontext-drift', { context: c.name, driftMs: Math.round(drift), state: c.ctx.state }, now);
+          log(`AudioContext ${c.name} clock is ${fmtMs(drift)} behind the page clock (state=${c.ctx.state})`, 'error', now);
+        }
+      }
+    }
+
+    async function startPressureObserver() {
+      if (typeof PressureObserver === 'undefined') return;
+      try {
+        pressureObserver = new PressureObserver((records) => {
+          for (const r of records) {
+            record('cpu-pressure', { state: r.state }, r.time);
+            log(`CPU pressure: ${r.state}`, r.state === 'nominal' || r.state === 'fair' ? 'info' : 'error', r.time);
+          }
+        });
+        await pressureObserver.observe('cpu', { sampleInterval: 1000 });
+      } catch (e) {
+        log('PressureObserver failed: ' + e, 'error');
+      }
     }
 
     function updateVad(db, now) {
@@ -343,13 +450,13 @@ layout: null
         if (!vad.active) {
           vad.active = true;
           vad.onAt = now;
-          eventRecords.push({ type: 'local-vad-on', rec: recOffset(now), levelDb: Math.round(db * 10) / 10 });
+          record('local-vad-on', { levelDb: Math.round(db * 10) / 10 }, now);
           log(`local VAD: voice on (${db.toFixed(1)} dBFS)`, 'vad', now);
         }
       } else if (vad.active && now - vad.lastLoudAt > VAD_HANGOVER_MS) {
         vad.active = false;
         vad.offAt = vad.lastLoudAt;
-        eventRecords.push({ type: 'local-vad-off', rec: recOffset(vad.offAt), heldMs: Math.round(vad.offAt - vad.onAt) });
+        record('local-vad-off', { heldMs: Math.round(vad.offAt - vad.onAt) }, vad.offAt);
         log(`local VAD: voice off (held ${fmtMs(vad.offAt - vad.onAt)})`, 'vad', vad.offAt);
       }
     }
@@ -363,6 +470,28 @@ layout: null
         sinceStartCall: at - t.startCalledAt,
         dispatch: now - at
       };
+      // result timestamps count from the audio stream start, which the spec marks with audiostart
+      if (e.type === 'audiostart') t.audioOrigin = at;
+
+      const results = [];
+      if (e.type === 'result') {
+        for (let i = e.resultIndex; i < e.results.length; i++) {
+          const r = e.results[i];
+          const entry = { index: i, ...primitiveFields(r), alternatives: [] };
+          for (let j = 0; j < r.length; j++) entry.alternatives.push(primitiveFields(r[j]));
+          if (typeof r.speechEndTime === 'number' && t.audioOrigin != null) {
+            const startAt = t.audioOrigin + r.speechStartTime * 1000;
+            const endAt = t.audioOrigin + r.speechEndTime * 1000;
+            entry.startAt = startAt;
+            entry.recStart = recOffset(startAt);
+            entry.recEnd = recOffset(endAt);
+            entry.processingLagMs = Math.round(at - endAt);
+            lags.afterSpeechEndTime = at - endAt;
+          }
+          results.push(entry);
+        }
+      }
+
       switch (e.type) {
         case 'speechstart':
           lags.afterLocalVoiceOn = vad.active ? at - vad.onAt : null;
@@ -373,8 +502,8 @@ layout: null
         case 'result':
           lags.sinceLastLoudAudio = vad.lastLoudAt == null ? null : at - vad.lastLoudAt;
           lags.afterLocalVoiceOn = vad.onAt == null ? null : at - vad.onAt;
-          lags.afterSpeechStart = t.last.speechstart == null ? null : at - t.last.speechstart;
-          lags.afterSpeechEnd = t.last.speechend == null ? null : at - t.last.speechend;
+          lags.afterSpeechStartEvent = t.last.speechstart == null ? null : at - t.last.speechstart;
+          lags.afterSpeechEndEvent = t.last.speechend == null ? null : at - t.last.speechend;
           lags.sincePrevResult = t.last.result == null ? null : at - t.last.result;
           break;
         case 'end':
@@ -384,30 +513,29 @@ layout: null
       t.last[e.type] = at;
 
       const fields = primitiveFields(e);
-      const record = { type: e.type, instance: t.id, rec: recOffset(at), lagsMs: roundAll(lags), fields };
+      const rec = { type: e.type, instance: t.id, rec: recOffset(at), lagsMs: roundAll(lags), fields };
       if (e.type === 'result') {
-        record.results = [];
-        for (let i = e.resultIndex; i < e.results.length; i++) {
-          const r = e.results[i];
-          const alternatives = [];
-          for (let j = 0; j < r.length; j++) alternatives.push({ transcript: r[j].transcript, confidence: r[j].confidence });
-          record.results.push({ index: i, isFinal: r.isFinal, alternatives });
-        }
+        rec.results = results.map(({ startAt, ...rest }) => rest);
       }
-      eventRecords.push(record);
+      eventRecords.push(rec);
 
       const lagStr = Object.entries(lags).map(([k, v]) => `${k}=${fmtMs(v)}`).join(' ');
       log(`EVENT ${e.type} #${t.id} | ${lagStr} | ${JSON.stringify(fields)}`, 'event', at);
-      for (const r of record.results || []) {
-        const alts = r.alternatives.map((a, j) => `#${j} "${a.transcript}" confidence=${a.confidence.toFixed(3)}`).join(' | ');
-        log(`  results[${r.index}] isFinal=${r.isFinal} alternatives=${r.alternatives.length}: ${alts}`, 'result', at);
+      for (const r of results) {
+        const { index, alternatives, startAt, recStart, recEnd, processingLagMs, ...resultFields } = r;
+        const alts = alternatives.map((a, j) => `#${j} ${JSON.stringify(a)}`).join(' | ');
+        const span = recStart != null ? ` spoken at rec ${recStart.toFixed(3)}s to ${recEnd.toFixed(3)}s, processingLag=${processingLagMs}ms` : '';
+        const line = log(`  results[${index}] ${JSON.stringify(resultFields)}${span} | ${alts}`, 'result', at);
+        // jump to where the phrase was spoken rather than when the result arrived
+        if (recStart != null) line.dataset.rec = recStart;
       }
     }
 
     function onResult(event) {
       for (let i = event.resultIndex; i < event.results.length; i++) {
         const result = event.results[i];
-        if (result.isFinal && result[0].transcript) finals.push(result[0].transcript);
+        const text = result[0].transcript;
+        if (result.isFinal && text) finals.push(text);
       }
       renderTranscript();
     }
@@ -417,14 +545,14 @@ layout: null
     }
 
     function onError(e) {
+      if (shouldStopTranscriber || !running) return;
       const error = e.error || 'Unknown error';
       if (error === 'no-speech') {
         // the end handler restarts recognition
-        log('error: no-speech (will auto-restart)', 'info');
+        log('no-speech, will auto-restart on end', 'info');
         return;
       }
       shouldStopTranscriber = true;
-      log('error: ' + error + (e.message ? ` (${e.message})` : ''), 'error');
       setStatus('Error: ' + error, 'err');
       stop();
     }
@@ -457,10 +585,22 @@ layout: null
         rawTranscriber = null;
         log('Recognizer instance cleared');
       }
+    }
+
+    // mirrors stopTranscription in the extension, which tears down the whole recognizer audio graph
+    function stopRecognizer() {
+      clearCurrentTranscriber();
       if (sourceNode) {
         sourceNode.disconnect();
         sourceNode = null;
-        destinationNode = null;
+      }
+      if (audioTrack) {
+        audioTrack.stop();
+        audioTrack = null;
+      }
+      if (audioContext) {
+        audioContext.close().catch(() => {});
+        audioContext = null;
       }
     }
 
@@ -474,40 +614,48 @@ layout: null
       }, 10);
     }
 
-    // routes the mic through an AudioContext source and destination and passes that track to start()
+    // mirrors startFn in the extension, which reuses the AudioContext across restarts and leaves the previous source connected
     function startTranscriberInstance() {
       clearCurrentTranscriber();
       shouldStopTranscriber = false;
       rawTranscriber = createRecognizer();
       attachListeners();
 
+      if (!audioContext) {
+        audioContext = new AudioContext();
+        watchAudioContext(`recognizer#${++contextCount}`, audioContext);
+      }
       sourceNode = audioContext.createMediaStreamSource(micStream);
       destinationNode = audioContext.createMediaStreamDestination();
       sourceNode.connect(destinationNode);
       audioTrack = destinationNode.stream.getAudioTracks()[0];
-      log(`Recognizer audio track: label="${audioTrack.label}" settings=${JSON.stringify(audioTrack.getSettings())}`);
 
-      instance = { id: ++instanceCount, startCalledAt: performance.now(), last: {} };
+      instance = { id: ++instanceCount, startCalledAt: performance.now(), last: {}, audioOrigin: null };
+      watchTrack(`recognizer#${instance.id}`, audioTrack);
+      log(`Recognizer audio track: label="${audioTrack.label}" settings=${JSON.stringify(audioTrack.getSettings())}`);
       log(`Calling start() on recognizer #${instance.id}`, 'info', instance.startCalledAt);
       // Chrome specific: start() accepts an audio track
       return rawTranscriber.start(audioTrack);
     }
 
-    function setupMeter() {
-      analyzer = audioContext.createAnalyser();
+    // the extension uses its own AudioContext for the analyzer, kept here so the number of live contexts matches
+    function setupAnalyzer() {
+      analyzerContext = new AudioContext();
+      watchAudioContext('analyzer', analyzerContext);
+      analyzer = analyzerContext.createAnalyser();
       // about 43ms of audio at 48kHz, which covers the polling gap
       analyzer.fftSize = 2048;
-      const meterSource = audioContext.createMediaStreamSource(micStream);
-      meterSource.connect(analyzer);
+      analyzerContext.createMediaStreamSource(micStream).connect(analyzer);
       const buf = new Float32Array(analyzer.fftSize);
-      // poll on a timer because requestAnimationFrame stops entirely in background tabs
-      meterTimer = setInterval(() => {
+      // a fixed 20ms poll gives the local VAD and the clock check a steady resolution
+      analyzerTimer = setInterval(() => {
+        const now = performance.now();
         analyzer.getFloatTimeDomainData(buf);
         let sum = 0;
         for (let i = 0; i < buf.length; i++) sum += buf[i] * buf[i];
         const db = 20 * Math.log10(Math.sqrt(sum / buf.length) || 1e-8);
-        micMeter.style.width = Math.max(0, Math.min(100, (db + 60) / 60 * 100)) + '%';
-        updateVad(db, performance.now());
+        updateVad(db, now);
+        sampleClocks(now);
       }, 20);
     }
 
@@ -525,7 +673,7 @@ layout: null
       recorder.start(1000);
       // use the start() call time as zero because capture begins right away, the start event only arrives a few ms later
       recT0 = performance.now();
-      log(`Recording mic as ${recorder.mimeType}, rec offsets in this log are relative to this line`, 'info', recT0);
+      log(`Recording mic as ${recorder.mimeType} from ${new Date(performance.timeOrigin + recT0).toISOString()}, rec offsets in this log are relative to this line`, 'info', recT0);
     }
 
     function onRecordingStopped() {
@@ -538,8 +686,16 @@ layout: null
       const eventsJson = {
         startedAt: new Date(runStartedAt).toISOString(),
         lang: LANG,
-        recording: { mimeType: recorder.mimeType, bytes: blob.size, note: 'rec values are seconds from the start of this recording' },
+        recording: {
+          mimeType: recorder.mimeType,
+          bytes: blob.size,
+          // exact wall clock of rec 0, for lining up with chrome://media-internals or system logs
+          startedAt: new Date(performance.timeOrigin + recT0).toISOString(),
+          note: 'rec values are seconds from the start of this recording'
+        },
+        resultTimestampsSupported: HAS_RESULT_TIMESTAMPS,
         vad: { thresholdDb: VAD_THRESHOLD_DB, hangoverMs: VAD_HANGOVER_MS, peakDb: Math.round(vad.peakDb * 10) / 10 },
+        environment: envEl.textContent,
         events: eventRecords
       };
       eventsUrl = URL.createObjectURL(new Blob([JSON.stringify(eventsJson, null, 2)], { type: 'application/json' }));
@@ -573,7 +729,7 @@ layout: null
     function logLagSummary() {
       const results = eventRecords.filter(r => r.type === 'result');
       if (!results.length) return;
-      for (const key of ['sinceLastLoudAudio', 'afterLocalVoiceOn', 'afterSpeechEnd', 'dispatch']) {
+      for (const key of ['afterSpeechEndTime', 'sinceLastLoudAudio', 'afterLocalVoiceOn', 'afterSpeechEndEvent', 'dispatch']) {
         const vals = results.map(r => r.lagsMs[key]).filter(v => v != null).sort((a, b) => a - b);
         if (!vals.length) continue;
         const median = vals[Math.floor(vals.length / 2)];
@@ -588,9 +744,14 @@ layout: null
       logEl.textContent = '';
       recT0 = null;
       eventRecords = [];
+      clocks = [];
       instanceCount = 0;
+      contextCount = 0;
       Object.assign(vad, { active: false, onAt: null, offAt: null, lastLoudAt: null, peakDb: -Infinity });
       log(`Checking on-device transcription support (lang=${LANG})…`, 'info');
+      if (!HAS_RESULT_TIMESTAMPS) {
+        log('Result speechStartTime/speechEndTime not available (Chrome 159+), processing lag falls back to the local VAD estimate', 'info');
+      }
 
       const support = await checkOnDeviceSupport();
       if (!support.success) {
@@ -603,7 +764,8 @@ layout: null
       setStatus('Requesting microphone…', 'wait');
       try {
         micStream = await navigator.mediaDevices.getUserMedia({
-          audio: { echoCancellation: true },
+          // 'all' also removes system audio played by other apps, same as the extension
+          audio: { echoCancellation: 'all' },
           video: false
         });
       } catch (e) {
@@ -612,17 +774,21 @@ layout: null
         startBtn.disabled = false;
         return;
       }
-      const micTrack = micStream.getAudioTracks()[0];
-      log(`Mic track: label="${micTrack.label}" settings=${JSON.stringify(micTrack.getSettings())}`, 'info');
-
-      audioContext = new AudioContext();
-      log(`AudioContext: sampleRate=${audioContext.sampleRate} baseLatency=${(audioContext.baseLatency * 1000).toFixed(1)}ms outputLatency=${((audioContext.outputLatency || 0) * 1000).toFixed(1)}ms state=${audioContext.state}`, 'info');
-      log(`Local VAD threshold ${VAD_THRESHOLD_DB} dBFS, hangover ${VAD_HANGOVER_MS}ms`, 'info');
 
       running = true;
       runStartedAt = Date.now();
+      watchAbort = new AbortController();
+      const micTrack = micStream.getAudioTracks()[0];
+      log(`Mic track: label="${micTrack.label}" settings=${JSON.stringify(micTrack.getSettings())}`, 'info');
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      log(`Audio inputs: ${JSON.stringify(devices.filter(d => d.kind === 'audioinput').map(d => d.label || d.deviceId))}`, 'info');
+      log(`Local VAD threshold ${VAD_THRESHOLD_DB} dBFS, hangover ${VAD_HANGOVER_MS}ms`, 'info');
+
       startRecording();
-      setupMeter();
+      watchTrack('mic', micTrack);
+      watchDevices();
+      startPressureObserver();
+      setupAnalyzer();
       startTranscriberInstance();
 
       startBtn.disabled = false;
@@ -632,9 +798,15 @@ layout: null
 
     function stop() {
       running = false;
-      clearCurrentTranscriber();
-      if (meterTimer) { clearInterval(meterTimer); meterTimer = null; }
-      micMeter.style.width = '0%';
+      // detach the watchers first so the teardown below does not log as mutes and state changes
+      if (watchAbort) { watchAbort.abort(); watchAbort = null; }
+      if (pressureObserver) { pressureObserver.disconnect(); pressureObserver = null; }
+      stopRecognizer();
+      if (analyzerTimer) { clearInterval(analyzerTimer); analyzerTimer = null; }
+      if (analyzerContext) {
+        analyzerContext.close().catch(() => {});
+        analyzerContext = null;
+      }
       logLagSummary();
       // stop the recorder before the mic tracks so the final chunk is flushed
       if (recorder && recorder.state !== 'inactive') recorder.stop();
@@ -642,11 +814,9 @@ layout: null
         micStream.getTracks().forEach(t => t.stop());
         micStream = null;
       }
-      if (audioContext) {
-        audioContext.close().catch(() => {});
-        audioContext = null;
-      }
-      startBtn.textContent = 'Start transcription';
+      // one run per page load so the log and recording of this run can't be wiped by another
+      startBtn.disabled = true;
+      startBtn.textContent = 'Reload the page to run again';
       startBtn.classList.remove('stop');
       if (statusEl.className.indexOf('err') === -1) {
         setStatus('Stopped', 'wait');
