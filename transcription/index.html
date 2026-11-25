@@ -62,28 +62,6 @@ layout: null
     }
     button.ghost:hover { border-color: var(--blue); }
     .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .toggle {
-      position: relative;
-      display: inline-flex;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    /* keep the radios focusable for keyboard users while the labels carry the visuals */
-    .toggle input { position: absolute; opacity: 0; pointer-events: none; }
-    .toggle input:focus-visible + label { outline: 2px solid var(--blue); outline-offset: -2px; }
-    .toggle label {
-      font-size: 13px;
-      font-weight: 600;
-      padding: 8px 14px;
-      cursor: pointer;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .toggle label:not(:first-of-type) { border-left: 1px solid var(--border); }
-    .toggle input:checked + label { background: var(--blue); color: white; }
-    .toggle.disabled { opacity: 0.5; }
-    .toggle.disabled label { cursor: not-allowed; }
     .badge {
       display: inline-block;
       padding: 3px 10px;
@@ -127,13 +105,20 @@ layout: null
     #log .e-error { color: var(--red); }
     #log .e-result { color: var(--green); }
     #log .e-info { color: var(--blue); }
+    #log .e-vad { color: var(--yellow); }
+    #log .e-event { color: var(--text); }
+    #log .seekable { cursor: pointer; }
+    #log .seekable:hover { background: rgba(68,147,248,0.08); }
+    audio { width: 100%; margin-top: 4px; }
+    .links { margin-top: 8px; font-size: 13px; display: flex; gap: 16px; flex-wrap: wrap; }
+    .links a { color: var(--blue); }
     .env { font-size: 12px; color: var(--muted); font-family: ui-monospace, monospace; white-space: pre-wrap; word-break: break-word; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>Voice Transcription Test</h1>
-    <p class="sub">Checks whether your browser can transcribe speech, either with the browser vendor's cloud service or with built-in, on-device speech recognition. Pick a mode and speak into your microphone after pressing Start.</p>
+    <p class="sub">Checks whether your browser can transcribe English speech with built-in, on-device speech recognition (Chrome 139+). Press Start and speak into your microphone. The mic is recorded so every speech event in the log can be lined up with the audio.</p>
 
     <div class="panel">
       <div class="row" style="justify-content: space-between;">
@@ -143,29 +128,22 @@ layout: null
         </div>
         <button id="copyBtn" class="ghost">Copy debug info</button>
       </div>
-      <div class="row" style="margin-top: 14px;">
-        <div class="toggle" id="modeToggle">
-          <input type="radio" name="mode" id="modeCloud" value="cloud" checked />
-          <label for="modeCloud">Cloud</label>
-          <input type="radio" name="mode" id="modeLocal" value="local" />
-          <label for="modeLocal">On-device</label>
-        </div>
-        <div class="toggle" id="langToggle">
-          <input type="radio" name="lang" id="langEn" value="en-US" checked />
-          <label for="langEn">English (en-US)</label>
-          <input type="radio" name="lang" id="langId" value="id-ID" />
-          <label for="langId">Indonesian (id-ID)</label>
-        </div>
-      </div>
-      <div class="row" style="margin-top: 8px;">
-        <span id="modeHint" class="env"></span>
-      </div>
       <div class="meter"><div id="micMeter"></div></div>
     </div>
 
     <div class="panel">
       <div class="label">Live transcript</div>
       <div id="transcript"></div>
+    </div>
+
+    <div class="panel">
+      <div class="label">Recording <span style="text-transform:none;letter-spacing:0;color:var(--muted)">(click a log line to jump to that point)</span></div>
+      <div id="recEmpty" class="env">Available after you stop transcription.</div>
+      <audio id="recAudio" controls hidden></audio>
+      <div class="links" id="recLinks" hidden>
+        <a id="recDownload" href="#">Download audio</a>
+        <a id="eventsDownload" href="#">Download events JSON</a>
+      </div>
     </div>
 
     <div class="panel">
@@ -182,7 +160,12 @@ layout: null
   <script>
     'use strict';
 
-    const DEBUGGING_EVENT_NAMES = ['audiostart', 'soundstart', 'speechstart', 'speechend', 'soundend', 'audioend', 'nomatch'];
+    const LANG = 'en-US';
+    const SPEECH_EVENT_NAMES = ['start', 'audiostart', 'soundstart', 'speechstart', 'speechend', 'soundend', 'audioend', 'result', 'nomatch', 'error', 'end'];
+    // quiet rooms sit around -60 dBFS with noise suppression on, while normal speech is well above -40
+    const VAD_THRESHOLD_DB = -45;
+    // keep the local detector on through short pauses between words
+    const VAD_HANGOVER_MS = 300;
 
     const startBtn = document.getElementById('startBtn');
     const copyBtn = document.getElementById('copyBtn');
@@ -191,22 +174,13 @@ layout: null
     const logEl = document.getElementById('log');
     const envEl = document.getElementById('env');
     const micMeter = document.getElementById('micMeter');
-    const modeToggle = document.getElementById('modeToggle');
-    const modeCloud = document.getElementById('modeCloud');
-    const modeLocal = document.getElementById('modeLocal');
-    const modeHint = document.getElementById('modeHint');
-    const langToggle = document.getElementById('langToggle');
-    const langEn = document.getElementById('langEn');
-    const langId = document.getElementById('langId');
-
-    const MODE_HINTS = {
-      cloud: 'Audio is sent to the browser vendor for recognition.',
-      local: 'Audio stays on your device; needs Chrome 139+ and a language pack.'
-    };
+    const recAudio = document.getElementById('recAudio');
+    const recEmpty = document.getElementById('recEmpty');
+    const recLinks = document.getElementById('recLinks');
+    const recDownload = document.getElementById('recDownload');
+    const eventsDownload = document.getElementById('eventsDownload');
 
     let running = false;
-    // True when the selected mode is the cloud-based webkitSpeechRecognition API
-    let usingCloud = true;
     let micStream = null;
     let rawTranscriber = null;
     let audioContext = null;
@@ -215,20 +189,47 @@ layout: null
     let audioTrack = null;
     let shouldStopTranscriber = false;
     let analyzer = null;
-    let meterRaf = null;
-    // Collected final transcript text, plus the current interim line
+    let meterTimer = null;
     const finals = [];
-    let interim = '';
 
-    function log(msg, kind) {
-      const time = new Date().toLocaleTimeString();
+    let recorder = null;
+    let recChunks = [];
+    // performance.now() at which the recording starts, every rec offset in the log is relative to it
+    let recT0 = null;
+    let recUrl = null;
+    let eventsUrl = null;
+    let runStartedAt = null;
+
+    // timing for the current recognizer instance, all values are performance.now() ms
+    let instance = null;
+    let instanceCount = 0;
+    // every speech event and local VAD transition of the run, exported as JSON next to the audio
+    let eventRecords = [];
+    const vad = { active: false, onAt: null, offAt: null, lastLoudAt: null, peakDb: -Infinity };
+
+    function recOffset(t) {
+      return recT0 == null ? null : Math.max(0, (t - recT0) / 1000);
+    }
+
+    function fmtMs(v) {
+      return v == null || !isFinite(v) ? 'n/a' : Math.round(v) + 'ms';
+    }
+
+    // pass `at` to stamp the line with when something happened instead of when it was logged
+    function log(msg, kind, at) {
+      const d = new Date();
+      const time = d.toLocaleTimeString([], { hour12: false }) + '.' + String(d.getMilliseconds()).padStart(3, '0');
+      const rec = recOffset(at == null ? performance.now() : at);
       const div = document.createElement('div');
       if (kind) div.className = 'e-' + kind;
-      div.textContent = `[${time}] ${msg}`;
+      if (rec != null) {
+        div.dataset.rec = rec;
+        div.classList.add('seekable');
+      }
+      div.textContent = `[${time}]${rec != null ? ` [rec ${rec.toFixed(3)}s]` : ''} ${msg}`;
       logEl.appendChild(div);
       logEl.scrollTop = logEl.scrollHeight;
-      // Also mirror to the browser console for convenience
-      console.log(msg);
+      console.log(div.textContent);
     }
 
     function setStatus(text, cls) {
@@ -237,24 +238,30 @@ layout: null
     }
 
     function renderTranscript() {
-      transcriptEl.textContent = '';
-      const finalSpan = document.createElement('span');
-      finalSpan.textContent = finals.join(' ');
-      transcriptEl.appendChild(finalSpan);
-      if (interim) {
-        const interimSpan = document.createElement('span');
-        interimSpan.className = 'interim';
-        interimSpan.textContent = (finals.length ? ' ' : '') + interim;
-        transcriptEl.appendChild(interimSpan);
+      transcriptEl.textContent = finals.join(' ');
+    }
+
+    // collects every primitive the object exposes, including inherited getters like resultIndex, error and message
+    function primitiveFields(obj) {
+      const out = {};
+      for (const k in obj) {
+        if (/^[A-Z_]+$/.test(k) || /^on/.test(k)) continue;
+        let v;
+        try { v = obj[k]; } catch (e) { continue; }
+        if (typeof v === 'number') out[k] = Math.round(v * 10) / 10;
+        else if (v === null || typeof v === 'string' || typeof v === 'boolean') out[k] = v;
       }
+      return out;
+    }
+
+    function roundAll(obj) {
+      const out = {};
+      for (const [k, v] of Object.entries(obj)) out[k] = v == null || !isFinite(v) ? null : Math.round(v);
+      return out;
     }
 
     async function showEnvironment() {
       const ua = navigator.userAgent;
-      const hasSR = typeof window.SpeechRecognition !== 'undefined';
-      const hasWebkit = typeof window.webkitSpeechRecognition !== 'undefined';
-
-      // Brand info from the User-Agent Client Hints API (Chromium browsers)
       const uaData = navigator.userAgentData;
       let brandsStr = '(navigator.userAgentData not available)';
       let platformStr = '(unknown)';
@@ -266,19 +273,12 @@ layout: null
         brandsStr = fmt(uaData.brands);
         platformStr = uaData.platform || '(unknown)';
         mobileStr = String(uaData.mobile);
-        // Try to get fuller version + model details if the browser allows it
         try {
           const high = await uaData.getHighEntropyValues(['fullVersionList', 'platformVersion', 'model']);
-          if (high.fullVersionList && high.fullVersionList.length) {
-            brandsStr = fmt(high.fullVersionList);
-          }
-          if (high.platformVersion) {
-            platformStr += ' ' + high.platformVersion;
-          }
-          if (high.model) {
-            platformStr += ' / ' + high.model;
-          }
-        } catch (e) { /* high-entropy values may be blocked; keep the basics */ }
+          if (high.fullVersionList && high.fullVersionList.length) brandsStr = fmt(high.fullVersionList);
+          if (high.platformVersion) platformStr += ' ' + high.platformVersion;
+          if (high.model) platformStr += ' / ' + high.model;
+        } catch (e) { /* high entropy values may be blocked, keep the basics */ }
       }
 
       const lines = [
@@ -286,123 +286,145 @@ layout: null
         `Platform: ${platformStr}`,
         `Mobile: ${mobileStr}`,
         `User agent: ${ua}`,
-        `window.SpeechRecognition: ${hasSR ? 'yes' : 'no'}`,
-        `window.webkitSpeechRecognition: ${hasWebkit ? 'yes' : 'no'}`,
+        `window.SpeechRecognition: ${typeof window.SpeechRecognition !== 'undefined' ? 'yes' : 'no'}`,
+        `SpeechRecognition.available(): ${window.SpeechRecognition && 'available' in window.SpeechRecognition ? 'yes' : 'no'}`,
+        `MediaRecorder: ${typeof window.MediaRecorder !== 'undefined' ? 'yes' : 'no'}`,
         `secure context (https/localhost): ${window.isSecureContext ? 'yes' : 'no'}`
       ];
       envEl.textContent = lines.join('\n');
     }
 
-    function selectedMode() {
-      return modeLocal.checked ? 'local' : 'cloud';
-    }
-
-    function selectedLanguage() {
-      return langId.checked ? 'id-ID' : 'en-US';
-    }
-
-    // Checks that the mode picked in the toggle can actually run. Modes are never
-    // swapped silently because the whole point of the toggle is to test one path.
-    async function checkSpeechSupport() {
-      usingCloud = selectedMode() === 'cloud';
-      return usingCloud ? checkCloudSupport() : checkOnDeviceSupport();
-    }
-
-    function checkCloudSupport() {
-      if (typeof window.webkitSpeechRecognition === 'undefined' && typeof window.SpeechRecognition === 'undefined') {
-        return { success: false, error: 'This browser does not support voice transcription. Please try Chrome 139 or newer.' };
-      }
-      log(`CLOUD MODE (${selectedLanguage()}): using webkitSpeechRecognition (audio is sent to the browser vendor; processLocally and on-device flags are NOT used)`, 'info');
-      return { success: true };
-    }
-
     async function checkOnDeviceSupport() {
-      const language = selectedLanguage();
       const recognizer = window.SpeechRecognition;
-      const recognitionOptions = { langs: [language], processLocally: true };
+      const recognitionOptions = { langs: [LANG], processLocally: true };
 
-      // The on-device API is present only when SpeechRecognition exposes available()
       if (!recognizer || !('available' in recognizer)) {
         log('window.SpeechRecognition with available() not found', 'error');
-        return { success: false, error: 'On-device recognition is not available in this browser. Please try Chrome 139 or newer, or switch to Cloud mode.' };
+        return { success: false, error: 'On-device recognition is not available in this browser. Please try Chrome 139 or newer.' };
       }
 
       try {
+        const t0 = performance.now();
         const state = await recognizer.available(recognitionOptions);
-        log('SpeechRecognition.available() => ' + state, 'info');
+        log(`SpeechRecognition.available() => ${state} (took ${fmtMs(performance.now() - t0)})`, 'info');
         if (state === 'unavailable') {
-          return { success: false, error: `The on-device ${language} pack cannot be installed on this device. Switch to Cloud mode, or pick another language.` };
+          return { success: false, error: `The on-device ${LANG} pack cannot be installed on this device.` };
         } else if (state === 'downloadable') {
           setStatus('Installing language pack…', 'wait');
-          log(`Installing ${language} language pack on device…`, 'info');
+          log(`Installing ${LANG} language pack on device…`, 'info');
+          const t1 = performance.now();
           await recognizer.install(recognitionOptions);
-          log('Installation finished', 'info');
+          log(`Installation finished (took ${fmtMs(performance.now() - t1)})`, 'info');
         } else if (state === 'downloading') {
           return { success: false, error: 'Please wait while the language pack installs, then try again.' };
         } else {
-          log(`Device already has ${language} language pack`, 'info');
+          log(`Device already has ${LANG} language pack`, 'info');
         }
-        log(`ON-DEVICE MODE (${language}): using SpeechRecognition (processLocally=true)`, 'info');
         return { success: true };
       } catch (e) {
         return { success: false, error: 'Error while installing language pack: ' + e.toString() };
       }
     }
 
-    // Builds a recognizer instance. The cloud path omits the flags the
-    // legacy API doesn't support (processLocally, etc.).
     function createRecognizer() {
-      const language = selectedLanguage();
-      if (usingCloud) {
-        const Ctor = window.SpeechRecognition || window.webkitSpeechRecognition;
-        const t = new Ctor();
-        t.lang = language;
-        t.continuous = true;
-        t.interimResults = false;
-        // browsers default to cloud recognition, but say so explicitly where the flag exists
-        if ('processLocally' in t) t.processLocally = false;
-        log(`Created CLOUD recognizer (webkitSpeechRecognition; lang=${language}, processLocally=false / no audio track)`, 'info');
-        return t;
-      }
       const t = new SpeechRecognition();
-      t.lang = language;
+      t.lang = LANG;
       t.continuous = true;
       t.interimResults = false;
       t.processLocally = true;
+      log('Recognizer params: ' + JSON.stringify(primitiveFields(t)), 'info');
       return t;
     }
 
+    function updateVad(db, now) {
+      if (db > vad.peakDb) vad.peakDb = db;
+      if (db > VAD_THRESHOLD_DB) {
+        vad.lastLoudAt = now;
+        if (!vad.active) {
+          vad.active = true;
+          vad.onAt = now;
+          eventRecords.push({ type: 'local-vad-on', rec: recOffset(now), levelDb: Math.round(db * 10) / 10 });
+          log(`local VAD: voice on (${db.toFixed(1)} dBFS)`, 'vad', now);
+        }
+      } else if (vad.active && now - vad.lastLoudAt > VAD_HANGOVER_MS) {
+        vad.active = false;
+        vad.offAt = vad.lastLoudAt;
+        eventRecords.push({ type: 'local-vad-off', rec: recOffset(vad.offAt), heldMs: Math.round(vad.offAt - vad.onAt) });
+        log(`local VAD: voice off (held ${fmtMs(vad.offAt - vad.onAt)})`, 'vad', vad.offAt);
+      }
+    }
+
+    // logs every speech event with its raw fields and how far it lags the audio it describes
+    function onSpeechEvent(e) {
+      const now = performance.now();
+      const at = e.timeStamp;
+      const t = instance;
+      const lags = {
+        sinceStartCall: at - t.startCalledAt,
+        dispatch: now - at
+      };
+      switch (e.type) {
+        case 'speechstart':
+          lags.afterLocalVoiceOn = vad.active ? at - vad.onAt : null;
+          break;
+        case 'speechend':
+          lags.sinceLastLoudAudio = vad.lastLoudAt == null ? null : at - vad.lastLoudAt;
+          break;
+        case 'result':
+          lags.sinceLastLoudAudio = vad.lastLoudAt == null ? null : at - vad.lastLoudAt;
+          lags.afterLocalVoiceOn = vad.onAt == null ? null : at - vad.onAt;
+          lags.afterSpeechStart = t.last.speechstart == null ? null : at - t.last.speechstart;
+          lags.afterSpeechEnd = t.last.speechend == null ? null : at - t.last.speechend;
+          lags.sincePrevResult = t.last.result == null ? null : at - t.last.result;
+          break;
+        case 'end':
+          lags.sessionLength = at - t.startCalledAt;
+          break;
+      }
+      t.last[e.type] = at;
+
+      const fields = primitiveFields(e);
+      const record = { type: e.type, instance: t.id, rec: recOffset(at), lagsMs: roundAll(lags), fields };
+      if (e.type === 'result') {
+        record.results = [];
+        for (let i = e.resultIndex; i < e.results.length; i++) {
+          const r = e.results[i];
+          const alternatives = [];
+          for (let j = 0; j < r.length; j++) alternatives.push({ transcript: r[j].transcript, confidence: r[j].confidence });
+          record.results.push({ index: i, isFinal: r.isFinal, alternatives });
+        }
+      }
+      eventRecords.push(record);
+
+      const lagStr = Object.entries(lags).map(([k, v]) => `${k}=${fmtMs(v)}`).join(' ');
+      log(`EVENT ${e.type} #${t.id} | ${lagStr} | ${JSON.stringify(fields)}`, 'event', at);
+      for (const r of record.results || []) {
+        const alts = r.alternatives.map((a, j) => `#${j} "${a.transcript}" confidence=${a.confidence.toFixed(3)}`).join(' | ');
+        log(`  results[${r.index}] isFinal=${r.isFinal} alternatives=${r.alternatives.length}: ${alts}`, 'result', at);
+      }
+    }
+
     function onResult(event) {
-      const lastResultIndex = event.results.length - 1;
-      const result = event.results[lastResultIndex];
-      const transcriptString = result[0].transcript;
-      const isFinal = result.isFinal;
-      log(`result (isFinal=${isFinal}): "${transcriptString}"`, 'result');
-      if (!transcriptString) return;
-      if (isFinal) {
-        finals.push(transcriptString);
-        interim = '';
-      } else {
-        interim = transcriptString;
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const result = event.results[i];
+        if (result.isFinal && result[0].transcript) finals.push(result[0].transcript);
       }
       renderTranscript();
     }
 
     function onStart() {
-      const modeName = usingCloud ? 'cloud' : 'on-device';
-      log(`Recognition started (${modeName}, ${selectedLanguage()})`);
-      setStatus(`Listening… (${modeName})`, 'ok');
+      setStatus('Listening… (on-device)', 'ok');
     }
 
     function onError(e) {
       const error = e.error || 'Unknown error';
       if (error === 'no-speech') {
-        // Ignore and let the 'end' handler restart recognition
+        // the end handler restarts recognition
         log('error: no-speech (will auto-restart)', 'info');
         return;
       }
       shouldStopTranscriber = true;
-      log('error: ' + error, 'error');
+      log('error: ' + error + (e.message ? ` (${e.message})` : ''), 'error');
       setStatus('Error: ' + error, 'err');
       stop();
     }
@@ -414,34 +436,31 @@ layout: null
       }
     }
 
-    const debuggingEventListeners = {};
-
+    // the generic logger goes first so its timing line precedes anything the specific handlers print
     function attachListeners() {
+      for (const name of SPEECH_EVENT_NAMES) rawTranscriber.addEventListener(name, onSpeechEvent);
       rawTranscriber.addEventListener('result', onResult);
       rawTranscriber.addEventListener('start', onStart);
       rawTranscriber.addEventListener('error', onError);
       rawTranscriber.addEventListener('end', onEnd);
-      for (const name of DEBUGGING_EVENT_NAMES) {
-        const fn = (e) => log('DEBUG EVENT ' + name);
-        rawTranscriber.addEventListener(name, fn);
-        debuggingEventListeners[name] = fn;
-      }
     }
 
     function clearCurrentTranscriber() {
       if (rawTranscriber) {
         shouldStopTranscriber = true;
+        for (const name of SPEECH_EVENT_NAMES) rawTranscriber.removeEventListener(name, onSpeechEvent);
         rawTranscriber.removeEventListener('result', onResult);
         rawTranscriber.removeEventListener('start', onStart);
         rawTranscriber.removeEventListener('error', onError);
         rawTranscriber.removeEventListener('end', onEnd);
-        for (const name of DEBUGGING_EVENT_NAMES) {
-          rawTranscriber.removeEventListener(name, debuggingEventListeners[name]);
-          delete debuggingEventListeners[name];
-        }
         try { rawTranscriber.stop(); } catch (e) { /* noop */ }
         rawTranscriber = null;
         log('Recognizer instance cleared');
+      }
+      if (sourceNode) {
+        sourceNode.disconnect();
+        sourceNode = null;
+        destinationNode = null;
       }
     }
 
@@ -455,76 +474,129 @@ layout: null
       }, 10);
     }
 
-    // Routes the mic through an AudioContext source -> destination and passes
-    // that track to .start() (on-device path).
+    // routes the mic through an AudioContext source and destination and passes that track to start()
     function startTranscriberInstance() {
       clearCurrentTranscriber();
       shouldStopTranscriber = false;
       rawTranscriber = createRecognizer();
       attachListeners();
 
-      if (usingCloud) {
-        // The legacy API does not accept an audio track; it captures the
-        // default microphone itself once permission is granted.
-        log('Starting CLOUD recognizer with default mic (no audio track passed)', 'info');
-        return rawTranscriber.start();
-      }
-
       sourceNode = audioContext.createMediaStreamSource(micStream);
       destinationNode = audioContext.createMediaStreamDestination();
       sourceNode.connect(destinationNode);
       audioTrack = destinationNode.stream.getAudioTracks()[0];
-      log('Transcribing audio track: ' + (audioTrack && audioTrack.label || '(no label)'));
-      // Chrome-specific: start() accepts an audio track
+      log(`Recognizer audio track: label="${audioTrack.label}" settings=${JSON.stringify(audioTrack.getSettings())}`);
+
+      instance = { id: ++instanceCount, startCalledAt: performance.now(), last: {} };
+      log(`Calling start() on recognizer #${instance.id}`, 'info', instance.startCalledAt);
+      // Chrome specific: start() accepts an audio track
       return rawTranscriber.start(audioTrack);
     }
 
     function setupMeter() {
       analyzer = audioContext.createAnalyser();
-      analyzer.fftSize = 256;
+      // about 43ms of audio at 48kHz, which covers the polling gap
+      analyzer.fftSize = 2048;
       const meterSource = audioContext.createMediaStreamSource(micStream);
       meterSource.connect(analyzer);
-      const bufferLength = analyzer.frequencyBinCount;
-      const dataArray = new Uint8Array(bufferLength);
-      const tick = () => {
-        analyzer.getByteFrequencyData(dataArray);
+      const buf = new Float32Array(analyzer.fftSize);
+      // poll on a timer because requestAnimationFrame stops entirely in background tabs
+      meterTimer = setInterval(() => {
+        analyzer.getFloatTimeDomainData(buf);
         let sum = 0;
-        for (let i = 0; i < bufferLength; i++) {
-          const n = dataArray[i] / 255;
-          sum += n * n;
-        }
-        const rms = Math.sqrt(sum / bufferLength);
-        micMeter.style.width = Math.min(100, rms * 250) + '%';
-        meterRaf = requestAnimationFrame(tick);
-      };
-      tick();
+        for (let i = 0; i < buf.length; i++) sum += buf[i] * buf[i];
+        const db = 20 * Math.log10(Math.sqrt(sum / buf.length) || 1e-8);
+        micMeter.style.width = Math.max(0, Math.min(100, (db + 60) / 60 * 100)) + '%';
+        updateVad(db, performance.now());
+      }, 20);
     }
 
-    // The mode and language are locked in for the duration of a run so the
-    // debug log always describes the settings the transcript came from.
-    function setTogglesDisabled(disabled) {
-      for (const input of [modeCloud, modeLocal, langEn, langId]) {
-        input.disabled = disabled;
+    function startRecording() {
+      if (typeof MediaRecorder === 'undefined') {
+        log('MediaRecorder not available, audio will not be recorded', 'error');
+        return;
       }
-      modeToggle.classList.toggle('disabled', disabled);
-      langToggle.classList.toggle('disabled', disabled);
+      const mimeType = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4'].find(t => MediaRecorder.isTypeSupported(t));
+      recChunks = [];
+      recorder = new MediaRecorder(micStream, mimeType ? { mimeType } : undefined);
+      recorder.addEventListener('dataavailable', (e) => { if (e.data.size) recChunks.push(e.data); });
+      recorder.addEventListener('stop', onRecordingStopped);
+      recorder.addEventListener('start', (e) => log(`MediaRecorder start event (${fmtMs(e.timeStamp - recT0)} after start() call)`, 'info', e.timeStamp));
+      recorder.start(1000);
+      // use the start() call time as zero because capture begins right away, the start event only arrives a few ms later
+      recT0 = performance.now();
+      log(`Recording mic as ${recorder.mimeType}, rec offsets in this log are relative to this line`, 'info', recT0);
+    }
+
+    function onRecordingStopped() {
+      const blob = new Blob(recChunks, { type: recorder.mimeType });
+      const stamp = new Date(runStartedAt).toISOString().replace(/[:.]/g, '-');
+      const ext = /mp4/.test(recorder.mimeType) ? 'm4a' : 'webm';
+      if (recUrl) URL.revokeObjectURL(recUrl);
+      if (eventsUrl) URL.revokeObjectURL(eventsUrl);
+      recUrl = URL.createObjectURL(blob);
+      const eventsJson = {
+        startedAt: new Date(runStartedAt).toISOString(),
+        lang: LANG,
+        recording: { mimeType: recorder.mimeType, bytes: blob.size, note: 'rec values are seconds from the start of this recording' },
+        vad: { thresholdDb: VAD_THRESHOLD_DB, hangoverMs: VAD_HANGOVER_MS, peakDb: Math.round(vad.peakDb * 10) / 10 },
+        events: eventRecords
+      };
+      eventsUrl = URL.createObjectURL(new Blob([JSON.stringify(eventsJson, null, 2)], { type: 'application/json' }));
+      recAudio.src = recUrl;
+      recAudio.hidden = false;
+      recEmpty.hidden = true;
+      recLinks.hidden = false;
+      recDownload.href = recUrl;
+      recDownload.download = `transcription-${stamp}.${ext}`;
+      eventsDownload.href = eventsUrl;
+      eventsDownload.download = `transcription-${stamp}-events.json`;
+      log(`Recording ready (${(blob.size / 1024).toFixed(1)} KB)`, 'info');
+    }
+
+    // chrome writes webm without a duration, so force a scan to the end once or seeking misbehaves
+    recAudio.addEventListener('loadedmetadata', () => {
+      if (recAudio.duration === Infinity) {
+        recAudio.currentTime = 1e9;
+        recAudio.addEventListener('timeupdate', () => { recAudio.currentTime = 0; }, { once: true });
+      }
+    });
+
+    logEl.addEventListener('click', (e) => {
+      const line = e.target.closest('[data-rec]');
+      if (!line || !recAudio.src) return;
+      // start a little early so the moment itself is audible
+      recAudio.currentTime = Math.max(0, Number(line.dataset.rec) - 1);
+      recAudio.play();
+    });
+
+    function logLagSummary() {
+      const results = eventRecords.filter(r => r.type === 'result');
+      if (!results.length) return;
+      for (const key of ['sinceLastLoudAudio', 'afterLocalVoiceOn', 'afterSpeechEnd', 'dispatch']) {
+        const vals = results.map(r => r.lagsMs[key]).filter(v => v != null).sort((a, b) => a - b);
+        if (!vals.length) continue;
+        const median = vals[Math.floor(vals.length / 2)];
+        log(`result lag ${key}: n=${vals.length} min=${vals[0]}ms median=${median}ms max=${vals[vals.length - 1]}ms`, 'info');
+      }
     }
 
     async function start() {
       startBtn.disabled = true;
-      setTogglesDisabled(true);
       finals.length = 0;
-      interim = '';
       renderTranscript();
       logEl.textContent = '';
-      log(`Checking transcription support (mode=${selectedMode()}, lang=${selectedLanguage()})…`, 'info');
+      recT0 = null;
+      eventRecords = [];
+      instanceCount = 0;
+      Object.assign(vad, { active: false, onAt: null, offAt: null, lastLoudAt: null, peakDb: -Infinity });
+      log(`Checking on-device transcription support (lang=${LANG})…`, 'info');
 
-      const support = await checkSpeechSupport();
+      const support = await checkOnDeviceSupport();
       if (!support.success) {
         setStatus('Not supported', 'err');
         log(support.error, 'error');
         startBtn.disabled = false;
-        setTogglesDisabled(false);
         return;
       }
 
@@ -538,13 +610,18 @@ layout: null
         setStatus('Microphone denied', 'err');
         log('getUserMedia failed: ' + e.toString(), 'error');
         startBtn.disabled = false;
-        setTogglesDisabled(false);
         return;
       }
-      log('Microphone stream acquired', 'info');
+      const micTrack = micStream.getAudioTracks()[0];
+      log(`Mic track: label="${micTrack.label}" settings=${JSON.stringify(micTrack.getSettings())}`, 'info');
 
       audioContext = new AudioContext();
+      log(`AudioContext: sampleRate=${audioContext.sampleRate} baseLatency=${(audioContext.baseLatency * 1000).toFixed(1)}ms outputLatency=${((audioContext.outputLatency || 0) * 1000).toFixed(1)}ms state=${audioContext.state}`, 'info');
+      log(`Local VAD threshold ${VAD_THRESHOLD_DB} dBFS, hangover ${VAD_HANGOVER_MS}ms`, 'info');
+
       running = true;
+      runStartedAt = Date.now();
+      startRecording();
       setupMeter();
       startTranscriberInstance();
 
@@ -555,10 +632,12 @@ layout: null
 
     function stop() {
       running = false;
-      setTogglesDisabled(false);
       clearCurrentTranscriber();
-      if (meterRaf) { cancelAnimationFrame(meterRaf); meterRaf = null; }
+      if (meterTimer) { clearInterval(meterTimer); meterTimer = null; }
       micMeter.style.width = '0%';
+      logLagSummary();
+      // stop the recorder before the mic tracks so the final chunk is flushed
+      if (recorder && recorder.state !== 'inactive') recorder.stop();
       if (micStream) {
         micStream.getTracks().forEach(t => t.stop());
         micStream = null;
@@ -583,22 +662,12 @@ layout: null
       }
     });
 
-    function renderModeHint() {
-      modeHint.textContent = MODE_HINTS[selectedMode()];
-    }
-
-    for (const input of [modeCloud, modeLocal]) {
-      input.addEventListener('change', renderModeHint);
-    }
-
     copyBtn.addEventListener('click', async () => {
-      // Each log entry is its own <div>; join them with newlines so the
-      // copied text keeps one entry per line.
       const logLines = Array.from(logEl.children).map(el => el.textContent).join('\n');
       const text = [
         '=== Settings ===',
-        `Mode: ${selectedMode()}`,
-        `Language: ${selectedLanguage()}`,
+        'Mode: on-device',
+        `Language: ${LANG}`,
         '',
         '=== Environment ===',
         envEl.textContent,
@@ -610,7 +679,7 @@ layout: null
         await navigator.clipboard.writeText(text);
         copyBtn.textContent = 'Copied!';
       } catch (e) {
-        // Clipboard API may be blocked; fall back to a manual selection
+        // clipboard API may be blocked, fall back to a manual selection
         const range = document.createRange();
         range.selectNodeContents(envEl);
         const sel = window.getSelection();
@@ -621,7 +690,6 @@ layout: null
       setTimeout(() => { copyBtn.textContent = 'Copy debug info'; }, 2000);
     });
 
-    renderModeHint();
     showEnvironment();
   </script>
 </body>
