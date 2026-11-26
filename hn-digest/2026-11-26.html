@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 26, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 26, 2026</h1>
+    <p class="date">Thursday, November 26, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Thursday&amp;#x27;s stories center on AI-assisted mathematics, two Linux kernel security issues, and a handful of systems projects and computing history.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Scott Aaronson reports a series of AI-lab claims resolving long-standing complexity questions.&lt;/strong&gt; In a &lt;a href=&quot;https://scottaaronson.blog/?p=10379&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;blog post&lt;/a&gt;, Aaronson writes that OpenAI claims a proof that the matrix multiplication exponent ω is exactly 9/4, with a new lower bound matching an upper bound it published on October 6. He also cites OpenAI and Anthropic proofs of VP ≠ VNP and a matching upper and lower bound for linear-gate Fourier transforms. He says the labs have backed recent claims with Lean certificates, and that he has heard of unverified cryptography-related results that he declines to detail (&lt;a href=&quot;https://news.ycombinator.com/item?id=50646108&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter expects that sorting these results into curiosities and ones with practical applications will take years.&lt;/li&gt;&lt;li&gt;Some note a tension between the post&amp;#x27;s emphatic title and the author&amp;#x27;s stated reluctance to spread unverified rumors about cryptography.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A much shorter Lean 4 formalization of the Generalized Riemann Hypothesis proof has been published.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/lsernau/grh-lean&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;repository&lt;/a&gt; builds on Levent Alpöge&amp;#x27;s proof, done with Claude, and offers a readable edition of about 300,000 lines and a compact edition of about 76,000 lines, both checked against Mathlib. The README states that the proof has passed machine checks only, that no mathematician has read it through, and that no paper accompanies it (&lt;a href=&quot;https://news.ycombinator.com/item?id=50648050&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out that the repository is hosted on a personal account rather than an Anthropic organization, although the README credits Anthropic colleagues and the license names Anthropic.&lt;/li&gt;&lt;li&gt;Several note that the readable edition separates &amp;quot;known math&amp;quot; from &amp;quot;new math&amp;quot; and is documented throughout, which bears on earlier concerns that very large machine proofs offer little insight.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A 12-year-old pre-authentication heap overflow in the Linux NFS server can lead to remote root.&lt;/strong&gt; OpenSec &lt;a href=&quot;https://opensec.in/blog/nfs2root-cve-2026-99362&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;describes CVE-2026-99362&lt;/a&gt; (CVSS 9.8), present since Linux 3.16. A client can shrink its session reply cache to zero bytes and then cause nfsd to copy a full reply into it. It affects hosts serving NFSv4.1 or 4.2 on a reachable tcp/2049, and fixes are in 6.12.117, 6.18.61, 7.3.2 and 7.4-rc1. OpenSec says its automated tool built a working root exploit, which it is keeping private (&lt;a href=&quot;https://news.ycombinator.com/item?id=50647161&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that NFS is rarely exposed to the public internet, which limits the practical reach of the bug.&lt;/li&gt;&lt;li&gt;One describes a temporary mitigation for unsupported kernels: disable versions 4.1 and 4.2 through /proc/fs/nfsd/versions after confirming that no clients depend on them. The change reverts on reboot.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A security researcher questions Ubuntu&amp;#x27;s patch timelines for recent kernel vulnerabilities.&lt;/strong&gt; In an &lt;a href=&quot;https://www.openwall.com/lists/oss-security/2026/11/25/9&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;oss-security post&lt;/a&gt;, Hanno Böck writes that Ubuntu had not shipped a fix for the remote TCP memory corruption CVE-2026-99288 nine days after disclosure, while other distributions had fixes ready at publication. An AMD KVM host escape, CVE-2026-99312, also remains unfixed. He attributes part of the delay to Ubuntu backporting patches to an older kernel rather than tracking kernel.org longterm releases, as Debian does (&lt;a href=&quot;https://news.ycombinator.com/item?id=50647181&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that Red Hat shipped a fix for CVE-2026-99288 on November 23 but still lists CVE-2026-99312 as open.&lt;/li&gt;&lt;li&gt;One observes that Ubuntu fixes often reach the -updates pocket hours before the security pocket, so systems that install only security updates automatically may lag.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;The New York Times has told freelance photographers not to use Photoshop 2027 on assignments.&lt;/strong&gt; According to &lt;a href=&quot;https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;The Verge&lt;/a&gt;, the paper&amp;#x27;s email says AI features in release 28.0.0 and later work in ways that may not be obvious to users and can add metadata identifying photos as AI-generated. Adobe began adding C2PA provenance metadata to its apps in August. It is not yet clear which features the Times means (&lt;a href=&quot;https://news.ycombinator.com/item?id=50647673&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter who works on creative tools says the final image&amp;#x27;s metadata cannot easily distinguish a fully generated image from minor AI-assisted edits, and that platform &amp;quot;AI-generated&amp;quot; labels can damage an authoritative source&amp;#x27;s credibility.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A 24 KB assembly operating system boots directly into a Qwen3-0.6B chat session.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/alesha-pro/llm.asm/tree/main/02-baremetal-os&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;llm.asm project&lt;/a&gt; provides a bootable x86-64 kernel with no Linux, libc, C or Rust. It loads the model from RAM and reaches an interactive prompt in under 100 ms. It reports about 135 tokens per second under QEMU KVM with 16 vCPUs and requires AVX2, FMA and F16C (&lt;a href=&quot;https://news.ycombinator.com/item?id=50648365&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point to the repository&amp;#x27;s top-level README, which benchmarks this build against a pure-assembly Linux binary and llama.cpp.&lt;/li&gt;&lt;li&gt;Some question how useful a model this small is without tooling around it to interact with.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;minipg packages PostgreSQL as a single executable with no server setup.&lt;/strong&gt; Jeff Lindsay&amp;#x27;s &lt;a href=&quot;https://progrium.github.io/minipg/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;minipg&lt;/a&gt; keeps each database&amp;#x27;s data, configuration and credentials in a self-contained .pgdb directory, and starts a server on demand that stops when idle. It embeds the postgres:18-alpine image and runs its binaries through the h9 hypervisor library rather than Docker or a Linux VM. The author warns it is early and about 2x slower than native on h9&amp;#x27;s non-KVM backend (&lt;a href=&quot;https://news.ycombinator.com/item?id=50650892&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters ask how it compares with PGlite and see it mainly as a way to run test databases without installing Docker.&lt;/li&gt;&lt;li&gt;One notes that MySQL and MariaDB lack a comparably complete lightweight or in-browser option.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenAI corrected a GPT-6.2 billing error, so usage limits are now reached sooner.&lt;/strong&gt; In a &lt;a href=&quot;https://twitter.com/thsottiaux/status/2125784147889393806&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post on X&lt;/a&gt;, an OpenAI staff member said GPT-6.2 Astra and Sol usage had been incorrectly discounted since launch. Users will now hit limits 40% faster on Astra and 25% faster on Sol than last week, though still later than on the previous versions. Past usage will not be recharged, and Go, Plus, Pro and Business users will receive one banked reset (&lt;a href=&quot;https://news.ycombinator.com/item?id=50651117&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A comic recounts the history of Lions&amp;#x27; Commentary on Unix, which circulated as unauthorized photocopies for two decades.&lt;/strong&gt; The &lt;a href=&quot;https://fosscomics.com/posts/17.%20Lions%27%20Commentary%20on%20Unix/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;F/OSS Comics entry&lt;/a&gt; traces how John Lions wrote his 1976 teaching notes on the Unix Version 6 kernel at the University of New South Wales. AT&amp;amp;T&amp;#x27;s Version 7 license terms in 1979 restricted teaching from the source, and the book was officially published only in 1996, after SCO granted permission (&lt;a href=&quot;https://news.ycombinator.com/item?id=50651719&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters compare its underground circulation to The Real Book, the jazz songbook that was long distributed without authorization.&lt;/li&gt;&lt;li&gt;One argues that teaching texts such as Lions&amp;#x27; book, and later Tanenbaum&amp;#x27;s Minix, helped Unix and C spread through universities that would otherwise have paid for commercial alternatives.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-26">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

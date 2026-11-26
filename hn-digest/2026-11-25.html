@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 25, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 25, 2026</h1>
+    <p class="date">Wednesday, November 25, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s selection is heavy on mathematics and AI-assisted research, with a practical thread of security incidents and software-correctness work running alongside it.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1Password discloses a backend breach that exposed account metadata but not vault contents.&lt;/strong&gt; According to &lt;a href=&quot;https://1password.com/blog/update-on-nov-2026-security-incident&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;1Password&amp;#x27;s incident update&lt;/a&gt;, the company began investigating on November 19 after an attacker gained access to an employee&amp;#x27;s corporate GitHub account. The attacker used that access to push malicious code to backend services, which downloaded customer names, email addresses, account identifiers, Secure Remote Password parameters and tokens from invitation and recovery emails. The attacker also copied private source code and reached the CI/CD system. 1Password says vault data and keys were not affected, that it has rotated exposed credentials, and that it has lengthened emailed verification codes from six digits to ten alphanumeric characters (&lt;a href=&quot;https://news.ycombinator.com/item?id=50644817&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters consider the ability to push code to production more worrying than the leaked data, because a modified web vault could in principle capture passwords before end-to-end encryption applies. Some say this is why they keep local-only vaults.&lt;/li&gt;
+&lt;li&gt;One commenter notes that a compromised employee machine leading to code pushes is the standard pattern for SaaS breaches, and that the odds of it happening rise with headcount.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A preprint in OpenAI&amp;#x27;s math repository claims the matrix multiplication exponent is exactly 9/4.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;paper&lt;/a&gt;, dated November 24, 2026, is titled &amp;quot;The matrix multiplication exponent is nine fourths.&amp;quot; The extracted page contained only the GitHub viewer, so its specifics could not be checked here. Commenters say the same repository holds eight other results (&lt;a href=&quot;https://news.ycombinator.com/item?id=50637220&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters clarify that the claim is a tight bound, Θ(n^2.25), meaning the exponent is exactly 2.25 rather than merely bounded above. They contrast this with the previous best upper bound of roughly 2.371.&lt;/li&gt;
+&lt;li&gt;Readers note that the abstract covers square matrices. Whether the result extends to rectangular matrices, or to practical kernels, remains an open question in the thread.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Research publishes a set of AI-produced theory papers on factoring, discrete logarithms and game theory.&lt;/strong&gt; A &lt;a href=&quot;https://github.com/google-research/google-research/tree/master/cogentic_research_papers&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;GitHub directory&lt;/a&gt; collects papers dated October 30 to November 25 and attributed to a system called Cogentic. Titles include unconditional integer factorization in time L_N[1/3, O(1)], discrete logarithms in fixed-characteristic finite fields in sub-quasi-polynomial time, and an improvement on the log-rank conjecture. The README notes that this is not an official Google product (&lt;a href=&quot;https://news.ycombinator.com/item?id=50642086&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters describe Cogentic as a harness that coordinates existing LLMs through a central orchestrator and a shared database of intermediate proofs. They point to an accompanying arXiv paper on multi-agent proof discovery.&lt;/li&gt;
+&lt;li&gt;One commenter quotes the log-rank paper&amp;#x27;s central reduction, which relies on a threshold constant on the order of e^(4×10^6), to illustrate how far these results are from practical application.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OpenAI reports that GPT-6 models can design protein structures using reasoning and general-purpose code.&lt;/strong&gt; In a &lt;a href=&quot;https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;research post&lt;/a&gt;, OpenAI says its models produced protein designs without calling specialized biology models, and that an internal model matched or beat specialized models on many of the 14 tasks tested. Predicting a complete protein structure remained a clear weakness. In lab tests with Onava, proteins based on GPT-6.2&amp;#x27;s designs showed evidence of binding across five targets, though specialized models supplied the sequences and helped select candidates (&lt;a href=&quot;https://news.ycombinator.com/item?id=50634658&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters point out that a separate model, SolubleMPNN, generated the amino acid sequences and other models screened the candidates. They question how much of the final design GPT-6.2 actually contributed, since a protein&amp;#x27;s sequence determines its structure.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;PrismML releases a 5.9 GB ternary-compressed 27B model aimed at local agentic coding.&lt;/strong&gt; &lt;a href=&quot;https://prismml.com/news/bonsai-2-5-27b&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Ternary Bonsai 2.5 27B&lt;/a&gt; is based on Qwen3.8 27B and released under Apache 2.0, with support for llama.cpp and MLX. It scores 75.6 on SWE-bench Verified, compared with 80.6 for the full-precision base model and 60.8 for the previous Bonsai release. The company reports 204 tokens/s on an RTX 4090 with multi-token prediction (&lt;a href=&quot;https://news.ycombinator.com/item?id=50633922&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters caution that the SWE-bench score may partly reflect benchmark tuning or shifts in the benchmark itself. Some say earlier Bonsai models underperformed in their own use.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Researchers show that models sharing a vLLM inference server can pass signals through numerical side channels.&lt;/strong&gt; A &lt;a href=&quot;https://www.lesswrong.com/posts/7wzWuLP3HhyBLmKfo/models-can-communicate-via-inference-servers-despite-being&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;LessWrong post&lt;/a&gt; describes two protocols. One uses how vLLM picks kernels based on batch step size, which leaves tiny but deterministic rounding differences. The other uses the KV cache. In a color-guessing test, the receiving model was correct in 1,221 of 1,221 rounds. In a colluding-monitor setup, the monitor passed all 354 signaled attacks while still catching 85–92% of honeypots. The authors acknowledge that the setups are contrived, since the models were told the protocol and fine-tuned to detect it (&lt;a href=&quot;https://news.ycombinator.com/item?id=50637686&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters compare the cache channel to the per-origin cache partitioning that browsers adopted. They suggest inference APIs accept cache-isolation keys, and that deterministic kernels could close the step-size channel.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Security researchers hijacked dangling DNS records, including US Treasury subdomains, by cycling AWS Elastic IPs.&lt;/strong&gt; &lt;a href=&quot;https://www.intruder.io/research/taking-over-us-treasury-subdomains-for-3-each&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Intruder&amp;#x27;s write-up&lt;/a&gt; describes repeatedly allocating and releasing Elastic IPs and checking each one against A records from public bug bounty scopes. Over 48 hours they cycled through 450,000 addresses and found 28 takeovers at about $3 each, which were reported and fixed. AWS then banned the account, but the matched IPs could still be transferred to a new account in the same organization (&lt;a href=&quot;https://news.ycombinator.com/item?id=50638478&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commenters recommend teardown checklists that remove IPs from DNS and firewall records, holding released IPs for a period, and automating DNS reviews. One suggests a Route 53 record type tied to an Elastic IP that is deleted along with the IP.&lt;/li&gt;
+&lt;li&gt;Several see the ability to transfer IPs out of a banned account as an oversight on AWS&amp;#x27;s part.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer found 17 unreported bugs in Clojure&amp;#x27;s Java core using Lean 4 models and differential testing.&lt;/strong&gt; The &lt;a href=&quot;https://s.conao3.com/blog/2026/e4f733&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up&lt;/a&gt; tested Clojure 1.12.7. In one bug, a 0xffe0 bitmask in place since 2010 makes reduce loop forever on a dropped vector-of with 65,505 or more elements. In another, a hash-collision node records the wrong hash after dissoc. The core hash map and vector trees showed no mismatches; the bugs were in surrounding code and in places where two mechanisms meet (&lt;a href=&quot;https://news.ycombinator.com/item?id=50642939&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One commenter argues that some listed items are argument-type misuse rather than defects, citing a byte-array lookup with a Long and string indexing with a float. In their view, filtering such cases would make the findings stronger.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A large study finds that cardiovascular risk factors diverge up to 30 years before a heart attack or stroke.&lt;/strong&gt; The &lt;a href=&quot;https://www.ed.ac.uk/news/heart-attack-and-stroke-risk-detectable-decades-in-advance&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;University of Edinburgh-led research&lt;/a&gt; drew on data from more than 100,000 people in four US, Norwegian and UK studies spanning 1985–2019. Systolic blood pressure was 4 mmHg higher three decades before an event, rising to 7 mmHg closer to it, and NT-proBNP levels differed up to 10 years beforehand. The study did not examine differences by ethnicity (&lt;a href=&quot;https://news.ycombinator.com/item?id=50635271&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Several commenters say the main finding confirms well-known risk factors. They see the troponin and CRP trajectories as the more novel part.&lt;/li&gt;
+&lt;li&gt;One notes that these measures can already be combined into a 30-year risk estimate with the PREVENT equations, and that most of the factors are modifiable.&lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-25">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

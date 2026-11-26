@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 27, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 27, 2026</h1>
+    <p class="date">Friday, November 27, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s briefing covers rising storage costs, questions about where AI inference requests actually go, new open-source tools, and a renewed case for formal verification.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A self-hoster describes using AI coding agents to manage home infrastructure.&lt;/strong&gt; In a &lt;a href=&quot;https://janlukas.blog/posts/ai-self-hosting&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;blog post&lt;/a&gt;, Jan-Lukas Else explains that because their Docker Compose files and scripts live in Git, AI agents can work on the setup like any other software project. They used this to adopt NixOS on a home server, build a Debian-based bootc image (about half a day with AI versus an estimated week without), and automate updates with Renovate and CI workflows (&lt;a href=&quot;https://news.ycombinator.com/item?id=50660180&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters argue that setup has become easier but maintenance has not, pointing to more automated attacks on exposed services and slow distro patching of serious security bugs.&lt;/li&gt;&lt;li&gt;Some recommend keeping self-hosted services behind a WireGuard VPN instead of exposing them publicly, and one describes a test server being compromised.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Consumer hard drive prices have roughly doubled since 2024.&lt;/strong&gt; Alex Kretzschmar &lt;a href=&quot;https://blog.ktz.me/black-friday-hard-drive-prices-are-messed-up/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;compares their purchase receipts&lt;/a&gt; with current listings: a 20TB WD EasyStore bought for $249.99 in November 2024 is $549.99 this Black Friday, and recertified enterprise drives are up between 58% and 218%. The post also traces how acquisitions left three HDD makers (Seagate, Western Digital and Toshiba), and notes that 89% of WD&amp;#x27;s fiscal 2026 revenue came from its cloud business (&lt;a href=&quot;https://news.ycombinator.com/item?id=50661646&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that the industry&amp;#x27;s high capital requirements make new competitors unlikely, so prices may not normalize soon.&lt;/li&gt;&lt;li&gt;A small business owner in Australia that needs petabytes of storage says SSD prices rose first and HDD prices followed, which now limits how far the business can scale.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An investigation finds that several AI inference providers route requests to ByteDance&amp;#x27;s Ark platform.&lt;/strong&gt; Kendell&amp;#x27;s &lt;a href=&quot;https://kendell.dev/blog/arkwrapper/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;report&lt;/a&gt; uses request ID formats, tool-call ID formats, the IP addresses that download images, censored refusals, and pricing to trace DeepSeek traffic from Novita, StreamLake and Ant Digital to ByteDance&amp;#x27;s Volcano Engine and BytePlus. It also cites provider statements, made after an earlier incident involving MiniMax models, admitting that some OpenRouter requests were forwarded upstream, and notes that OpenRouter removed zero-data-retention labels from some of these routes (&lt;a href=&quot;https://news.ycombinator.com/item?id=50660273&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter explains that these wrappers can profit by sending baseload traffic to a primary provider at market rates and switching to cheaper preemptible GPUs when those become available.&lt;/li&gt;&lt;li&gt;Another reports noticing months ago that Novita&amp;#x27;s Qwen endpoint returned Alibaba-specific errors, and says Novita only admitted the routing after first denying it.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;An open-source Python script automates opt-out and deletion requests to data brokers.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/gary23w/f-ck_data_brokers&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;single-file, dependency-free tool&lt;/a&gt; pulls the government registry of more than 600 data brokers and drafts legal deletion letters that cite the user&amp;#x27;s local law. It can send the letters from the user&amp;#x27;s own mailbox, interpret broker replies, and follow up on brokers that don&amp;#x27;t respond; the author also offers a paid service that does the same work (&lt;a href=&quot;https://news.ycombinator.com/item?id=50658191&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter asks what happens when users follow the tool&amp;#x27;s advice to refuse forms that require an ID photo, since brokers might then argue they are not obliged to remove the data.&lt;/li&gt;&lt;li&gt;Another suggests adding Brazil&amp;#x27;s LGPD to the supported jurisdictions.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer argues for a formally verifiable programming language aimed at mainstream engineers.&lt;/strong&gt; Blaine Hansen&amp;#x27;s &lt;a href=&quot;https://blainehansen.me/post/mainstream-verifiable-language/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;essay&lt;/a&gt; argues that existing proof tools are too hard to use to change everyday engineering practice. It outlines a revised design for their Magmide project: compile to WebAssembly with garbage collection, use a Rust-like type system without the borrow checker, start with SMT-backed liquid types, and add Lean as a proof layer later (&lt;a href=&quot;https://news.ycombinator.com/item?id=50663089&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out that proving code correct does not guarantee it does what users need, and note that teams writing TLA+ specs have not always seen better reliability.&lt;/li&gt;&lt;li&gt;Others point to related work, including Verus for verified Rust, which one commenter&amp;#x27;s lab used to build a verified operating system, and TScert, a TypeScript core whose checker&amp;#x27;s soundness is proved in Lean.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Play will publicly display the phone number and address of developers who declare as traders under EU and UK law.&lt;/strong&gt; According to Google&amp;#x27;s &lt;a href=&quot;https://support.google.com/googleplay/android-developer/answer/17594752?hl=en&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;help page&lt;/a&gt;, every developer must declare trader or non-trader status by February 1, 2027, ahead of Google Play becoming an online marketplace in the EEA and UK on March 1, 2027. Traders using personal developer accounts must provide a contact phone number, and their address will also be shown. Developers who don&amp;#x27;t distribute in those regions can declare as non-traders (&lt;a href=&quot;https://news.ycombinator.com/item?id=50662322&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that Apple already has a similar requirement, and that both stem from the &amp;quot;traceability of traders&amp;quot; provision (Article 30) of the EU&amp;#x27;s Digital Services Act.&lt;/li&gt;&lt;li&gt;Some suggest using mailbox or registered-agent services so a home address isn&amp;#x27;t published.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Rvoip is an open-source VoIP stack written in Rust.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/eisenzopf/rvoip&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;library&lt;/a&gt; combines SIP, RTP, WebRTC, SRTP and voice-AI agents behind one call model, so applications don&amp;#x27;t need a separate SIP proxy or media server. It reports interoperability testing against Asterisk, FreeSWITCH, Kamailio and others. It also publishes RFC 7502 benchmarks: about 8,300 calls per second for signaling only on a 16-vCPU AWS instance, with the caveat that long-call concurrency has not been measured (&lt;a href=&quot;https://news.ycombinator.com/item?id=50658632&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Several commenters ask for comparisons with existing options, such as the rsipstack crate, and note that most production-ready stacks today are written in C or Go.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;BUI Charts adds 80 chart types to a Rust UI framework modeled on Blender&amp;#x27;s interface.&lt;/strong&gt; The &lt;a href=&quot;https://bui.preetham.top/charts/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;component library&lt;/a&gt; has 7 base charts and 73 derived ones, ranging from candlesticks and Sankey diagrams to Smith charts and Ramachandran plots, with 867 runnable examples. Charts are declared as components, read user data through closures, and cache their layouts so hovering doesn&amp;#x27;t trigger a recompute (&lt;a href=&quot;https://news.ycombinator.com/item?id=50658193&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;A commenter who works in data analytics disputes the &amp;quot;largest in the world&amp;quot; claim in the title.&lt;/li&gt;&lt;li&gt;Others clarify that BUI is a standalone project by the same author that separates Blender-style UI from Blender itself, not an official Blender release.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A photo essay profiles Lahore architect Kamil Khan Mumtaz.&lt;/strong&gt; &lt;a href=&quot;https://worksinprogress.co/issue/the-greatest-architect-youve-never-heard-of-is-in-pakistan/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Works in Progress&lt;/a&gt; traces Mumtaz&amp;#x27;s path from modernist training at London&amp;#x27;s Architectural Association to reviving traditional South Asian architecture after reading Nader Ardalan&amp;#x27;s book on Persian architecture in 1980. The essay also covers his late-1970s report on Lahore&amp;#x27;s Walled City, parts of which are now a UNESCO World Heritage Site, and the shortage of craft skills that traditional building depends on (&lt;a href=&quot;https://news.ycombinator.com/item?id=50659841&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters compare Mumtaz with Christopher Alexander, with one noting that Mumtaz has decades of buildings standing in Lahore, while Alexander is known mainly for his writing.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-27">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

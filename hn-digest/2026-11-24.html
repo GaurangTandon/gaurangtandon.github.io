@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 24, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 24, 2026</h1>
+    <p class="date">Tuesday, November 24, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s notable items include an AI-produced complexity-theory result, a widespread intrusion campaign against security appliances, and new open-source options for email and in-browser Linux.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Anthropic published a machine-checked proof that VP ≠ VNP over every field.&lt;/strong&gt; The &lt;a href=&quot;https://github.com/anthropics/formal-math/tree/main/vp-vnp&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;repository&lt;/a&gt; contains a paper and a Lean 4 formalization showing that circuits for the Hamiltonian cycle polynomial, and for the permanent outside characteristic 2, need more than m^(c (log m)^(1/3)) gates. The README says an internal research Claude model found the result, that AI models wrote both the paper and the proof, and that no human mathematician has checked it. It also says the result does not settle P vs NP, and that the proofs are re-checked by a second, independently written Lean kernel (&lt;a href=&quot;https://news.ycombinator.com/item?id=50620102&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out that the paper says it has not analysed how the result relates to the known relativization and algebrization barriers.&lt;/li&gt;&lt;li&gt;Others note that Lean verifies the proofs but not whether the formal statement matches the claim, so the lack of human review is still a real caveat.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;GreyNoise reports an active intrusion campaign against Check Point Security Management Servers.&lt;/strong&gt; The &lt;a href=&quot;https://www.greynoise.io/blog/check-point-security-management-servers-intrusion-campaign&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;writeup&lt;/a&gt; describes an unattributed actor, tracked as GT13, that affected at least 22 organizations across many countries and sectors between October 17 and November 2. The actor used 99 IP addresses and several CVEs, including a Check Point SmartConsole authentication bypass. GreyNoise believes the actor used LLMs and agentic tooling, expects the campaign is still ongoing, and is notifying victims through CERTs (&lt;a href=&quot;https://news.ycombinator.com/item?id=50630594&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some commenters argue that perimeter security appliances add attack surface of their own, which makes them attractive initial targets.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Stalwart 1.2.0 adds the protocols Exchange clients use.&lt;/strong&gt; According to the &lt;a href=&quot;https://stalw.art/blog/microsoft-exchange-replacement/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;release post&lt;/a&gt;, the open-source mail server now implements MAPI over HTTP, Exchange Web Services, Exchange ActiveSync and Autodiscover. Outlook and mobile mail apps can connect to it as they would to Exchange. This support ships in the AGPL-licensed Community edition, and the post presents it as an option for organizations whose on-premises Exchange 2016 and 2019 servers are now out of support (&lt;a href=&quot;https://news.ycombinator.com/item?id=50620349&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that the AGPL license is barred outright in many large companies, which may limit adoption among exactly the enterprises most tied to Exchange.&lt;/li&gt;&lt;li&gt;Another view is that implementing Microsoft&amp;#x27;s proprietary protocols may prolong their dominance at the expense of open email standards.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Quad9 has stopped answering DNS queries from French users.&lt;/strong&gt; In its &lt;a href=&quot;https://quad9.net/news/blog/quad9-service-deactivation-in-france/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;announcement&lt;/a&gt;, the nonprofit resolver says French courts upheld demands from rightsholder beIN to block domains tied to sports piracy, and that it faced fines for not complying. Quad9 chose to withdraw rather than block. It says IP geolocation is imprecise, so some users outside France will be blocked and some inside France will not (&lt;a href=&quot;https://news.ycombinator.com/item?id=50625384&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters confirmed with dig that queries from France now return REFUSED with an extended DNS error citing French legal constraints.&lt;/li&gt;&lt;li&gt;Some argue that withdrawing ends up delivering the outcome the plaintiff sought, and that continuing to serve from outside France would have been preferable.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A WebAssembly build of the Linux kernel now powers trynix.dev, which runs Nix packages, including GUI apps, in the browser.&lt;/strong&gt; The &lt;a href=&quot;https://fzakaria.com/2026/11/23/2035-came-early&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; describes switching from QEMU-in-wasm to unkernel, which compiles Linux to WebAssembly and emulates only user programs. The author reports speedups of 2x to 32x depending on workload. The site now supports Wayland windows, GL through WebGL2, audio, and networking through a WebSocket relay; a nested Firefox-in-Firefox demo took over four hours to set up (&lt;a href=&quot;https://news.ycombinator.com/item?id=50624497&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out that the talk the title references predicted JavaScript taking over, not WebAssembly, so the comparison loosens the original claim.&lt;/li&gt;&lt;li&gt;Others question how practical this is, since most code that compiles to wasm already runs fine natively.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A developer used LLMs to port Rockbox to an undocumented $9 MP3 player.&lt;/strong&gt; The &lt;a href=&quot;https://jayd.ml/2026/11/14/rockbox-on-yp3.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;writeup&lt;/a&gt; covers the &amp;quot;YP3,&amp;quot; built on an obscure dual Cortex-M4 chip with 512 KiB of SRAM, a quarter of the smallest previous Rockbox target. It booted after about a week and took about a month more of tuning. Fitting it required cuts such as no crossfade or album art, and running plugins stops playback. The author says Claude also reverse-engineered the Bluetooth stack overnight, and a reusable porting toolkit later produced a second port in four hours (&lt;a href=&quot;https://news.ycombinator.com/item?id=50624446&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that Rockbox already supports several recent, reasonably priced hi-res players from Chinese manufacturers.&lt;/li&gt;&lt;li&gt;One raises a maintainability concern: Rockbox is valuable because its maintainers understand the code, and a port nobody fully understands may be hard to fix when something breaks.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Tidal will remove wholly AI-generated tracks from its catalog.&lt;/strong&gt; &lt;a href=&quot;https://variety.com/2026/music/news/tidal-bans-ai-generated-music-1236956924/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Variety reports&lt;/a&gt; that removals start December 9. A Tidal lead said 43% of tracks delivered in the last 90 days were detected as AI-generated, and 96% of AI tracks get zero plays. The change removes about 29 million tracks and means rejecting 80,000 to 85,000 songs a day. It follows a policy five months earlier that demonetized and labeled AI music (&lt;a href=&quot;https://news.ycombinator.com/item?id=50630309&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters note that Tidal&amp;#x27;s published AI policy page still says it accepts AI-generated music.&lt;/li&gt;&lt;li&gt;Several point out that Tidal is not the first platform to ban AI music, citing Formaviva, which did so in 2024.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A deterministic VM gains a critical-path analysis command modeled on Brendan Gregg&amp;#x27;s methods.&lt;/strong&gt; The &lt;a href=&quot;https://fzakaria.com/2026/11/12/worshipping-at-the-altar-of-brendan-gregg&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;post&lt;/a&gt; introduces rewind time, which uses Rewind&amp;#x27;s recorded context switches and wakeups to show where a run&amp;#x27;s critical path went. In a libuv build and test run, the critical path was 47.4 seconds of a 78-second run, and 67% of it was spent asleep in calls like epoll_pwait, which a CPU profiler would not show. Because the data is captured in every recording, this off-CPU analysis can be done after the fact (&lt;a href=&quot;https://news.ycombinator.com/item?id=50626413&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter describes a related approach: benchmarking in CI with Callgrind instruction counts gives stable numbers across runners, but loses the off-CPU view this tool provides.&lt;/li&gt;&lt;li&gt;Others ask whether a single-threaded VM limits analysis of highly multithreaded or async/coroutine workloads, where cross-thread dependencies are hard to infer.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-24">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>

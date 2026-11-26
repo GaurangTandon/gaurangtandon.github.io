@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HN Mindful Digest — November 28, 2026</title>
+  <link rel="alternate" type="application/rss+xml" title="HN Mindful Daily Digest" href="https://gaurangtandon.com/hn-digest/feed.xml"/>
+  <style>
+      :root { color-scheme: light dark; }
+      body { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+        font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif; color: #1a1a1a; background: #fafafa; }
+      header { border-bottom: 1px solid #e2e2e2; padding-bottom: 1.25rem;
+        margin-bottom: 1.5rem; }
+      h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+      .date { color: #888; font-size: .9rem; margin: 0; }
+      .body p { margin: 0 0 .6rem; }
+      .body ul { margin: 0 0 1.5rem; padding-left: 1.1rem; list-style: none; }
+      .body li { position: relative; margin: .25rem 0; padding-left: 1rem;
+        font-size: .92rem; color: #555; }
+      .body li::before { content: "\2014"; position: absolute; left: 0;
+        color: #aaa; }
+      a { color: #1a5fb4; }
+      iframe.digest { width: 100%; border: 0; display: block; height: 70vh;
+        background: transparent; }
+      footer { margin-top: 2.5rem; padding-top: 1.25rem;
+        border-top: 1px solid #e2e2e2; font-size: .9rem; color: #666; }
+      footer a { margin-right: 1rem; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e6e6e6; background: #121212; }
+        header, footer { border-color: #2c2c2c; }
+        .date, footer { color: #9a9a9a; }
+        .body li { color: #a8a8a8; } .body li::before { color: #555; }
+        a { color: #6ea8fe; }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HN Mindful Digest — November 28, 2026</h1>
+    <p class="date">Saturday, November 28, 2026</p>
+  </header>
+  <iframe class="digest" sandbox="allow-same-origin allow-popups allow-top-navigation-by-user-activation" srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;base target=&quot;_blank&quot;&gt;&lt;style&gt;:root{color-scheme:light dark}body{margin:0;font:17px/1.7 -apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:transparent}p{margin:0 0 .6rem}ul{margin:0 0 1.5rem;padding-left:1.1rem;list-style:none}li{position:relative;margin:.25rem 0;padding-left:1rem;font-size:.92rem;color:#555}li::before{content:&#x27;\2014&#x27;;position:absolute;left:0;color:#aaa}a{color:#1a5fb4}@media(prefers-color-scheme:dark){body{color:#e6e6e6}li{color:#a8a8a8}li::before{color:#555}a{color:#6ea8fe}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;Today&amp;#x27;s stories center on how people and institutions are adjusting to AI, from transformer research and legal liability to maintainers and organizers changing how they work, alongside several browser-based systems projects.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Research describes a residual-connection variant that trains transformers faster.&lt;/strong&gt; In a &lt;a href=&quot;https://research.google/blog/supercharging-transformer-residual-connections/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;blog post&lt;/a&gt; on their ICML 2025 paper, Google researchers present DeepCrossAttention (DCA), which replaces the fixed sum in residual connections with learnable, depth-wise cross-attention over the outputs of earlier layers. They report the same model quality up to three times faster, with a negligible increase in parameters, and say the standard approach dilutes information from earlier layers in deep networks (&lt;a href=&quot;https://news.ycombinator.com/item?id=50672565&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters point out that the underlying paper dates from early 2025 and belongs to a longer line of work that applies attention-like operations across depth, with AttnRes cited as a better-known example.&lt;/li&gt;&lt;li&gt;One commenter suggests learned layer-to-layer routing could help more in architectures that loop the same layers over multiple passes.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Michael Nielsen has withdrawn his free online book on neural networks.&lt;/strong&gt; The site for &lt;a href=&quot;https://neuralnetworksanddeeplearning.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Neural Networks and Deep Learning&lt;/a&gt;, which he wrote between 2011 and 2015, now carries a statement in place of the book. Nielsen says his views have changed, that he considers frontier AI development to carry a significant risk of catastrophe, and that he no longer wants to help train people who contribute to it. The statement also argues that the core danger is how quickly advanced AI could speed up the discovery of destructive technologies, rather than loss of control alone (&lt;a href=&quot;https://news.ycombinator.com/item?id=50670757&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Donald Knuth has paused new error reports for his books.&lt;/strong&gt; In a &lt;a href=&quot;https://www-cs-faculty.stanford.edu/~knuth/moratorium.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;short notice&lt;/a&gt;, Knuth writes that LLM-assisted readers are sending error reports faster than he can verify them, and that random sampling shows most recent reports duplicate issues already submitted. He will not read reports sent after 25 November 2026 until he has posted an updated errata list for the book concerned, and the page will list which books are accepting reports again (&lt;a href=&quot;https://news.ycombinator.com/item?id=50674452&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;An Atari homebrew awards program has been cancelled.&lt;/strong&gt; According to the &lt;a href=&quot;https://forums.atariage.com/topic/394894-atari-homebrew-awards-cancelled/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;AtariAge forum announcement&lt;/a&gt; as quoted in the discussion, the organizer did not want to give awards to games produced by large language models, only to games people had coded themselves (&lt;a href=&quot;https://news.ycombinator.com/item?id=50673688&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters compare it to Advent of Code, which dropped its global leaderboard after facing similar problems.&lt;/li&gt;&lt;li&gt;Several suggest separate categories or more open, collaborative development as ways to keep the awards running instead of ending them.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;A North Carolina tenant was evicted after an automated email appeared to approve a later rent payment.&lt;/strong&gt; A &lt;a href=&quot;https://drmahfouz.substack.com/p/woman-evicted-after-landlords-ai&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;write-up of WRAL&amp;#x27;s reporting&lt;/a&gt; says Laura Mack received an email from her apartment complex accepting a November 30 payment date for $3,934.17 in overdue rent, then was evicted on November 19. She says a leasing employee blamed the message on the complex&amp;#x27;s AI assistant, which the property has not confirmed. A state senator has called for rules requiring businesses to disclose when people are communicating with AI (&lt;a href=&quot;https://news.ycombinator.com/item?id=50673521&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Commenters reading the original WRAL story note that the main unknown is what happened at the courthouse: whether a judge ruled the extension invalid or the eviction stood for procedural reasons.&lt;/li&gt;&lt;li&gt;Several argue that liability matters more than disclosure, since a business that delegates its correspondence to an AI system should be bound by what it says.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Virginia and Oregon have sued SpaceX over sexualized images generated by Grok.&lt;/strong&gt; The &lt;a href=&quot;https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Virginia Attorney General&amp;#x27;s announcement&lt;/a&gt; says the suit alleges that SpaceX, parent of X and xAI, failed to stop Grok from generating non-consensual intimate imagery and child sexual abuse material while publicly promoting the product as safe. Oregon filed a separate, similar action. The filing cites an outside study estimating that Grok posted about three million sexualized images on X over roughly ten days around the start of 2026 (&lt;a href=&quot;https://news.ycombinator.com/item?id=50670855&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Unkernel runs the Linux kernel, compiled to WebAssembly, in a browser.&lt;/strong&gt; The &lt;a href=&quot;https://unkernel.dev&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Unkernel demo&lt;/a&gt; boots a real Linux kernel inside a browser tab. The project was posted to HN again after an earlier, longer technical thread (&lt;a href=&quot;https://news.ycombinator.com/item?id=50674218&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter ran four concurrent md5sum processes in the same wall-clock time as one, which suggests real parallelism, but could not run a nested Unkernel inside Chromium installed in the guest.&lt;/li&gt;&lt;li&gt;Commenters point to the &lt;a href=&quot;https://news.ycombinator.com/item?id=50533945&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;earlier, more detailed discussion&lt;/a&gt; from five days before.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Tabernetes is a Kubernetes cluster whose worker nodes are browser tabs.&lt;/strong&gt; On the &lt;a href=&quot;https://tabernet.es/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;Tabernetes site&lt;/a&gt;, opening the page registers your tab as a node. The scheduler then sends it a pod, which runs on a WebAssembly Linux kernel booted in the tab, and the pod is rescheduled elsewhere when the tab closes. The control plane is ordinary Kubernetes, and a single runtimeClassName: tab line in a pod spec sends that pod to a tab (&lt;a href=&quot;https://news.ycombinator.com/item?id=50672521&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Some visitors could not work out which listed node was theirs, and one reports a limit on how many tabs a single visitor can contribute.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;9/UX adds a classic Macintosh-style desktop to 9front.&lt;/strong&gt; The &lt;a href=&quot;https://progrium.github.io/9ux/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;9/UX project&lt;/a&gt; adds a spatial desktop, a global menu bar, and consistent dialogs and controls to the Plan 9 derivative. Each app exposes its UI state and commands as 9P files, so a button can be pressed from the shell. It is at v0.1, MIT-licensed, runs alongside existing rio programs, and has a live demo running in an emulator in the browser (&lt;a href=&quot;https://news.ycombinator.com/item?id=50672008&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot;&gt;HN discussion&lt;/a&gt;).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;One commenter notes that menus close immediately, without the brief blink on the chosen item that classic Mac menus showed.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  <footer>
+    <a href="https://news.ycombinator.com/front?day=2026-11-28">HackerNews front page for this day &#8599;</a>
+    <a href="https://gaurangtandon.com/hn-digest/feed.xml">Subscribe (RSS)</a>
+  </footer>
+  <script>
+(function () {
+  function fit(f) {
+    try { f.style.height =
+      f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) {}
+  }
+  var frames = document.querySelectorAll('iframe.digest');
+  frames.forEach(function (f) {
+    f.addEventListener('load', function () { fit(f); });
+    if (f.contentDocument) {
+      if (f.contentDocument.readyState === 'complete') fit(f);
+    }
+  });
+  window.addEventListener('resize', function () { frames.forEach(fit); });
+})();
+</script>
+</body>
+</html>
